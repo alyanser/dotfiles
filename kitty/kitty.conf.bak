@@ -1,0 +1,59 @@
+font_family cascadia code bold
+bold_font auto
+italic_font auto
+bold_italic_font auto
+font_size 10
+
+cursor_style block
+# cursor none
+cursor_shape underline 
+shell_integration no-cursor 
+cursor_underline_thickness 12
+
+repaint_delay 0
+input_delay 0
+sync_to_monitor no
+
+enable_audio_bell no
+enable_audio_bell yes
+
+window_margin_width 0
+single_window_margin_width -1
+window_padding_width 3
+
+tab_bar_style powerline 
+tab_powerline_style slanted 
+tab_bar_align left
+# active_tab_foreground   #000
+# active_tab_background   #eee
+active_tab_font_style   bold-italic
+# inactive_tab_foreground #444
+# inactive_tab_background #999
+inactive_tab_font_style normal
+
+shell bash
+
+map ctrl+c copy_and_clear_or_interrupt
+map ctrl+v paste_from_clipboard
+map ctrl+w close_window
+map ctrl+j next_window
+map ctrl+k previous_window
+map ctrl+- launch --cwd=current
+map ctrl+alt+j next_tab
+map ctrl+alt+k previous_tab
+map ctrl+t new_tab
+map ctrl+1 goto_tab 1
+map ctrl+2 goto_tab 2
+map ctrl+3 goto_tab 3
+map ctrl+4 goto_tab 4
+map ctrl+5 goto_tab 5
+map ctrl+6 goto_tab 6
+map ctrl+7 goto_tab 7
+map ctrl+8 goto_tab 8
+map ctrl+9 goto_tab 9
+
+
+# BEGIN_KITTY_THEME
+# Ayu
+include current-theme.conf
+# END_KITTY_THEME
