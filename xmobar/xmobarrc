@@ -18,28 +18,10 @@ Config {
        , persistent   = True
        , iconRoot     = "."
        , commands = [
-                        -- Cpu usage in percent
                       Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
-                        -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
-                        -- Disk space free
-                    , Run DiskU [("/", "<fn=2>\xf0c7</fn>  hdd: <free> free")] [] 60
-                        -- Echos an "up arrow" icon in front of the uptime output.
-                    , Run Com "echo" ["<fn=2>\xf0aa</fn>"] "uparrow" 3600
-                        -- Uptime
-                    , Run Uptime ["-t", "uptime: <days>d <hours>h"] 360
-                        -- Echos a "bell" icon in front of the pacman updates.
-                    , Run Com "echo" ["<fn=2>\xf0f3</fn>"] "bell" 3600
-                        -- Echos a "battery" icon in front of the pacman updates.
-                    , Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 3600
-                        -- Battery
-                    , Run BatteryP ["BAT0"] ["-t", "<acstatus><watts> (<left>%)"] 360
-                        -- Time and date
-                    , Run Date "<fn=2>\xf017</fn>  %b %d  -  (%H:%M) " "date" 50
-                        -- Prints out the left side items such as workspaces, layout, etc.
                     , Run XMonadLog
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %XMonadLog% }{ <box type=Bottom width=1 mb=0 color=#ffb859><fc=#ffb859>%cpu%</fc></box>        <box type=Bottom width=1 mb=0 color=#ff6c6b><fc=#ff6c6b>%memory%</fc></box>        <box type=Bottom width=1 mb=0 color=#d2a8ff><fc=#d2a8ff>%disku%</fc></box>        <box type=Bottom width=1 mb=0 color=#59ff95><fc=#59ff95>%uparrow%  %uptime%</fc></box>        <box type=Bottom width=1 mb=0 color=#afff33><fc=#afff33>%baticon%  %battery%</fc></box>        <box type=Bottom width=1 mb=0 color=#ff9260><fc=#ff9260>%date%</fc></box>  "
+       , template = "} %XMonadLog% { <fc=#ffb859>%cpu%</fc>  "
        }

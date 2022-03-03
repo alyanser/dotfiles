@@ -2,6 +2,8 @@ import XMonad
 
 import XMonad.Prompt
 import XMonad.ManageHook
+import XMonad.StackSet as W
+import Data.Ratio
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
@@ -9,6 +11,7 @@ import XMonad.Util.NamedScratchpad
 import XMonad.Util.Loggers
 import XMonad.Util.WorkspaceCompare
 
+import XMonad.Hooks.RefocusLast (refocusLastLogHook)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.StatusBar
@@ -35,20 +38,20 @@ import XMonad.Layout.Named
 my_terminal = "kitty"
 my_normal_border_color = "#3b4252"
 my_focused_border_color = "#bc96da"
-my_layout_hook = maximizeWithPadding 0 $ magnifiercz 1.0 $ hiddenWindows $ avoidStruts $ spacingWithEdge 7 $ my_layout
+my_layout_hook = my_layout
 my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 
-my_layout = tiled ||| Mirror tiled ||| accordion ||| tab ||| full
+my_layout = named "Tabbed" (tab) ||| named "Tall" (tall) ||| named "Mirror Tall" (avoidStruts (Mirror tall)) ||| named "Accordion" (accordion) ||| named "Full" (full)
 	where
-		tiled = smartBorders $ ResizableTall nmaster delta ratio []
+		tall = maximizeWithPadding 0 $ magnifiercz 1.0 $ hiddenWindows $ avoidStruts $ spacing 7 $ smartBorders $ ResizableTall nmaster delta ratio []
 		nmaster = 1
 		ratio = 1 / 2
 		delta = 3 / 100
-		accordion = noBorders $ Accordion
-		tab = noBorders $ tabbed shrinkText my_tab_config
-		full = noBorders $ Full
+		accordion = maximizeWithPadding 0 $ magnifiercz 1.0 $ hiddenWindows $ avoidStruts $ spacing 5 $ noBorders $ Accordion
+		tab = maximizeWithPadding 0 $ hiddenWindows $ avoidStruts $ spacing 0 $ noBorders $ tabbed shrinkText my_tab_config
+		full = hiddenWindows $ spacing 0 $ noBorders $ Full
 
 
 my_xp_config = def {
@@ -56,9 +59,16 @@ my_xp_config = def {
 	promptBorderWidth = 0
 }
 
-scratchpads = [
-		NS "terminal" "kitty -1 --class scratch_terminal" (className =? "scratch_terminal") nonFloating
-	]
+scratchpads = [ NS "terminal" spawn_term find_term manage_term
+                , NS "docs" spawn_docs find_docs manage_docs
+                ]
+  where
+    spawn_term  = "kitty --class scratch_terminal"
+    find_term   = className =? "scratch_terminal"
+    manage_term = customFloating $ W.RationalRect 0 0 1 1
+    spawn_docs  = "~/.local/bin/devdocs"
+    find_docs   = className =? "FFPWA-01FX54EAF00Y306Z6B5767WM85"
+    manage_docs = customFloating $ W.RationalRect 0 0 1 1
 
 my_manage_hook = composeAll
 	[ 
@@ -66,13 +76,13 @@ my_manage_hook = composeAll
 	] <+> namedScratchpadManageHook scratchpads
 
 my_pretty_print = def {
-	ppCurrent = const "     ●     ",
-	ppHidden = const "   ◉   ",
-	ppHiddenNoWindows = const "   ○   ",
-	ppUrgent = const "   ◼   ",
-	ppSep = "     |||     ",
-	-- ppWsSep = "   -   ",
-	ppOrder = \(ws:_) -> [ws]
+	ppCurrent = wrap "<fc=#afff33>" "</fc>",
+	ppHidden = wrap "<fc=#ff9260>" "</fc>",
+	ppSep = "         |||         ",
+	ppWsSep = "         ",
+	ppTitle = wrap "<fc=#59a8ff>" "</fc>" . shorten 20,
+	ppLayout = wrap "<fc=#c1ff59>" "</fc>",
+	ppOrder  = \(ws : l : _ : _ ) -> [ws,l]
 }
 
 my_status_bar = statusBarProp "xmobar" (pure my_pretty_print)
@@ -97,19 +107,19 @@ my_keys = [
 		("M-C-j",sendMessage MirrorShrink),
 		("M-C-k",sendMessage MirrorExpand),
 		("M-w", kill),
-		("M-r", spawn "rofi -no-lazy-grab -modi combi -combi window,drun -show combi"),
+		("M-r", spawn "rofi -no-lazy-grab -modi run -show run"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M-<Return>", promote),
 		("M-]", sendMessage MagnifyLess),
 		("M-[", sendMessage MagnifyMore),
-		("M-a", withFocused hideWindow),
-		("M-C-a", popOldestHiddenWindow),
+		("M-d", withFocused hideWindow),
+		("M-a", popOldestHiddenWindow),
 		("M--", spawn "kitty -1"),
-		("M-C-w", spawn "qutebrowser"),
-		("M-C-c", spawn "vscodium"),
-		("M-q", namedScratchpadAction scratchpads "terminal"),
-		("M-C-s", promptSearch my_xp_config google),
-		("M-S-s", selectSearch google),
+		("M-t", spawn "firefox"),
+		("C-q", namedScratchpadAction scratchpads "terminal"),
+		("M-e", namedScratchpadAction scratchpads "docs"),
+		("M-s", promptSearch my_xp_config google),
+		("M-C-s", selectSearch google),
 		("M-S-r", spawn "xmonad --recompile && xmonad --restart")
 	]
 		
@@ -120,6 +130,7 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ withSB my_status_bar def {
 	focusedBorderColor = my_focused_border_color,
 	layoutHook = my_layout_hook,
 	focusFollowsMouse = my_focus_follows_mouse,
-        	clickJustFocuses = my_click_just_focuses,
+	clickJustFocuses = my_click_just_focuses,
+	logHook = refocusLastLogHook >> nsHideOnFocusLoss scratchpads,
 	manageHook = my_manage_hook }
 	`additionalKeysP` my_keys

@@ -18,7 +18,7 @@
              "command": "cursorLineEnd"
     },
     {
-             "key": "ctrl+u",
+             "key": "ctrl+alt+a",
              "command": "editor.action.selectAll"
     },
     {
@@ -139,12 +139,12 @@
              "when": "editorTextFocus && !editorReadonly"
     },
     {
-             "key": "ctrl+q",
+             "key": "ctrl+u",
              "command": "editor.action.marker.next",
              "when": "editorFocus"
     },
     {
-             "key": "ctrl+alt+q",
+             "key": "ctrl+alt+u",
              "command": "editor.action.marker.prev",
              "when": "editorFocus"
     },
@@ -197,7 +197,7 @@
              "command": "cmantic.addDefinitionInCurrentFile"
     },
     {
-             "key": "alt+p",
+             "key": "ctrl+i",
              "command": "cmantic.switchHeaderSourceInWorkspace"
     },
 {
@@ -213,7 +213,7 @@
              "command": "-workbench.action.navigateBack"
     },
     {
-             "key": "ctrl+g",
+             "key": "ctrl+y",
              "command": "editor.action.copyLinesDownAction",
              "when": "editorTextFocus && !editorReadonly"
     },
@@ -982,17 +982,12 @@
 	"when": "textInputFocus"
 },
 {
-	"key": "ctrl+s",
+	"key": "ctrl+g",
 	"command": "actions.find"
 },
 {
 	"key": "alt+w",
 	"command": "workbench.action.closeActiveEditor"
-},
-{
-	"key": "ctrl+o",
-	"command": "workbench.action.files.openFile",
-	"when": "true"
 },
 {
 	"key": "ctrl+o",
@@ -1032,7 +1027,7 @@
 	"when": "editorTextFocus && !editorReadonly"
 },
 {
-	"key": "ctrl+y",
+	"key": "ctrl+s",
 	"command": "workbench.action.files.save"
 },
 {
@@ -1099,5 +1094,52 @@
 	"key": "ctrl+shift+m",
 	"command": "-workbench.actions.view.problems",
 	"when": "workbench.panel.markers.view.active"
+},
+{
+	"key": "alt+p",
+	"command": "-togglePreserveCase",
+	"when": "editorFocus"
+},
+{
+	"key": "alt+p",
+	"command": "-toggleSearchPreserveCase",
+	"when": "searchViewletFocus"
+},
+{
+	"key": "alt+p",
+	"command": "-keybindings.editor.toggleSortByPrecedence",
+	"when": "inKeybindings"
+},
+{
+	"key": "ctrl+k f12",
+	"command": "-editor.action.revealDefinitionAside",
+	"when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+},
+{
+	"key": "ctrl+u",
+	"command": "-cursorUndo",
+	"when": "textInputFocus"
+},
+{
+	"key": "ctrl+o",
+	"command": "-workbench.action.files.openFileFolder",
+	"when": "isMacNative && openFolderWorkspaceSupport"
+},
+{
+	"key": "ctrl+o",
+	"command": "-workbench.action.files.openLocalFile",
+	"when": "remoteFileDialogVisible"
+},
+{
+	"key": "ctrl+r",
+	"command": "-workbench.action.openRecent"
+},
+{
+	"key": "ctrl+alt+o",
+	"command": "workbench.action.files.openFileFolder"
+},
+{
+	"key": "alt+i",
+	"command": "cmantic.addInclude"
 }
 ]
