@@ -106,6 +106,7 @@ my_keys = [
 		("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up"),
 		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
 		("<XF86Tools>", spawn "kitty -1 -e calc"),
+		("M-r", spawn "firefox"),
 		("M-w", kill),
 		("M-t", spawn "rofi -matching fuzzy -modi combi -combi window,drun -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
