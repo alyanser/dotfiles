@@ -13,17 +13,4 @@ add Control = Control_L
 keycode 255 = Tab ISO_Left_Tab Tab ISO_Left_Tab
 
 ! make tab alt_l
-keycode 23 = Alt_L Alt_L Alt_L Alt_L
-
-! map backslash to some random key for xcape
-keycode 254 = backslash bar backslash bar
-! make backslash alt_r
-keycode 51 = Alt_R Alt_R Alt_R
-
-! map asciitilde to some random key for xcape
-keycode 64 = Mode_switch Mode_switch Mode_switch Mode_switch
-
-keycode 43 = h H Left H
-keycode 44 = j J Down J
-keycode 45 = k K Up K
-keycode 46 = l L Right L
+keycode 23 = Super_L Super_L Super_L Super_L 

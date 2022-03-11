@@ -1,12 +1,11 @@
-[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
+[[ -f ~/.Xresources ]] && xrdb -m ~/.Xresources
 
-xmodmap ~/.Xmodmap &
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &
-xiccd &
 
-xcape -e 'Alt_L=Tab' -t 250
+xcape -e 'Super_L=Tab' -t 250
 xcape -e 'Control_L=Escape' -t 250
 
 exec xmonad 

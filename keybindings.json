@@ -110,12 +110,12 @@
              "when": "editorColumnSelection && textInputFocus"
     },
     {
-             "key": "ctrl+shift+h",
+             "key": "ctrl+alt+h",
              "command": "cursorLeftSelect",
              "when": "textInputFocus"
     },
     {
-             "key": "ctrl+shift+l",
+             "key": "ctrl+alt+l",
              "command": "cursorRightSelect",
              "when": "textInputFocus"
     },
@@ -124,12 +124,12 @@
              "command": "-workbench.action.files.newUntitledFile"
     },
     {
-             "key": "ctrl+alt+h",
+             "key": "alt+h",
              "command": "cursorWordLeftSelect",
              "when": "textInputFocus"
     },
     {
-             "key": "ctrl+alt+l",
+             "key": "alt+l",
              "command": "cursorWordEndRightSelect",
              "when": "textInputFocus"
     },
@@ -191,14 +191,6 @@
     {
              "key": "alt+u",
              "command": "cmantic.addDefinitionInSourceFile"
-    },
-    {
-             "key": "alt+h",
-             "command": "cmantic.addDefinitionInCurrentFile"
-    },
-    {
-             "key": "ctrl+i",
-             "command": "cmantic.switchHeaderSourceInWorkspace"
     },
 {
              "key": "ctrl+shift+o",
@@ -944,10 +936,6 @@
 	"command": "-workbench.action.quit"
 },
 {
-	"key": "ctrl+n",
-	"command": "workbench.action.gotoLine"
-},
-{
 	"key": "ctrl+g",
 	"command": "-workbench.action.gotoLine"
 },
@@ -983,7 +971,8 @@
 },
 {
 	"key": "ctrl+g",
-	"command": "actions.find"
+	"command": "actions.find",
+	"when": "editorTextFocus"
 },
 {
 	"key": "alt+w",
@@ -1141,5 +1130,55 @@
 {
 	"key": "alt+i",
 	"command": "cmantic.addInclude"
+},
+{
+	"key": "ctrl+shift+space",
+	"command": "-editor.action.triggerParameterHints",
+	"when": "editorHasSignatureHelpProvider && editorTextFocus"
+},
+{
+	"key": "ctrl+i",
+	"command": "editor.action.triggerSuggest",
+	"when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+},
+{
+	"key": "ctrl+shift+o",
+	"command": "workbench.action.files.openFolderViaWorkspace",
+	"when": "-"
+},
+{
+	"key": "ctrl+o",
+	"command": "-workbench.action.files.openFolderViaWorkspace",
+	"when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
+},
+{
+	"key": "ctrl+.",
+	"command": "workbench.action.showAllSymbols"
+},
+{
+	"key": "ctrl+t",
+	"command": "-workbench.action.showAllSymbols"
+},
+{
+	"key": "ctrl+/",
+	"command": "workbench.action.gotoSymbol"
+},
+{
+         "key": "ctrl+,",
+         "command": "clangd.switchheadersource",
+         "when": "editorTextFocus"
+},
+{
+         "key": "alt+o",
+         "command": "-clangd.switchheadersource",
+         "when": "editorTextFocus"
+},
+{
+         "key": "ctrl+n",
+         "command": "relative-goto.goto"
+},
+{
+         "key": "alt+g",
+         "command": "-relative-goto.goto"
 }
 ]
