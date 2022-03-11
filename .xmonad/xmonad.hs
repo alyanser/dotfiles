@@ -38,6 +38,7 @@ main = xmonad . ewmh $ def {
 	focusedBorderColor = my_focused_border_color,
 	layoutHook = my_layout_hook,
 	focusFollowsMouse = my_focus_follows_mouse,
+	manageHook = namedScratchpadManageHook scratchpads,
 	clickJustFocuses = my_click_just_focuses }
 	`additionalKeysP` my_keys
 
@@ -55,8 +56,8 @@ my_layout = maximizeWithPadding 0
          $ hiddenWindows 
          $ tall ||| accordion ||| tab ||| full
 	where
-		tall = spacing 3 $ Tall nmaster delta ratio
-		accordion = spacing 3 $ Accordion
+		tall = spacing 10 $ Tall nmaster delta ratio
+		accordion = spacing 10 $ Accordion
 		full = Full
 		tab = tabbed shrinkText my_tab_config
 		nmaster = 1
@@ -84,10 +85,10 @@ scratchpads = [ NS "terminal" spawn_term find_term manage_term
                   find_docs   = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
                   manage_docs = customFloating $ W.RationalRect l t w h
                            where
-                                    h = 0.1 -- height, 10%
-                                    w = 1 -- width, 100%
-                                    t = 1 - h -- distance from top edge
-                                    l = (1 - w)/2 -- distance from left edge
+                                    h = 0.95 -- terminal height
+                                    w = 0.95 -- terminal width
+                                    t = 0.025 -- distance from top edge
+                                    l = 0.025 -- distance from left edge
 
 my_tab_config = def { activeColor = "#556064"
                   , inactiveColor = "#2F3D44"
