@@ -1,0 +1,21 @@
+add_newline = false
+format = "$directory$git_branch$cmd_duration$character"
+
+[package]
+disabled = true
+
+[character]
+error_symbol = "[✖](bold red)" 
+
+[directory]
+truncation_length = 5
+truncation_symbol = "…/"
+truncate_to_repo = false
+read_only = ""
+
+[line_break]
+disabled = true
+
+
+[cmd_duration]
+min_time = 100
