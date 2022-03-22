@@ -1,5 +1,7 @@
 ! tilde without shift and  
 keycode 49 = asciitilde grave asciitilde grave
+remove shift = Shift_R
+keycode 62 = BackSpace BackSpace BackSpace BackSpace
 
 ! swap caps_lock with ctrl_l
 remove Lock = Caps_Lock

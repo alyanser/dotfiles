@@ -1180,5 +1180,9 @@
 {
          "key": "alt+g",
          "command": "-relative-goto.goto"
+},
+{
+         "key": "ctrl+n",
+         "command": "workbench.action.gotoLine"
 }
 ]

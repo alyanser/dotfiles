@@ -12,8 +12,6 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ShowWName
-import XMonad.Hooks.StatusBar
-import XMonad.Hooks.StatusBar.PP
 import XMonad.Hooks.DynamicLog
 
 import XMonad.Layout.Maximize
@@ -22,10 +20,7 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.Simplest
-import XMonad.Layout.MultiToggle
 import XMonad.Layout.Renamed
-import XMonad.Layout.ThreeColumns
 
 import XMonad.Actions.Search
 import XMonad.Actions.Promote
@@ -36,7 +31,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . ewmhFullscreen . ewmh. xmobarProp $ def {
+main = xmonad . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -57,9 +52,8 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 7
+my_spacing = 4
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
-my_status_bar = statusBarProp "xmobar" (pure my_pp)
 my_layout_hook = tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
 background_color = "#282a36"
@@ -85,28 +79,14 @@ my_tab_theme = def {
 	inactiveTextColor = purple_color
 }
 
-my_pp = def {
-	ppTitle = xmobarColor orange_color "" . shorten 25,
-	ppLayout = xmobarColor purple_color "",
-	ppCurrent = xmobarColor green_color "" . wrap "(" ")",
-	ppUrgent = xmobarColor red_color "" . wrap "[" "]",
-	ppHidden = xmobarColor foreground_color "",
-	ppVisible = xmobarColor orange_color "" . wrap "(" ")",
-	ppSep = xmobarColor cyan_color "" "}—————{",
-	ppWsSep = xmobarColor cyan_color "" "}—{",
-	ppOrder = \(ws:l:t:ex)  -> [ws]++ex++[t,l] -- {workspaces}-{title}--{layout}
-}
-
 mirror_accordion = renamed [Replace "mirror accor"] 
 	$ maximizeWithPadding 0
-	$ avoidStruts
 	$ hiddenWindows 
 	$ spacing my_spacing 
 	$ Mirror Accordion 
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
-	$ avoidStruts
 	$ hiddenWindows 
 	$ spacing my_spacing 
 	$ addTabs shrinkText my_tab_theme 
@@ -114,20 +94,17 @@ tall = renamed [Replace "tall"]
 
 accordion = renamed [Replace "accor"] 
 	$ maximizeWithPadding 0
-	$ avoidStruts
 	$ hiddenWindows 
 	$ spacing my_spacing 
 	$ Accordion
 
 full = renamed [Replace "full"] 
 	$ maximizeWithPadding 0
-	$ avoidStruts
 	$ hiddenWindows 
 	$ Full
 
 tab = renamed [Replace "tabbed"] 
 	$ maximizeWithPadding 0
-	$ avoidStruts
 	$ hiddenWindows
 	$ tabbed shrinkText my_tab_theme
 	 
@@ -137,7 +114,7 @@ delta = 2 / 100
 
 my_swn_config = def { 
 	swn_font = "xft:Ubuntu:bold:size=60",
-	swn_fade = 0.5,
+	swn_fade = 0.3,
 	swn_bgcolor = "#1c1f24",
 	swn_color = "#ffffff"
 }
@@ -151,19 +128,19 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.95 -- height
-				w = 0.95 -- width
-				t = 0.033 -- distance from top edge
-				l = 0.025-- distance from left edge
+				h = 0.90 -- height
+				w = 0.97 -- width
+				t = 0.05 -- distance from top edge
+				l = 0.015-- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.95 -- height
-				w = 0.95 -- width
-				t = 0.025 -- distance from top edge
-				l = 0.025 -- distance from left edge
+				h = 0.90 -- height
+				w = 0.97 -- width
+				t = 0.05 -- distance from top edge
+				l = 0.015 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",
