@@ -1,5 +1,7 @@
-! tilde without shift and  
+! tilde without shift  
 keycode 49 = asciitilde grave asciitilde grave
+
+! right shift as backspace
 remove shift = Shift_R
 keycode 62 = BackSpace BackSpace BackSpace BackSpace
 
@@ -14,5 +16,5 @@ add Control = Control_L
 ! map tab to some random key for xcape
 keycode 255 = Tab ISO_Left_Tab Tab ISO_Left_Tab
 
-! make tab alt_l
+! make tab Super_L
 keycode 23 = Super_L Super_L Super_L Super_L 
