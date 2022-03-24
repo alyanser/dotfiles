@@ -26,6 +26,7 @@ import XMonad.Actions.Search
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SinkAll
+import XMonad.Actions.FindEmptyWorkspace
 
 import qualified XMonad.StackSet as W
 
@@ -52,7 +53,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 4
+my_spacing = 0
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
 my_layout_hook = tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
@@ -128,19 +129,19 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.97 -- width
-				t = 0.05 -- distance from top edge
-				l = 0.015-- distance from left edge
+				h = 0.95 -- height
+				w = 0.98 -- width
+				t = 0.025 -- distance from top edge
+				l = 0.010-- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.97 -- width
-				t = 0.05 -- distance from top edge
-				l = 0.015 -- distance from left edge
+				h = 0.95 -- height
+				w = 0.98 -- width
+				t = 0.025 -- distance from top edge
+				l = 0.010 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",
@@ -162,29 +163,21 @@ my_keys = [
 		("<XF86Tools>", spawn "kitty -1 -e calc"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-t", spawn "rofi -matching fuzzy -modi combi -combi window,drun -show combi"),
+		("M-q", spawn "rofi -matching fuzzy -modi combi -combi window,drun -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", spawn my_terminal),
 		("M-d", withFocused hideWindow),
-		("M-S-d", popOldestHiddenWindow),
+		("M-v", popOldestHiddenWindow),
 		("M-<Return>", promote),
 		("C-q", namedScratchpadAction scratchpads "terminal"),
 		("M-e", namedScratchpadAction scratchpads "docs"),
 		("M-g", selectSearch google),
-		("M-l", next_non_empty_ws),
-		("M-h", prev_non_empty_ws),
+		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
+		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
+		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-\\", toggleWS' ["NSP"]),
-		("M-c", moveTo Next emptyWS),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
-		("M-b", withFocused $ windows . W.sink),
-		("M-S-r", spawn "xmonad --recompile && xmonad --restart")
+		("M-t", tagToEmptyWorkspace),
+		("M-b", withFocused $ windows . W.sink)
 	]
-
--- yoinked from somewhere
-not_sp = (return $ ("NSP" /=) . W.tag) :: X (WindowSpace -> Bool)
-shift_and_view dir = findWorkspace getSortByIndex dir (WSIs not_sp) 1 >>= \t -> (windows . W.shift $ t) >> (windows . W.greedyView $ t)
-shift_and_view' dir = findWorkspace get_sort_by_index_no_sp dir HiddenNonEmptyWS 1 >>= \t -> (windows . W.shift $ t) >> (windows . W.greedyView $ t)
-next_non_empty_ws = findWorkspace get_sort_by_index_no_sp Next HiddenNonEmptyWS 1 >>= \t -> (windows . W.view $ t)
-prev_non_empty_ws = findWorkspace get_sort_by_index_no_sp Prev HiddenNonEmptyWS 1 >>= \t -> (windows . W.view $ t)
-get_sort_by_index_no_sp = fmap (.namedScratchpadFilterOutWorkspace) getSortByIndex
