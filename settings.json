@@ -1,7 +1,7 @@
 {
 	"editor.fontFamily": "cascadia code pl",
-	"editor.lineHeight": 1.8,
-	"editor.fontWeight": "600",
+	"editor.lineHeight": 1.3,
+	// "editor.fontWeight": "600",
 	"window.zoomLevel": -0.004,
 
 	"clangd.arguments": [
@@ -19,17 +19,19 @@
 
 	"editor.fontLigatures": true,
 	"editor.cursorSurroundingLines": 15,
-	"scm.diffDecorationsGutterVisibility": "hover",
+	"scm.diffDecorationsGutterVisibility": "always",
 	"editor.lineNumbers": "on",
-	"editor.cursorStyle": "block",  
-	"editor.cursorBlinking": "smooth",
+	"editor.cursorStyle": "block",
+	"editor.cursorBlinking": "solid",
 	"workbench.editor.highlightModifiedTabs": false,
+
 	"workbench.colorCustomizations": {
 		"editor.selectionHighlightBackground": "#440f7571",
 		"editor.selectionBackground": "#440f7571",
 		"editor.inactiveSelectionBackground": "#121212",
 		"editor.selectionHighlightBorder": "#121212",
 	},
+
 	"editor.tokenColorCustomizations": {
 	"textMateRules": [
 		{
@@ -65,7 +67,7 @@
 	"terminal.integrated.enableBell": false,
 	"terminal.integrated.cursorBlinking": true,
 	"editor.snippetSuggestions": "none",
-	"editor.hover.delay": 700,
+	"editor.hover.delay": 1000,
 	"editor.suggestOnTriggerCharacters": false,
 	"workbench.editor.decorations.badges": true,
 	"terminal.integrated.tabs.enabled": true,
@@ -114,7 +116,7 @@
 	"editor.minimap.renderCharacters": false,
 	"editor.comments.insertSpace": true,
 	"editor.suggest.showKeywords": false,
-	"editor.wordSeparators": "`~!@$%^&*()-=+[{]}\\|;:'\",.<>/?",
+	"editor.wordSeparators": "`~!@$%^&*()-=+[{]}\\|;:'\",.<>/?_",
 	"editor.links": false,
 	"editor.occurrencesHighlight": false,
 	"editor.selectionHighlight": false,
@@ -159,8 +161,8 @@
 	"npm.autoDetect": "off",
 	"clangd.restartAfterCrash": true,
 	"editor.cursorSmoothCaretAnimation": true,
-	"editor.smoothScrolling": true,
-	"workbench.list.smoothScrolling": true,
+	"editor.smoothScrolling": false,
+	"workbench.list.smoothScrolling": false,
 	"better-comments.highlightPlainText": true,
 	"better-comments.multilineComments": true,
 	"better-comments.tags": [
@@ -218,11 +220,11 @@
 	"workbench.editor.scrollToSwitchTabs": false,
 	"files.autoSave": "onFocusChange",
 	"editor.autoClosingOvertype": "always",
-	"editor.guides.highlightActiveIndentation": true,
+	"editor.guides.highlightActiveIndentation": false,
 	"extensions.ignoreRecommendations": true,
 	"breadcrumbs.enabled": false,
 	"security.workspace.trust.enabled": false,
-	"editor.guides.indentation": true,
+	"editor.guides.indentation": false,
 	"editor.insertSpaces": false,
 	"diffEditor.wordWrap": "on",
 	"editor.wordWrap": "on",
@@ -238,7 +240,7 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"editor.bracketPairColorization.enabled": false,
 	"terminal.external.linuxExec": "/usr/bin/kitty",
-	"editor.renderWhitespace": "all",
+	"editor.renderWhitespace": "selection",
 	"workbench.colorTheme": "Hack The Box",
-	"editor.tabSize": 9,
+	"editor.tabSize": 6,
 }
