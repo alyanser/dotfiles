@@ -4,28 +4,22 @@ shopt -s globstar
 shopt -s autocd
 
 set completition-ignore-case on
-set show-all-if-ambiguous on
 
 function asm(){
 	objdump -M intel --visualize-jumps --special-syms -zwd $1 > $1.s
 }
 
 function clip(){
-	cat $1 | kitty +kitten clipboard
+	cat $1 | xclip -selection clipboard
 }
-
-function backup(){
-	cp $1 $1.bak -rf
-}
-
 
 stty werase \^H # makes control+backspace remove the entire word
 
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -GNinja"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
-alias go="ninja -j5"
+alias go="ninja -j4"
 alias f="find / 2> /dev/null | grep -i"
-alias ls="ls --color=always"
+alias ls="lsd --icon=never"
 alias grep="grep --color=always -i"
 alias ll="lsd -Al --icon=never"
 alias tree="lsd --tree --icon=never"
@@ -42,9 +36,10 @@ alias red="redshift -P -O"
 alias top="htop"
 alias batstat="watch -n 0.1 cat /sys/class/power_supply/BAT0/status"
 alias py="python"
+alias ghidra="_JAVA_AWT_WM_NONREPARENTING=1 ghidra"
 
 export PATH=$PATH:~/.local/bin
-export PS1="\[\e[33m\]\u -- \[\e[35m\]\w\[\e[m\]\[\e[36m\] -> \[\e[m\]"
+export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] -> \[\e[m\]"
 export EDITOR=nvim
 export VISUAL=vscodium
 

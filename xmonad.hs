@@ -14,6 +14,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ShowWName
 import XMonad.Hooks.DynamicLog
 
+import XMonad.Layout.NoBorders
 import XMonad.Layout.Maximize
 import XMonad.Layout.Spacing
 import XMonad.Layout.Hidden
@@ -38,7 +39,7 @@ main = xmonad . ewmhFullscreen . ewmh $ def {
 	borderWidth = my_border_width,
 	normalBorderColor = my_normal_border_color, 
 	focusedBorderColor = my_focused_border_color,
-	layoutHook = my_layout_hook,
+	layoutHook = lessBorders OnlyFloat $ my_layout_hook,
 	focusFollowsMouse = my_focus_follows_mouse,
 	manageHook = namedScratchpadManageHook scratchpads,
 	logHook = showWNameLogHook my_swn_config,
@@ -51,11 +52,11 @@ my_normal_border_color = "#3b4252"
 my_focused_border_color = "#bc96da"
 my_focus_follows_mouse = False
 my_click_just_focuses = False
-my_border_width = 0
+my_border_width = 2
 my_mod_mask = mod4Mask
-my_spacing = 0
+my_spacing = 8
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
-my_layout_hook = tall ||| accordion ||| mirror_accordion ||| tab ||| full
+my_layout_hook = tall ||| mirror_tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
 background_color = "#282a36"
 current_line_color = "#44475a"
@@ -84,28 +85,41 @@ mirror_accordion = renamed [Replace "mirror accor"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows 
 	$ spacing my_spacing 
-	$ Mirror Accordion 
+	$ Mirror
+	$ Accordion
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
-	$ hiddenWindows 
+	$ hiddenWindows
+	$ smartBorders
 	$ spacing my_spacing 
 	$ addTabs shrinkText my_tab_theme 
 	$ Tall nmaster delta ratio
 
+mirror_tall = renamed [Replace "mirror tall"] 
+	$ maximizeWithPadding 0
+	$ hiddenWindows
+	$ smartBorders
+	$ spacing my_spacing 
+	$ addTabs shrinkText my_tab_theme 
+	$ Mirror 
+	$ Tall nmaster delta ratio
+
 accordion = renamed [Replace "accor"] 
 	$ maximizeWithPadding 0
+	$ smartBorders
 	$ hiddenWindows 
 	$ spacing my_spacing 
 	$ Accordion
 
 full = renamed [Replace "full"] 
-	$ maximizeWithPadding 0
+	$ noBorders
 	$ hiddenWindows 
 	$ Full
 
 tab = renamed [Replace "tabbed"] 
 	$ maximizeWithPadding 0
+	$ noBorders
 	$ hiddenWindows
 	$ tabbed shrinkText my_tab_theme
 	 
@@ -129,19 +143,19 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.95 -- height
-				w = 0.98 -- width
-				t = 0.025 -- distance from top edge
-				l = 0.010-- distance from left edge
+				h = 0.90 -- height
+				w = 0.95 -- width
+				t = 0.05 -- distance from top edge
+				l = 0.025-- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.95 -- height
-				w = 0.98 -- width
-				t = 0.025 -- distance from top edge
-				l = 0.010 -- distance from left edge
+				h = 0.90 -- height
+				w = 0.95 -- width
+				t = 0.05 -- distance from top edge
+				l = 0.025 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",
