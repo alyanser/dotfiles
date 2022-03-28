@@ -3,8 +3,11 @@
 
 xbanish &
 nitrogen --restore &
+picom --experimental-backends &
+polybar &
+dunst &
 
 xcape -e 'Super_L=Tab' -t 250
 xcape -e 'Control_L=Escape' -t 250
 
-exec ~/.xmonad/xmonad-x86_64-linux
+exec ~/.cache/xmonad/xmonad-x86_64-linux

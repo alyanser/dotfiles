@@ -39,10 +39,11 @@ alias py="python"
 alias ghidra="_JAVA_AWT_WM_NONREPARENTING=1 ghidra"
 
 export PATH=$PATH:~/.local/bin
-export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] -> \[\e[m\]"
+export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] > \[\e[m\]"
 export EDITOR=nvim
 export VISUAL=vscodium
 
 [[ ! $TMUX ]] && tmux
+[[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
 
 pfetch

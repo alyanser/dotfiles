@@ -11,7 +11,6 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ShowWName
 import XMonad.Hooks.DynamicLog
 
 import XMonad.Layout.NoBorders
@@ -33,7 +32,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . ewmhFullscreen . ewmh $ def {
+main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -42,7 +41,6 @@ main = xmonad . ewmhFullscreen . ewmh $ def {
 	layoutHook = lessBorders OnlyFloat $ my_layout_hook,
 	focusFollowsMouse = my_focus_follows_mouse,
 	manageHook = namedScratchpadManageHook scratchpads,
-	logHook = showWNameLogHook my_swn_config,
 	clickJustFocuses = my_click_just_focuses
 }
 	`additionalKeysP` my_keys
@@ -52,9 +50,9 @@ my_normal_border_color = "#3b4252"
 my_focused_border_color = "#bc96da"
 my_focus_follows_mouse = False
 my_click_just_focuses = False
-my_border_width = 2
+my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 8
+my_spacing = 0
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
 my_layout_hook = tall ||| mirror_tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
@@ -83,14 +81,17 @@ my_tab_theme = def {
 
 mirror_accordion = renamed [Replace "mirror accor"] 
 	$ maximizeWithPadding 0
-	$ hiddenWindows 
+	$ hiddenWindows
+	$ avoidStruts
 	$ spacing my_spacing 
+	$ smartBorders
 	$ Mirror
 	$ Accordion
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
+	$ avoidStruts
 	$ smartBorders
 	$ spacing my_spacing 
 	$ addTabs shrinkText my_tab_theme 
@@ -99,26 +100,30 @@ tall = renamed [Replace "tall"]
 mirror_tall = renamed [Replace "mirror tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
+	$ avoidStruts
 	$ smartBorders
-	$ spacing my_spacing 
+	$ smartSpacing my_spacing 
 	$ addTabs shrinkText my_tab_theme 
 	$ Mirror 
 	$ Tall nmaster delta ratio
 
 accordion = renamed [Replace "accor"] 
 	$ maximizeWithPadding 0
+	$ avoidStruts
 	$ smartBorders
 	$ hiddenWindows 
-	$ spacing my_spacing 
+	$ spacing my_spacing
 	$ Accordion
 
 full = renamed [Replace "full"] 
 	$ noBorders
+	$ avoidStruts
 	$ hiddenWindows 
 	$ Full
 
 tab = renamed [Replace "tabbed"] 
 	$ maximizeWithPadding 0
+	$ avoidStruts
 	$ noBorders
 	$ hiddenWindows
 	$ tabbed shrinkText my_tab_theme
@@ -126,13 +131,6 @@ tab = renamed [Replace "tabbed"]
 nmaster = 1
 ratio = 1 / 2
 delta = 2 / 100
-
-my_swn_config = def { 
-	swn_font = "xft:Ubuntu:bold:size=60",
-	swn_fade = 0.3,
-	swn_bgcolor = "#1c1f24",
-	swn_color = "#ffffff"
-}
 
 scratchpads = [
 	NS "terminal" spawn_term find_term manage_term,
@@ -143,19 +141,19 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.95 -- width
+				h = 0.96 -- height
+				w = 1.00 -- width
 				t = 0.05 -- distance from top edge
-				l = 0.025-- distance from left edge
+				l = 0.00 -- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.95 -- width
+				h = 0.96 -- height
+				w = 1.00 -- width
 				t = 0.05 -- distance from top edge
-				l = 0.025 -- distance from left edge
+				l = 0.00 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",
@@ -193,5 +191,7 @@ my_keys = [
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
-		("M-b", withFocused $ windows . W.sink)
+		("M-b", withFocused $ windows . W.sink),
+		("M-;", decWindowSpacing 2),
+		("M-'", incWindowSpacing 2)
 	]
