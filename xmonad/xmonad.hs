@@ -45,14 +45,14 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 }
 	`additionalKeysP` my_keys
 
-my_terminal = "kitty -1"
+my_terminal = "alacritty"
 my_normal_border_color = "#3b4252"
 my_focused_border_color = "#bc96da"
-my_focus_follows_mouse = False
+my_focus_follows_mouse = True
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 0
+my_spacing = 7
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
 my_layout_hook = tall ||| mirror_tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
@@ -137,23 +137,23 @@ scratchpads = [
 	NS "docs" spawn_docs find_docs manage_docs
 	]
 	where
-		spawn_term = "kitty -1 --class scratch_terminal"
+		spawn_term = my_terminal ++ " --class scratch_terminal,scratch_terminal"
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.96 -- height
-				w = 1.00 -- width
-				t = 0.05 -- distance from top edge
-				l = 0.00 -- distance from left edge
+				h = 0.90 -- height
+				w = 0.95 -- width
+				t = 0.07 -- distance from top edge
+				l = 0.025 -- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.96 -- height
-				w = 1.00 -- width
-				t = 0.05 -- distance from top edge
-				l = 0.00 -- distance from left edge
+				h = 0.90 -- height
+				w = 0.95 -- width
+				t = 0.06 -- distance from top edge
+				l = 0.025 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",
@@ -172,7 +172,6 @@ my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
 		("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up"),
 		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
-		("<XF86Tools>", spawn "kitty -1 -e calc"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
 		("M-q", spawn "rofi -matching fuzzy -modi combi -combi window,drun -show combi"),
@@ -192,6 +191,7 @@ my_keys = [
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
 		("M-b", withFocused $ windows . W.sink),
-		("M-;", decWindowSpacing 2),
-		("M-'", incWindowSpacing 2)
+		("M-'", decWindowSpacing 1),
+		("M-;", incWindowSpacing 1),
+		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
