@@ -21,6 +21,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
+import XMonad.Layout.Simplest
 
 import XMonad.Actions.Search
 import XMonad.Actions.Promote
@@ -48,13 +49,13 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 my_terminal = "alacritty"
 my_normal_border_color = "#3b4252"
 my_focused_border_color = "#bc96da"
-my_focus_follows_mouse = True
+my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 7
+my_spacing = 6
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
-my_layout_hook = tall ||| mirror_tall ||| accordion ||| mirror_accordion ||| tab ||| full
+my_layout_hook = mirror_tall ||| tall ||| accordion ||| mirror_accordion ||| tab ||| full
 
 background_color = "#282a36"
 current_line_color = "#44475a"
@@ -83,7 +84,7 @@ mirror_accordion = renamed [Replace "mirror accor"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ spacing my_spacing 
+	$ smartSpacing my_spacing 
 	$ smartBorders
 	$ Mirror
 	$ Accordion
@@ -93,7 +94,7 @@ tall = renamed [Replace "tall"]
 	$ hiddenWindows
 	$ avoidStruts
 	$ smartBorders
-	$ spacing my_spacing 
+	$ smartSpacing my_spacing 
 	$ addTabs shrinkText my_tab_theme 
 	$ Tall nmaster delta ratio
 
@@ -112,7 +113,7 @@ accordion = renamed [Replace "accor"]
 	$ avoidStruts
 	$ smartBorders
 	$ hiddenWindows 
-	$ spacing my_spacing
+	$ smartSpacing my_spacing
 	$ Accordion
 
 full = renamed [Replace "full"] 
@@ -141,19 +142,19 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.95 -- width
-				t = 0.07 -- distance from top edge
-				l = 0.025 -- distance from left edge
+				h = 0.93 -- height
+				w = 1.00 -- width
+				t = 0.06 -- distance from top edge
+				l = 0.00 -- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.90 -- height
-				w = 0.95 -- width
+				h = 0.92 -- height
+				w = 1.00 -- width
 				t = 0.06 -- distance from top edge
-				l = 0.025 -- distance from left edge
+				l = 0.00 -- distance from left edge
 
 my_tab_config = def {
 	activeColor = "#556064",

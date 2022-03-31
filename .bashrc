@@ -38,11 +38,10 @@ alias ghidra="_JAVA_AWT_WM_NONREPARENTING=1 ghidra"
 alias gdb="gdb -q"
 
 export PATH=$PATH:~/.local/bin
-export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] -> \[\e[m\]"
+export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] \[\e[33m\]❯\[\e[31m\]❯\[\e[32m\]❯ \[\e[m\]"
 export EDITOR=nvim
 export VISUAL=vscodium
 
 [[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
 
 [[ ! $TMUX ]] && tmux
-pfetch 

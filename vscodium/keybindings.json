@@ -321,7 +321,7 @@
              "command": "-workbench.action.nextEditor"
     },
     {
-             "key": "ctrl+shift+r",
+             "key": "ctrl+o",
              "command": "editor.action.quickFix",
              "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
     },
@@ -1021,19 +1021,14 @@
 },
 {
 	"key": "tab",
-	"command": "editor.action.indentLines",
-	"when": "editorTextFocus && !editorReadonly"
-},
-{
-	"key": "tab",
 	"command": "-editor.emmet.action.expandAbbreviation",
 	"when": "config.emmet.triggerExpansionOnTab && editorTextFocus && !editorReadonly && !editorTabMovesFocus"
 },
-{
-	"key": "tab",
-	"command": "-tab",
-	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
-},
+// {
+// 	"key": "tab",
+// 	"command": "-tab",
+// 	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+// },
 {
 	"key": "tab",
 	"command": "-jumpToNextSnippetPlaceholder",
@@ -1184,5 +1179,23 @@
 {
          "key": "ctrl+n",
          "command": "workbench.action.gotoLine"
+},
+{
+	"key": "ctrl+shift+m",
+	"command": "editor.action.toggleTabFocusMode"
+},
+{
+	"key": "meta+tab unknown",
+	"command": "tab",
+	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+	"key": "tab",
+	"command": "-tab",
+	"when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+},
+{
+	"key": "alt+meta+tab",
+	"command": "tab"
 }
 ]
