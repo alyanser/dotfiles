@@ -9,11 +9,9 @@ function asm(){
 	objdump -M intel --visualize-jumps --special-syms -zwd $1 > $1.s
 }
 
-function clip(){
-	cat $1 | xclip -selection clipboard
+function mcd(){
+	mkdir $1 && cd $1
 }
-
-stty werase \^H # makes control+backspace remove the entire word
 
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -GNinja"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
@@ -36,12 +34,14 @@ alias batstat="watch -n 0.1 cat /sys/class/power_supply/BAT0/status"
 alias py="python"
 alias ghidra="_JAVA_AWT_WM_NONREPARENTING=1 ghidra"
 alias gdb="gdb -q"
+alias cli="xclip -selection clipboard"
 
 export PATH=$PATH:~/.local/bin
-export PS1="\[\e[33m\]\w\[\e[m\]\[\e[36m\] \[\e[33m\]❯\[\e[31m\]❯\[\e[32m\]❯ \[\e[m\]"
+export PS1=$'\[\e[33m\]\w\[\e[m\]\[\e[36m\] \[\e[33m\]❯\[\e[31m\]❯\[\e[32m\]❯ \[\e[m\]'
 export EDITOR=nvim
 export VISUAL=vscodium
 
 [[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
 
 [[ ! $TMUX ]] && tmux
+pfetch
