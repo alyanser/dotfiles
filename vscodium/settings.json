@@ -1,6 +1,6 @@
 {
 	"editor.fontFamily": "'cascadia code pl','Font Awesome 6 Free','font awesome 6 brands','font awesome 6 free solid'",
-	// "window.zoomLevel": -0.004,
+	"window.zoomLevel": -0.004,
 	"editor.fontWeight": "600",
 
 	"clangd.arguments": [
@@ -56,7 +56,7 @@
 				"keyword",
 			],
 			"settings": {
-				// "fontStyle": "bold"
+				// "fontStyle": ""
 			},
 
 		},
@@ -242,14 +242,14 @@
 	"diffEditor.wordWrap": "on",
 	"editor.wordWrap": "on",
 	"editor.suggest.showStatusBar": false,
-	"editor.inlineSuggest.enabled": true,
+	"editor.inlineSuggest.enabled": false,
 	"editor.suggest.showInlineDetails": true,
 	"editor.suggest.preview": true,
 	"editor.suggest.showColors": true,
 	"editor.suggest.showClasses": true,
 	"workbench.editor.enablePreview": false,
 	"window.newWindowDimensions": "inherit",
-	"workbench.statusBar.visible": true,
+	// "workbench.statusBar.visible": false,
 	"workbench.iconTheme": "material-icon-theme",
 	"editor.bracketPairColorization.enabled": false,
 	"terminal.external.linuxExec": "/usr/bin/alacritty",

@@ -55,7 +55,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 6
 my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
-my_layout_hook = mirror_tall ||| tall ||| accordion ||| mirror_accordion ||| tab ||| full
+my_layout_hook = mirror_tall ||| tall ||| accordion ||| full
 
 background_color = "#282a36"
 current_line_color = "#44475a"
@@ -79,15 +79,6 @@ my_tab_theme = def {
 	activeTextColor = my_normal_border_color,
 	inactiveTextColor = purple_color
 }
-
-mirror_accordion = renamed [Replace "mirror accor"] 
-	$ maximizeWithPadding 0
-	$ hiddenWindows
-	$ avoidStruts
-	$ smartSpacing my_spacing 
-	$ smartBorders
-	$ Mirror
-	$ Accordion
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -142,18 +133,18 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.93 -- height
+				h = 1.00 -- height
 				w = 1.00 -- width
-				t = 0.06 -- distance from top edge
+				t = 0.00 -- distance from top edge
 				l = 0.00 -- distance from left edge
 
 		spawn_docs = "~/.local/bin/devdocs"
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.92 -- height
+				h = 0.96 -- height
 				w = 1.00 -- width
-				t = 0.06 -- distance from top edge
+				t = 0.05 -- distance from top edge
 				l = 0.00 -- distance from left edge
 
 my_tab_config = def {
