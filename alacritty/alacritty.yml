@@ -1,9 +1,21 @@
 font:
   normal:
-    family: cascadia code pl
-    style: regular
+    family: cascadia code pl 
+    style: semibold
 
-  size: 10.0
+  bold:
+    family: cascadia code pl
+    style: semibold
+
+  semibold:
+    family: cascadia code pl
+    style: semibold
+
+  italic:
+    family: cascadia code pl
+    style: semibold
+
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -25,7 +37,7 @@ font:
   # builtin_box_drawing: true
   
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
 #colors:
@@ -657,39 +669,9 @@ key_bindings:
 
 window:
   padding:
-    x: 0
-    y: 0
+    x: 2
+    y: 5
   dynamic_padding: true
 
-# Hack the Box
-colors:
-  # Default colors
-  primary:
-    l;ackground: '#1a2332'
-    foreground: '#a4b1cd'
-
-  selection:
-    text: '#ffffff'
-    background: '#313f55'
-
-  # Normal colors
-  normal:
-    black:   '#000000'
-    red:     '#ff3e3e'
-    green:   '#9fef00'
-    yellow:  '#ffaf00'
-    blue:    '#004cff'
-    magenta: '#9f00ff'
-    cyan:    '#2ee7b6'
-    white:   '#ffffff'
-
-  # Bright colors
-  bright:
-    black:   '#666666'
-    red:     '#ff8484'
-    green:   '#c5f467'
-    yellow:  '#ffcc5c'
-    blue:    '#5cb2ff'
-    magenta: '#c16cfa'
-    cyan:    '#5cecc6'
-    white:   '#ffffff'
+import:
+   - ~/.config/alacritty/alacritty-theme/themes/ayu_dark.yaml

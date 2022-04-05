@@ -13,6 +13,13 @@ keysym Control_L = Caps_Lock
 add Lock = Caps_Lock
 add Control = Control_L
 
+keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
+
+keycode  43 = h H Left H
+keycode  44 = j J Down J
+keycode  45 = k K Up K
+keycode  46 = l L Right L
+
 ! map tab to some random key for xcape
 keycode 255 = Tab ISO_Left_Tab Tab ISO_Left_Tab
 

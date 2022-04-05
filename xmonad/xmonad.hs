@@ -11,17 +11,13 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicLog
 
-import XMonad.Layout.NoBorders
 import XMonad.Layout.Maximize
 import XMonad.Layout.Spacing
 import XMonad.Layout.Hidden
-import XMonad.Layout.Tabbed
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
-import XMonad.Layout.Simplest
 
 import XMonad.Actions.Search
 import XMonad.Actions.Promote
@@ -37,89 +33,49 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
-	normalBorderColor = my_normal_border_color, 
-	focusedBorderColor = my_focused_border_color,
-	layoutHook = lessBorders OnlyFloat $ my_layout_hook,
+	layoutHook = my_layouts,
 	focusFollowsMouse = my_focus_follows_mouse,
 	manageHook = namedScratchpadManageHook scratchpads,
 	clickJustFocuses = my_click_just_focuses
 }
 	`additionalKeysP` my_keys
 
-my_terminal = "alacritty"
-my_normal_border_color = "#3b4252"
-my_focused_border_color = "#bc96da"
+my_terminal = "alacritty "
 my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 6
-my_font = "xft:sf pro rounded:size=9:antialias=true:hinting=true"
-my_layout_hook = mirror_tall ||| tall ||| accordion ||| full
-
-background_color = "#282a36"
-current_line_color = "#44475a"
-selection_color = "#44475a"
-foreground_color = "#f8f8f2"
-comment_color = "#6272a4"
-cyan_color = "#8be9fd"
-green_color = "#50fa7b"
-orange_color = "#ffb86c"
-pinkColor = "#ff79c6"
-purple_color = "#bd93f9"
-red_color = "#ff5555"
-yellowColor = "#f1fa8c"
-
-my_tab_theme = def { 
-	fontName = my_font,
-	activeColor = my_focused_border_color,
-	inactiveColor = my_normal_border_color,
-	activeBorderColor = my_focused_border_color,
-	inactiveBorderColor = my_normal_border_color,
-	activeTextColor = my_normal_border_color,
-	inactiveTextColor = purple_color
-}
+my_spacing = 7
+my_layouts = mirror_tall ||| tall ||| accordion ||| full
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartBorders
 	$ smartSpacing my_spacing 
-	$ addTabs shrinkText my_tab_theme 
 	$ Tall nmaster delta ratio
 
 mirror_tall = renamed [Replace "mirror tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartBorders
 	$ smartSpacing my_spacing 
-	$ addTabs shrinkText my_tab_theme 
 	$ Mirror 
 	$ Tall nmaster delta ratio
 
 accordion = renamed [Replace "accor"] 
 	$ maximizeWithPadding 0
 	$ avoidStruts
-	$ smartBorders
 	$ hiddenWindows 
 	$ smartSpacing my_spacing
 	$ Accordion
 
 full = renamed [Replace "full"] 
-	$ noBorders
+	$ maximizeWithPadding 0
 	$ avoidStruts
 	$ hiddenWindows 
 	$ Full
 
-tab = renamed [Replace "tabbed"] 
-	$ maximizeWithPadding 0
-	$ avoidStruts
-	$ noBorders
-	$ hiddenWindows
-	$ tabbed shrinkText my_tab_theme
-	 
 nmaster = 1
 ratio = 1 / 2
 delta = 2 / 100
@@ -129,7 +85,7 @@ scratchpads = [
 	NS "docs" spawn_docs find_docs manage_docs
 	]
 	where
-		spawn_term = my_terminal ++ " --class scratch_terminal,scratch_terminal"
+		spawn_term = my_terminal ++ "--class scratch_terminal,scratch_terminal"
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
@@ -146,19 +102,6 @@ scratchpads = [
 				w = 1.00 -- width
 				t = 0.05 -- distance from top edge
 				l = 0.00 -- distance from left edge
-
-my_tab_config = def {
-	activeColor = "#556064",
-	inactiveColor = "#2F3D44",
-	urgentColor = "#FDF6E3",
-	activeBorderColor = "#454948",
-	inactiveBorderColor = "#454948",
-	urgentBorderColor = "#268BD2",
-	activeTextColor = "#80FFF9",
-	inactiveTextColor = "#1ABC9C",
-	urgentTextColor = "#1ABC9C",
-	fontName = "xft:ubuntu:size=0"
-}
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
