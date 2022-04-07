@@ -1,6 +1,6 @@
 font:
   normal:
-    family: cascadia code pl 
+    family: cascadia code pl
     style: semibold
 
   bold:
@@ -15,7 +15,7 @@ font:
     family: cascadia code pl
     style: semibold
 
-  size: 8.5
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -670,8 +670,9 @@ key_bindings:
 window:
   padding:
     x: 2
-    y: 5
-  dynamic_padding: true
+    y: 2
+  dynamic_padding: false
 
 import:
-   - ~/.config/alacritty/alacritty-theme/themes/ayu_dark.yaml
+  #     - ~/.config/alacritty/alacritty-theme/themes/ayu_dark.yaml
+  - ~/.config/alacritty/alacritty-theme/themes/gruvbox_material.yml

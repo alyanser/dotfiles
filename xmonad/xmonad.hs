@@ -46,7 +46,7 @@ my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 7
-my_layouts = mirror_tall ||| tall ||| accordion ||| full
+my_layouts = tall ||| mirror_tall ||| full
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -62,13 +62,6 @@ mirror_tall = renamed [Replace "mirror tall"]
 	$ smartSpacing my_spacing 
 	$ Mirror 
 	$ Tall nmaster delta ratio
-
-accordion = renamed [Replace "accor"] 
-	$ maximizeWithPadding 0
-	$ avoidStruts
-	$ hiddenWindows 
-	$ smartSpacing my_spacing
-	$ Accordion
 
 full = renamed [Replace "full"] 
 	$ maximizeWithPadding 0

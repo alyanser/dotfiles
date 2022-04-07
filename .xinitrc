@@ -6,7 +6,7 @@ nitrogen --restore &
 picom --experimental-backends &
 polybar &
 
-xcape -e 'Super_L=Tab' -t 150
-xcape -e 'Control_L=Escape' -t 150
+xcape -e 'Super_L=Tab' -t 500
+xcape -e 'Control_L=Escape' -t 500
 
 exec ~/.cache/xmonad/xmonad-x86_64-linux
