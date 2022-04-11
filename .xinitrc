@@ -4,7 +4,8 @@
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &
-polybar &
+bash ~/.config/polybar/launch.sh &
+xiccd &
 
 xcape -e 'Super_L=Tab' -t 500
 xcape -e 'Control_L=Escape' -t 500

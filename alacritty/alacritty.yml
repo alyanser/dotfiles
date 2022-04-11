@@ -1,7 +1,7 @@
 font:
   normal:
     family: cascadia code pl
-    style: semibold
+    style: semibold 
 
   bold:
     family: cascadia code pl
@@ -17,27 +17,12 @@ font:
 
   size: 10.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
   offset:
     x: 0 
     y: 0
 
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
-  #glyph_offset:
-  #  x: 0
-  #  y: 0
-  # Use built-in font for box drawing characters.
-  #
-  # If `true`, Alacritty will use a custom built-in font for box drawing
-  # characters (Unicode points 2500 - 259f).
-  # builtin_box_drawing: true
   
-# If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night)
 #colors:
@@ -213,14 +198,6 @@ draw_bold_text_with_bright_colors: false
 #save_to_clipboard: false
 #cursor:
 # Cursor style
-#style:
-# Cursor shape
-#
-# Values for `shape`:
-#   - ▇ Block
-#   - _ Underline
-#   - | Beam
-#shape: Block
 # Cursor blinking state
 #
 # Values for `blinking`:
@@ -669,10 +646,20 @@ key_bindings:
 
 window:
   padding:
-    x: 2
-    y: 2
-  dynamic_padding: false
+    x: 3
+    y: 3
+  dynamic_padding: true
 
 import:
-  #     - ~/.config/alacritty/alacritty-theme/themes/ayu_dark.yaml
-  - ~/.config/alacritty/alacritty-theme/themes/gruvbox_material.yml
+  # - ~/.config/alacritty/alacritty-theme/themes/ayu_dark.yaml
+  - ~/.config/alacritty/theme.yaml
+
+bell:
+  animation: EaseOutSine
+  duration: 100
+  color: '0x222222'
+  command:
+    program: paplay
+    args: ["/usr/share/sounds/freedesktop/stereo/dialog-warning.oga"]
+
+
