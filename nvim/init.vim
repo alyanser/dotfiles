@@ -4,7 +4,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'machakann/vim-highlightedyank'
@@ -15,6 +14,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neovim/nvim-lspconfig'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -24,13 +24,12 @@ set nocompatible
 set path+=**
 set wrap
 set linebreak
-set scrolloff=12
+set scrolloff=13
 set smarttab
 set tabstop=8
 set shiftwidth=8
 set mat=1
 set cursorline
-set autoread
 set incsearch
 set hlsearch
 set smartcase
@@ -40,9 +39,10 @@ colorscheme sonokai
 
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
+let NERDTreeMinimalUI=1 " removes top help indicator
+
 let g:airline_theme='sonokai'
 let mapleader=" "
-let NERDTreeMinimalUI=1 " removes top help indicator
 
 syntax enable
 filetype plugin on
