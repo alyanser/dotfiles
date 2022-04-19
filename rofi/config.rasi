@@ -1,19 +1,17 @@
 configuration{
-    lines: 5;
+    lines: 3;
     font: "sf pro rounded 13";
     terminal: "alacritty";
-    drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 﩯  window";
-    /* display-Network: " 󰤨  Network"; */
+    display-drun: "      Apps ";
+    display-run: "      Run ";
+    display-window: " 﩯    window";
     sidebar-mode: true;
 }
 
-@theme "forest"
+@theme "gruvchad"
 
 element-text, element-icon , mode-switcher {
     background-color: inherit;

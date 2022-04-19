@@ -2,19 +2,17 @@ call plug#begin()
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-sensible'
 Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/nerdcommenter'
 Plug 'ryanoasis/vim-devicons'
-Plug 'machakann/vim-highlightedyank'
-Plug 'sainnhe/sonokai'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdtree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neovim/nvim-lspconfig'
-Plug 'majutsushi/tagbar'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'justinmk/vim-sneak'
+Plug 'mhinz/vim-startify'
+Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 
@@ -23,28 +21,37 @@ set autoindent
 set nocompatible
 set path+=**
 set wrap
-set linebreak
 set scrolloff=13
-set smarttab
 set tabstop=8
+set encoding=UTF-8
 set shiftwidth=8
-set mat=1
-set cursorline
-set incsearch
-set hlsearch
+set numberwidth=5
+set smarttab
+set termguicolors
+set ignorecase
 set smartcase
-set numberwidth=4
+set nohlsearch
 
-colorscheme sonokai
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set list
+
+let tokyonight_style = "night"
+let tokyonight_italic_keywords = 0
+
+" let g:tokyonight_colors = {
+" \ }
+
 
 let g:NERDCreateDefaultMappings = 1
 let g:NERDSpaceDelims = 1
 let NERDTreeMinimalUI=1 " removes top help indicator
-
-let g:airline_theme='sonokai'
+let g:sneak#label = 1
 let mapleader=" "
 
-syntax enable
+let g:airline_theme='onedark'
+colorscheme tokyonight
+
+syntax on
 filetype plugin on
 
 " Line bubbling
@@ -91,8 +98,8 @@ require'nvim-treesitter.configs'.setup {
 	},
 }
 
-require'lspconfig'.pyright.setup{}
 require'lspconfig'.clangd.setup{}
+require'lspconfig'.pyright.setup{}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -47,6 +47,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 7
 my_layouts = tall ||| mirror_tall ||| full
+my_lock_screen = "i3lock -c 000000"
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -102,7 +103,7 @@ my_keys = [
 		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-q", spawn "rofi -matching fuzzy -modi combi -combi window,drun -show combi"),
+		("M-g", spawn "rofi -modi combi -combi run,drun -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", spawn my_terminal),
 		("M-d", withFocused hideWindow),
@@ -110,7 +111,6 @@ my_keys = [
 		("M-<Return>", promote),
 		("C-q", namedScratchpadAction scratchpads "terminal"),
 		("M-e", namedScratchpadAction scratchpads "docs"),
-		("M-g", selectSearch google),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
@@ -121,5 +121,6 @@ my_keys = [
 		("M-b", withFocused $ windows . W.sink),
 		("M-'", decWindowSpacing 1),
 		("M-;", incWindowSpacing 1),
-		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-m", spawn my_lock_screen),
+		("M-p", spawn "scrot ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
