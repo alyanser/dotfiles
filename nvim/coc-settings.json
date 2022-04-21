@@ -1,0 +1,4 @@
+{
+	"suggest.autoTrigger" : "none",
+	"clangd.arguments" : [ "--background-index", "-j=4", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed" ]
+}
