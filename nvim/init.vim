@@ -1,70 +1,60 @@
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'preservim/nerdtree'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'folke/tokyonight.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'numToStr/Comment.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()
 
 set number
+set relativenumber
 set autoindent
 set nocompatible
 set path+=**
 set wrap
 set scrolloff=13
 set tabstop=8
-set encoding=UTF-8
 set shiftwidth=8
+set encoding=UTF-8
 set numberwidth=5
-set smarttab
 set termguicolors
 set ignorecase
 set smartcase
 set nohlsearch
-
-set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:→\ ,trail:.,extends:#,nbsp:.,eol:~
 set list
-
-let tokyonight_style = "night"
-let tokyonight_italic_keywords = 0
-
-" let g:tokyonight_colors = {
-" \ }
-
-
-let g:NERDCreateDefaultMappings = 1
-let g:NERDSpaceDelims = 1
-let NERDTreeMinimalUI=1 " removes top help indicator
-let g:sneak#label = 1
-let mapleader=" "
-
-let g:airline_theme='onedark'
-colorscheme tokyonight
+set breakindent
+set mouse=a
 
 syntax on
 filetype plugin on
 
-" Line bubbling
-nnoremap <silent> <c-j> :m .+1<CR>==
-nnoremap <silent> <c-k> :m .-2<CR>==
-nnoremap <silent> <c-j> :m .+1<CR>
-nnoremap <silent> <c-k> :m .-2<CR>
-inoremap <silent> <c-j> <Esc>:m .+1<CR>==gi
-inoremap <silent> <c-k> <Esc>:m .-2<CR>==gi
-vnoremap <silent> <c-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <c-k> :m '<-2<CR>gv=gv
-nnoremap <Leader>- <cmd>vertical res +5<cr>
-nnoremap <Leader>= <cmd>vertical res -5<cr>
+let mapleader=" "
+
+let g:NERDCreateDefaultMappings = 1
+let g:NERDSpaceDelims = 1
+let NERDTreeMinimalUI=1 " removes top help indicator
+
+let g:sneak#label = 1
+
+let tokyonight_italic_comments=0
+let tokyonight_italic_keywords = 0
+let tokyonight_style = "night"
+let tokyonight_transparent=1
+let tokyonight_hide_inactive_statusline=1
+let tokyonight_lualine_bold=1
+
 
 " telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
@@ -72,8 +62,20 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" escape after search will remove matched highlight
-nnoremap <silent> <esc> :noh<cr><esc>
+nnoremap <silent> gb :BufferLinePick<CR>
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent>[b :BufferLineCycleNext<CR>
+nnoremap <silent>]b :BufferLineCyclePrev<CR>
+nnoremap <silent><mymap> :BufferLineMoveNext<CR>
+nnoremap <silent><mymap> :BufferLineMovePrev<CR>
 
 " nerdtree
 nnoremap <leader>h :NERDTreeFocus<CR>
@@ -88,6 +90,74 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 lua << EOF
+
+vim.g.tokyonight_colors = {
+	hint = "orange",
+	comment = "#6e6e6e",
+}
+
+vim.cmd[[colorscheme tokyonight]]
+
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'auto',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+    globalstatus = false,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  extensions = {}
+}
+
+require('Comment').setup{
+	padding = true,
+	sticky = true,
+
+	toggler = {
+		line = 'gcc',
+		block = 'gbc',
+	},
+}
+
+vim.diagnostic.config({
+	  virtual_text = true,
+	  signs = true,
+	  underline = true,
+	  update_in_insert = false,
+	  severity_sort = false,
+})
+
+vim.cmd [[
+  highlight! DiagnosticLineNrError guibg=#51202A guifg=#FF0000 gui=bold
+  highlight! DiagnosticLineNrWarn guibg=#51412A guifg=#FFA500 gui=bold
+  highlight! DiagnosticLineNrInfo guibg=#1E535D guifg=#00FFFF gui=bold
+  highlight! DiagnosticLineNrHint guibg=#1E205D guifg=#0000FF gui=bold
+
+  sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticLineNrError
+  sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticLineNrWarn
+  sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticLineNrInfo
+  sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticLineNrHint
+]]
+
 require'nvim-treesitter.configs'.setup {
 	ensure_installed = { "c", "cpp", "bash", "python", "haskell", "cmake", "make" },
 	sync_install = false,
@@ -98,8 +168,42 @@ require'nvim-treesitter.configs'.setup {
 	},
 }
 
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{
+
+	cmd = {
+            "clangd",
+            "--background-index",
+	    "-j=$(nproc)",
+	    "--header-insertion=never",
+	    "--log=error",
+        },
+}
+
 require'lspconfig'.pyright.setup{}
+
+require('bufferline').setup {
+
+	options = {
+		mode = "tabs",
+		numbers = "ordinal",
+		max_name_length = 18,
+		diagnostics = "nvim_lsp",
+		color_icons = true,
+		show_buffer_icons = true,
+		show_buffer_close_icons = true,
+		show_buffer_default_icon = true,
+		show_close_icon = true,
+		show_tab_indicators = true,
+		persist_buffer_sort = true,
+		separator_style = "thick",
+		always_show_bufferline = true,
+
+		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+			local icon = level:match("error") and " " or " "
+			return " " .. icon .. count
+		end
+	}
+}
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -126,7 +230,7 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)

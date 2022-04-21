@@ -45,7 +45,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 7
+my_spacing = 0
 my_layouts = tall ||| mirror_tall ||| full
 my_lock_screen = "i3lock -c 000000"
 
@@ -92,9 +92,9 @@ scratchpads = [
 		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
 		manage_docs = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.96 -- height
+				h = 0.98 -- height
 				w = 1.00 -- width
-				t = 0.05 -- distance from top edge
+				t = 0.025 -- distance from top edge
 				l = 0.00 -- distance from left edge
 
 my_keys = [
