@@ -1,0 +1,27 @@
+font_family cascasdia code pl 
+bold_font cascasdia code pl
+italic_font cascasdia code pl
+semibold_font cascasdia code pl
+
+font_size 10
+
+cursor_shape block
+shell_integration disabled
+
+repaint_delay 0
+input_delay 0
+sync_to_monitor no
+
+enable_audio_bell yes
+
+window_margin_width 0
+single_window_margin_width -1
+window_padding_width 0
+
+map ctrl+c copy_and_clear_or_interrupt
+map ctrl+v paste_from_clipboard
+
+# BEGIN_KITTY_THEME
+# Brogrammer
+include current-theme.conf
+# END_KITTY_THEME

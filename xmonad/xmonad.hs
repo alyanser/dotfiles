@@ -40,7 +40,7 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 }
 	`additionalKeysP` my_keys
 
-my_terminal = "alacritty "
+my_terminal = "kitty "
 my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
@@ -53,14 +53,14 @@ tall = renamed [Replace "tall"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartSpacing my_spacing 
+	$ spacing my_spacing 
 	$ Tall nmaster delta ratio
 
 mirror_tall = renamed [Replace "mirror tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartSpacing my_spacing 
+	$ spacing my_spacing 
 	$ Mirror 
 	$ Tall nmaster delta ratio
 
@@ -75,27 +75,17 @@ ratio = 1 / 2
 delta = 2 / 100
 
 scratchpads = [
-	NS "terminal" spawn_term find_term manage_term,
-	NS "docs" spawn_docs find_docs manage_docs
+	NS "terminal" spawn_term find_term manage_term
 	]
 	where
-		spawn_term = my_terminal ++ "--class scratch_terminal,scratch_terminal"
+		spawn_term = my_terminal ++ "--class scratch_terminal"
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
 				h = 1.00 -- height
 				w = 1.00 -- width
-				t = 0.00 -- distance from top edge
-				l = 0.00 -- distance from left edge
-
-		spawn_docs = "~/.local/bin/devdocs"
-		find_docs = className =? "FFPWA-01FX9RNFXCWG4QS358C257Y11S"
-		manage_docs = customFloating $ W.RationalRect l t w h
-			where
-				h = 0.98 -- height
-				w = 1.00 -- width
-				t = 0.025 -- distance from top edge
-				l = 0.00 -- distance from left edge
+				t = 0.0 -- distance from top edge
+				l = 0.0 -- distance from left edge
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
@@ -103,14 +93,13 @@ my_keys = [
 		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-g", spawn "rofi -modi combi -combi run,drun -show combi"),
+		("M-g", spawn "rofi -matching fuzzy -modi combi -combi run,drun -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", spawn my_terminal),
 		("M-d", withFocused hideWindow),
 		("M-v", popOldestHiddenWindow),
 		("M-<Return>", promote),
 		("C-q", namedScratchpadAction scratchpads "terminal"),
-		("M-e", namedScratchpadAction scratchpads "docs"),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
@@ -119,8 +108,8 @@ my_keys = [
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
 		("M-b", withFocused $ windows . W.sink),
-		("M-'", decWindowSpacing 1),
-		("M-;", incWindowSpacing 1),
+		("M-'", decWindowSpacing 2),
+		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
 		("M-p", spawn "scrot ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
