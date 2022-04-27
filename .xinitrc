@@ -4,10 +4,10 @@
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &
-bash ~/.config/polybar/launch.sh &
+polybar & 
 xiccd &
 
-xcape -e 'Super_L=Tab' -t 500
-xcape -e 'Control_L=Escape' -t 500
+xcape -e 'Super_L=Tab' -t 200
+xcape -e 'Control_L=Escape' -t 200
 
 exec ~/.cache/xmonad/xmonad-x86_64-linux

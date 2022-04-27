@@ -1,19 +1,17 @@
 #!/bin/bash
 
-stty -ixon
+[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
 
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -GNinja"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
-alias go="ninja -j4"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
 alias ls="ls --color=always"
-alias grep="grep --color=always -i"
-alias ll="ls -Al --color=always"
+alias ll="ls -Al"
+alias grep="grep -i --color=always"
 alias pa="pulseaudio-ctl"
-alias code="vscodium"
 alias vi="nvim"
 alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
@@ -22,15 +20,26 @@ alias py="python"
 alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
-alias pg="pgrep -i"
+alias pgrep="pgrep -i"
 alias objdump="objdump --visualize-jumps -M intel --special-syms -zw"
 
-PS1=$'\[\e[33m\]\u\[\e[31m\]::\[\e[34m\]\w\[\e[m\]\[\e[31m\] $ \[\e[39m\]'
-HISTFIILESIZE=
-export PAGER=most
+# PS1=$'\[\e[33m\]\h\[\e[31m\]::\[\e[34m\]\w\[\e[m\]\[\e[31m\] $ \[\e[39m\]'
+HISTFIILESIZE= # unlimited
 export PATH=$PATH:~/.local/bin
 
+# make C-w erase previous word till '/' only
+stty werase undef
+bind '\C-w:unix-filename-rubout'
+
+# colorful man pages
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;31m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;32m'
 
 [[ ! $TMUX ]] && tmux
 
-[[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
+[[ -f ~/.ghcup/env ]] && . ~/.ghcup/env
