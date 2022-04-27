@@ -1,4 +1,26 @@
 {
+	"clangd.arguments" : [ "--background-index", "-j=4", "--clang-tidy=false", "--header-insertion=never", "--completion-style=detailed" ],
+
+	"list.limitLines": 5,
+
+	"suggest.enablePreselect": true,
 	"suggest.autoTrigger" : "none",
-	"clangd.arguments" : [ "--background-index", "-j=4", "--clang-tidy", "--header-insertion=never", "--completion-style=detailed" ]
+	"suggest.noselect": false,
+	"suggest.snippetsSupport": false,
+	"suggest.snippetIndicator": "",
+	"suggest.acceptSuggestionOnCommitCharacter": true,
+	"suggest.detailField": "abbr",
+	"suggest.maxCompleteItemCount": 10,
+
+	"diagnostic.infoSign": "i",
+	"diagnostic.hintSign": "*",
+	"diagnostic.warningSign": "!",
+	"diagnostic.errorSign": "x",
+	"diagnostic.enable": true,
+	"diagnostic.refreshOnInsertMode": false,
+	"suggest.floatEnable": false,
+	"suggest.disableMenu": true,
+	"suggest.disableKind": true,
+	"suggest.disableMenuShortcut": true,
+	"diagnostic.virtualText": true
 }

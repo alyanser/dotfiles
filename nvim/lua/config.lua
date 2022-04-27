@@ -2,20 +2,20 @@ require('bufferline').setup {
 
 	options = {
 		mode = "tabs",
-		numbers = "ordinal",
-		max_name_length = 18,
+		-- numbers = "",
+		max_name_length = 20,
 		diagnostics = "nvim_lsp",
 		color_icons = true,
 		show_buffer_icons = true,
-		show_buffer_close_icons = true,
-		show_buffer_default_icon = true,
-		show_close_icon = true,
+		show_buffer_close_icons = false,
+		show_buffer_default_icon = false,
+		show_close_icon = false,
 		show_tab_indicators = true,
 		persist_buffer_sort = true,
-		separator_style = "thick",
+		-- separator_style = "",
 		always_show_bufferline = true,
 
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
+		diagnostics_indicator = function(count, level, diagnostics_dict, context) 
 			local icon = level:match("error") and " " or " "
 			return " " .. icon .. count
 		end

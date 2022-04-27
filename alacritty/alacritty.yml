@@ -1,0 +1,84 @@
+font:
+  normal:
+    family: cascadia code pl
+    style: semibold
+
+  bold:
+    family: cascadia code pl
+    style: semibold
+
+  semibold:
+    family: cascadia code pl
+    style: semibold
+
+  italic:
+    family: cascadia code pl
+    style: semibold
+
+  size: 10.0
+
+  offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: false
+ipc_socket: true
+
+key_bindings:
+  - { key: V, mods: Control, action: Paste }
+  - { key: X, mods: Control, action: Copy }
+
+window:
+  padding:
+    x: 3
+    y: 3
+  dynamic_padding: true
+
+bell:
+  animation: EaseOutSine
+  duration: 100
+  color: '0x222222'
+  command:
+    program: paplay
+    args:
+      [
+        "/usr/share/sounds/freedesktop/stereo/dialog-warning.oga"
+      ]
+
+env:
+  TERM: "tmux-256color"
+
+colors:
+  name: TokyoNight Night
+  author: Folke
+  # Default colors
+  primary:
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
+
+  # Normal colors
+  normal:
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
+
+  # Bright colors
+  bright:
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+theme: Tokyonight_Night
