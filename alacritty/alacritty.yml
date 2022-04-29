@@ -1,25 +1,25 @@
 font:
   normal:
-    family: cascadia code pl
-    style: semibold
+    family: caskaydiacove nerd font
+    style: regular
 
   bold:
-    family: cascadia code pl
-    style: semibold
+    family: caskaydiacove nerd font
+    style: regular
 
   semibold:
-    family: cascadia code pl
-    style: semibold
+    family: caskaydiacove nerd font
+    style: regular
 
   italic:
-    family: cascadia code pl
-    style: semibold
+    family: caskaydiacove nerd font
+    style: regular
 
   size: 10.0
 
   offset:
     x: 0
-    y: 0
+    y: 1
 
 draw_bold_text_with_bright_colors: false
 ipc_socket: true
@@ -30,9 +30,9 @@ key_bindings:
 
 window:
   padding:
-    x: 3
-    y: 3
-  dynamic_padding: true
+    x: 0
+    y: 0
+  dynamic_padding: false
 
 bell:
   animation: EaseOutSine

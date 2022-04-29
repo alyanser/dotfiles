@@ -10,4 +10,6 @@ xiccd &
 xcape -e 'Super_L=Tab' -t 200
 xcape -e 'Control_L=Escape' -t 200
 
+xset s off
+
 exec ~/.cache/xmonad/xmonad-x86_64-linux

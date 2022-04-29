@@ -40,14 +40,14 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 }
 	`additionalKeysP` my_keys
 
-my_terminal = "kitty "
+my_terminal = "alacritty "
 my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 0
-my_layouts = tall ||| mirror_tall ||| full
+my_spacing = 10
 my_lock_screen = "i3lock -c 000000"
+my_layouts = tall ||| mirror_tall ||| full
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -78,7 +78,7 @@ scratchpads = [
 	NS "terminal" spawn_term find_term manage_term
 	]
 	where
-		spawn_term = my_terminal ++ "--class scratch_terminal"
+		spawn_term = my_terminal ++ "--class scratch_terminal,scratch_terminal"
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
@@ -86,6 +86,7 @@ scratchpads = [
 				w = 1.00 -- width
 				t = 0.0 -- distance from top edge
 				l = 0.0 -- distance from left edge
+
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
@@ -111,5 +112,5 @@ my_keys = [
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
