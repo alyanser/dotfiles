@@ -3,18 +3,18 @@ local M = {}
 M.setup_lsp = function(attach, capabilities)
    local lspconfig = require "lspconfig"
 
-   -- lspservers with default config
-   local servers = { "pyright", "clangd" }
+   lspconfig["clangd"].setup{
+	   cmd = { "clangd", "--background-index", "--clang-tidy", "-j=4", "--header-insertion=never" },
+	   on_attach = attach,
+	   single_file_support = true,
+	   capabilities = capabilities
+   }
 
-   for _, lsp in ipairs(servers) do
-      lspconfig[lsp].setup {
-         on_attach = attach,
-         capabilities = capabilities,
-         flags = {
-            debounce_text_changes = 150,
-         },
-      }
-   end
+   lspconfig["pyright"].setup{}
+   lspconfig["cmake"].setup{}
+   lspconfig["bashls"].setup{}
+   lspconfig["rust_analyzer"].setup{}
+
 end
 
 return M
