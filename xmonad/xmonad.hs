@@ -45,7 +45,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 10
+my_spacing = 0
 my_lock_screen = "i3lock -c 000000"
 my_layouts = tall ||| mirror_tall ||| full
 
@@ -82,9 +82,9 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 1.00 -- height
+				h = 0.96-- height
 				w = 1.00 -- width
-				t = 0.0 -- distance from top edge
+				t = 0.045 -- distance from top edge
 				l = 0.0 -- distance from left edge
 
 
@@ -112,5 +112,6 @@ my_keys = [
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
+		("M-S-p", spawn "scrot -s ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
