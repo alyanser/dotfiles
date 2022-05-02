@@ -9,6 +9,8 @@ vim.opt.smartcase = true
 vim.opt.guicursor = nil
 vim.opt.hlsearch = false
 vim.g.tokyonight_style = "night"
+vim.g.tokyonight_transparent = true
+vim.g.nofixendofline = true
 lvim.colorscheme = "tokyonight"
 
 -- add your own keymapping
@@ -66,12 +68,11 @@ lvim.builtin.treesitter.ensure_installed = {
   "lua",
   "python",
   "typescript",
-  "tsx",
   "css",
   "rust",
-  "java",
   "yaml",
   "haskell",
+  "cmake",
 }
 
 lvim.builtin.treesitter.highlight.enabled = true
@@ -97,5 +98,5 @@ lvim.plugins = {
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
-	{ "filetype", "*", "set tabstop=8 shiftwidth=8 noexpandtab" },
+	{ "filetype", "*", "set tabstop=8 shiftwidth=8 noexpandtab softtabstop=8" },
 }
