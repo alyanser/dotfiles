@@ -9,7 +9,7 @@ vim.opt.smartcase = true
 vim.opt.guicursor = nil
 vim.opt.hlsearch = false
 vim.g.tokyonight_style = "night"
-vim.g.tokyonight_transparent = true
+vim.g.tokyonight_transparent = false
 vim.g.nofixendofline = true
 lvim.colorscheme = "tokyonight"
 

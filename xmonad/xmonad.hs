@@ -1,5 +1,4 @@
 import XMonad
-
 import XMonad.Prompt
 import XMonad.ManageHook
 
@@ -45,7 +44,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 0
+my_spacing = 15
 my_lock_screen = "i3lock -c 000000"
 my_layouts = tall ||| mirror_tall ||| full
 
@@ -82,11 +81,10 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.96-- height
-				w = 1.00 -- width
-				t = 0.045 -- distance from top edge
+				h = 0.963 -- height
+				w = 1.0 -- width
+				t = 0.04 -- distance from top edge
 				l = 0.0 -- distance from left edge
-
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
