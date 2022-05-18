@@ -17,6 +17,8 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
+import XMonad.Layout.Accordion
+import XMonad.Layout.Tabbed
 
 import XMonad.Actions.Search
 import XMonad.Actions.Promote
@@ -28,7 +30,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . docks . ewmhFullscreen . ewmh $ def {
+main = xmonad . docks . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -40,13 +42,13 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	`additionalKeysP` my_keys
 
 my_terminal = "alacritty "
-my_focus_follows_mouse = False
+my_focus_follows_mouse = True
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 15
-my_lock_screen = "i3lock -c 000000"
-my_layouts = tall ||| mirror_tall ||| full
+my_spacing = 10
+my_lock_screen = "slock"
+my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -62,6 +64,21 @@ mirror_tall = renamed [Replace "mirror tall"]
 	$ spacing my_spacing 
 	$ Mirror 
 	$ Tall nmaster delta ratio
+
+accordion = renamed [Replace "accordion"]
+	$ maximizeWithPadding 0
+	$ hiddenWindows
+	$ avoidStruts
+	$ spacing my_spacing
+	$ Accordion
+
+mirror_accordion = renamed [Replace "mirror accordion"]
+	$ maximizeWithPadding 0
+	$ hiddenWindows
+	$ avoidStruts
+	$ spacing my_spacing
+	$ Mirror
+	$ Accordion
 
 full = renamed [Replace "full"] 
 	$ maximizeWithPadding 0
@@ -81,10 +98,10 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.963 -- height
-				w = 1.0 -- width
-				t = 0.04 -- distance from top edge
-				l = 0.0 -- distance from left edge
+				h = 0.90 -- height
+				w = 0.95 -- width
+				t = 0.07 -- distance from top edge
+				l = 0.025 -- distance from left edge
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),

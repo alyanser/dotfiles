@@ -8,8 +8,6 @@ shopt -s checkjobs
 
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
-alias ls="ls --color=always"
-alias ll="ls -Al"
 alias grep="grep -i --color=always"
 alias pa="pulseaudio-ctl"
 alias hd="hexdump --canonical"
@@ -20,18 +18,16 @@ alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias pgrep="pgrep -i"
-alias objdump="objdump --visualize-jumps -M intel --special-syms -zw"
+alias objdump="objdump --visualize-jumps=color -M intel --special-syms -zw"
 alias go="ninja"
 alias vi="nvim"
-alias ll="lsd --icon=never -Al"
+alias ls="ls --color=always"
+alias ll="ls -Al"
 
 HISTFIILESIZE= # unlimited
-PS1=$'\[\e[34m\]\w\[\e[m\]\[\e[31m\] $ \[\e[39m\]'
+PS1=$'\[\e[33m\] :: \[\e[34m\]\w\[\e[m\]\[\e[31m\] $ \[\e[39m\]'
 export PATH=$PATH:~/.local/bin
-
-# make C-w erase previous word till '/' only
-stty werase undef
-bind '\C-w:unix-filename-rubout'
+export EDITOR="nvim"
 
 # colorful man pages
 export LESS_TERMCAP_mb=$'\e[1;31m'
@@ -42,5 +38,13 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
+# make C-w erase previous word till '/' only
+stty werase undef
+bind '\C-w:unix-filename-rubout'
+
 [[ ! $TMUX ]] && tmux
 [[ -f ~/.ghcup/env ]] && . ~/.ghcup/env
+
+export PATH=$PATH:~/.cargo/bin
+
+pfetch

@@ -1,6 +1,8 @@
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 [[ -f ~/.Xresources ]] && xrdb -m ~/.Xresources
 
+xrandr -s 1280x720
+xset s off &
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &
@@ -9,7 +11,5 @@ xiccd &
 
 xcape -e 'Super_L=Tab' -t 200
 xcape -e 'Control_L=Escape' -t 200
-
-xset s off
 
 exec ~/.cache/xmonad/xmonad-x86_64-linux
