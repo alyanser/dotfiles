@@ -42,7 +42,7 @@ main = xmonad . docks . ewmh $ def {
 	`additionalKeysP` my_keys
 
 my_terminal = "alacritty "
-my_focus_follows_mouse = True
+my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
@@ -118,7 +118,7 @@ my_keys = [
 		("C-q", namedScratchpadAction scratchpads "terminal"),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
+		("M-c", moveTo Prev $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-\\", toggleWS' ["NSP"]),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
