@@ -30,7 +30,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . docks . ewmh $ def {
+main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 10
+my_spacing = 0
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 
@@ -118,12 +118,13 @@ my_keys = [
 		("C-q", namedScratchpadAction scratchpads "terminal"),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-c", moveTo Prev $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
+		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
+		("M-b", moveTo Prev $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-\\", toggleWS' ["NSP"]),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
-		("M-b", withFocused $ windows . W.sink),
+		("M-y", withFocused $ windows . W.sink),
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
