@@ -1,8 +1,6 @@
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap &
 [[ -f ~/.Xresources ]] && xrdb -m ~/.Xresources
 
-xrandr -s 1280x720
-xset s off &
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &

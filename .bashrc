@@ -6,8 +6,6 @@ shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
 
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
 alias grep="grep -i --color=always"
 alias pa="pulseaudio-ctl"
 alias hd="hexdump --canonical"
@@ -23,10 +21,12 @@ alias go="ninja"
 alias vi="nvim"
 alias ls="ls --color=always"
 alias ll="ls -Al"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
 
 HISTFIILESIZE= # unlimited
-PS1=$'\[\e[33m\] :: \[\e[34m\]\w\[\e[m\]\[\e[31m\] $ \[\e[39m\]'
-export PATH=$PATH:~/.local/bin
+PS1=$'\[\e[34m\]\w\[\e[m\]\[\e[35m\] $ \[\e[39m\]'
+export PATH=$PATH:~/.local/bin:~/.cabal/bin:~/.ghcup/bin
 export EDITOR="nvim"
 
 # colorful man pages
@@ -43,8 +43,3 @@ stty werase undef
 bind '\C-w:unix-filename-rubout'
 
 [[ ! $TMUX ]] && tmux
-[[ -f ~/.ghcup/env ]] && . ~/.ghcup/env
-
-export PATH=$PATH:~/.cargo/bin
-
-pfetch
