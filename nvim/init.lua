@@ -1,3 +1,5 @@
+-- plugins
+
 require("packer").startup(function()
 
 	use {
@@ -53,34 +55,29 @@ require("packer").startup(function()
 	use {
 		'neovim/nvim-lspconfig'
 	}
+
+	use {
+		'folke/tokyonight.nvim'
+	}
 end)
 
 require("impatient")
 require('Comment').setup{}
+require('lualine').setup{}
+require("trouble").setup{}
+require('bufferline').setup{}
 
-require('lualine').setup{
+require('nvim-treesitter.configs').setup{
+	ensure_installed = { 'cpp', 'c', 'lua', 'haskell', 'python', 'rust', 'cmake', 'bash', 'yaml' },
 
-	options = {
-		section_separators = '',
-		component_separators = ''
-	}
-}
-
-require("trouble").setup {
-}
-
-require('nvim-treesitter.configs').setup {
-	ensure_installed = { 'cpp', 'c', 'lua', 'haskell', 'python', 'rust', 'cmake', 'bash', 'yaml', 'ninja', 'regex' }
-}
-
-require('bufferline').setup {
-	options = {
-	}
+	highlight = {
+		enable = true
+	},
 }
 
 local lsp = require("lspconfig")
 
-lsp["clangd"].setup {
+lsp["clangd"].setup{
 	single_file_support = true,
 	command = { 'clangd', '--background-index', '-j=4', '--head-insertion=never', '--clang-tidy=false', '--completion-style=detailed' },
 }
@@ -91,16 +88,27 @@ for _, name in ipairs(rest_lang_servers) do
 	lsp[name].setup{}
 end
 
-vim.opt.number = true
-vim.g.tabstop = 8
-vim.g.shiftwidth = 8
-vim.g.softtabstop = 8
+-- general
+
+local tab_len = 8
+
+vim.g.tabstop = tab_len
+vim.g.shiftwidth = tab_len
+vim.g.softtabstop = tab_len
 vim.g.noexpandtab = true
-vim.g.nofixedenofline = true
-vim.g.loadedmatchparen = false
+
+vim.opt.number = true
 vim.opt.guicursor = nil
 
+vim.g.nofixedenofline = true
+vim.g.loadedmatchparen = false
+
+vim.g.tokyonight_style = "night"
+
 vim.cmd [[ set mouse=a ]]
+vim.cmd [[ colorscheme tokyonight ]]
+
+-- autocmds
 
 vim.api.nvim_create_autocmd("FileType", {
 	command = "set formatoptions-=cro",
@@ -114,4 +122,4 @@ vim.api.nvim_create_autocmd("Focusgained", {
 	command = "checktime",
 })
 
-
+-- keybinds
