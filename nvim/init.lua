@@ -82,23 +82,127 @@ require("packer").startup(function()
 	use {
 		'lukas-reineke/indent-blankline.nvim'
 	}
+
+	use {
+		'stevearc/aerial.nvim'
+	}
+
 end)
 
 require('impatient')
 require('Comment').setup{}
 require('lualine').setup{}
 require('trouble').setup{}
-require('bufferline').setup{}
-require('gitsigns').setup{}
 
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
--- vim.opt.listchars:append("eol:↴")
+require('aerial').setup {
+	close_behavior = "global",
+	backends = {
+		"lsp",
+		"treesitter",
+		"markdown",
+	},
+	min_width = 30,
+	show_guides = true,
+	filter_kind = false,
+	icons = {
+		Array = "",
+		Boolean = "⊨",
+		Class = "",
+		Constant = "",
+		Constructor = "",
+		Key = "",
+		Function = "",
+		Method = "ƒ",
+		Namespace = "",
+		Null = "NULL",
+		Number = "#",
+		Object = "⦿",
+		Property = "",
+		TypeParameter = "𝙏",
+		Variable = "",
+		Enum = "ℰ",
+		Package = "",
+		EnumMember = "",
+		File = "",
+		Module = "",
+		Field = "",
+		Interface = "ﰮ",
+		String = "𝓐",
+		Struct = "𝓢",
+		Event = "",
+		Operator = "+",
+	},
+	guides = {
+		mid_item = "├ ",
+		last_item = "└ ",
+		nested_top = "│ ",
+		whitespace = "  ",
+	},
+}
+
+require('gitsigns').setup {
+	signs = {
+		add = { text = "▎" },
+		change = { text = "▎" },
+		delete = { text = "▎" },
+		topdelete = { text = "契" },
+		changedelete = { text = "▎" },
+	},
+}
+
+require('bufferline').setup {
+	options = {
+		{
+			filetype = "neo-tree",
+			text = "",
+			padding = 1,
+		},
+		{
+			filetype = "outline",
+			text = "",
+			padding = 1,
+		}
+	},
+	buffer_close_icon = "",
+	modified_icon = "",
+	close_icon = "",
+	max_name_length = 14,
+	max_prefix_length = 13,
+	tab_size = 20,
+	separator_style = "thin",
+
+}
 
 require('indent_blankline').setup {
 	show_end_of_line = true,
 	space_char_blankline = " ",
 	show_current_context = false,
+	char = "▏",
+	use_treesitter = true,
+}
+
+require("telescope").setup {
+	defaults = {
+		prompt_prefix = " ",
+		selection_caret = "❯ ",
+		path_display = { "truncate" },
+		selection_strategy = "reset",
+		sorting_strategy = "ascending",
+		layout_strategy = "horizontal",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
+			},
+			vertical = {
+				mirror = false,
+			},
+			width = 0.87,
+			height = 0.80,
+			preview_cutoff = 120,
+		},
+	},
 }
 
 local scrollbar_colors = require("tokyonight.colors").setup()
@@ -122,9 +226,28 @@ require('scrollbar').setup {
 
 require('nvim-treesitter.configs').setup{
 	ensure_installed = { 'cpp', 'c', 'lua', 'haskell', 'python', 'rust', 'cmake', 'bash', 'yaml' },
-
 	highlight = {
 		enable = true
+	},
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
+	autopairs = {
+		enable = true,
+	},
+	incremental_selection = {
+		enable = true
+	},
+	indent = {
+		enable = true,
+	},
+	rainbow = {
+		enable = true,
+		max_file_lines = nil,
+	},
+	autotag = {
+		enable = true,
 	},
 }
 
@@ -191,7 +314,7 @@ require("neo-tree").setup {
 				if vim.bo.filetype == "neo-tree" then
 					vim.wo.signcolumn = "auto"
 				end
-		end,
+			end,
 		},
 	},
 }
@@ -201,6 +324,7 @@ local lsp = require("lspconfig")
 lsp["clangd"].setup{
 	single_file_support = true,
 	command = { 'clangd', '--background-index', '-j=4', '--head-insertion=never', '--clang-tidy=false', '--completion-style=detailed' },
+	on_attach = require("aerial").on_attach
 }
 
 -- local rest_lang_servers = { "cmake", "bashls", "pyright" }
@@ -213,20 +337,27 @@ lsp["clangd"].setup{
 
 local tab_len = 8
 
-vim.g.tabstop = tab_len
-vim.g.shiftwidth = tab_len
-vim.g.softtabstop = tab_len
-vim.g.noexpandtab = true
+local g = vim.g
+local opt = vim.opt
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.guicursor = nil
-vim.opt.termguicolors = true
+g.tabstop = tab_len
+g.shiftwidth = tab_len
+g.softtabstop = tab_len
+g.noexpandtab = true
 
-vim.g.nofixedenofline = true
-vim.g.loadedmatchparen = false
+opt.number = true
+opt.relativenumber = true
+opt.guicursor = nil
+opt.termguicolors = true
 
-vim.g.tokyonight_style = "night"
+opt.list = true
+opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("eol:↴")
+
+g.nofixedenofline = true
+g.loadedmatchparen = false
+
+g.tokyonight_style = "night"
 
 vim.cmd [[ set mouse=a ]]
 vim.cmd [[ colorscheme tokyonight ]]
