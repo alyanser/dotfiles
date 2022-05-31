@@ -7,6 +7,10 @@ require("packer").startup(function()
 	}
 
 	use {
+		'joshdick/onedark.vim'
+	}
+
+	use {
 		'petertriho/nvim-scrollbar'
 	}
 
@@ -360,7 +364,7 @@ g.loadedmatchparen = false
 g.tokyonight_style = "night"
 
 vim.cmd [[ set mouse=a ]]
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ colorscheme onedark ]]
 
 -- autocmds
 

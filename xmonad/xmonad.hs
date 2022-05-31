@@ -30,7 +30,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . docks . ewmhFullscreen . ewmh $ def {
+main = xmonad . docks . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 10
+my_spacing = 7
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 
@@ -98,10 +98,10 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.98 -- height
-				w = 1.0 -- width
-				t = 0.013 -- distance from top edge
-				l = 0.0 -- distance from left edge
+				h = 0.78 -- height
+				w = 0.9 -- width
+				t = 0.13 -- distance from top edge
+				l = 0.05 -- distance from left edge
 
 my_keys = [
 		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
@@ -109,7 +109,7 @@ my_keys = [
 		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-g", spawn "rofi -matching fuzzy -modi combi -combi run,drun -show combi"),
+		("M-g", spawn "rofi -matching fuzzy -modi drun -show drun"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", spawn my_terminal),
 		("M-d", withFocused hideWindow),
@@ -128,6 +128,6 @@ my_keys = [
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
-		("M-S-p", spawn "scrot -s ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
+		("M-S-p", spawn "scrot -s ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
