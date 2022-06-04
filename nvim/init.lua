@@ -7,10 +7,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'joshdick/onedark.vim'
-	}
-
-	use {
 		'petertriho/nvim-scrollbar'
 	}
 
@@ -19,7 +15,15 @@ require("packer").startup(function()
 	}
 
 	use {
+		'tpope/vim-surround'
+	}
+
+	use {
 		'nvim-treesitter/nvim-treesitter',
+	}
+
+	use {
+		'folke/tokyonight.nvim'
 	}
 
 	use {
@@ -70,10 +74,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'folke/tokyonight.nvim'
-	}
-
-	use {
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		requires = { 
@@ -93,7 +93,6 @@ require("packer").startup(function()
 
 end)
 
-require('impatient')
 require('Comment').setup{}
 require('lualine').setup{}
 require('trouble').setup{}
@@ -209,23 +208,11 @@ require("telescope").setup {
 	},
 }
 
-local scrollbar_colors = require("tokyonight.colors").setup()
-
 require('scrollbar').setup {
 
 	handle = {
-		color = scrollbar_colors.bg_highlight,
-		hide_if_all_visible = false
+		hide_if_all_visible = false,
 	},
-
-	marks = {
-		Search = { color = scrollbar_colors.orange },
-		Error = { color = scrollbar_colors.error },
-		Warn = { color = scrollbar_colors.warning },
-		Info = { color = scrollbar_colors.info },
-		Hint = { color = scrollbar_colors.hint },
-		Misc = { color = scrollbar_colors.purple },
-	}
 }
 
 require('nvim-treesitter.configs').setup{
@@ -258,7 +245,7 @@ require('nvim-treesitter.configs').setup{
 require("neo-tree").setup {
 	close_if_last_window = true,
 	popup_border_style = "rounded",
-	enable_diagnostics = false,
+	enable_diagnostics = true,
 	default_component_configs = {
 		indent = {
 			padding = 0,
@@ -350,21 +337,31 @@ g.softtabstop = tab_len
 g.noexpandtab = true
 
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.guicursor = nil
 opt.termguicolors = true
 
-opt.list = true
-opt.listchars:append("space:⋅")
+-- opt.list = true
+-- opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 g.nofixedenofline = true
-g.loadedmatchparen = false
+g.loadedmatchparen = true
+g.background = "dark"
+g.one_allow_italics = true
+
+g.tokyonight_colors = {
+	hint = "cyan",
+	warning = "blue",
+	error = "red",
+}
 
 g.tokyonight_style = "night"
+g.tokyonight_italic_comments = false
+g.tokyonight_italic_keywords = false
 
 vim.cmd [[ set mouse=a ]]
-vim.cmd [[ colorscheme onedark ]]
+vim.cmd [[ colorscheme tokyonight ]]
 
 -- autocmds
 
