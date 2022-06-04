@@ -23,10 +23,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'folke/tokyonight.nvim'
-	}
-
-	use {
 		'phaazon/hop.nvim',
 	}
 
@@ -37,6 +33,10 @@ require("packer").startup(function()
 
 	use {
 		'numToStr/Comment.nvim',
+	}
+
+	use {
+		'tomasr/molokai'
 	}
 
 	use {
@@ -94,8 +94,8 @@ require("packer").startup(function()
 end)
 
 require('Comment').setup{}
-require('lualine').setup{}
 require('trouble').setup{}
+require("evil_lualine")
 
 require('aerial').setup {
 	close_behavior = "global",
@@ -318,11 +318,11 @@ lsp["clangd"].setup{
 	on_attach = require("aerial").on_attach
 }
 
--- local rest_lang_servers = { "cmake", "bashls", "pyright" }
---
--- for _, name in ipairs(rest_lang_servers) do
---	lsp[name].setup{}
--- end
+local rest_lang_servers = { "cmake", "bashls", "pyright" }
+
+for _, name in ipairs(rest_lang_servers) do
+	lsp[name].setup{}
+end
 
 -- general
 
@@ -336,13 +336,16 @@ g.shiftwidth = tab_len
 g.softtabstop = tab_len
 g.noexpandtab = true
 
+opt.ignorecase = true
 opt.number = true
-opt.relativenumber = false
-opt.guicursor = nil
+opt.relativenumber = true
 opt.termguicolors = true
+opt.guicursor = nil
 
--- opt.list = true
--- opt.listchars:append("space:⋅")
+g.rehash256 = 1
+
+opt.list = true
+opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 g.nofixedenofline = true
@@ -350,18 +353,8 @@ g.loadedmatchparen = true
 g.background = "dark"
 g.one_allow_italics = true
 
-g.tokyonight_colors = {
-	hint = "cyan",
-	warning = "blue",
-	error = "red",
-}
-
-g.tokyonight_style = "night"
-g.tokyonight_italic_comments = false
-g.tokyonight_italic_keywords = false
-
+vim.cmd [[ colorscheme molokai ]]
 vim.cmd [[ set mouse=a ]]
-vim.cmd [[ colorscheme tokyonight ]]
 
 -- autocmds
 
