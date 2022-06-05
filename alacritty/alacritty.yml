@@ -3,23 +3,23 @@ font:
 
   offset:
     x: 0
-    y: -1
+    y: 1
 
   normal:
-    family: cascadia code pl
-    style: semibold
+    family: cascadia code semibold
+    style: regular
 
   italic:
-    family: cascadia code pl
-    style: semibold
+    family: cascadia code semibold
+    style: regular
 
   bold:
-    family: cascadia code pl
-    style: semibold
+    family: cascadia code semibold
+    style: regular
 
   semibold:
-    family: cascadia code pl
-    style: semibold
+    family: cascadia code semibold
+    style: regular
 
 draw_semibold_text_with_bright_colors: true
 ipc_socket: true
@@ -35,30 +35,36 @@ window:
     y: 7
   dynamic_padding: true
 colors:
+  name: TokyoNight Night
+  author: Folke
   # Default colors
   primary:
-    background: '#1a1a1a'
-    foreground: '#c4c5b5'
+    background: '0x1a1b26'
+    foreground: '0xc0caf5'
 
   # Normal colors
   normal:
-    black: '#1a1a1a'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#fa8419'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#c4c5b5'
+    black: '0x15161E'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xa9b1d6'
 
   # Bright colors
   bright:
-    black: '#625e4c'
-    red: '#f4005f'
-    green: '#98e024'
-    yellow: '#e0d561'
-    blue: '#9d65ff'
-    magenta: '#f4005f'
-    cyan: '#58d1eb'
-    white: '#f6f6ef'
-theme: Monokai-Soda
+    black: '0x414868'
+    red: '0xf7768e'
+    green: '0x9ece6a'
+    yellow: '0xe0af68'
+    blue: '0x7aa2f7'
+    magenta: '0xbb9af7'
+    cyan: '0x7dcfff'
+    white: '0xc0caf5'
+
+  indexed_colors:
+    - { index: 16, color: '0xff9e64' }
+    - { index: 17, color: '0xdb4b4b' }
+theme: Tokyonight_Night

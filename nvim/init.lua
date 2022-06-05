@@ -36,7 +36,7 @@ require("packer").startup(function()
 	}
 
 	use {
-		'tomasr/molokai'
+		'folke/tokyonight.nvim'
 	}
 
 	use {
@@ -95,7 +95,16 @@ end)
 
 require('Comment').setup{}
 require('trouble').setup{}
-require("evil_lualine")
+require('hop').setup{}
+
+require('lualine').setup {
+
+	options = {
+		theme = "horizon",
+		component_separators = { left = '', right = ''},
+		section_separators = { left = '', right = ''},
+	}
+}
 
 require('aerial').setup {
 	close_behavior = "global",
@@ -220,26 +229,6 @@ require('nvim-treesitter.configs').setup{
 	highlight = {
 		enable = true
 	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
-	autopairs = {
-		enable = true,
-	},
-	incremental_selection = {
-		enable = true
-	},
-	indent = {
-		enable = true,
-	},
-	rainbow = {
-		enable = true,
-		max_file_lines = nil,
-	},
-	autotag = {
-		enable = true,
-	},
 }
 
 require("neo-tree").setup {
@@ -331,6 +320,7 @@ local tab_len = 8
 local g = vim.g
 local opt = vim.opt
 
+g.mapleader = ' '
 g.tabstop = tab_len
 g.shiftwidth = tab_len
 g.softtabstop = tab_len
@@ -338,22 +328,23 @@ g.noexpandtab = true
 
 opt.ignorecase = true
 opt.number = true
-opt.relativenumber = true
+-- opt.relativenumber = true
 opt.termguicolors = true
 opt.guicursor = nil
 
-g.rehash256 = 1
-
-opt.list = true
-opt.listchars:append("space:⋅")
+-- opt.list = true
+-- opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 g.nofixedenofline = true
 g.loadedmatchparen = true
-g.background = "dark"
 g.one_allow_italics = true
 
-vim.cmd [[ colorscheme molokai ]]
+g.tokyonight_style = "night"
+g.background = "light"
+-- g.tokyonight_transparent = true
+
+vim.cmd [[ colorscheme tokyonight ]]
 vim.cmd [[ set mouse=a ]]
 
 -- autocmds
@@ -371,3 +362,27 @@ vim.api.nvim_create_autocmd("Focusgained", {
 })
 
 -- keybinds
+
+local nvim_set_keymap = vim.api.nvim_set_keymap
+local opts = { noremap=true, silent=true }
+
+nvim_set_keymap("n", "gw", ":HopWord <Return>", opts)
+nvim_set_keymap("n", "gn", ":HopChar1 <Return>", opts)
+nvim_set_keymap("n", "g/", ":HopPattern <Return>", opts)
+nvim_set_keymap("n", "g/", ":HopPattern <Return>", opts)
+nvim_set_keymap("n", "<C-t>", ":NeoTreeShowToggle <Return>", opts)
+
+vim.keymap.set('n', '<C-p>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<C-n>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+-- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
