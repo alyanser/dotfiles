@@ -6,20 +6,20 @@ font:
     y: 1
 
   normal:
-    family: cascadia code semibold
-    style: regular
+    family: cascadia code
+    style: semibold
 
   italic:
-    family: cascadia code semibold
-    style: regular
+    family: cascadia code
+    style: semibold
 
   bold:
-    family: cascadia code semibold
-    style: regular
+    family: cascadia code
+    style: semibold
 
   semibold:
-    family: cascadia code semibold
-    style: regular
+    family: cascadia code
+    style: semibold
 
 draw_semibold_text_with_bright_colors: true
 ipc_socket: true
