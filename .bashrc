@@ -16,6 +16,7 @@ alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias pgrep="pgrep -i"
+alias nc="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps=color -M intel --special-syms -zw"
 alias go="ninja"
 alias vi="nvim"
@@ -42,4 +43,4 @@ export LESS_TERMCAP_us=$'\e[1;4;32m'
 stty werase undef
 bind '\C-w:unix-filename-rubout'
 
-[[ ! $TMUX ]] && tmux
+[[ ! $TMUX ]] && tmux -2
