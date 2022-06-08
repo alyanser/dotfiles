@@ -1,7 +1,6 @@
-local tab_len = 8
-
 local g = vim.g
 local opt = vim.opt
+local tab_len = 8
 
 g.mapleader = ' '
 g.tabstop = tab_len

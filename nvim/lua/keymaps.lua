@@ -3,11 +3,14 @@ local opts = { noremap=true, silent=true }
 
 nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 
+nvim_set_keymap("n", "<leader>s", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
+
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
 
+nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 nvim_set_keymap("n", "<leader>1", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
 nvim_set_keymap("n", "<leader>2", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
 nvim_set_keymap("n", "<leader>3", "<cmd> BufferLineGoToBuffer 3 <return>", opts)
@@ -17,11 +20,12 @@ nvim_set_keymap("n", "<leader>6", "<cmd> BufferLineGoToBuffer 6 <return>", opts)
 nvim_set_keymap("n", "<leader>7", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
 nvim_set_keymap("n", "<leader>8", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
 nvim_set_keymap("n", "<leader>9", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
-nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 
 nvim_set_keymap("n", "<C-g>", "<cmd> AerialToggle <return>", opts)
 nvim_set_keymap("n", "<C-n>", "<cmd> AerialNext <return>", opts)
 nvim_set_keymap("n", "<C-p>", "<cmd> AerialPrev <return>", opts)
+
+nvim_set_keymap("n", "<leader>t", "<cmd> TroubleToggle <return>", opts)
 
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
 nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)

@@ -21,6 +21,10 @@ require("packer").startup(function()
 	}
 
 	use {
+		'NMAC427/guess-indent.nvim'
+	}
+
+	use {
 		'phaazon/hop.nvim',
 	}
 

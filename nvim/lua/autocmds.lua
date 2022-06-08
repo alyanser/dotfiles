@@ -9,3 +9,11 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("Focusgained", {
 	command = "checktime",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set nofixendofline",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set cino+=L0",
+})

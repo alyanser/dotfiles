@@ -14,7 +14,8 @@ require("bufferline-conf")
 require("gitsigns-conf")
 require("aerial-conf")
 require("lualine-conf")
+require("trouble-conf")
 
 require('Comment').setup{}
-require('trouble').setup{}
 require('hop').setup{}
+require("guess-indent").setup{}
