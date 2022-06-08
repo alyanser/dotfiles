@@ -15,8 +15,8 @@ opt.number = true
 opt.termguicolors = true
 opt.guicursor = nil
 
-opt.list = true
-opt.listchars:append("space:⋅")
+-- opt.list = true
+-- opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 g.nofixedenofline = true
@@ -25,12 +25,13 @@ g.one_allow_italics = true
 
 g.tokyonight_style = "night"
 g.tokyonight_dark_float = false
+g.tokyonight_hide_inactive_statusline = false
 g.background = "dark"
 
 g.tokyonight_colors = {
-	error = "#000000",
-	warning = "#000000",
-	hint = "#000000",
+	error = "red",
+	warning = "orange",
+	hint = "purple",
 }
 
 vim.cmd [[ colorscheme tokyonight ]]

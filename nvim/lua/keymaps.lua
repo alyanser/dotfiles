@@ -19,12 +19,16 @@ nvim_set_keymap("n", "<leader>8", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
 nvim_set_keymap("n", "<leader>9", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
 nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 
+nvim_set_keymap("n", "<C-g>", "<cmd> AerialToggle <return>", opts)
+nvim_set_keymap("n", "<C-n>", "<cmd> AerialNext <return>", opts)
+nvim_set_keymap("n", "<C-p>", "<cmd> AerialPrev <return>", opts)
+
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
 nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 nvim_set_keymap("n", "<leader>b", "<cmd> lua require('telescope.builtin').buffers() <cr>", opts)
 
-vim.keymap.set('n', '<C-p>', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<C-n>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)

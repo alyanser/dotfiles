@@ -89,4 +89,3 @@ require("packer").startup(function()
 		'stevearc/aerial.nvim'
 	}
 end)
-

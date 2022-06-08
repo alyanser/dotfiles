@@ -6,6 +6,10 @@ lsp["clangd"].setup{
 	on_attach = require("aerial").on_attach
 }
 
+lsp.vimls.setup {
+	on_attach = require("aerial").on_attach,
+}
+
 -- local rest_lang_servers = { "cmake", "bashls", "pyright" }
 --
 -- for _, name in ipairs(rest_lang_servers) do

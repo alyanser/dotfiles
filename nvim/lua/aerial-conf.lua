@@ -5,7 +5,7 @@ require('aerial').setup {
 		"treesitter",
 		"markdown",
 	},
-	min_width = 30,
+	min_width = 35,
 	show_guides = true,
 	filter_kind = false,
 	icons = {
@@ -42,4 +42,5 @@ require('aerial').setup {
 		nested_top = "│ ",
 		whitespace = "  ",
 	},
+	highlight_closest = false,
 }
