@@ -6,23 +6,22 @@ font:
     y: 2
 
   normal:
-    family: cascadia code
-    style: semibold
+    family: cascadia code pl
+    style: bold
 
   italic:
-    family: cascadia code
-    style: semibold
-
-  bold:
-    family: cascadia code
-    style: semibold
+    family: cascadia code pl
+    style: bold
 
   semibold:
-    family: cascadia code
-    style: semibold
+    family: cascadia code pl
+    style: bold
 
-draw_semibold_text_with_bright_colors: true
-ipc_socket: true
+  bold:
+    family: cascadia code pl
+    style: bold
+
+draw_bold_text_with_bright_colors: false
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
@@ -35,37 +34,37 @@ window:
     y: 10
   dynamic_padding: true
 
+# Colors (One Half Dark)
 colors:
-  name: TokyoNight Night
-  author: Folke
   # Default colors
   primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
+    background: '#292d3e'
+    foreground: '#959dcb'
+    bright_foreground: '#d0d0d0'
+
+  cursor:
+    text: '#292d3e'
+    cursor: '#959dcb'
 
   # Normal colors
   normal:
-    black: '0x15161E'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xa9b1d6'
+    black: '#292d3e'
+    red: '#f07178'
+    green: '#c3e88d'
+    yellow: '#ffcb6b'
+    blue: '#82aaff'
+    magenta: '#c792ea'
+    cyan: '#89ddff'
+    white: '#d0d0d0'
 
   # Bright colors
   bright:
-    black: '0x414868'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-theme: Tokyonight_Night
+    black: '#434758'
+    red: '#ff8b92'
+    green: '#ddffa7'
+    yellow: '#ffe585'
+    blue: '#9cc4ff'
+    magenta: '#e1acff'
+    cyan: '#a3f7ff'
+    white: '#ffffff'
+theme: Palenight

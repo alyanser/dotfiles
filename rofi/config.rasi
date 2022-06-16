@@ -1,9 +1,6 @@
 configuration{
-    modi: "run,drun,window";
     lines: 5;
-    font: "Sarasa Nerd Font 13";
-    show-icons: false;
-    icon-theme: "Oranchelo";
+    font: "caskaydiacove nerd font";
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
     location: 0;
@@ -11,7 +8,8 @@ configuration{
     hide-scrollbar: true;
     display-drun: "   Apps ";
     display-run: "   Run ";
-    display-window: " 﩯  Window";
+    display-window: " 﩯  window";
+    /* display-Network: " 󰤨  Network"; */
     sidebar-mode: true;
 }
 
@@ -23,8 +21,8 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 300px;
-    border: 2px;
+    height: 360px;
+    border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -75,7 +73,7 @@ element {
 }
 
 element-icon {
-    size: 20px;
+    size: 25px;
 }
 
 element selected {
