@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 8
+my_spacing = 10
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 
@@ -99,17 +99,14 @@ scratchpads = [
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
 				h = 0.78 -- height
-				w = 0.9 -- width
+				w = 0.95-- width
 				t = 0.13 -- distance from top edge
-				l = 0.05 -- distance from left edge
+				l = 0.025 -- distance from left edge
 
 my_keys = [
-		("<XF86AudioLowerVolume>", spawn "pulseaudio-ctl down"),
-		("<XF86AudioRaiseVolume>", spawn "pulseaudio-ctl up"),
-		("<XF86AudioMute>", spawn "pulseaudio-ctl mute"),
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-g", spawn "rofi -matching fuzzy -modi drun -show drun"),
+		("M-g", spawn "rofi -modi combi -combi run,window,drun -matching fuzzy -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", spawn my_terminal),
 		("M-d", withFocused hideWindow),
@@ -128,6 +125,6 @@ my_keys = [
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
-		("M-S-p", spawn "scrot -s ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
+		("M-S-p", spawn "scrot -s ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]
