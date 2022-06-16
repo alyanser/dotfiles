@@ -3,6 +3,26 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+	command = "set tabstop=8",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set shiftwidth=8",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set softtabstop=8",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "GuessIndent",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set noexpandtab",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
 	command = "set nohlsearch",
 })
 

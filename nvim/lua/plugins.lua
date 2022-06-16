@@ -5,11 +5,31 @@ require("packer").startup(function()
 	}
 
 	use {
+		'sainnhe/sonokai'
+	}
+
+	use {
+		'drewtempelmeyer/palenight.vim'
+	}
+
+	use {
+		'thedenisnikulin/vim-cyberpunk'
+	}
+
+	use {
+		'ayu-theme/ayu-vim'
+	}
+
+	use {
+		'joshdick/onedark.vim'
+	}
+
+	use {
 		'petertriho/nvim-scrollbar'
 	}
 
 	use {
-		'lewis6991/impatient.nvim', 
+		'lewis6991/impatient.nvim' 
 	}
 
 	use {
@@ -17,7 +37,7 @@ require("packer").startup(function()
 	}
 
 	use {
-		'nvim-treesitter/nvim-treesitter',
+		'nvim-treesitter/nvim-treesitter'
 	}
 
 	use {

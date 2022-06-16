@@ -1,16 +1,8 @@
 local g = vim.g
 local opt = vim.opt
-local tab_len = 8
-
-g.mapleader = ' '
-g.tabstop = tab_len
-g.shiftwidth = tab_len
-g.softtabstop = tab_len
-g.noexpandtab = true
 
 opt.ignorecase = true
 opt.number = true
--- opt.relativenumber = true
 opt.termguicolors = true
 opt.guicursor = nil
 
@@ -18,12 +10,12 @@ opt.guicursor = nil
 -- opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
+g.mapleader = ' '
+g.noexpandtab = true
 g.nofixedenofline = true
 g.loadedmatchparen = true
-g.one_allow_italics = true
 
 g.tokyonight_style = "night"
-g.tokyonight_dark_float = false
 g.tokyonight_hide_inactive_statusline = false
 g.background = "dark"
 
@@ -33,5 +25,5 @@ g.tokyonight_colors = {
 	hint = "purple",
 }
 
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ colorscheme sonokai ]]
 vim.cmd [[ set mouse=a ]]
