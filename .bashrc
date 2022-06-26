@@ -26,7 +26,7 @@ alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
 
 HISTFIILESIZE= # unlimited
-PS1=$'\[\e[34m\]\w\[\e[m\]\[\e[35m\] $ \[\e[39m\]'
+PS1=$'\[\e[33m\] :: \[\e[34m\]\w\[\e[m\]\[\e[35m\]   \[\e[39m\]'
 export PATH=$PATH:~/.local/bin:~/.cabal/bin:~/.ghcup/bin
 export EDITOR="nvim"
 
@@ -44,3 +44,5 @@ stty werase undef
 bind '\C-w:unix-filename-rubout'
 
 [[ ! $TMUX ]] && tmux -2
+
+pfetch
