@@ -30,7 +30,7 @@ import qualified XMonad.StackSet as W
 
 ------------------------------------------------------------------
 
-main = xmonad . docks . ewmh $ def {
+main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
 	modMask = my_mod_mask,
 	borderWidth = my_border_width,
@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 10
+my_spacing = 15
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 

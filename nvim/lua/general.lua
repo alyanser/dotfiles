@@ -25,5 +25,7 @@ g.tokyonight_colors = {
 	hint = "purple",
 }
 
-vim.cmd [[ colorscheme sonokai ]]
+vim.cmd [[ colorscheme tokyonight ]]
 vim.cmd [[ set mouse=a ]]
+vim.cmd [[ set nocompatible ]]
+vim.cmd [[ syntax on ]]

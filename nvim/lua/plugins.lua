@@ -5,26 +5,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'sainnhe/sonokai'
-	}
-
-	use {
-		'drewtempelmeyer/palenight.vim'
-	}
-
-	use {
-		'thedenisnikulin/vim-cyberpunk'
-	}
-
-	use {
-		'ayu-theme/ayu-vim'
-	}
-
-	use {
-		'joshdick/onedark.vim'
-	}
-
-	use {
 		'petertriho/nvim-scrollbar'
 	}
 
