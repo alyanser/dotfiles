@@ -15,6 +15,7 @@ require("gitsigns-conf")
 require("aerial-conf")
 require("lualine-conf")
 require("trouble-conf")
+require("cmp-conf")
 
 require('Comment').setup{}
 require('hop').setup{}

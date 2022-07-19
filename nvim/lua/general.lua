@@ -5,9 +5,10 @@ opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
 opt.guicursor = nil
+opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 
--- opt.list = true
--- opt.listchars:append("space:⋅")
+opt.list = true
+opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 g.mapleader = ' '
