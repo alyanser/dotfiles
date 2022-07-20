@@ -6,7 +6,42 @@ end
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
+  Interface = "",
+  Module = "",
+  Property = "ﰠ",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
+}
+
 cmp.setup({
+  formatting = {
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+      return vim_item
+    end
+  },
       enabled = function()
       -- disable completion in comments
       local context = require 'cmp.config.context'
@@ -69,7 +104,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { 
       name = 'nvim_lsp',
-      max_item_count = 5,
     },
     {
       name = 'luasnip' },
