@@ -9,6 +9,7 @@ opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 
 opt.list = true
 opt.listchars:append("space:⋅")
+-- opt.listchars:append("tab:")
 -- vim.opt.listchars:append("eol:↴")
 
 g.mapleader = ' '

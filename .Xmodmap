@@ -21,9 +21,3 @@ keycode 43 = h H Left H
 keycode 44 = j J Down J
 keycode 45 = k K Up K
 keycode 46 = l L Right L
-
-! map tab to some random key for xcape
-! keycode 255 = Tab ISO_Left_Tab Tab ISO_Left_Tab
-
-! make tab Super_L
-! keycode 23 = Super_L Super_L Super_L Super_L

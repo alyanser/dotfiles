@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 15
+my_spacing = 20
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 

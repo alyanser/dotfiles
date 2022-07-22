@@ -7,7 +7,7 @@ shopt -s histappend
 shopt -s checkjobs
 
 alias grep="grep --color=always"
-alias hexdump="hexdump --canonical"
+alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
 alias batstat="watch -n 0.1 cat /sys/class/power_supply/BAT0/status"
 alias py="python"
@@ -27,7 +27,7 @@ alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G N
 
 HISTFIILESIZE= # unlimited
 PS1=$'\[\e[31m\]\u :: \[\e[34m\]\w\[\e[m\]\[\e[35m\] $ \[\e[39m\]'
-export PATH=$PATH:~/.local/bin:~/.cabal/bin:~/.ghcup/bin
+export PATH=$PATH:~/.local/bin
 export EDITOR="nvim"
 
 # colorful man pages
