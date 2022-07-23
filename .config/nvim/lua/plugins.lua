@@ -21,7 +21,7 @@ require("packer").startup(function()
 	}
 
 	use {
-		'NMAC427/guess-indent.nvim'
+		'NMAC427/guess-indent.nvim',
 	}
 
 	use {
@@ -48,7 +48,11 @@ require("packer").startup(function()
 	}
 
 	use {
-		'jiangmiao/auto-pairs'
+		'windwp/nvim-autopairs'
+	}
+
+	use {
+		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
 	}
 
 	use {

@@ -20,3 +20,9 @@ require("cmp-conf")
 require('Comment').setup{}
 require('hop').setup{}
 require("guess-indent").setup{}
+require("lsp_lines").setup{}
+
+require("nvim-autopairs").setup{
+	map_c_h = true,
+	map_c_w = true,
+}

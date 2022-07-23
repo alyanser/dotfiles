@@ -12,6 +12,10 @@ lsp.vimls.setup {
 	on_attach = require("aerial").on_attach,
 }
 
+vim.diagnostic.config({
+	virtual_text = false,
+})
+
 -- highlight line number instead of showing sign
 
 vim.cmd [[

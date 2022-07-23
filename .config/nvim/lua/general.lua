@@ -4,18 +4,13 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.guicursor = nil
+-- opt.guicursor = nil
 opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
-
-opt.list = true
-opt.listchars:append("space:⋅")
--- opt.listchars:append("tab:")
--- vim.opt.listchars:append("eol:↴")
 
 g.mapleader = ' '
 g.noexpandtab = true
 g.nofixedenofline = true
-g.loadedmatchparen = true
+-- g.loadedmatchparen = true
 
 g.tokyonight_style = "night"
 g.tokyonight_hide_inactive_statusline = false
