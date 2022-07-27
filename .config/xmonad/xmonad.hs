@@ -46,7 +46,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 20
+my_spacing = 25
 my_lock_screen = "slock"
 my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
 
@@ -98,10 +98,10 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.78 -- height
-				w = 0.95-- width
-				t = 0.13 -- distance from top edge
-				l = 0.025 -- distance from left edge
+				h = 0.895 -- height
+				w = 0.964 -- width
+				t = 0.073 -- distance from top edge
+				l = 0.019 -- distance from left edge
 
 my_keys = [
 		("M-r", spawn "firefox"),
