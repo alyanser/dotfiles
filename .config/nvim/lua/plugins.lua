@@ -5,10 +5,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'petertriho/nvim-scrollbar'
-	}
-
-	use {
 		'lewis6991/impatient.nvim' 
 	}
 
@@ -29,11 +25,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'lewis6991/gitsigns.nvim',
-		tag = 'release'
-	}
-
-	use {
 		'numToStr/Comment.nvim',
 	}
 
@@ -49,10 +40,6 @@ require("packer").startup(function()
 
 	use {
 		'windwp/nvim-autopairs'
-	}
-
-	use {
-		'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
 	}
 
 	use {
@@ -107,13 +94,5 @@ require("packer").startup(function()
 
 	use {
 		'L3MON4D3/LuaSnip'
-	}
-
-	use {
-		'saadparwaiz1/cmp_luasnip'
-	}
-
-	use {
-		'stevearc/aerial.nvim'
 	}
 end)

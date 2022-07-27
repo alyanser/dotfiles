@@ -3,18 +3,9 @@ local lsp = require("lspconfig")
 lsp["clangd"].setup{
 	single_file_support = true,
 	command = { 'clangd', '--background-index', '-j=4', '--head-insertion=never', '--clang-tidy=false', '--completion-style=detailed' },
-	on_attach = require("aerial").on_attach,
 }
 
 lsp["pyright"].setup{}
-
-lsp.vimls.setup {
-	on_attach = require("aerial").on_attach,
-}
-
-vim.diagnostic.config({
-	virtual_text = false,
-})
 
 -- highlight line number instead of showing sign
 

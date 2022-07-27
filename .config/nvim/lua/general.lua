@@ -10,7 +10,7 @@ opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 g.mapleader = ' '
 g.noexpandtab = true
 g.nofixedenofline = true
--- g.loadedmatchparen = true
+g.loadedmatchparen = true
 
 g.tokyonight_style = "night"
 g.tokyonight_hide_inactive_statusline = false
