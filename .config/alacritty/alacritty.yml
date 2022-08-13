@@ -30,43 +30,38 @@ key_bindings:
 
 window:
   padding:
-    x: 10
-    y: 10
-  dynamic_padding: true
+    x: 12
+    y: 12
+  dynamic_padding: false
 
 # Colors (One Half Dark)
 colors:
-  name: TokyoNight Night
-  author: Folke
-
   # Default colors
   primary:
-    background: '0x1a1b26'
-    foreground: '0xc0caf5'
+    background: '#282c34'
+    foreground: '#abb2bf'
 
   # Normal colors
   normal:
-    black: '0x15161E'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xa9b1d6'
+    # NOTE: Use '#131613' for the `black` color if you'd like to see
+    # black text on the background.
+    black: '#282c34'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#abb2bf'
 
   # Bright colors
   bright:
-    black: '0x414868'
-    red: '0xf7768e'
-    green: '0x9ece6a'
-    yellow: '0xe0af68'
-    blue: '0x7aa2f7'
-    magenta: '0xbb9af7'
-    cyan: '0x7dcfff'
-    white: '0xc0caf5'
-
-  indexed_colors:
-    - { index: 16, color: '0xff9e64' }
-    - { index: 17, color: '0xdb4b4b' }
-theme: Tokyonight_Night
+    black: '#5c6370'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#ffffff'
+theme: One-Dark

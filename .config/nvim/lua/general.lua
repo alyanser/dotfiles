@@ -3,6 +3,7 @@ local opt = vim.opt
 
 opt.ignorecase = true
 opt.number = true
+opt.relativenumber = true
 opt.termguicolors = true
 -- opt.guicursor = nil
 opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
@@ -22,7 +23,7 @@ g.tokyonight_colors = {
 	hint = "purple",
 }
 
-vim.cmd [[ colorscheme tokyonight ]]
+-- vim.cmd [[ colorscheme onedark ]]
 vim.cmd [[ set mouse=a ]]
 vim.cmd [[ set nocompatible ]]
 vim.cmd [[ syntax on ]]

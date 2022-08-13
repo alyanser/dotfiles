@@ -1,7 +1,7 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
+nvim_set_keymap("n", "<C-y>", "<cmd> NvimTreeToggle <Return>", opts)
 
 nvim_set_keymap("n", "<leader>s", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 
@@ -21,14 +21,10 @@ nvim_set_keymap("n", "<leader>7", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
 nvim_set_keymap("n", "<leader>8", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
 nvim_set_keymap("n", "<leader>9", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
 
-nvim_set_keymap("n", "<C-g>", "<cmd> AerialToggle <return>", opts)
-nvim_set_keymap("n", "<C-n>", "<cmd> AerialNext <return>", opts)
-nvim_set_keymap("n", "<C-p>", "<cmd> AerialPrev <return>", opts)
-
 nvim_set_keymap("n", "<leader>t", "<cmd> TroubleToggle <return>", opts)
 
-nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
-nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
+nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
+nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 nvim_set_keymap("n", "<leader>b", "<cmd> lua require('telescope.builtin').buffers() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)

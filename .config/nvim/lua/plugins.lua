@@ -9,7 +9,23 @@ require("packer").startup(function()
 	}
 
 	use {
+		'navarasu/onedark.nvim'
+	}
+
+	use {
+		'akinsho/toggleterm.nvim'
+	}
+
+	use {
+		'kyazdani42/nvim-tree.lua'
+	}
+
+	use {
 		'tpope/vim-surround'
+	}
+
+	use {
+		'lewis6991/gitsigns.nvim'
 	}
 
 	use {
@@ -51,9 +67,9 @@ require("packer").startup(function()
 	}
 
 	use {
-		'nvim-telescope/telescope.nvim',
+		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { 
-			{ 'nvim-lua/plenary.nvim' }
+			{'nvim-lua/plenary.nvim'}
 		}
 	}
 
@@ -64,16 +80,6 @@ require("packer").startup(function()
 
 	use {
 		'neovim/nvim-lspconfig'
-	}
-
-	use {
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
-		requires = { 
-			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		}
 	}
 
 	use {

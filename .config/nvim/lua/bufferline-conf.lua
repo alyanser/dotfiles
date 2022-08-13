@@ -9,12 +9,7 @@ require('bufferline').setup {
 		separator_style = "thick",
 		offsets = {
 			{
-				filetype = "neo-tree",
-				text = "Explorer",
-				text_align = "center",
-			},
-			{
-				filetype = "aerial",
+				filetype = "NvimTree",
 				text = "Explorer",
 				text_align = "center",
 			},
