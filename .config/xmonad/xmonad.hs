@@ -18,7 +18,6 @@ import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
 import XMonad.Layout.Accordion
-import XMonad.Layout.Tabbed
 
 import XMonad.Actions.Search
 import XMonad.Actions.Promote
@@ -36,7 +35,7 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	borderWidth = my_border_width,
 	layoutHook = my_layouts,
 	focusFollowsMouse = my_focus_follows_mouse,
-	manageHook = namedScratchpadManageHook scratchpads,
+	manageHook = namedScratchpadManageHook scratchpads <+> manage_hook,
 	clickJustFocuses = my_click_just_focuses
 }
 	`additionalKeysP` my_keys
@@ -48,7 +47,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 25
 my_lock_screen = "slock"
-my_layouts = tall ||| mirror_tall ||| mirror_accordion ||| accordion ||| full
+my_layouts = full ||| tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -80,15 +79,20 @@ mirror_accordion = renamed [Replace "mirror accordion"]
 	$ Mirror
 	$ Accordion
 
-full = renamed [Replace "full"] 
+full = renamed [Replace "full"]
 	$ maximizeWithPadding 0
 	$ avoidStruts
 	$ hiddenWindows 
+	$ spacing my_spacing
 	$ Full
 
 nmaster = 1
 ratio = 1 / 2
 delta = 2 / 100
+
+manage_hook = composeAll [
+		className =? "firefox" --> doShift "1"
+	]
 
 scratchpads = [
 	NS "terminal" spawn_term find_term manage_term
@@ -108,10 +112,10 @@ my_keys = [
 		("M-w", kill),
 		("M-g", spawn "rofi -modi combi -combi run,window,drun -matching fuzzy -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
-		("M--", spawn my_terminal),
+		("M--", promote),
 		("M-d", withFocused hideWindow),
 		("M-v", popOldestHiddenWindow),
-		("M-<Return>", promote),
+		("M-<Return>", spawn my_terminal),
 		("C-q", namedScratchpadAction scratchpads "terminal"),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
@@ -124,7 +128,8 @@ my_keys = [
 		("M-y", withFocused $ windows . W.sink),
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
+		("M-e", promptSearch def google),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
-		("M-S-p", spawn "scrot -s ~/pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
+		("M-S-p", spawn "scrot -s ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]

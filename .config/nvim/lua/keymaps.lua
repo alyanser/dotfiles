@@ -1,7 +1,7 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("n", "<C-y>", "<cmd> NvimTreeToggle <Return>", opts)
+nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 
 nvim_set_keymap("n", "<leader>s", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 
@@ -27,6 +27,10 @@ nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').find_f
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 nvim_set_keymap("n", "<leader>b", "<cmd> lua require('telescope.builtin').buffers() <cr>", opts)
 
+nvim_set_keymap("n", "<leader>rn", "<cmd> lua require('cosmic-ui').rename() <cr>", opts)
+
+nvim_set_keymap("n", "<leader>a", "<cmd> lua require('cosmic-ui').code_actions() <cr>", opts)
+
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
@@ -37,7 +41,6 @@ vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
 vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 -- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)

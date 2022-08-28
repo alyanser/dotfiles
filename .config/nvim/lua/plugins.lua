@@ -5,19 +5,23 @@ require("packer").startup(function()
 	}
 
 	use {
+		'nvim-neo-tree/neo-tree.nvim'
+	}
+
+	use {
+		'joshdick/onedark.vim'
+	}
+
+	use {
+		'CosmicNvim/cosmic-ui',
+		requires = {
+			'MunifTanjim/nui.nvim',
+			'nvim-lua/plenary.nvim'
+		},
+	}
+
+	use {
 		'lewis6991/impatient.nvim' 
-	}
-
-	use {
-		'navarasu/onedark.nvim'
-	}
-
-	use {
-		'akinsho/toggleterm.nvim'
-	}
-
-	use {
-		'kyazdani42/nvim-tree.lua'
 	}
 
 	use {
