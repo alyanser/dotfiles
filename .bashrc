@@ -6,7 +6,7 @@ shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
 
-alias grep="grep --color=always"
+alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
 alias batstat="watch -n 0.1 cat /sys/class/power_supply/BAT0/status"
@@ -22,13 +22,16 @@ alias ls="exa --color=always"
 alias ll="ls -al"
 alias mixer="pulsemixer"
 alias cat="bat --theme=base16 --paging=never"
+alias make="make LLVM=1 -j$(nproc)"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
+alias clear="clear && zwaves"
 
 HISTFIILESIZE= # unlimited
-PS1=$'\[\e[31m\]\u :: \[\e[34m\]\w\[\e[m\]\[\e[35m\] $ \[\e[39m\]'
-export PATH=$PATH:~/.local/bin
+PS1=$'\[\e[33m\]\u :: \[\e[34m\]\w\[\e[m\] \[\e[33m\]$\[\e[m\] '
+
 export EDITOR="nvim"
+export VISUAL="nvim"
 
 # colorful man pages
 export LESS_TERMCAP_mb=$'\e[1;31m'
@@ -44,4 +47,4 @@ stty werase undef
 bind '\C-w:unix-filename-rubout'
 
 [[ ! $TMUX ]] && tmux -2
-pfetch
+colorwheel

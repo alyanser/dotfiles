@@ -1,10 +1,6 @@
 ! swap tilde and grave
 keycode 49 = asciitilde grave asciitilde grave
 
-! right shift as backspace
-remove shift = Shift_R
-keycode 62 = BackSpace BackSpace BackSpace BackSpace
-
 ! swap caps_lock with ctrl_l
 remove Lock = Caps_Lock
 remove Control = Control_L
@@ -12,12 +8,3 @@ keysym Caps_Lock = Control_L
 keysym Control_L = Caps_Lock
 add Lock = Caps_Lock
 add Control = Control_L
-
-! map right_alt to mode_switch
-keycode 108 = Mode_switch Mode_switch Mode_switch Mode_switch
-
-! vim nav with mode_switch
-keycode 43 = h H Left H
-keycode 44 = j J Down J
-keycode 45 = k K Up K
-keycode 46 = l L Right L

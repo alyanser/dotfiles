@@ -20,6 +20,7 @@ import XMonad.Layout.Renamed
 import XMonad.Layout.Accordion
 
 import XMonad.Actions.Search
+import XMonad.Actions.GridSelect
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SinkAll
@@ -125,6 +126,7 @@ my_keys = [
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
+		("M-i", goToSelected def),
 		("M-y", withFocused $ windows . W.sink),
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),

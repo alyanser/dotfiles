@@ -4,8 +4,8 @@
 xbanish &
 nitrogen --restore &
 picom --experimental-backends &
-polybar -r & 
-xiccd &
+xsetroot -cursor_name left_ptr &
+polybar & 
 xcape -e 'Control_L=Escape' -t 200
 
 [[ -f ~/.ghcup/env ]] && source ~/.ghcup/env

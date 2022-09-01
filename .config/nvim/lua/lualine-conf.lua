@@ -1,1 +1,1 @@
-require("evil_lualine")
+require("lualine").setup{}
