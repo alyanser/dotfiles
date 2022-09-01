@@ -6,7 +6,7 @@ font:
     y: 0
 
   normal:
-    amily: caskaydiacove nerd font mono
+    family: caskaydiacove nerd font mono
     style: bold
 
   italic:
