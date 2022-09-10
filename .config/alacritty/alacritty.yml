@@ -6,22 +6,22 @@ font:
     y: 0
 
   normal:
-    family: caskaydiacove nerd font mono
+    family: caskaydiacove nerd font 
     style: bold
 
   italic:
-    family: caskaydiacove nerd font mono
+    family: caskaydiacove nerd font 
     style: bold
 
   semibold:
-    family: caskaydiacove nerd font mono
+    family: caskaydiacove nerd font 
     style: bold
 
   bold:
-    family: caskaydiacove nerd font mono
+    family: caskaydiacove nerd font 
     style: bold
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
@@ -30,9 +30,9 @@ key_bindings:
 
 window:
   padding:
-    x: 7
-    y: 7
-  dynamic_padding: false
+    x: 13
+    y: 13
+  dynamic_padding: true
 
 # Colors (One Half Dark)
 colors:

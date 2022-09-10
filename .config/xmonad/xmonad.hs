@@ -48,7 +48,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 25
 my_lock_screen = "slock"
-my_layouts = full ||| tall
+my_layouts = full ||| tall ||| mirror_tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -92,7 +92,8 @@ ratio = 1 / 2
 delta = 2 / 100
 
 manage_hook = composeAll [
-		className =? "firefox" --> doShift "1"
+		className =? "firefox" --> doShift "1",
+		className =? "discord" --> doShift "2"
 	]
 
 scratchpads = [
@@ -103,10 +104,10 @@ scratchpads = [
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.895 -- height
-				w = 0.964 -- width
-				t = 0.073 -- distance from top edge
-				l = 0.019 -- distance from left edge
+				h = 0.8 -- height
+				w = 0.9 -- width
+				t = 0.12 -- distance from top edge
+				l = 0.05 -- distance from left edge
 
 my_keys = [
 		("M-r", spawn "firefox"),

@@ -26,9 +26,9 @@ nvim_set_keymap("n", "<leader>t", "<cmd> TroubleToggle <return>", opts)
 nvim_set_keymap("n", "<leader>g", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 nvim_set_keymap("n", "<leader>b", "<cmd> lua require('telescope.builtin').buffers() <cr>", opts)
+nvim_set_keymap("n", "/", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>rn", "<cmd> lua require('cosmic-ui').rename() <cr>", opts)
-
 nvim_set_keymap("n", "<leader>a", "<cmd> lua require('cosmic-ui').code_actions() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)

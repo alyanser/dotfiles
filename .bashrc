@@ -15,7 +15,7 @@ alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias nc="ncmpcpp -q"
-alias objdump="objdump --visualize-jumps=color -M intel -zw"
+alias objdump="objdump --visualize-jumps -M intel -zw"
 alias go="ninja"
 alias vi="nvim"
 alias ls="exa --color=always"
@@ -25,11 +25,11 @@ alias cat="bat --theme=base16 --paging=never"
 alias make="make LLVM=1 -j$(nproc)"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
-alias clear="clear && zwaves"
 
 HISTFIILESIZE= # unlimited
-PS1=$'\[\e[33m\]\u :: \[\e[34m\]\w\[\e[m\] \[\e[33m\]$\[\e[m\] '
+PS1=$'\[\e[32m\][\[\e[33m\]\u @ \[\e[34m\]\w\[\e[m\]\[\e[32m\]] \[\e[35m\]$\[\e[m\] '
 
+export PATH=$PATH:~/.local/bin:.
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -47,4 +47,4 @@ stty werase undef
 bind '\C-w:unix-filename-rubout'
 
 [[ ! $TMUX ]] && tmux -2
-colorwheel
+zwaves && echo
