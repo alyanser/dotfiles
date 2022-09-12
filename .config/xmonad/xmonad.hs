@@ -10,6 +10,7 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.Maximize
 import XMonad.Layout.Spacing
@@ -37,7 +38,8 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	layoutHook = my_layouts,
 	focusFollowsMouse = my_focus_follows_mouse,
 	manageHook = namedScratchpadManageHook scratchpads <+> manage_hook,
-	clickJustFocuses = my_click_just_focuses
+	clickJustFocuses = my_click_just_focuses,
+	startupHook = setWMName "LG3D"
 }
 	`additionalKeysP` my_keys
 
@@ -46,7 +48,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 25
+my_spacing = 30
 my_lock_screen = "slock"
 my_layouts = full ||| tall ||| mirror_tall
 
@@ -112,7 +114,7 @@ scratchpads = [
 my_keys = [
 		("M-r", spawn "firefox"),
 		("M-w", kill),
-		("M-g", spawn "rofi -modi combi -combi run,window,drun -matching fuzzy -show combi"),
+		("M-g", spawn "rofi -modi combi -combi run,window,drun -show combi"),
 		("M-f", withFocused $ sendMessage . maximizeRestore),
 		("M--", promote),
 		("M-d", withFocused hideWindow),

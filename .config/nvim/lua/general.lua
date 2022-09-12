@@ -3,17 +3,16 @@ local opt = vim.opt
 
 opt.ignorecase = true
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.termguicolors = true
-opt.guicursor = nil
+-- opt.guicursor = nil
 opt.autoindent = true
-opt.cursorline = false
+opt.cursorline = true
 opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
-opt.lazyredraw = true
 opt.list = true
-opt.scrolloff = 3
-opt.wrap = true
+opt.scrolloff = 8
 opt.laststatus = 3
+opt.wrap = true
 
 opt.listchars = {
 	tab = '❘-',
@@ -27,18 +26,9 @@ opt.listchars = {
 g.mapleader = ' '
 g.noexpandtab = true
 g.nofixedenofline = true
-g.loadedmatchparen = true
-
-g.tokyonight_style = "storm"
-g.tokyonight_hide_inactive_statusline = false
-
-g.tokyonight_colors = {
-	error = "red",
-	warning = "orange",
-	hint = "purple",
-}
+g.loadedmatchparen = false
 
 vim.cmd [[ set mouse=a ]]
 vim.cmd [[ set nocompatible ]]
+vim.cmd [[ set noshowcmd ]]
 vim.cmd [[ syntax on ]]
-vim.cmd [[ colorscheme tokyonight ]]

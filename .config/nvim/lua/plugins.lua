@@ -9,10 +9,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'joshdick/onedark.vim'
-	}
-
-	use {
 		'CosmicNvim/cosmic-ui',
 		requires = {
 			'MunifTanjim/nui.nvim',
@@ -21,11 +17,19 @@ require("packer").startup(function()
 	}
 
 	use {
+		'ethanholz/nvim-lastplace'
+	}
+
+	use {
 		'lewis6991/impatient.nvim' 
 	}
 
 	use {
 		'tpope/vim-surround'
+	}
+
+	use {
+		'akinsho/toggleterm.nvim'
 	}
 
 	use {
@@ -78,11 +82,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	}
-
-	use {
 		'neovim/nvim-lspconfig'
 	}
 
@@ -99,6 +98,6 @@ require("packer").startup(function()
 	}
 
 	use {
-		'L3MON4D3/LuaSnip'
+		'L3MON4D3/LuaSnip',
 	}
 end)

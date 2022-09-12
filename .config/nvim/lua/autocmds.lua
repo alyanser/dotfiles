@@ -33,3 +33,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
 	command = "set cino+=L0",
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set cinoptions=l1",
+})

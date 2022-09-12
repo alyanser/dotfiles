@@ -23,17 +23,17 @@ alias ll="ls -al"
 alias mixer="pulsemixer"
 alias cat="bat --theme=base16 --paging=never"
 alias make="make LLVM=1 -j$(nproc)"
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G Ninja"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -G Ninja"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -GNinja"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
+alias clear="clear && zwaves && echo"
 
-HISTFIILESIZE= # unlimited
+HISTFIILESIZE=
 PS1=$'\[\e[32m\][\[\e[33m\]\u @ \[\e[34m\]\w\[\e[m\]\[\e[32m\]] \[\e[35m\]$\[\e[m\] '
 
 export PATH=$PATH:~/.local/bin:.
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-# colorful man pages
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;31m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -42,9 +42,8 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-# make C-w erase previous word till '/' only
 stty werase undef
 bind '\C-w:unix-filename-rubout'
 
-[[ ! $TMUX ]] && tmux -2
+[[ ! $TMUX ]] && tmux
 zwaves && echo

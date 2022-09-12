@@ -21,12 +21,16 @@ font:
     family: caskaydiacove nerd font 
     style: bold
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
-  - { key: X, mods: Control, action: Copy }
-  - { key: N, mods: Alt, action: SpawnNewInstance }
+
+cursor:
+  style:
+    shape: block
+    blinking: Always
+  blink_interval: 500
 
 window:
   padding:
