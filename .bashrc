@@ -6,10 +6,12 @@ shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
 
+stty werase undef
+bind '\C-w:unix-filename-rubout'
+
 alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
-alias batstat="watch -n 0.1 cat /sys/class/power_supply/BAT0/status"
 alias py="python"
 alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
@@ -27,10 +29,30 @@ alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -G
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
 alias clear="clear && zwaves && echo"
 
-HISTFIILESIZE=
-PS1=$'\[\e[32m\][\[\e[33m\]\u @ \[\e[34m\]\w\[\e[m\]\[\e[32m\]] \[\e[35m\]$\[\e[m\] '
+function __prompt_command__(){
+	local status="$?"
+
+	local reset_col='\[\e[0m\]'
+	local red='\[\e[0;31m\]'
+	local green='\[\e[0;32m\]'
+	local orange='\[\e[1;33m\]'
+	local blue='\[\e[1;34m\]'
+	local purple='\[\e[0;35m\]'
+
+	PS1="${orange}\u ${purple}@ ${blue}\W"
+
+	if [[ $status != 0 ]];then
+		PS1+="${orange} ($status)${red} ﲅ  ${reset_col}"
+	else
+		PS1+="${green}   ${reset_col}"
+	fi
+}
+
+PROMPT_COMMAND=__prompt_command__
+HISTFILESIZE=
 
 export PATH=$PATH:~/.local/bin:.
+
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -42,8 +64,5 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-stty werase undef
-bind '\C-w:unix-filename-rubout'
-
-[[ ! $TMUX ]] && tmux
-zwaves && echo
+[[ ! $TMUX ]] && tmux -2
+pfetch

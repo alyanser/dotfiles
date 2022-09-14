@@ -48,7 +48,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 30
+my_spacing = 25
 my_lock_screen = "slock"
 my_layouts = full ||| tall ||| mirror_tall
 
@@ -99,17 +99,27 @@ manage_hook = composeAll [
 	]
 
 scratchpads = [
-	NS "terminal" spawn_term find_term manage_term
+	NS "terminal" spawn_term find_term manage_term,
+	NS "devdocs" spawn_docs find_docs manage_docs
 	]
 	where
 		spawn_term = my_terminal ++ "--class scratch_terminal,scratch_terminal"
 		find_term = className =? "scratch_terminal"
 		manage_term = customFloating $ W.RationalRect l t w h
 			where
-				h = 0.8 -- height
-				w = 0.9 -- width
-				t = 0.12 -- distance from top edge
-				l = 0.05 -- distance from left edge
+				h = 0.895 -- height
+				w = 0.965 -- width
+				t = 0.078 -- distance from top edge
+				l = 0.019 -- distance from left edge
+
+		spawn_docs = "/usr/bin/firefoxpwa site launch 01GCVHGMG6BT6T0K9ESVMQCTBG"
+		find_docs = className =? "FFPWA-01GCVHGMG6BT6T0K9ESVMQCTBG"
+		manage_docs = customFloating $ W.RationalRect l t w h
+			where
+				h = 0.895 -- height
+				w = 0.965 -- width
+				t = 0.078 -- distance from top edge
+				l = 0.019 -- distance from left edge
 
 my_keys = [
 		("M-r", spawn "firefox"),
@@ -121,6 +131,7 @@ my_keys = [
 		("M-v", popOldestHiddenWindow),
 		("M-<Return>", spawn my_terminal),
 		("C-q", namedScratchpadAction scratchpads "terminal"),
+		("C-=", namedScratchpadAction scratchpads "devdocs"),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
