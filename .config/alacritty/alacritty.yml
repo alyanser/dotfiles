@@ -6,39 +6,33 @@ font:
     y: 0
 
   normal:
-    family: caskaydiacove nerd font 
+    family: caskaydiacove nerd font
     style: bold
 
   italic:
-    family: caskaydiacove nerd font 
+    family: caskaydiacove nerd font
     style: bold
 
   semibold:
-    family: caskaydiacove nerd font 
+    family: caskaydiacove nerd font
     style: bold
 
   bold:
-    family: caskaydiacove nerd font 
+    family: caskaydiacove nerd font
     style: bold
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
 
-cursor:
-  style:
-    shape: block
-    blinking: Always
-  blink_interval: 500
-
 window:
   padding:
-    x: 13
-    y: 13
+    x: 4
+    y: 4
   dynamic_padding: true
 
-# Colors (One Half Dark)
+# Colors (Tokyonight storm)
 colors:
   name: TokyoNight Storm
   author: Folke

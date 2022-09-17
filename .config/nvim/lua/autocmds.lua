@@ -7,15 +7,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set tabstop=10",
+	command = "set tabstop=9",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set shiftwidth=10",
+	command = "set shiftwidth=9",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set softtabstop=10",
+	command = "set softtabstop=9",
 })
 
 vim.api.nvim_create_autocmd("FileType", {

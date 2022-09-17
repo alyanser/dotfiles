@@ -3,16 +3,17 @@ local opt = vim.opt
 
 opt.ignorecase = true
 opt.number = true
-opt.relativenumber = false
 opt.termguicolors = true
+opt.relativenumber = true
 opt.guicursor = nil
 opt.autoindent = true
-opt.cursorline = false
+opt.cursorline = true
 opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 opt.list = true
 opt.wrap = true
 opt.laststatus = 3
-opt.scrolloff = 0
+opt.scrolloff = 1
+opt.wrap = false
 
 opt.listchars = {
 	tab = '❘-',
@@ -30,5 +31,4 @@ g.loadedmatchparen = false
 
 vim.cmd [[ set mouse=a ]]
 vim.cmd [[ set nocompatible ]]
-vim.cmd [[ set noshowcmd ]]
 vim.cmd [[ syntax on ]]

@@ -12,22 +12,21 @@ bind '\C-w:unix-filename-rubout'
 alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
-alias py="python"
+alias py="python -q"
 alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias nc="ncmpcpp -q"
-alias objdump="objdump --visualize-jumps -M intel -zw"
+alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias go="ninja"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias mixer="pulsemixer"
 alias cat="bat --theme=base16 --paging=never"
 alias make="make LLVM=1 -j$(nproc)"
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release --toolchain ~/.toolchain.cmake -GNinja"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug --toolchain ~/.toolchain.cmake -GNinja"
-alias clear="clear && zwaves && echo"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug"
+alias clear="clear; zwaves; echo"
 
 function __prompt_command__(){
 	local status="$?"
@@ -39,10 +38,10 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${orange}\u ${purple}@ ${blue}\W"
+	PS1="${purple}[${orange}\u${purple}::${blue}\w${purple}]"
 
 	if [[ $status != 0 ]];then
-		PS1+="${orange} ($status)${red} ﲅ  ${reset_col}"
+		PS1+=" ${orange}(${status})${red}   ${reset_col}"
 	else
 		PS1+="${green}   ${reset_col}"
 	fi
@@ -50,9 +49,9 @@ function __prompt_command__(){
 
 PROMPT_COMMAND=__prompt_command__
 HISTFILESIZE=
+HISTSIZE=
 
 export PATH=$PATH:~/.local/bin:.
-
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -64,5 +63,5 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ ! $TMUX ]] && tmux -2
+[[ ! $TMUX ]] && tmux
 pfetch
