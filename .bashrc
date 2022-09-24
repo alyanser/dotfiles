@@ -24,9 +24,8 @@ alias ls="exa --color=always"
 alias ll="ls -al"
 alias cat="bat --theme=base16 --paging=never"
 alias make="make LLVM=1 -j$(nproc)"
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug"
-alias clear="clear; zwaves; echo"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja"
 
 function __prompt_command__(){
 	local status="$?"
@@ -38,10 +37,10 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${purple}[${orange}\u${purple}::${blue}\w${purple}]"
+	PS1="${purple}[${orange}\u${purple} :-: ${blue}\w${purple}]"
 
 	if [[ $status != 0 ]];then
-		PS1+=" ${orange}(${status})${red}   ${reset_col}"
+		PS1+="${red}   ${reset_col}"
 	else
 		PS1+="${green}   ${reset_col}"
 	fi
@@ -63,5 +62,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ ! $TMUX ]] && tmux
 pfetch

@@ -1,9 +1,4 @@
 # the t key isn't used and it's easier to press than /, so lets use it
-def_key "t"
-    find
-def_key "t"
-    find_item_forward
-
 def_key "+"
     show_clock
 def_key "="

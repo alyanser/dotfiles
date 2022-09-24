@@ -1,8 +1,12 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 nvim_set_keymap("i", "<C-f>", "<C-o>A;", opts)
+nvim_set_keymap("i", "<C-e>", "<C-o>A", opts)
+nvim_set_keymap("i", "<C-a>", "<C-o>I", opts)
+
+nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
+nvim_set_keymap("n", "<C-\\>", "<cmd> ToggleTerm <Return>", opts)
 
 nvim_set_keymap("n", "<leader>\\", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 

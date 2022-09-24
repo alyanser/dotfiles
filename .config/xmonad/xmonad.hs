@@ -50,7 +50,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 25
 my_lock_screen = "slock"
-my_layouts = full ||| tall ||| mirror_tall
+my_layouts = tall ||| mirror_tall ||| full
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0

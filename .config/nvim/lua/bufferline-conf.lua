@@ -4,7 +4,7 @@ require('bufferline').setup {
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
 		color_icons = true,
-		show_close_icon = true,
+		show_close_icon = false,
 		always_show_bufferline = true,
 		separator_style = "thick",
 		max_name_length = 14,
