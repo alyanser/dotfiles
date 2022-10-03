@@ -7,10 +7,9 @@ require('bufferline').setup {
 		show_close_icon = false,
 		always_show_bufferline = true,
 		separator_style = "thick",
-		max_name_length = 14,
+		max_name_length = 20,
 		max_prefix_length = 13,
 		tab_size = 20,
-
 		offsets = {
 			{
 				filetype = "neo-tree",

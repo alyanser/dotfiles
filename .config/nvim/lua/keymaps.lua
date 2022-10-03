@@ -14,6 +14,8 @@ nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
 
+nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', opts)
+
 nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 nvim_set_keymap("n", "<leader>1", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
 nvim_set_keymap("n", "<leader>2", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
@@ -40,9 +42,6 @@ nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitio
 nvim_set_keymap("n", "<leader>gc", "<cmd> lua require('telescope.builtin').git_commits() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>ts", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
-
-nvim_set_keymap("n", "<leader>rn", "<cmd> lua require('cosmic-ui').rename() <cr>", opts)
-nvim_set_keymap("n", "<leader>a", "<cmd> lua require('cosmic-ui').code_actions() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)

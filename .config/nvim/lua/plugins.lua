@@ -12,7 +12,21 @@ require("packer").startup(function()
 	}
 
 	use {
+		'filipdutescu/renamer.nvim',
+		branch = 'master',
+		requires = 'nvim-lua/plenary.nvim',
+
+		config = function()
+			require("renamer-conf")
+		end
+	}
+
+	use {
 		'nvim-neo-tree/neo-tree.nvim',
+		requires = { 
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+		},
 		config = function()
 			require("neotree-conf")
 		end,
@@ -27,22 +41,10 @@ require("packer").startup(function()
 	}
 
 	use {
-		'CosmicNvim/cosmic-ui',
-		requires = {
-			'MunifTanjim/nui.nvim',
-			'nvim-lua/plenary.nvim'
-		},
-	}
-
-	use {
 		'ethanholz/nvim-lastplace',
 		config = function()
 			require('nvim-lastplace').setup{}
 		end
-	}
-
-	use {
-		'mhinz/vim-startify'
 	}
 
 	use {
@@ -57,7 +59,7 @@ require("packer").startup(function()
 		'nvim-treesitter/nvim-treesitter',
 		config = function()
 			require("treesitter-conf")
-		end
+		end,
 	}
 
 	use {
@@ -93,7 +95,7 @@ require("packer").startup(function()
 		requires = 'kyazdani42/nvim-web-devicons',
 		config = function()
 			require("bufferline-conf")
-		end
+		end,
 	}
 
 	use {
@@ -113,7 +115,7 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("lualine-conf")
-		end
+		end,
 	}
 
 	use {

@@ -3,9 +3,7 @@ import XMonad.Prompt
 import XMonad.ManageHook
 
 import XMonad.Util.EZConfig
-import XMonad.Util.Ungrab
 import XMonad.Util.NamedScratchpad
-import XMonad.Util.WorkspaceCompare
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
@@ -18,10 +16,7 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
-import XMonad.Layout.Accordion
 
-import XMonad.Actions.Search
-import XMonad.Actions.GridSelect
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
 import XMonad.Actions.SinkAll
@@ -44,13 +39,13 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	`additionalKeysP` my_keys
 
 my_terminal = "alacritty "
-my_focus_follows_mouse = True
+my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 25
 my_lock_screen = "slock"
-my_layouts = tall ||| mirror_tall ||| full
+my_layouts = full ||| tall ||| mirror_tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -129,12 +124,10 @@ my_keys = [
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
-		("M-i", goToSelected def),
 		("M-y", withFocused $ windows . W.sink),
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
-		("M-e", promptSearch def google),
 		("M-m", spawn my_lock_screen),
-		("M-p", spawn "scrot ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
-		("M-S-p", spawn "scrot -s ~/Pictures/'%Y-%m-%d-%s_$wx$h.png' -q 100")
+		("M-p", spawn "scrot ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
+		("M-S-p", spawn "scrot -s ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]

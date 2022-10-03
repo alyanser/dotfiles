@@ -4,14 +4,13 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.guicursor = nil
-opt.autoindent = true
-opt.cursorline = false
+opt.cursorline = true
 opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
 opt.list = true
 opt.laststatus = 3
-opt.scrolloff = 1
+opt.scrolloff = 3
 opt.wrap = false
 
 opt.listchars = {
@@ -24,11 +23,9 @@ opt.listchars = {
 }
 
 g.mapleader = ' '
-g.noexpandtab = true
 g.nofixedenofline = true
-g.loaded_matchparen = true
 
-vim.cmd [[ set mouse=a ]]
 vim.cmd [[ set nocompatible ]]
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
 vim.cmd [[ set undofile ]]
+vim.cmd [[ set cmdheight=0 ]]

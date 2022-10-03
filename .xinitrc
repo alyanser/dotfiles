@@ -1,12 +1,12 @@
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 [[ -f ~/.Xresources ]] && xrdb -m ~/.Xresources
 
+polybar & 
 xbanish &
-nitrogen --restore &
 picom --experimental-backends &
 xsetroot -cursor_name left_ptr &
-polybar & 
-xcape -e 'Control_L=Escape' -t 200
+xcape -e 'Control_L=Escape' -t 500 &
+nitrogen --restore &
 
 [[ -f ~/.ghcup/env ]] && source ~/.ghcup/env
 
