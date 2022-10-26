@@ -5,17 +5,9 @@ require("packer").startup(function()
 	}
 
 	use {
-		'lewis6991/impatient.nvim',
-		config = function()
-			require("impatient")
-		end
-	}
-
-	use {
 		'filipdutescu/renamer.nvim',
 		branch = 'master',
 		requires = 'nvim-lua/plenary.nvim',
-
 		config = function()
 			require("renamer-conf")
 		end
@@ -34,10 +26,9 @@ require("packer").startup(function()
 
 	use {
 		'akinsho/toggleterm.nvim',
-		cmd = 'ToggleTerm',
 		config = function()
 			require("toggleterm-conf")
-		end,
+		end
 	}
 
 	use {
@@ -52,7 +43,10 @@ require("packer").startup(function()
 	}
 
 	use {
-		'lewis6991/gitsigns.nvim'
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require("gitsigns-conf")
+		end
 	}
 
 	use {
@@ -73,15 +67,15 @@ require("packer").startup(function()
 	use {
 		'phaazon/hop.nvim',
 		config = function()
-			require("hop").setup{}
+			require("hop-conf")
 		end
 	}
 
 	use {
 		'numToStr/Comment.nvim',
-		keys = {'gcc', 'gbc'},
+		keys = { 'gg', 'gcc' },
 		config = function()
-			require("Comment").setup{}
+			require("comment-conf")
 		end
 	}
 

@@ -6,6 +6,7 @@ nvim_set_keymap("i", "<C-e>", "<C-o>A", opts)
 nvim_set_keymap("i", "<C-a>", "<C-o>I", opts)
 
 nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
+nvim_set_keymap("v", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 nvim_set_keymap("n", "<C-\\>", "<cmd> ToggleTerm <Return>", opts)
 
 nvim_set_keymap("n", "<leader>\\", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
@@ -40,7 +41,6 @@ nvim_set_keymap("n", "<leader>t", "<cmd> lua require('telescope.builtin').lsp_ty
 nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitions() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>gc", "<cmd> lua require('telescope.builtin').git_commits() <cr>", opts)
-
 nvim_set_keymap("n", "<leader>ts", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
@@ -55,4 +55,3 @@ vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
--- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)

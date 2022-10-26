@@ -3,7 +3,7 @@ font:
 
   offset:
     x: 0
-    y: 1
+    y: 0
 
   normal:
     family: caskaydiacove nerd font
@@ -21,15 +21,18 @@ font:
     family: caskaydiacove nerd font
     style: bold
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
+  - { key: X, mods: Control, action: Copy }
+  - { key: I, mods: Control, action: CreateNewWindow }
+  - { key: S, mods: Control, action: ToggleViMode }
 
 window:
   padding:
-    x: 13
-    y: 13
+    x: 15
+    y: 15
   dynamic_padding: true
 
 # Colors (Tokyonight storm)

@@ -1,6 +1,6 @@
 require('bufferline').setup {
 	options = {
-		mode = "buffers",
+		mode = "tabs",
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
 		color_icons = true,

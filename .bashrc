@@ -5,6 +5,7 @@
 shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
+shopt -s checkhash
 
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -16,16 +17,17 @@ alias py="python -q"
 alias gdb="gdb -q"
 alias cli="xclip -selection clipboard"
 alias tree="tree -C"
-alias nc="ncmpcpp -q"
+alias ncm="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias go="ninja"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
 alias cat="bat --theme=base16 --paging=never"
-alias make="make LLVM=1 -j$(nproc)"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja --toolchain ~/.toolchain.cmake"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja --toolchain ~/.toolchain.cmake"
+alias make="make -j$(nproc)"
+alias clear="clear; zwaves; echo"
 
 function __prompt_command__(){
 	local status="$?"
@@ -37,12 +39,12 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${purple}[${orange}\u${purple}::${blue}\w${purple}]"
+	PS1="${purple}( ${orange}\u${purple}::${blue}\w${purple} )"
 
 	if [[ $status != 0 ]];then
-		PS1+="${red}   ${reset_col}"
+		PS1+="${red} $> ${reset_col}"
 	else
-		PS1+="${green}   ${reset_col}"
+		PS1+="${orange} $> ${reset_col}"
 	fi
 }
 
@@ -62,5 +64,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ ! $TMUX ]] && tmux -2
-zwaves; echo
+pfetch

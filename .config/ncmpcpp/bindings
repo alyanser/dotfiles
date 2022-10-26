@@ -29,8 +29,11 @@ def_key "n"
 def_key "N"
     previous_found_item
 
-# not used but bound
-def_key "J"
-    move_sort_order_down
-def_key "K"
-    move_sort_order_up
+def_key "ctrl-c"
+  delete_playlist_items
+
+def_key "ctrl-c"
+  delete_browser_items
+
+def_key "ctrl-c"
+  delete_stored_playlist

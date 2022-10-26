@@ -3,7 +3,6 @@ import XMonad.Prompt
 import XMonad.ManageHook
 
 import XMonad.Util.EZConfig
-import XMonad.Util.NamedScratchpad
 
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageHelpers
@@ -19,12 +18,12 @@ import XMonad.Layout.Renamed
 
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
+import XMonad.Actions.CycleRecentWS
 import XMonad.Actions.SinkAll
 import XMonad.Actions.FindEmptyWorkspace
 
+import Control.Monad (liftM2)
 import qualified XMonad.StackSet as W
-
-------------------------------------------------------------------
 
 main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	terminal = my_terminal,
@@ -32,8 +31,8 @@ main = xmonad . docks . ewmhFullscreen . ewmh $ def {
 	borderWidth = my_border_width,
 	layoutHook = my_layouts,
 	focusFollowsMouse = my_focus_follows_mouse,
-	manageHook = namedScratchpadManageHook scratchpads <+> manage_hook,
 	clickJustFocuses = my_click_just_focuses,
+	manageHook = my_manage_hook,
 	startupHook = setWMName "LG3D"
 }
 	`additionalKeysP` my_keys
@@ -43,7 +42,7 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 25
+my_spacing = 0
 my_lock_screen = "slock"
 my_layouts = full ||| tall ||| mirror_tall
 
@@ -88,23 +87,13 @@ nmaster = 1
 ratio = 1 / 2
 delta = 2 / 100
 
-manage_hook = composeAll [
-		className =? "firefox" --> doShift "1",
-		className =? "discord" --> doShift "2"
+my_manage_hook = composeAll [
+		className =? "firefox" --> viewShift "1",
+		className =? "Alacritty" --> viewShift "2",
+		className =? "discord" --> viewShift "3",
+		className =? "Upwork" --> viewShift "4"
 	]
-
-scratchpads = [
-	NS "terminal" spawn_term find_term manage_term
-	]
-	where
-		spawn_term = my_terminal ++ "--class scratch_terminal,scratch_terminal"
-		find_term = className =? "scratch_terminal"
-		manage_term = customFloating $ W.RationalRect l t w h
-			where
-				h = 0.895 -- height
-				w = 0.965 -- width
-				t = 0.078 -- distance from top edge
-				l = 0.019 -- distance from left edge
+	where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
 my_keys = [
 		("M-r", spawn "firefox"),
@@ -115,12 +104,12 @@ my_keys = [
 		("M-d", withFocused hideWindow),
 		("M-v", popOldestHiddenWindow),
 		("M-<Return>", spawn my_terminal),
-		("C-q", namedScratchpadAction scratchpads "terminal"),
-		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-c", moveTo Next $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-b", moveTo Prev $ hiddenWS :&: emptyWS :&: ignoringWSs [scratchpadWorkspaceTag]),
-		("M-\\", toggleWS' ["NSP"]),
+		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS),
+		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS),
+		("M-c", moveTo Next $ hiddenWS :&: emptyWS),
+		("M-b", moveTo Prev $ hiddenWS :&: emptyWS),
+		("C-q", toggleRecentNonEmptyWS),
+		("M-\\", toggleRecentNonEmptyWS),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
