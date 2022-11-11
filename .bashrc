@@ -5,7 +5,6 @@
 shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
-shopt -s checkhash
 
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -19,15 +18,19 @@ alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias ncm="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps -M intel -zwd"
-alias go="ninja"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias cat="bat --theme=base16 --paging=never"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja --toolchain ~/.toolchain.cmake"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja --toolchain ~/.toolchain.cmake"
 alias make="make -j$(nproc)"
-alias clear="clear; zwaves; echo"
+alias clear="clear; zwaves"
+alias go="ninja" # sorry google :(
+
+function zwaves(){
+	printf "\033[31m▀■▄ \033[32m▀■▄ \033[33m▀■▄ \033[34m▀■▄ \033[35m▀■▄ \033[36m▀■▄\033[0m
+ \033[91m▀■▄ \033[92m▀■▄ \033[93m▀■▄ \033[94m▀■▄ \033[95m▀■▄ \033[96m▀■▄\033[0m\n\n"
+}
 
 function __prompt_command__(){
 	local status="$?"
@@ -39,12 +42,12 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${purple}( ${orange}\u${purple}::${blue}\w${purple} )"
+	PS1="${purple}( ${orange}\u${purple} @ ${blue}\w${purple} )"
 
 	if [[ $status != 0 ]];then
-		PS1+="${red} $> ${reset_col}"
+		PS1+="${red} ${red}$ ${reset_col}"
 	else
-		PS1+="${orange} $> ${reset_col}"
+		PS1+="${green} $ ${reset_col}"
 	fi
 }
 
@@ -64,4 +67,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-pfetch
+zwaves

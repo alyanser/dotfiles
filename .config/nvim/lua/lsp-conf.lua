@@ -1,11 +1,23 @@
 local lsp = require("lspconfig")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lsp["clangd"].setup{
 	single_file_support = true,
-	command = { 'clangd', '--background-index', '-j=4', '--head-insertion=never', '--clang-tidy=false', '--completion-style=detailed' },
+	command = { 'clangd', '--background-index', '-j=6', '--head-insertion=never', '--clang-tidy=false', '--completion-style=detailed' },
+	capabilities = capabilities,
 }
 
-lsp["pyright"].setup{}
+lsp["pyright"].setup{
+	capabilities = capabilities,
+}
+
+lsp["bashls"].setup{
+	capabilities = capabilities,
+}
+
+lsp["cmake"].setup{
+	capabilities = capabilities,
+}
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 

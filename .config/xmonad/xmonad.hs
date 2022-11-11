@@ -42,22 +42,22 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 0
+my_spacing = 5
 my_lock_screen = "slock"
-my_layouts = full ||| tall ||| mirror_tall
+my_layouts = mirror_tall ||| full ||| tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ spacing my_spacing 
+	$ smartSpacing my_spacing 
 	$ Tall nmaster delta ratio
 
 mirror_tall = renamed [Replace "mirror tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ spacing my_spacing 
+	$ smartSpacing my_spacing 
 	$ Mirror 
 	$ Tall nmaster delta ratio
 
@@ -65,14 +65,14 @@ accordion = renamed [Replace "accordion"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ spacing my_spacing
+	$ smartSpacing my_spacing
 	$ Accordion
 
 mirror_accordion = renamed [Replace "mirror accordion"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ spacing my_spacing
+	$ smartSpacing my_spacing
 	$ Mirror
 	$ Accordion
 
@@ -80,7 +80,7 @@ full = renamed [Replace "full"]
 	$ maximizeWithPadding 0
 	$ avoidStruts
 	$ hiddenWindows 
-	$ spacing my_spacing
+	$ smartSpacing my_spacing
 	$ Full
 
 nmaster = 1
@@ -91,7 +91,8 @@ my_manage_hook = composeAll [
 		className =? "firefox" --> viewShift "1",
 		className =? "Alacritty" --> viewShift "2",
 		className =? "discord" --> viewShift "3",
-		className =? "Upwork" --> viewShift "4"
+		className =? "obsidian" --> viewShift "4",
+		className =? "Upwork" --> viewShift "5"
 	]
 	where viewShift = doF . liftM2 (.) W.greedyView W.shift
 
@@ -103,12 +104,11 @@ my_keys = [
 		("M--", promote),
 		("M-d", withFocused hideWindow),
 		("M-v", popOldestHiddenWindow),
-		("M-<Return>", spawn my_terminal),
+		("M-i", spawn my_terminal),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS),
 		("M-b", moveTo Prev $ hiddenWS :&: emptyWS),
-		("C-q", toggleRecentNonEmptyWS),
 		("M-\\", toggleRecentNonEmptyWS),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),

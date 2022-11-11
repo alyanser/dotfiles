@@ -1,7 +1,13 @@
+require("impatient")
+
 require("packer").startup(function()
 
 	use {
 		'wbthomason/packer.nvim'
+	}
+
+	use {
+		'lewis6991/impatient.nvim',
 	}
 
 	use {
@@ -22,13 +28,6 @@ require("packer").startup(function()
 		config = function()
 			require("neotree-conf")
 		end,
-	}
-
-	use {
-		'akinsho/toggleterm.nvim',
-		config = function()
-			require("toggleterm-conf")
-		end
 	}
 
 	use {
@@ -81,6 +80,11 @@ require("packer").startup(function()
 
 	use {
 		'folke/tokyonight.nvim',
+	}
+
+	use {
+		'sindrets/diffview.nvim',
+		requires = 'nvim-lua/plenary.nvim'
 	}
 
 	use {
