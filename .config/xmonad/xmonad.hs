@@ -15,6 +15,7 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.Accordion
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Renamed
+import XMonad.Layout.Tabbed
 
 import XMonad.Actions.Promote
 import XMonad.Actions.CycleWS
@@ -42,22 +43,22 @@ my_focus_follows_mouse = False
 my_click_just_focuses = False
 my_border_width = 0
 my_mod_mask = mod4Mask
-my_spacing = 5
+my_spacing = 0
 my_lock_screen = "slock"
-my_layouts = mirror_tall ||| full ||| tall
+my_layouts = full ||| tall ||| mirror_tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartSpacing my_spacing 
+	$ spacing my_spacing 
 	$ Tall nmaster delta ratio
 
 mirror_tall = renamed [Replace "mirror tall"] 
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartSpacing my_spacing 
+	$ spacing my_spacing 
 	$ Mirror 
 	$ Tall nmaster delta ratio
 
@@ -65,7 +66,7 @@ accordion = renamed [Replace "accordion"]
 	$ maximizeWithPadding 0
 	$ hiddenWindows
 	$ avoidStruts
-	$ smartSpacing my_spacing
+	$ spacing my_spacing
 	$ Accordion
 
 mirror_accordion = renamed [Replace "mirror accordion"]
@@ -80,7 +81,7 @@ full = renamed [Replace "full"]
 	$ maximizeWithPadding 0
 	$ avoidStruts
 	$ hiddenWindows 
-	$ smartSpacing my_spacing
+	$ spacing my_spacing
 	$ Full
 
 nmaster = 1
@@ -104,7 +105,7 @@ my_keys = [
 		("M--", promote),
 		("M-d", withFocused hideWindow),
 		("M-v", popOldestHiddenWindow),
-		("M-i", spawn my_terminal),
+		("C-i", spawn my_terminal),
 		("M-l", moveTo Next $ hiddenWS :&: Not emptyWS),
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS),

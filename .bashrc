@@ -24,7 +24,6 @@ alias ll="ls -al"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja --toolchain ~/.toolchain.cmake"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja --toolchain ~/.toolchain.cmake"
 alias make="make -j$(nproc)"
-alias clear="clear; zwaves"
 alias go="ninja" # sorry google :(
 
 function zwaves(){
@@ -42,12 +41,12 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${purple}( ${orange}\u${purple} @ ${blue}\w${purple} )"
+	PS1="${orange}\u${purple} @ ${blue}\w"
 
 	if [[ $status != 0 ]];then
 		PS1+="${red} ${red}$ ${reset_col}"
 	else
-		PS1+="${green} $ ${reset_col}"
+		PS1+="${orange} $ ${reset_col}"
 	fi
 }
 
@@ -67,4 +66,5 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
+[[ ! $TMUX ]] && tmux -2
 zwaves

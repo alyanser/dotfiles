@@ -30,15 +30,15 @@ nvim_set_keymap("n", "<leader>d", "<cmd> lua require('telescope.builtin').find_f
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
 nvim_set_keymap("n", "<leader>b", "<cmd> lua require('telescope.builtin').buffers() <cr>", opts)
 nvim_set_keymap("n", "<leader>e", "<cmd> lua require('telescope.builtin').diagnostics() <cr>", opts)
-nvim_set_keymap("n", "<leader>c", "<cmd> lua require('telescope.builtin').lsp_incoming_calls() <cr>", opts)
+nvim_set_keymap("n", "<leader>ic", "<cmd> lua require('telescope.builtin').lsp_incoming_calls() <cr>", opts)
 nvim_set_keymap("n", "<leader>re", "<cmd> lua require('telescope.builtin').lsp_references() <cr>", opts)
 nvim_set_keymap("n", "<leader>s", "<cmd> lua require('telescope.builtin').lsp_document_symbols() <cr>", opts)
 nvim_set_keymap("n", "<leader>ws", "<cmd> lua require('telescope.builtin').lsp_workspace_symbols() <cr>", opts)
-nvim_set_keymap("n", "<leader>t", "<cmd> lua require('telescope.builtin').lsp_type_definitions() <cr>", opts)
+nvim_set_keymap("n", "<leader>x", "<cmd> lua require('telescope.builtin').lsp_type_definitions() <cr>", opts)
 nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitions() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>gc", "<cmd> lua require('telescope.builtin').git_commits() <cr>", opts)
-nvim_set_keymap("n", "<leader>ts", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
+nvim_set_keymap("n", "<leader>es", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)

@@ -1,12 +1,11 @@
 require("Comment").setup{
 	opleader = {
-		line = 'gg',
-		block = 'gcc'
+	 	line = 'go',
+	 	block = 'gv'
 	},
 	toggler = {
-		line = 'gg',
-		block = 'gcc'
+		line = 'go',
+		block = 'gv'
 	},
-
 	ignore = '^$'
 }

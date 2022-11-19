@@ -72,7 +72,6 @@ require("packer").startup(function()
 
 	use {
 		'numToStr/Comment.nvim',
-		keys = { 'gg', 'gcc' },
 		config = function()
 			require("comment-conf")
 		end
