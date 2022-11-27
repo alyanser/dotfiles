@@ -21,7 +21,7 @@ font:
     family: caskaydiacove nerd font
     style: bold
 
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
@@ -29,14 +29,19 @@ key_bindings:
 
 window:
   padding:
-    x: 7
-    y: 7
+    x: 15
+    y: 10
   dynamic_padding: false
 
 # Colors (Tokyonight storm)
+
+
 colors:
   name: TokyoNight Storm
   author: Folke
+  cursor:
+    # text: '0x000000'
+    cursor: '0x6e6e6e'
   # Default colors
   primary:
     background: '0x24283b'
