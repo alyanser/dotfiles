@@ -21,6 +21,7 @@ require("packer").startup(function()
 
 	use {
 		'nvim-neo-tree/neo-tree.nvim',
+		branch = "v2.x",
 		requires = { 
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
@@ -33,7 +34,7 @@ require("packer").startup(function()
 	use {
 		'ethanholz/nvim-lastplace',
 		config = function()
-			require('nvim-lastplace').setup{}
+			require('nvim-lastplace-conf')
 		end
 	}
 
@@ -57,9 +58,8 @@ require("packer").startup(function()
 
 	use {
 		'NMAC427/guess-indent.nvim',
-		cmd = 'GuessIndent',
 		config = function()
-			require("guess-indent").setup{}
+			require("guess-indent-conf")
 		end
 	}
 
@@ -79,11 +79,6 @@ require("packer").startup(function()
 
 	use {
 		'folke/tokyonight.nvim',
-	}
-
-	use {
-		'sindrets/diffview.nvim',
-		requires = 'nvim-lua/plenary.nvim'
 	}
 
 	use {

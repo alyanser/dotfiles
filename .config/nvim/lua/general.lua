@@ -4,19 +4,20 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.guicursor = nil
 opt.cursorline = true
 opt.completeopt = {'menu', 'menuone', 'noselect'}
-opt.list = true
 opt.laststatus = 3
-opt.scrolloff = 5
+opt.scrolloff = 2
 opt.wrap = true
+
+opt.list = true
 
 opt.listchars = {
 	tab = '❘-',
-	trail = '·',
-	lead = '·',
+	-- trail = '·',
+	-- lead = '·',
 	extends = '»',
 	precedes = '«',
 	nbsp = '×',
@@ -28,3 +29,4 @@ g.nofixedenofline = true
 vim.cmd [[ set nocompatible ]]
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
 vim.cmd [[ set undofile ]]
+vim.cmd [[ set noswapfile ]]
