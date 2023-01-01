@@ -8,3 +8,6 @@ keysym Caps_Lock = Control_L
 keysym Control_L = Caps_Lock
 add Lock = Caps_Lock
 add Control = Control_L
+
+remove mod1 = Alt_R
+keysym Alt_R = Super_R

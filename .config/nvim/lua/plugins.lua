@@ -11,24 +11,28 @@ require("packer").startup(function()
 	}
 
 	use {
+		'echasnovski/mini.nvim',
+		config = function()
+			require("mini.comment").setup{}
+			require("mini.indentscope").setup{
+				draw = {
+					delay = 0
+				}
+			}
+			require("mini.surround").setup{}
+			require("mini.cursorword").setup{
+				delay = 500
+			}
+		end
+	}
+
+	use {
 		'filipdutescu/renamer.nvim',
 		branch = 'master',
 		requires = 'nvim-lua/plenary.nvim',
 		config = function()
 			require("renamer-conf")
 		end
-	}
-
-	use {
-		'nvim-neo-tree/neo-tree.nvim',
-		branch = "v2.x",
-		requires = { 
-			"nvim-lua/plenary.nvim",
-			"MunifTanjim/nui.nvim",
-		},
-		config = function()
-			require("neotree-conf")
-		end,
 	}
 
 	use {
@@ -39,13 +43,30 @@ require("packer").startup(function()
 	}
 
 	use {
-		'tpope/vim-surround'
-	}
-
-	use {
 		'lewis6991/gitsigns.nvim',
 		config = function()
 			require("gitsigns-conf")
+		end
+	}
+
+	use {
+		'nvim-tree/nvim-tree.lua',
+		requires = {
+			'nvim-tree/nvim-web-devicons',
+		},
+		config = function()
+			require("nvim-tree-conf")
+		end,
+		tag = 'nightly',
+	}
+
+	use {
+		'ojroques/nvim-bufdel',
+		config = function()
+			require("bufdel").setup{
+				next = 'tabs',
+				quit = true,
+			}
 		end
 	}
 
@@ -67,13 +88,6 @@ require("packer").startup(function()
 		'phaazon/hop.nvim',
 		config = function()
 			require("hop-conf")
-		end
-	}
-
-	use {
-		'numToStr/Comment.nvim',
-		config = function()
-			require("comment-conf")
 		end
 	}
 
@@ -111,7 +125,7 @@ require("packer").startup(function()
 	}
 
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		'nvim-telescope/telescope.nvim',
 		requires = { 
 			{'nvim-lua/plenary.nvim'}
 		},

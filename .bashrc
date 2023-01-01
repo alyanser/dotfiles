@@ -24,11 +24,16 @@ alias ll="ls -al"
 alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja --toolchain ~/.toolchain.cmake"
 alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja --toolchain ~/.toolchain.cmake"
 alias make="make -j$(nproc)"
-alias go="ninja" # sorry google :(
+alias diff="diff --color=always"
+alias mixer="pulsemixer"
 
-function zwaves(){
-	printf "\033[31m▀■▄ \033[32m▀■▄ \033[33m▀■▄ \033[34m▀■▄ \033[35m▀■▄ \033[36m▀■▄\033[0m
- \033[91m▀■▄ \033[92m▀■▄ \033[93m▀■▄ \033[94m▀■▄ \033[95m▀■▄ \033[96m▀■▄\033[0m\n\n"
+function lit(){
+	[[ $1 == '' ]] && arg=937 || arg=$1
+	sudo bash -c "echo $arg > /sys/class/backlight/intel_backlight/brightness"
+}
+
+function go(){ # sorry google :(
+	[[ -f 'build.ninja' ]] && ninja $@ || make $@
 }
 
 function __prompt_command__(){
@@ -41,13 +46,23 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${orange}\u${purple} @ ${blue}\w"
+	PS1="${purple}(\u "
 
-	if [[ $status != 0 ]];then
-		PS1+="${red} ${red}$ ${reset_col}"
+	if [[ $status != 0 ]]; then
+		PS1+="${red}@"
 	else
-		PS1+="${orange} $ ${reset_col}"
+		PS1+="${green}@"
 	fi
+
+	PS1+=" ${blue}\w${purple})"
+
+	if [[ $status != 0 ]]; then
+		PS1+="${red} $"
+	else
+		PS1+="${green} $"
+	fi
+
+	PS1+="${reset_col} "
 }
 
 PROMPT_COMMAND=__prompt_command__
@@ -66,5 +81,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ ! $TMUX ]] && tmux -2
-zwaves
+[[ ! $TMUX ]] && exec tmux -2

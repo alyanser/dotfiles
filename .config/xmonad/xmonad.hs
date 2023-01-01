@@ -22,7 +22,6 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.CycleRecentWS
 import XMonad.Actions.SinkAll
 import XMonad.Actions.FindEmptyWorkspace
-import XMonad.Actions.EasyMotion (selectWindow)
 
 import Control.Monad (liftM2)
 import qualified XMonad.StackSet as W
@@ -46,7 +45,7 @@ my_border_width = 0
 my_mod_mask = mod4Mask
 my_spacing = 0
 my_lock_screen = "slock"
-my_layouts = tall ||| mirror_tall ||| full
+my_layouts = full ||| tall ||| mirror_tall
 
 tall = renamed [Replace "tall"] 
 	$ maximizeWithPadding 0
@@ -112,7 +111,7 @@ my_keys = [
 		("M-h", moveTo Prev $ hiddenWS :&: Not emptyWS),
 		("M-c", moveTo Next $ hiddenWS :&: emptyWS),
 		("M-b", moveTo Prev $ hiddenWS :&: emptyWS),
-		("M-\\", toggleRecentNonEmptyWS),
+		("M-<Space>", toggleRecentNonEmptyWS),
 		("M-[", sendMessage Shrink),
 		("M-]", sendMessage Expand),
 		("M-t", tagToEmptyWorkspace),
@@ -120,7 +119,6 @@ my_keys = [
 		("M-'", decWindowSpacing 2),
 		("M-;", incWindowSpacing 2),
 		("M-m", spawn my_lock_screen),
-		("M-n", selectWindow def >>= (`whenJust` windows . W.focusWindow)),
 		("M-p", spawn "scrot ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100"),
 		("M-S-p", spawn "scrot -s ~/pics/'%Y-%m-%d-%s_$wx$h.png' -q 100")
 	]

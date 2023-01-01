@@ -1,5 +1,5 @@
 font:
-  size: 10.5
+  size: 9
 
   offset:
     x: 0
@@ -7,7 +7,7 @@ font:
 
   normal:
     family: caskaydiacove nerd font
-    style: bold
+    style: normal
 
   italic:
     family: caskaydiacove nerd font
@@ -29,19 +29,14 @@ key_bindings:
 
 window:
   padding:
-    x: 15
+    x: 10
     y: 10
-  dynamic_padding: false
+  dynamic_padding: true
 
 # Colors (Tokyonight storm)
-
-
 colors:
   name: TokyoNight Storm
   author: Folke
-  cursor:
-    # text: '0x000000'
-    cursor: '0x6e6e6e'
   # Default colors
   primary:
     background: '0x24283b'

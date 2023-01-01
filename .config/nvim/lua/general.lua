@@ -5,18 +5,17 @@ opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
 opt.relativenumber = false
-opt.guicursor = nil
-opt.cursorline = true
+-- opt.guicursor = nil
+opt.cursorline = false
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
-opt.scrolloff = 2
+opt.scrolloff = 3
 opt.wrap = true
-
 opt.list = true
 
 opt.listchars = {
 	tab = '❘-',
-	-- trail = '·',
+	trail = '·',
 	-- lead = '·',
 	extends = '»',
 	precedes = '«',
@@ -25,6 +24,8 @@ opt.listchars = {
 
 g.mapleader = ' '
 g.nofixedenofline = true
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
 vim.cmd [[ set nocompatible ]]
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]

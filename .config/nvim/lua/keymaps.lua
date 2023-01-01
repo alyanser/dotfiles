@@ -1,17 +1,15 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("i", "<C-e>", "<C-o>A", opts)
-nvim_set_keymap("i", "<C-a>", "<C-o>I", opts)
-
-nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
-nvim_set_keymap("v", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
+nvim_set_keymap("n", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
+nvim_set_keymap("v", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
 
 nvim_set_keymap("n", "<C-\\>", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
+nvim_set_keymap('n', '<leader>q', '<cmd> BufDel <cr>', opts)
 
 nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', opts)
 
@@ -35,7 +33,7 @@ nvim_set_keymap("n", "<leader>re", "<cmd> lua require('telescope.builtin').lsp_r
 nvim_set_keymap("n", "<leader>s", "<cmd> lua require('telescope.builtin').lsp_document_symbols() <cr>", opts)
 nvim_set_keymap("n", "<leader>ws", "<cmd> lua require('telescope.builtin').lsp_workspace_symbols() <cr>", opts)
 nvim_set_keymap("n", "<leader>x", "<cmd> lua require('telescope.builtin').lsp_type_definitions() <cr>", opts)
--- nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitions() <cr>", opts)
+nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitions() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>gc", "<cmd> lua require('telescope.builtin').git_commits() <cr>", opts)
 nvim_set_keymap("n", "<leader>es", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
@@ -43,7 +41,7 @@ nvim_set_keymap("n", "<leader>es", "<cmd> lua require('telescope.builtin').trees
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
