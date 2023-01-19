@@ -58,3 +58,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 		end
 	end
 })
+
+vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
+	command = "checktime"
+})

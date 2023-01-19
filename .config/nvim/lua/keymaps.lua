@@ -4,6 +4,8 @@ local opts = { noremap=true, silent=true }
 nvim_set_keymap("n", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
 nvim_set_keymap("v", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
 
+nvim_set_keymap("n", "+y", "<cmd> call system(\"wl-copy\", @) <Return>", opts)
+
 nvim_set_keymap("n", "<C-\\>", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
@@ -51,3 +53,12 @@ vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+
+-- restore the session for the current directory
+vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})
+
+-- restore the last session
+vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {})
+
+-- stop Persistence => session won't be saved on exit
+vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})

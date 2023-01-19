@@ -11,13 +11,13 @@ lsp["clangd"].setup{
 	},
 }
 
-lsp["pyright"].setup{
-	capabilities = capabilities,
-}
+local servers = {"pylsp", "cmake", "bashls", "sumneko_lua"}
 
-lsp["bashls"].setup{
-	capabilities = capabilities,
-}
+for _, server in ipairs(servers) do
+	lsp[server].setup{
+		capabilities = capabilities
+	}
+end
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 

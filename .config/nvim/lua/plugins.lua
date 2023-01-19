@@ -1,5 +1,3 @@
-require("impatient")
-
 require("packer").startup(function()
 
 	use {
@@ -7,22 +5,54 @@ require("packer").startup(function()
 	}
 
 	use {
-		'lewis6991/impatient.nvim',
+		'goolord/alpha-nvim',
+		config = function ()
+			require'alpha'.setup(require'alpha.themes.dashboard'.config)
+		end
+	}
+
+	use {
+		'RRethy/vim-illuminate',
+		config = function()
+			require('illuminate').configure{
+				delay = 300
+			}
+		end
+	}
+
+	use {
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup{}
+		end
+	}
+
+	use {
+		"folke/noice.nvim",
+		requires = "MunifTanjim/nui.nvim",
+		config = function()
+			require("noice-conf")
+		end
+	}
+
+	use {
+		"folke/persistence.nvim",
+		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		module = "persistence",
+		config = function()
+			require("persistence").setup()
+		end
 	}
 
 	use {
 		'echasnovski/mini.nvim',
 		config = function()
 			require("mini.comment").setup{}
-			require("mini.indentscope").setup{
-				draw = {
-					delay = 0
-				}
-			}
 			require("mini.surround").setup{}
-			require("mini.cursorword").setup{
-				delay = 500
-			}
+			-- require("mini.cursorword").setup{
+			-- 	delay = 500
+			-- }
 		end
 	}
 
@@ -134,6 +164,20 @@ require("packer").startup(function()
 		end
 	}
 
+	use { 
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup{}
+		end
+	}
+
+	use {
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup{}
+		end
+	}
+
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
@@ -154,6 +198,14 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("cmp-conf")
+		end
+	}
+
+
+	use {
+		'stevearc/dressing.nvim',
+		config = function()
+			require("dressing").setup{}
 		end
 	}
 end)

@@ -1,0 +1,102 @@
+{
+	"layer" : "top",
+	"position" : "top",
+
+	"modules-left" : ["cpu", "memory", "backlight", "pulseaudio"],
+	"modules-center" : ["wlr/workspaces"],
+	"modules-right" : ["network", "battery",  "clock", "tray"],
+
+	"wlr/workspaces" : {
+		"on-click" : "activate",
+		"format" : "{icon}",
+		"sory-by-number" : true,
+		"format-icons" : {
+			"urgent": "",
+			"active": "",
+			"default": ""
+		}
+	},
+
+	"cpu" : {
+		"interval" : 5,
+		"states" : { "warning": 70, "critical" : 100},
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
+		"format-icons" : ["󰻠"],
+		"icon-size": 10,
+	},
+
+	"memory" : {
+		"interval" : 10,
+		"states" : { "warning": 70, "critical" : 100},
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
+		"format-icons" : ["󰵮"]
+	},
+	
+	"mpd" : {
+		"format" : "{stateIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"state-icons" : {
+			"paused" : "",
+			"playing" : ""
+		},
+	},
+
+	"battery" : {
+		"interval" : 60,
+		"states" : {
+			"warning" : 30,
+			"critical" : 15
+		},
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {capacity}%",
+		"format-icons" : ["󰗱"],
+	},
+
+	"clock" : {
+		"interval" : 60,
+		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%H:%M}",
+	},
+
+	"pulseaudio" : {
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {volume}",
+		"format-muted" : "<span font='19' rise='-4000'>󰓄</span> nos",
+		"format-icons" : {
+			"headphone" : "󰓃",
+			"default": ["", ""]
+		},
+		"on-click": "pulsemixer --toggle-mute",
+		"scroll-step" : 5,
+	},
+
+	"network" : {
+		"interface": "wlp3s0",
+		"format": "{ifname}",
+		"max-length": 50,
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {essid}",
+		"format-disconnected": "<span font='19' rise='-4000'>󰤩</span> {ifname}",
+		"format-icons" : ["󰤪"]
+	},
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {percent}",
+		"format-icons": ["", "󰳲"],
+		"on-scroll-down": "brightnessctl -q set 50-",
+		"on-scroll-up": "brightnessctl -q set +50",
+	},
+
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 14,
+		"icon-theme": "papirus-icon-theme",
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"Alacritty"
+		],
+		"icon-size" : 20,
+	},
+
+	"tray" : {
+		"icon-size": 20
+	}
+}

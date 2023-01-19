@@ -1,0 +1,66 @@
+* {
+    font-family: caskaydiacove nerd font;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#workspaces,
+#cpu,
+#memory,
+#tray,
+#taskbar,
+#backlight {
+    background: #1a1b26;
+    padding: 1px 15px;
+    margin: 5px 5px;
+    border-radius: 20px;
+}
+
+#workspaces button.active {
+    color: #FFA500;
+}
+
+#clock {
+    color: #fab387;
+}
+
+#network {
+    color: #f9e2af;
+}
+
+#cpu {
+    color: #33e3ff;
+}
+
+#memory {
+    color: #ffaf33;
+}
+
+#pulseaudio {
+    color: #e14aff;
+}
+
+#backlight {
+    color: #33ff6b;
+}
+
+#network {
+    color: #4affa5;
+}
+
+#battery {
+    color: #a6e3a1;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border-radius: 15px;
+}
