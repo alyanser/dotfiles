@@ -27,11 +27,6 @@ alias make="make -j$(nproc)"
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 
-function lit(){
-	[[ $1 == '' ]] && arg=937 || arg=$1
-	sudo bash -c "echo $arg > /sys/class/backlight/intel_backlight/brightness"
-}
-
 function go(){ # sorry google :(
 	[[ -f 'build.ninja' ]] && ninja $@ || make $@
 }
@@ -46,7 +41,7 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${purple}(\u "
+	PS1="${orange}(\u "
 
 	if [[ $status != 0 ]]; then
 		PS1+="${red}@"
@@ -54,7 +49,7 @@ function __prompt_command__(){
 		PS1+="${green}@"
 	fi
 
-	PS1+=" ${blue}\w${purple})"
+	PS1+=" ${blue}\w${orange})"
 
 	if [[ $status != 0 ]]; then
 		PS1+="${red} $"
@@ -81,4 +76,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ ! $TMUX ]] && exec tmux -2
+nitchNerd

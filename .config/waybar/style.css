@@ -1,11 +1,10 @@
 * {
-    font-family: caskaydiacove nerd font;
-    font-weight: bold;
+    font-family: caskaydiacove nerd font, material design icons;
     font-size: 15px;
 }
 
 window#waybar {
-    background: transparent;
+    background: rgba(22, 24, 36, 0.8);
 }
 
 #clock,
@@ -18,14 +17,22 @@ window#waybar {
 #tray,
 #taskbar,
 #backlight {
-    background: #1a1b26;
+    background: rgba(26, 27, 26, 0.4);
     padding: 1px 15px;
-    margin: 5px 5px;
+    margin: 10px 10px;
     border-radius: 20px;
 }
 
+#workspaces {
+    background: transparent;
+}
+
+#workspaces button {
+    color: #c8d3f5;
+}
+
 #workspaces button.active {
-    color: #FFA500;
+    color: #ffc777;
 }
 
 #clock {
@@ -41,11 +48,11 @@ window#waybar {
 }
 
 #memory {
-    color: #ffaf33;
+    color: #ff966c;
 }
 
 #pulseaudio {
-    color: #e14aff;
+    color: #fca7ea;
 }
 
 #backlight {
@@ -58,6 +65,10 @@ window#waybar {
 
 #battery {
     color: #a6e3a1;
+}
+
+#battery.discharging {
+    color: #ff757f
 }
 
 tooltip {

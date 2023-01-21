@@ -15,4 +15,4 @@ export GDK_BACKEND="wayland"
 export PATH=$PATH:~/.local/bin
 export GRIM_DEFAULT_DIR=~/pics
 
-exec Hyprland
+exec Hyprland > /dev/null

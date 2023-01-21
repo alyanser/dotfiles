@@ -21,6 +21,20 @@ require("packer").startup(function()
 	}
 
 	use {
+		"nvim-pack/nvim-spectre"
+	}
+
+	use {
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		requires = { 
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		}
+	}
+
+	use {
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 		config = function()
@@ -38,21 +52,10 @@ require("packer").startup(function()
 
 	use {
 		"folke/persistence.nvim",
-		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		event = "BufReadPre",
 		module = "persistence",
 		config = function()
 			require("persistence").setup()
-		end
-	}
-
-	use {
-		'echasnovski/mini.nvim',
-		config = function()
-			require("mini.comment").setup{}
-			require("mini.surround").setup{}
-			-- require("mini.cursorword").setup{
-			-- 	delay = 500
-			-- }
 		end
 	}
 
@@ -77,17 +80,6 @@ require("packer").startup(function()
 		config = function()
 			require("gitsigns-conf")
 		end
-	}
-
-	use {
-		'nvim-tree/nvim-tree.lua',
-		requires = {
-			'nvim-tree/nvim-web-devicons',
-		},
-		config = function()
-			require("nvim-tree-conf")
-		end,
-		tag = 'nightly',
 	}
 
 	use {
@@ -156,9 +148,7 @@ require("packer").startup(function()
 
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = { 
-			{'nvim-lua/plenary.nvim'}
-		},
+		requires = {'nvim-lua/plenary.nvim'},
 		config = function()
 			require("telescope-conf")
 		end
@@ -198,14 +188,6 @@ require("packer").startup(function()
 		},
 		config = function()
 			require("cmp-conf")
-		end
-	}
-
-
-	use {
-		'stevearc/dressing.nvim',
-		config = function()
-			require("dressing").setup{}
 		end
 	}
 end)

@@ -1,5 +1,5 @@
 {
-	"layer" : "top",
+	"layer" : "bottom",
 	"position" : "top",
 
 	"modules-left" : ["cpu", "memory", "backlight", "pulseaudio"],
@@ -12,7 +12,7 @@
 		"sory-by-number" : true,
 		"format-icons" : {
 			"urgent": "",
-			"active": "",
+			"active": "",
 			"default": ""
 		}
 	},
