@@ -71,7 +71,6 @@ cmp.setup({
   },
 
   mapping = {
-
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -100,12 +99,11 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-l>'] = cmp.mapping.confirm({ select = true }),
   },
-sources = cmp.config.sources({
+sources = {
     { 
       name = 'nvim_lsp',
     },
     { 
       name = 'luasnip',
     },
-  })
-})
+}})

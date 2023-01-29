@@ -1,3 +1,3 @@
-[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec startx 2> /dev/null
+[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec bash ~/.local/bin/hyprland
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc

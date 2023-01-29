@@ -11,13 +11,18 @@ lsp["clangd"].setup{
 	},
 }
 
-local servers = {"pylsp", "cmake", "bashls", "sumneko_lua"}
+local servers = {"cmake", "bashls", "sumneko_lua"}
 
 for _, server in ipairs(servers) do
 	lsp[server].setup{
 		capabilities = capabilities
 	}
 end
+
+
+require'lspconfig'.jedi_language_server.setup{
+	capabilities = capabilities
+}
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 

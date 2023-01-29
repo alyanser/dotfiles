@@ -14,7 +14,7 @@ require('bufferline').setup {
 		enforce_regular_tabs = true,
 		offsets = {
 			{
-				filetype = "NvimTree",
+				filetype = "neo-tree",
 				text = "Explorer",
 				text_align = "center",
 				separator = true,

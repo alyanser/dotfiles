@@ -31,7 +31,10 @@ require("packer").startup(function()
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
-		}
+		},
+		config = function()
+			require("neo-tree-conf")
+		end
 	}
 
 	use {
@@ -42,13 +45,13 @@ require("packer").startup(function()
 		end
 	}
 
-	use {
-		"folke/noice.nvim",
-		requires = "MunifTanjim/nui.nvim",
-		config = function()
-			require("noice-conf")
-		end
-	}
+	-- use {
+	-- 	"folke/noice.nvim",
+	-- 	requires = "MunifTanjim/nui.nvim",
+	-- 	config = function()
+	-- 		require("noice-conf")
+	-- 	end
+	-- }
 
 	use {
 		"folke/persistence.nvim",
@@ -154,20 +157,6 @@ require("packer").startup(function()
 		end
 	}
 
-	use { 
-		"williamboman/mason.nvim",
-		config = function()
-			require("mason").setup{}
-		end
-	}
-
-	use {
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup{}
-		end
-	}
-
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
@@ -190,4 +179,37 @@ require("packer").startup(function()
 			require("cmp-conf")
 		end
 	}
+
+	use {
+		'numToStr/Comment.nvim',
+		config = function()
+			require('Comment').setup(
+			{
+    padding = true,
+    sticky = true,
+    ignore = nil,
+    toggler = {
+        line = 'go',
+        block = 'ggo',
+    },
+    opleader = {
+        line = 'go',
+        block = 'ggo',
+    },
+    extra = {
+        above = 'guo',
+        below = 'gbo',
+        eol = 'gao',
+    },
+    mappings = {
+        basic = true,
+        extra = true,
+    },
+    pre_hook = nil,
+    post_hook = nil,
+}
+			)
+		end
+	}
+
 end)

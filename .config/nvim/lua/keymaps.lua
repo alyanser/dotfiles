@@ -1,8 +1,8 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("n", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
-nvim_set_keymap("v", "<C-t>", "<cmd> NvimTreeToggle <Return>", opts)
+nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
+nvim_set_keymap("v", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 
 nvim_set_keymap("n", "+y", "<cmd> call system(\"wl-copy\", @) <Return>", opts)
 

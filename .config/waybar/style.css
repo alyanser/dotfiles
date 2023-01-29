@@ -15,6 +15,7 @@ window#waybar {
 #cpu,
 #memory,
 #tray,
+#mpd,
 #taskbar,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
@@ -68,7 +69,11 @@ window#waybar {
 }
 
 #battery.discharging {
-    color: #ff757f
+    color: #ff757f;
+}
+
+#mpd {
+    color: #a6e3a1;
 }
 
 tooltip {

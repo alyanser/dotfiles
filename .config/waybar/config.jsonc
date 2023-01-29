@@ -1,10 +1,11 @@
 {
-	"layer" : "bottom",
+	"layer" : "top",
 	"position" : "top",
+	"height" : 52,
 
 	"modules-left" : ["cpu", "memory", "backlight", "pulseaudio"],
 	"modules-center" : ["wlr/workspaces"],
-	"modules-right" : ["network", "battery",  "clock", "tray"],
+	"modules-right" : ["mpd", "network", "battery",  "clock", "tray"],
 
 	"wlr/workspaces" : {
 		"on-click" : "activate",
@@ -26,14 +27,14 @@
 	},
 
 	"memory" : {
-		"interval" : 10,
+		"interval" : 5,
 		"states" : { "warning": 70, "critical" : 100},
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},
 	
 	"mpd" : {
-		"format" : "{stateIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+		"format" : "{stateIcon} {title}",
 		"state-icons" : {
 			"paused" : "",
 			"playing" : ""

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+# [[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 shopt -s autocd
 shopt -s histappend
@@ -21,13 +21,17 @@ alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release -GNinja --toolchain ~/.toolchain.cmake"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug -GNinja --toolchain ~/.toolchain.cmake"
-alias make="make -j$(nproc)"
+alias cmake="cmake -GNinja --toolchain ~/.toolchain.cmake"
+alias cmaker="cmake -DCMAKE_BUILD_TYPE=release"
+alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug"
+alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
+alias kde='kdeconnect-cli -d $(kdeconnect-cli -l --id-only)'
+alias firefox="firefox-nightly"
 
 function go(){ # sorry google :(
+	[[ $PWD != 'build' ]] && cd build
 	[[ -f 'build.ninja' ]] && ninja $@ || make $@
 }
 
@@ -52,11 +56,12 @@ function __prompt_command__(){
 	PS1+=" ${blue}\w${orange})"
 
 	if [[ $status != 0 ]]; then
-		PS1+="${red} $"
+		PS1+="${red}"
 	else
-		PS1+="${green} $"
+		PS1+="${green}"
 	fi
 
+	PS1+=" $"
 	PS1+="${reset_col} "
 }
 
