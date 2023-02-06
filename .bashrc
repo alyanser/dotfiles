@@ -28,7 +28,7 @@ alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias kde='kdeconnect-cli -d $(kdeconnect-cli -l --id-only)'
-alias firefox="firefox-nightly"
+alias getit="cd ~/music; youtube-dl -x --audio-quality 0"
 
 function go(){ # sorry google :(
 	[[ $PWD != 'build' ]] && cd build

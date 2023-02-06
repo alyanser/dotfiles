@@ -1,91 +1,80 @@
-require("packer").startup(function()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-	use {
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+
+	{
 		'wbthomason/packer.nvim'
-	}
+	},
 
-	use {
-		'goolord/alpha-nvim',
-		config = function ()
-			require'alpha'.setup(require'alpha.themes.dashboard'.config)
-		end
-	}
-
-	use {
+	{
 		'RRethy/vim-illuminate',
 		config = function()
 			require('illuminate').configure{
 				delay = 300
 			}
 		end
-	}
+	},
 
-	use {
+	{
 		"nvim-pack/nvim-spectre"
-	}
+	},
 
-	use {
+	{
 		"nvim-neo-tree/neo-tree.nvim",
+		cmd = 'NeoTreeShowToggle',
 		branch = "v2.x",
-		requires = { 
+		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
+			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		config = function()
-			require("neo-tree-conf")
-		end
-	}
+		config = true,
+	},
 
-	use {
-		"folke/todo-comments.nvim",
-		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup{}
-		end
-	}
-
-	-- use {
-	-- 	"folke/noice.nvim",
-	-- 	requires = "MunifTanjim/nui.nvim",
-	-- 	config = function()
-	-- 		require("noice-conf")
-	-- 	end
-	-- }
-
-	use {
+	{
 		"folke/persistence.nvim",
 		event = "BufReadPre",
 		module = "persistence",
-		config = function()
-			require("persistence").setup()
-		end
-	}
+		config = true,
+	},
 
-	use {
+	{
 		'filipdutescu/renamer.nvim',
 		branch = 'master',
-		requires = 'nvim-lua/plenary.nvim',
+		dependencies = 'nvim-lua/plenary.nvim',
 		config = function()
 			require("renamer-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'ethanholz/nvim-lastplace',
 		config = function()
 			require('nvim-lastplace-conf')
 		end
-	}
+	},
 
-	use {
+	{
 		'lewis6991/gitsigns.nvim',
 		config = function()
 			require("gitsigns-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'ojroques/nvim-bufdel',
 		config = function()
 			require("bufdel").setup{
@@ -93,43 +82,57 @@ require("packer").startup(function()
 				quit = true,
 			}
 		end
-	}
+	},
 
-	use {
+	{
 		'nvim-treesitter/nvim-treesitter',
 		config = function()
 			require("treesitter-conf")
 		end,
-	}
+	},
 
-	use {
+	{
 		'NMAC427/guess-indent.nvim',
 		config = function()
 			require("guess-indent-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'phaazon/hop.nvim',
+		cmd = 'HopWord',
 		config = function()
 			require("hop-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'folke/tokyonight.nvim',
-	}
+		lazy = false,
+		priority = 100,
+		config = function()
+			require("tokyonight").setup{
+				style = "moon",
+				on_colors = function(colors)
+					colors.hint = colors.purple
+					colors.warning = colors.orange
+					colors.error = colors.red
+				end,
+			}
 
-	use {
+			vim.cmd([[colorscheme tokyonight]])
+		end,
+	},
+
+	{
 		'akinsho/bufferline.nvim',
-		tag = "v2.*",
-		requires = 'kyazdani42/nvim-web-devicons',
+		dependencies = 'kyazdani42/nvim-web-devicons',
 		config = function()
 			require("bufferline-conf")
 		end,
-	}
+	},
 
-	use {
+	{
 		'windwp/nvim-autopairs',
 		config = function()
 			require("nvim-autopairs").setup{
@@ -137,36 +140,36 @@ require("packer").startup(function()
 				map_c_w = true,
 			}
 		end
-	}
+	},
 
-	use {
+	{
 		'nvim-lualine/lualine.nvim',
-		requires = {
-			'kyazdani42/nvim-web-devicons', 
+		dependencies = {
+			'kyazdani42/nvim-web-devicons',
 		},
 		config = function()
 			require("lualine-conf")
 		end,
-	}
+	},
 
-	use {
+	{
 		'nvim-telescope/telescope.nvim',
-		requires = {'nvim-lua/plenary.nvim'},
+		dependencies = {'nvim-lua/plenary.nvim'},
 		config = function()
 			require("telescope-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'neovim/nvim-lspconfig',
 		config = function()
 			require("lsp-conf")
 		end,
-	}
+	},
 
-	use {
+	{
 		'hrsh7th/nvim-cmp',
-		requires = {
+		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
@@ -178,38 +181,36 @@ require("packer").startup(function()
 		config = function()
 			require("cmp-conf")
 		end
-	}
+	},
 
-	use {
+	{
 		'numToStr/Comment.nvim',
+		keys = {'go', 'ggo'},
 		config = function()
-			require('Comment').setup(
-			{
-    padding = true,
-    sticky = true,
-    ignore = nil,
-    toggler = {
-        line = 'go',
-        block = 'ggo',
-    },
-    opleader = {
-        line = 'go',
-        block = 'ggo',
-    },
-    extra = {
-        above = 'guo',
-        below = 'gbo',
-        eol = 'gao',
-    },
-    mappings = {
-        basic = true,
-        extra = true,
-    },
-    pre_hook = nil,
-    post_hook = nil,
-}
-			)
+			require('Comment').setup({
+				padding = true,
+				sticky = true,
+				ignore = nil,
+				toggler = {
+					line = 'go',
+					block = 'ggo',
+				},
+				opleader = {
+					line = 'go',
+					block = 'ggo',
+				},
+				extra = {
+					above = 'guo',
+					below = 'gbo',
+					eol = 'gao',
+				},
+				mappings = {
+					basic = true,
+					extra = true,
+				},
+				pre_hook = nil,
+				post_hook = nil,
+			})
 		end
 	}
-
-end)
+})

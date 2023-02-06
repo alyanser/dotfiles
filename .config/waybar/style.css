@@ -4,7 +4,8 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.8);
+    background: rgba(22, 24, 36, 0.7);
+
 }
 
 #clock,
@@ -45,35 +46,51 @@ window#waybar {
 }
 
 #cpu {
+    min-width: 70px;
     color: #33e3ff;
 }
 
 #memory {
     color: #ff966c;
+    min-width: 130px;
 }
 
 #pulseaudio {
-    color: #fca7ea;
+    color: #9d7cd8;
+    min-width: 70px;
 }
 
 #backlight {
     color: #33ff6b;
+    min-width: 70px;
 }
 
 #network {
     color: #4affa5;
+    background: transparent;
 }
 
 #battery {
     color: #a6e3a1;
+    min-width: 70px;
 }
 
-#battery.discharging {
+#battery.discharging,
+#cpu.warning,
+#memory.warning {
     color: #ff757f;
 }
 
 #mpd {
     color: #a6e3a1;
+    background: transparent;
+}
+
+#mpd.disconnected,
+#mpd.paused,
+#nework.disconnected
+{
+    color: #a9b1d6;
 }
 
 tooltip {

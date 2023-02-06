@@ -62,3 +62,32 @@ vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").loa
 
 -- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
+
+
+
+vim.cmd[[
+nnoremap <leader>os :call jukit#splits#output()<cr>
+"   - Opens a new output window and executes the command specified in `g:jukit_shell_cmd`
+nnoremap <leader>ts :call jukit#splits#term()<cr>
+"   - Opens a new output window without executing any command
+nnoremap <leader>hs :call jukit#splits#history()<cr>
+"   - Opens a new output-history window, where saved ipython outputs are displayed
+nnoremap <leader>ohs :call jukit#splits#output_and_history()<cr>
+"   - Shortcut for opening output terminal and output-history
+nnoremap <leader>hd :call jukit#splits#close_history()<cr>
+"   - Close output-history window
+nnoremap <leader>od :call jukit#splits#close_output_split()<cr>
+"   - Close output window
+nnoremap <leader>ohd :call jukit#splits#close_output_and_history(1)<cr>
+"   - Close both windows. Argument: Whether or not to ask you to confirm before closing.
+nnoremap <leader>so :call jukit#splits#show_last_cell_output(1)<cr>
+"   - Show output of current cell (determined by current cursor position) in output-history window. Argument: Whether or not to reload outputs if cell id of outputs to display is the same as the last cell id for which outputs were displayed
+nnoremap <leader>j :call jukit#splits#out_hist_scroll(1)<cr>
+"   - Scroll down in output-history window. Argument: whether to scroll down (1) or up (0)
+nnoremap <leader>k :call jukit#splits#out_hist_scroll(0)<cr>
+"   - Scroll up in output-history window. Argument: whether to scroll down (1) or up (0)
+nnoremap <leader>ah :call jukit#splits#toggle_auto_hist()<cr>
+"   - Create/delete autocmd for displaying saved output on CursorHold. Also, see explanation for `g:jukit_auto_output_hist`
+nnoremap <leader>sl :call jukit#layouts#set_layout()<cr>
+"   - Apply layout (see `g:jukit_layout`) to current splits - NOTE: it is expected that this function is called from the main file buffer/split
+]]

@@ -1,11 +1,10 @@
 {
-	"layer" : "top",
 	"position" : "top",
 	"height" : 52,
 
-	"modules-left" : ["cpu", "memory", "backlight", "pulseaudio"],
+	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["wlr/workspaces"],
-	"modules-right" : ["mpd", "network", "battery",  "clock", "tray"],
+	"modules-right" : ["tray", "mpd", "network", "battery", "clock"],
 
 	"wlr/workspaces" : {
 		"on-click" : "activate",
@@ -19,27 +18,32 @@
 	},
 
 	"cpu" : {
-		"interval" : 5,
-		"states" : { "warning": 70, "critical" : 100},
+		"interval" : 3,
+		"states" : { "warning": 100 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
 		"format-icons" : ["󰻠"],
 		"icon-size": 10,
 	},
 
 	"memory" : {
-		"interval" : 5,
-		"states" : { "warning": 70, "critical" : 100},
+		"interval" : 3,
+		"states" : { "warning": 90 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},
 	
 	"mpd" : {
-		"format" : "{stateIcon} {title}",
+		"format" : "{stateIcon}",
+		"format-disconnected" : "MPD",
 		"state-icons" : {
-			"paused" : "",
-			"playing" : ""
+			"paused" : "",
+			"playing" : "",
 		},
+		"on-click": "mpc toggle",
+		"on-click-right": "mpc next",
+		"on-click-middle": "mpc prev",
 	},
+
 
 	"battery" : {
 		"interval" : 60,
@@ -53,7 +57,7 @@
 
 	"clock" : {
 		"interval" : 60,
-		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%H:%M}",
+		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%I:%M}",
 	},
 
 	"pulseaudio" : {
@@ -71,30 +75,17 @@
 		"interface": "wlp3s0",
 		"format": "{ifname}",
 		"max-length": 50,
-		"format" : "<span font='19' rise='-4000'>{icon}</span> {essid}",
-		"format-disconnected": "<span font='19' rise='-4000'>󰤩</span> {ifname}",
+		"format" : "<span font='19' rise='-4000'>{icon}</span>",
+		"format-disconnected": "<span font='19' rise='-4000'>󰤩</span>",
 		"format-icons" : ["󰤪"]
 	},
 
 	"backlight": {
 		"device": "intel_backlight",
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {percent}",
-		"format-icons": ["", "󰳲"],
+		"format-icons": ["󰳲", "󰳲"],
 		"on-scroll-down": "brightnessctl -q set 50-",
 		"on-scroll-up": "brightnessctl -q set +50",
-	},
-
-	"wlr/taskbar": {
-		"format": "{icon}",
-		"icon-size": 14,
-		"icon-theme": "papirus-icon-theme",
-		"tooltip-format": "{title}",
-		"on-click": "activate",
-		"on-click-middle": "close",
-		"ignore-list": [
-			"Alacritty"
-		],
-		"icon-size" : 20,
 	},
 
 	"tray" : {
