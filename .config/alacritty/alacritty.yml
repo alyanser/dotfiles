@@ -21,15 +21,18 @@ font:
     family: caskaydiacove nerd font
     style: bold
 
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 key_bindings:
   - { key: V, mods: Control, action: Paste }
   - { key: X, mods: Control, action: Copy }
+  - { key: Space, mods: Control, action: SpawnNewInstance }
+  - { key: J, mods: Control, action: toggleViMode }
+
 
 window:
   padding:
-    x: 13
+    x: 15
     y: 13
   dynamic_padding: true
 
@@ -66,6 +69,3 @@ colors:
   indexed_colors:
     - { index: 16, color: '0xff966c' }
     - { index: 17, color: '0xc53b53' }
-    
-
-

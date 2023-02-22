@@ -3,10 +3,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set signcolumn=yes",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
 	command = "set noexpandtab",
 })
 

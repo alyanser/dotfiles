@@ -16,10 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 	{
-		'wbthomason/packer.nvim'
-	},
-
-	{
 		'RRethy/vim-illuminate',
 		config = function()
 			require('illuminate').configure{
@@ -29,19 +25,39 @@ require("lazy").setup({
 	},
 
 	{
-		"nvim-pack/nvim-spectre"
+		'williamboman/mason.nvim',
+		config = true,
+	},
+
+	{
+		"nvim-pack/nvim-spectre",
+		lazy = true,
+		cmd = 'Spectre',
+	},
+
+	{
+		"folke/persistence.nvim",
+		config = true,
+	},
+
+	{
+		"folke/noice.nvim",
+		config = function()
+			require("noice-conf")
+		end
 	},
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		cmd = 'NeoTreeShowToggle',
 		branch = "v2.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
-		config = true,
+		config = function()
+			require("neo-tree-conf")
+		end
 	},
 
 	{
@@ -86,6 +102,7 @@ require("lazy").setup({
 
 	{
 		'nvim-treesitter/nvim-treesitter',
+		lazy = true,
 		config = function()
 			require("treesitter-conf")
 		end,
@@ -100,7 +117,7 @@ require("lazy").setup({
 
 	{
 		'phaazon/hop.nvim',
-		cmd = 'HopWord',
+		cmd = {'HopWord', 'HopPattern'},
 		config = function()
 			require("hop-conf")
 		end
@@ -134,6 +151,7 @@ require("lazy").setup({
 
 	{
 		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
 		config = function()
 			require("nvim-autopairs").setup{
 				map_c_h = true,
@@ -153,7 +171,15 @@ require("lazy").setup({
 	},
 
 	{
+		'goolord/alpha-nvim',
+		config = function()
+			require'alpha'.setup(require'alpha.themes.dashboard'.config)
+		end
+	},
+
+	{
 		'nvim-telescope/telescope.nvim',
+		lazy = true,
 		dependencies = {'nvim-lua/plenary.nvim'},
 		config = function()
 			require("telescope-conf")
@@ -169,6 +195,7 @@ require("lazy").setup({
 
 	{
 		'hrsh7th/nvim-cmp',
+		event = "InsertEnter",
 		dependencies = {
 			'hrsh7th/cmp-nvim-lsp',
 			'neovim/nvim-lspconfig',
@@ -185,7 +212,8 @@ require("lazy").setup({
 
 	{
 		'numToStr/Comment.nvim',
-		keys = {'go', 'ggo'},
+		lazy = true,
+		keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
 		config = function()
 			require('Comment').setup({
 				padding = true,

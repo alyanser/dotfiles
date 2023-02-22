@@ -11,20 +11,40 @@ nvim_set_keymap("n", "<C-\\>", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
-nvim_set_keymap('n', '<leader>q', '<cmd> BufDel <cr>', opts)
+nvim_set_keymap('n', '<M-q>', '<cmd> BufDel <cr>', opts)
 
 nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', opts)
 
 nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
-nvim_set_keymap("n", "<leader>1", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
-nvim_set_keymap("n", "<leader>2", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
-nvim_set_keymap("n", "<leader>3", "<cmd> BufferLineGoToBuffer 3 <return>", opts)
-nvim_set_keymap("n", "<leader>4", "<cmd> BufferLineGoToBuffer 4 <return>", opts)
-nvim_set_keymap("n", "<leader>5", "<cmd> BufferLineGoToBuffer 5 <return>", opts)
-nvim_set_keymap("n", "<leader>6", "<cmd> BufferLineGoToBuffer 6 <return>", opts)
-nvim_set_keymap("n", "<leader>7", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
-nvim_set_keymap("n", "<leader>8", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
-nvim_set_keymap("n", "<leader>9", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
+nvim_set_keymap("n", "<M-1>", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
+nvim_set_keymap("n", "<M-2>", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
+nvim_set_keymap("n", "<M-3>", "<cmd> BufferLineGoToBuffer 3 <return>", opts)
+nvim_set_keymap("n", "<M-4>", "<cmd> BufferLineGoToBuffer 4 <return>", opts)
+nvim_set_keymap("n", "<M-5>", "<cmd> BufferLineGoToBuffer 5 <return>", opts)
+nvim_set_keymap("n", "<M-6>", "<cmd> BufferLineGoToBuffer 6 <return>", opts)
+nvim_set_keymap("n", "<M-7>", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
+nvim_set_keymap("n", "<M-8>", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
+nvim_set_keymap("n", "<M-9>", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
+
+nvim_set_keymap("i", "<M-1>", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
+nvim_set_keymap("i", "<M-2>", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
+nvim_set_keymap("i", "<M-3>", "<cmd> BufferLineGoToBuffer 3 <return>", opts)
+nvim_set_keymap("i", "<M-4>", "<cmd> BufferLineGoToBuffer 4 <return>", opts)
+nvim_set_keymap("i", "<M-5>", "<cmd> BufferLineGoToBuffer 5 <return>", opts)
+nvim_set_keymap("i", "<M-6>", "<cmd> BufferLineGoToBuffer 6 <return>", opts)
+nvim_set_keymap("i", "<M-7>", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
+nvim_set_keymap("i", "<M-8>", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
+nvim_set_keymap("i", "<M-9>", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
+
+nvim_set_keymap("v", "<M-1>", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
+nvim_set_keymap("v", "<M-2>", "<cmd> BufferLineGoToBuffer 2 <return>", opts)
+nvim_set_keymap("v", "<M-3>", "<cmd> BufferLineGoToBuffer 3 <return>", opts)
+nvim_set_keymap("v", "<M-4>", "<cmd> BufferLineGoToBuffer 4 <return>", opts)
+nvim_set_keymap("v", "<M-5>", "<cmd> BufferLineGoToBuffer 5 <return>", opts)
+nvim_set_keymap("v", "<M-6>", "<cmd> BufferLineGoToBuffer 6 <return>", opts)
+nvim_set_keymap("v", "<M-7>", "<cmd> BufferLineGoToBuffer 7 <return>", opts)
+nvim_set_keymap("v", "<M-8>", "<cmd> BufferLineGoToBuffer 8 <return>", opts)
+nvim_set_keymap("v", "<M-9>", "<cmd> BufferLineGoToBuffer 9 <return>", opts)
 
 nvim_set_keymap("n", "<leader>d", "<cmd> lua require('telescope.builtin').find_files() <cr>", opts)
 nvim_set_keymap("n", "<leader>f", "<cmd> lua require('telescope.builtin').live_grep() <cr>", opts)
@@ -62,32 +82,3 @@ vim.api.nvim_set_keymap("n", "<leader>ql", [[<cmd>lua require("persistence").loa
 
 -- stop Persistence => session won't be saved on exit
 vim.api.nvim_set_keymap("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {})
-
-
-
-vim.cmd[[
-nnoremap <leader>os :call jukit#splits#output()<cr>
-"   - Opens a new output window and executes the command specified in `g:jukit_shell_cmd`
-nnoremap <leader>ts :call jukit#splits#term()<cr>
-"   - Opens a new output window without executing any command
-nnoremap <leader>hs :call jukit#splits#history()<cr>
-"   - Opens a new output-history window, where saved ipython outputs are displayed
-nnoremap <leader>ohs :call jukit#splits#output_and_history()<cr>
-"   - Shortcut for opening output terminal and output-history
-nnoremap <leader>hd :call jukit#splits#close_history()<cr>
-"   - Close output-history window
-nnoremap <leader>od :call jukit#splits#close_output_split()<cr>
-"   - Close output window
-nnoremap <leader>ohd :call jukit#splits#close_output_and_history(1)<cr>
-"   - Close both windows. Argument: Whether or not to ask you to confirm before closing.
-nnoremap <leader>so :call jukit#splits#show_last_cell_output(1)<cr>
-"   - Show output of current cell (determined by current cursor position) in output-history window. Argument: Whether or not to reload outputs if cell id of outputs to display is the same as the last cell id for which outputs were displayed
-nnoremap <leader>j :call jukit#splits#out_hist_scroll(1)<cr>
-"   - Scroll down in output-history window. Argument: whether to scroll down (1) or up (0)
-nnoremap <leader>k :call jukit#splits#out_hist_scroll(0)<cr>
-"   - Scroll up in output-history window. Argument: whether to scroll down (1) or up (0)
-nnoremap <leader>ah :call jukit#splits#toggle_auto_hist()<cr>
-"   - Create/delete autocmd for displaying saved output on CursorHold. Also, see explanation for `g:jukit_auto_output_hist`
-nnoremap <leader>sl :call jukit#layouts#set_layout()<cr>
-"   - Apply layout (see `g:jukit_layout`) to current splits - NOTE: it is expected that this function is called from the main file buffer/split
-]]
