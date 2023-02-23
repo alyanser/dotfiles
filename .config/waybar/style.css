@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.7);
+    background: rgba(22, 24, 36, 0.6);
 
 }
 
@@ -75,6 +75,7 @@ window#waybar {
     min-width: 70px;
 }
 
+#network.disconnected,
 #battery.discharging,
 #cpu.warning,
 #memory.warning {
@@ -87,7 +88,6 @@ window#waybar {
 }
 
 #mpd.disconnected,
-#mpd.paused,
 #nework.disconnected
 {
     color: #a9b1d6;

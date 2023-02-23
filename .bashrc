@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# [[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
+[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 
 shopt -s autocd
 shopt -s histappend
@@ -14,7 +14,6 @@ alias hd="hexdump --canonical"
 alias redshift="redshift -P -O"
 alias py="python -q"
 alias gdb="gdb -q"
-alias cli="xclip -selection clipboard"
 alias tree="tree -C"
 alias ncm="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps -M intel -zwd"
@@ -27,11 +26,10 @@ alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug"
 alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
-alias kde='kdeconnect-cli -d $(kdeconnect-cli -l --id-only)'
-alias getit="cd ~/music; youtube-dl -x --audio-quality 0"
+alias view="qimgv"
+alias cat="bat --no-pager --theme ansi"
 
 function go(){ # sorry google :(
-	[[ $PWD != 'build' ]] && cd build
 	[[ -f 'build.ninja' ]] && ninja $@ || make $@
 }
 
@@ -81,4 +79,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-nitchNerd
+pfetch

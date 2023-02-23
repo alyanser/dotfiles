@@ -1,6 +1,7 @@
 {
 	"position" : "top",
 	"height" : 52,
+	"spacing" : 8,
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["wlr/workspaces"],
@@ -18,15 +19,15 @@
 	},
 
 	"cpu" : {
-		"interval" : 3,
+		"interval" : 5,
 		"states" : { "warning": 100 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
 		"format-icons" : ["󰻠"],
-		"icon-size": 10,
+		"icon-size": 10
 	},
 
 	"memory" : {
-		"interval" : 3,
+		"interval" : 5,
 		"states" : { "warning": 90 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -37,11 +38,11 @@
 		"format-disconnected" : "MPD",
 		"state-icons" : {
 			"paused" : "",
-			"playing" : "",
+			"playing" : ""
 		},
 		"on-click": "mpc toggle",
 		"on-click-right": "mpc next",
-		"on-click-middle": "mpc prev",
+		"on-click-middle": "mpc prev"
 	},
 
 
@@ -52,7 +53,7 @@
 			"critical" : 15
 		},
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {capacity}%",
-		"format-icons" : ["󰗱"],
+		"format-icons" : ["󰗱"]
 	},
 
 	"clock" : {
@@ -68,7 +69,7 @@
 			"default": ["", ""]
 		},
 		"on-click": "pulsemixer --toggle-mute",
-		"scroll-step" : 5,
+		"scroll-step" : 5
 	},
 
 	"network" : {
@@ -85,7 +86,7 @@
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {percent}",
 		"format-icons": ["󰳲", "󰳲"],
 		"on-scroll-down": "brightnessctl -q set 50-",
-		"on-scroll-up": "brightnessctl -q set +50",
+		"on-scroll-up": "brightnessctl -q set +50"
 	},
 
 	"tray" : {

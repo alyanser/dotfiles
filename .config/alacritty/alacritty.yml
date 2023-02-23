@@ -32,8 +32,8 @@ key_bindings:
 
 window:
   padding:
-    x: 15
-    y: 13
+    x: 18
+    y: 15
   dynamic_padding: true
 
     
