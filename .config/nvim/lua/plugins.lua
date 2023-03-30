@@ -25,19 +25,9 @@ require("lazy").setup({
 	},
 
 	{
-		'williamboman/mason.nvim',
-		config = true,
-	},
-
-	{
 		"nvim-pack/nvim-spectre",
 		lazy = true,
 		cmd = 'Spectre',
-	},
-
-	{
-		"folke/persistence.nvim",
-		config = true,
 	},
 
 	{
@@ -102,7 +92,6 @@ require("lazy").setup({
 
 	{
 		'nvim-treesitter/nvim-treesitter',
-		lazy = true,
 		config = function()
 			require("treesitter-conf")
 		end,
@@ -125,8 +114,6 @@ require("lazy").setup({
 
 	{
 		'folke/tokyonight.nvim',
-		lazy = false,
-		priority = 100,
 		config = function()
 			require("tokyonight").setup{
 				style = "moon",
@@ -171,13 +158,6 @@ require("lazy").setup({
 	},
 
 	{
-		'goolord/alpha-nvim',
-		config = function()
-			require'alpha'.setup(require'alpha.themes.dashboard'.config)
-		end
-	},
-
-	{
 		'nvim-telescope/telescope.nvim',
 		lazy = true,
 		dependencies = {'nvim-lua/plenary.nvim'},
@@ -197,11 +177,9 @@ require("lazy").setup({
 		'hrsh7th/nvim-cmp',
 		event = "InsertEnter",
 		dependencies = {
-			'hrsh7th/cmp-nvim-lsp',
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path',
+			-- 'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-cmdline',
 			'L3MON4D3/LuaSnip',
 		},

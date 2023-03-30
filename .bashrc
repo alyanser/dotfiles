@@ -20,14 +20,11 @@ alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias cmake="cmake -GNinja --toolchain ~/.toolchain.cmake"
-alias cmaker="cmake -DCMAKE_BUILD_TYPE=release"
-alias cmaked="cmake -DCMAKE_BUILD_TYPE=debug"
+alias cmaker="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=release"
+alias cmaked="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=debug"
 alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
-alias view="qimgv"
-alias cat="bat --no-pager --theme ansi"
 
 function go(){ # sorry google :(
 	[[ -f 'build.ninja' ]] && ninja $@ || make $@
@@ -79,4 +76,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-pfetch
+nerdfetch; echo

@@ -20,7 +20,7 @@
 
 	"cpu" : {
 		"interval" : 5,
-		"states" : { "warning": 100 },
+		"states" : { "warning": 90 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
 		"format-icons" : ["󰻠"],
 		"icon-size": 10
@@ -28,7 +28,7 @@
 
 	"memory" : {
 		"interval" : 5,
-		"states" : { "warning": 90 },
+		"states" : { "warning": 80 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},

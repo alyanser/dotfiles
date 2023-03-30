@@ -1,7 +1,6 @@
 local g = vim.g
 local opt = vim.opt
 
-opt.cmdheight = 1
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
@@ -10,7 +9,7 @@ opt.guicursor = nil
 opt.cursorline = false
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
-opt.scrolloff = 5
+opt.scrolloff = 3
 opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true
