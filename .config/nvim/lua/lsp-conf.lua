@@ -2,7 +2,7 @@ local lsp = require("lspconfig")
 
 lsp["clangd"].setup{
 	single_file_support = true,
-	command = {'clangd', '--background-index', '-j=$(nproc)', '--header-insertion=never', '--clang-tidy=false', '--completion-style=detailed'},
+	cmd = {'clangd', '--log=error', '--background-index', '-j=6', '--header-insertion=never', '--clang-tidy=false', '--completion-style=detailed'},
 	completion = {
 		workspaceWord = false,
 		showWord = "Disable"

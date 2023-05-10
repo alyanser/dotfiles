@@ -7,15 +7,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set tabstop=8",
+	command = "set tabstop=6",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set shiftwidth=8",
+	command = "set shiftwidth=6",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set softtabstop=8",
+	command = "set softtabstop=6",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -49,3 +49,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
 	command = "checktime"
 })
+

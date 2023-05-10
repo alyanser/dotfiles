@@ -20,14 +20,35 @@ alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias cmaker="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=release"
-alias cmaked="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=debug"
-alias make='make -j$(nproc)'
+alias cmaker="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=Release"
+alias cmaked="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=Debug"
+alias make='make -j6'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
+alias clear='clear; zwaves'
 
-function go(){ # sorry google :(
-	[[ -f 'build.ninja' ]] && ninja $@ || make $@
+function zwaves(){
+	f=3 b=4
+
+	for j in f b; do
+		for i in {0..7}; do
+			printf -v $j$i %b "\e[${!j}${i}m"
+		done
+	done
+
+	for i in {0..7}; do
+		printf -v fbright$i %b "\e[9${i}m"
+	done
+
+	bld=$'\e[1m'
+	rst=$'\e[0m'
+	inv=$'\e[7m'
+
+cat << EOF
+ $f1▀■▄ $f2▀■▄ $f3▀■▄ $f4▀■▄ $f5▀■▄ $f6▀■▄
+  $bld$fbright1▀■▄ $fbright2▀■▄ $fbright3▀■▄ $fbright4▀■▄ $fbright5▀■▄ $fbright6▀■▄$rst
+
+EOF
 }
 
 function __prompt_command__(){
@@ -76,4 +97,5 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-nerdfetch; echo
+zwaves
+export PATH=$PATH:/usr/local/bin/:~/.local/bin

@@ -29,14 +29,12 @@ key_bindings:
   - { key: Space, mods: Control, action: SpawnNewInstance }
   - { key: J, mods: Control, action: toggleViMode }
 
-
 window:
   padding:
-    x: 17
-    y: 20
-  dynamic_padding: true
+    x: 22
+    y: 15
+  dynamic_padding: false
 
-    
 # TokyoNight Alacritty Colors
 colors:
   # Default colors

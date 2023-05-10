@@ -1,7 +1,7 @@
 {
 	"position" : "top",
 	"height" : 52,
-	"spacing" : 8,
+	"spacing" : 5,
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["wlr/workspaces"],
@@ -19,7 +19,7 @@
 	},
 
 	"cpu" : {
-		"interval" : 5,
+		"interval" : 2,
 		"states" : { "warning": 90 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
 		"format-icons" : ["󰻠"],
@@ -27,8 +27,8 @@
 	},
 
 	"memory" : {
-		"interval" : 5,
-		"states" : { "warning": 80 },
+		"interval" : 3,
+		"states" : { "warning": 90 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},

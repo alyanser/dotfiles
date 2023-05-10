@@ -31,10 +31,8 @@ require("lazy").setup({
 	},
 
 	{
-		"folke/noice.nvim",
-		config = function()
-			require("noice-conf")
-		end
+		"lukas-reineke/indent-blankline.nvim",
+		config = true,
 	},
 
 	{
@@ -48,13 +46,6 @@ require("lazy").setup({
 		config = function()
 			require("neo-tree-conf")
 		end
-	},
-
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
-		module = "persistence",
-		config = true,
 	},
 
 	{
@@ -179,7 +170,7 @@ require("lazy").setup({
 		dependencies = {
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
-			-- 'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-cmdline',
 			'L3MON4D3/LuaSnip',
 		},

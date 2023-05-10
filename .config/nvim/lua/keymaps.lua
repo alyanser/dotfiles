@@ -6,7 +6,7 @@ nvim_set_keymap("v", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 
 nvim_set_keymap("n", "+y", "<cmd> call system(\"wl-copy\", @) <Return>", opts)
 
-nvim_set_keymap("n", "<C-\\>", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
+nvim_set_keymap("n", "<leader>t", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
 
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
@@ -58,7 +58,7 @@ nvim_set_keymap("n", "<leader>x", "<cmd> lua require('telescope.builtin').lsp_ty
 nvim_set_keymap("n", "gd", "<cmd> lua require('telescope.builtin').lsp_definitions() <cr>", opts)
 
 nvim_set_keymap("n", "<leader>gc", "<cmd> lua require('telescope.builtin').git_commits() <cr>", opts)
-nvim_set_keymap("n", "<leader>es", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
+-- nvim_set_keymap("n", "<leader>es", "<cmd> lua require('telescope.builtin').treesitter() <cr>", opts)
 
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
