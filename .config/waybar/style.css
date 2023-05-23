@@ -5,7 +5,6 @@
 
 window#waybar {
     background: rgba(22, 24, 36, 0.6);
-
 }
 
 #clock,
@@ -17,10 +16,12 @@ window#waybar {
 #memory,
 #tray,
 #mpd,
+#temperature,
 #taskbar,
+#cava,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
-    padding: 1px 15px;
+    padding: 1px 20px;
     margin: 10px 10px;
     border-radius: 20px;
 }
@@ -39,6 +40,10 @@ window#waybar {
 
 #clock {
     color: #fab387;
+}
+
+#cava {
+    color: #ffc777;
 }
 
 #network {
@@ -78,6 +83,7 @@ window#waybar {
 #network.disconnected,
 #battery.discharging,
 #cpu.warning,
+#temperature.warning,
 #memory.warning {
     color: #ff757f;
 }
@@ -85,6 +91,10 @@ window#waybar {
 #mpd {
     color: #a6e3a1;
     background: transparent;
+}
+
+#temperature {
+    color: #a6e3a1;
 }
 
 #mpd.disconnected,
@@ -96,4 +106,5 @@ window#waybar {
 tooltip {
     background: #1e1e2e;
     border-radius: 15px;
+    font-size: 2px;
 }

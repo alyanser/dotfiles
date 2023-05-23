@@ -1,13 +1,13 @@
 {
 	"position" : "top",
-	"height" : 52,
-	"spacing" : 5,
+	"height" : 49,
+	"spacing" : 0,
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["wlr/workspaces"],
-	"modules-right" : ["tray", "mpd", "network", "battery", "clock"],
+	"modules-right" : ["tray", "mpd", "network", "temperature", "battery", "clock"],
 
-	"wlr/workspaces" : {
+	"wlr/workspaces" :  {
 		"on-click" : "activate",
 		"format" : "{icon}",
 		"sory-by-number" : true,
@@ -19,16 +19,23 @@
 	},
 
 	"cpu" : {
-		"interval" : 2,
-		"states" : { "warning": 90 },
-		"format" : "<span font='19' rise='-4000'>{icon}</span> {usage}%",
-		"format-icons" : ["󰻠"],
-		"icon-size": 10
+		"interval" : 1,
+		"states" : { "warning": 95 },
+		"format": "<span font='19' rise='-4000'>󰻠</span> {icon0} {icon1} {icon2} {icon3}",
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+	},
+
+	"temperature" : {
+		"interval" : 5,
+		"critical-threshold": 90,
+		"format-critical" : "<span font='19' color='#ff757f' rise='-4000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
+		"format" : "<span font='19' rise='-4000'>{icon}</span> {temperatureC}°C",
+		"format-icons" : ["󱤋"]
 	},
 
 	"memory" : {
-		"interval" : 3,
-		"states" : { "warning": 90 },
+		"interval" : 1,
+		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},
@@ -58,7 +65,7 @@
 
 	"clock" : {
 		"interval" : 60,
-		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%I:%M}",
+		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%I:%M}"
 	},
 
 	"pulseaudio" : {
