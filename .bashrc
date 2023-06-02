@@ -27,6 +27,10 @@ alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias clear='clear; zwaves'
 
+function mk(){
+	[[ -f Makefile ]] && make || ninja
+}
+
 function zwaves(){
 	f=3 b=4
 
@@ -97,5 +101,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-zwaves
-export PATH=$PATH:/usr/local/bin/:~/.local/bin
+nerdfetch && echo

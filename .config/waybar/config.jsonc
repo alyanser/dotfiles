@@ -19,14 +19,14 @@
 	},
 
 	"cpu" : {
-		"interval" : 1,
+		"interval" : 3,
 		"states" : { "warning": 95 },
 		"format": "<span font='19' rise='-4000'>󰻠</span> {icon0} {icon1} {icon2} {icon3}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
 	},
 
 	"temperature" : {
-		"interval" : 5,
+		"interval" : 60,
 		"critical-threshold": 90,
 		"format-critical" : "<span font='19' color='#ff757f' rise='-4000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {temperatureC}°C",
@@ -34,7 +34,7 @@
 	},
 
 	"memory" : {
-		"interval" : 1,
+		"interval" : 5,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -54,7 +54,6 @@
 
 
 	"battery" : {
-		"interval" : 60,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -80,7 +79,7 @@
 	},
 
 	"network" : {
-		"interface": "wlp3s0",
+		"interface": "wlo1",
 		"format": "{ifname}",
 		"max-length": 50,
 		"format" : "<span font='19' rise='-4000'>{icon}</span>",

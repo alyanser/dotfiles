@@ -1,3 +1,4 @@
-[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec bash ~/.local/bin/hyprland
+[[ $(tty) == '/dev/tty1' && ! $DISPLAY ]] && exec ~/.local/bin/hyprland
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+source "$HOME/.cargo/env"

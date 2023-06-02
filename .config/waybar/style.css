@@ -21,7 +21,7 @@ window#waybar {
 #cava,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
-    padding: 1px 20px;
+    padding: 1px 12px;
     margin: 10px 10px;
     border-radius: 20px;
 }

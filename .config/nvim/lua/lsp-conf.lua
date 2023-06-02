@@ -2,15 +2,14 @@ local lsp = require("lspconfig")
 
 lsp["clangd"].setup{
 	single_file_support = true,
-	cmd = {'clangd', '--log=error', '--background-index', '-j=6', '--header-insertion=never', '--clang-tidy=false', '--completion-style=detailed'},
+	cmd = {'clangd', '--log=error', '--header-insertion=never', '--clang-tidy=false', '--completion-style=detailed', '--background-index', '-j=4'},
 	completion = {
 		workspaceWord = false,
 		showWord = "Disable"
 	},
 }
 
-local servers = {"pyright", "cmake", "bashls"}
--- local servers = {"cmake", "bashls"}
+local servers = {"pylsp", "cmake", "bashls"}
 
 require'lspconfig'.intelephense.setup{
     on_attach = function(client, bufnr)
