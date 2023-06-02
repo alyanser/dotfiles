@@ -1,0 +1,14 @@
+modmap:
+  - name: capslock as control and escape
+    remap:
+      CapsLock:
+        held: Ctrl_L
+        alone: Esc
+        alone_timeout_millis: 1000
+
+keymap:
+  - name: swap asciitilde with grave
+    remap:
+      Shift-grave: grave
+      grave: shift-grave
+
