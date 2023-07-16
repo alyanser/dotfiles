@@ -7,9 +7,10 @@ lsp["clangd"].setup{
 		workspaceWord = false,
 		showWord = "Disable"
 	},
+	signature_help = true,
 }
 
-local servers = {"pylsp", "cmake", "bashls"}
+local servers = {"pylsp", "bashls"}
 
 require'lspconfig'.intelephense.setup{
     on_attach = function(client, bufnr)
@@ -19,7 +20,6 @@ require'lspconfig'.intelephense.setup{
 
 for _, server in ipairs(servers) do
 	lsp[server].setup{
-		signature_help = false,
 	}
 end
 

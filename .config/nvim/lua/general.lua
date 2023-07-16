@@ -4,12 +4,12 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = false
-opt.guicursor = nil
+opt.relativenumber = true
+-- opt.guicursor = nil
 opt.cursorline = false
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
-opt.scrolloff = 10
+opt.scrolloff = 2
 opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true
@@ -21,17 +21,6 @@ opt.compatible = false
 
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"
-
--- opt.list = true
-
--- opt.listchars = {
--- 	tab = '❘-',
--- 	trail = '·',
--- 	lead = '-',
--- 	extends = '»',
--- 	precedes = '«',
--- 	nbsp = '×',
--- }
 
 vim.g.markdown_recommended_style = 0
 

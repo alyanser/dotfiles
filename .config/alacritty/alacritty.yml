@@ -31,8 +31,8 @@ key_bindings:
 
 window:
   padding:
-    x: 22
-    y: 15
+    x: 15
+    y: 17
   dynamic_padding: false
 
 # TokyoNight Alacritty Colors

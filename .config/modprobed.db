@@ -5,6 +5,7 @@ bpf_preload
 bridge
 br_netfilter
 ccm
+cdrom
 cec
 cfg80211
 coretemp
@@ -25,6 +26,9 @@ fat
 fuse
 gf128mul
 ghash_clmulni_intel
+gvfs-mtp
+hp_accel
+hp_wmi
 i2c_algo_bit
 i2c_dev
 i2c_i801
@@ -37,6 +41,7 @@ intel_gtt
 intel_powerclamp
 intel_rapl_common
 intel_rapl_msr
+intel_smartconnect
 intel_uncore
 iptable_filter
 iptable_nat
@@ -52,6 +57,7 @@ libarc4
 libcrc32c
 libphy
 libps2
+lis3lv02d
 llc
 loop
 lpc_ich
@@ -84,6 +90,8 @@ r8169
 rapl
 realtek
 rfkill
+rtsx_pci
+rtsx_pci_sdmmc
 rtsx_usb
 rtsx_usb_ms
 rtsx_usb_sdmmc
@@ -92,10 +100,12 @@ serio_raw
 sha512_ssse3
 snd
 snd_aloop
+snd_ctl_led
 snd_hda_codec
 snd_hda_codec_conexant
 snd_hda_codec_generic
 snd_hda_codec_hdmi
+snd_hda_codec_realtek
 snd_hda_core
 snd_hda_intel
 snd_hwdep
@@ -111,7 +121,9 @@ sparse_keymap
 spi_intel
 spi_intel_platform
 spi_nor
+sr_mod
 stp
+tpm_infineon
 ttm
 tun
 uas
@@ -132,6 +144,7 @@ videobuf2_v4l2
 videobuf2_vmalloc
 videodev
 vivaldi_fmap
+wireless_hotkey
 wmi
 wmi_bmof
 x86_pkg_temp_thermal

@@ -5,6 +5,8 @@
 shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
+shopt -s histreedit
+shopt -s nocaseglob
 
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -20,16 +22,13 @@ alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
 alias ls="exa --color=always"
 alias ll="ls -al"
-alias cmaker="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=Release"
-alias cmaked="cmake -GNinja --toolchain ~/.toolchain.cmake -DCMAKE_BUILD_TYPE=Debug"
-alias make='make -j6'
+alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias clear='clear; zwaves'
 
-function mk(){
-	[[ -f Makefile ]] && make || ninja
-}
+alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.toolchain.cmake"
+alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.toolchain.cmake"
 
 function zwaves(){
 	f=3 b=4
@@ -65,23 +64,22 @@ function __prompt_command__(){
 	local blue='\[\e[1;34m\]'
 	local purple='\[\e[0;35m\]'
 
-	PS1="${orange}(\u "
+	PS1="${purple}(\u "
 
-	if [[ $status != 0 ]]; then
+	if [[ $status != 0 && $status != 130 ]]; then
 		PS1+="${red}@"
 	else
 		PS1+="${green}@"
 	fi
 
-	PS1+=" ${blue}\w${orange})"
+	PS1+=" ${blue}\w${purple})"
 
-	if [[ $status != 0 ]]; then
-		PS1+="${red}"
+	if [[ $status != 0 && $status != 130 ]]; then
+		PS1+=" ${red}>${orange}>${red}>"
 	else
-		PS1+="${green}"
+		PS1+=" ${purple}>${orange}>${purple}>"
 	fi
 
-	PS1+=" $"
 	PS1+="${reset_col} "
 }
 
@@ -101,4 +99,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-nerdfetch && echo
+nitchNerd
