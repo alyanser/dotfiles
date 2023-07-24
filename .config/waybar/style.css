@@ -4,7 +4,42 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.6);
+    background: rgba(22, 24, 36, 0.5);
+}
+
+#workspaces {
+    background: #1f2335;
+    margin: 5px 5px;
+    padding: 8px 5px;
+    border-radius: 20px;
+    border: solid 0px #1f2335;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 7px;
+    border-radius: 16px;
+    color: #737aa2;
+    background-color: #737aa2;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+    color: #bb9af7;
+    background-color: #bb9af7;
+    border-radius: 16px;
+    min-width: 35px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	background-color: #cdd6f4;
+	color: #cdd6f4;
+	border-radius: 16px;
+    background-size: 400% 400%;
 }
 
 #clock,
@@ -28,14 +63,6 @@ window#waybar {
 
 #workspaces {
     background: transparent;
-}
-
-#workspaces button {
-    color: #c8d3f5;
-}
-
-#workspaces button.active {
-    color: #ffc777;
 }
 
 #clock {
@@ -101,10 +128,4 @@ window#waybar {
 #nework.disconnected
 {
     color: #a9b1d6;
-}
-
-tooltip {
-    background: #1e1e2e;
-    border-radius: 15px;
-    font-size: 2px;
 }

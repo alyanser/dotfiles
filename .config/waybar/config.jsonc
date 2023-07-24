@@ -19,7 +19,7 @@
 	},
 
 	"cpu" : {
-		"interval" : 3,
+		"interval" : 2,
 		"states" : { "warning": 95 },
 		"format": "<span font='19' rise='-4000'>󰻠</span> {icon0} {icon1} {icon2} {icon3}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
@@ -34,7 +34,7 @@
 	},
 
 	"memory" : {
-		"interval" : 5,
+		"interval" : 2,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
