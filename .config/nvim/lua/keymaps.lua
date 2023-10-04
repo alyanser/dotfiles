@@ -5,6 +5,9 @@ nvim_set_keymap("n", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 nvim_set_keymap("v", "<C-t>", "<cmd> NeoTreeShowToggle <Return>", opts)
 nvim_set_keymap("n", "G", "Gzz", opts)
 
+nvim_set_keymap("n", "j", "gj", opts)
+nvim_set_keymap("n", "k", "gk", opts)
+
 nvim_set_keymap("n", "+y", "<cmd> call system(\"wl-copy\", @) <Return>", opts)
 
 nvim_set_keymap("n", "<leader>t", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
@@ -14,7 +17,6 @@ nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
 nvim_set_keymap('n', '<M-q>', '<cmd> BufDel <cr>', opts)
 
-nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', opts)
 
 nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 nvim_set_keymap("n", "<M-1>", "<cmd> BufferLineGoToBuffer 1 <return>", opts)
@@ -74,6 +76,15 @@ vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+
+nvim_set_keymap("n", "<leader>a", "<cmd> Lspsaga code_action <return>", opts)
+nvim_set_keymap("n", "<leader>lg", "<cmd> Lspsaga peek_type_definition <return>", opts)
+nvim_set_keymap("n", "<m-t>", "<cmd> Lspsaga term_toggle <return>", opts)
+nvim_set_keymap('n', '<leader>rn', '<cmd> Lspsaga rename <cr>', opts)
+nvim_set_keymap('n', '<leader>lf', '<cmd> Lspsaga finder <cr>', opts)
+nvim_set_keymap('n', '<m-]>', '<cmd> Lspsaga diagnostic_jump_prev <cr>', opts)
+nvim_set_keymap('n', '<m-[>', '<cmd> Lspsaga diagnostic_jump_next <cr>', opts)
+nvim_set_keymap('n', '<leader>le', '<cmd> Lspsaga show_line_diagnostics <cr>', opts)
 
 -- restore the session for the current directory
 vim.api.nvim_set_keymap("n", "<leader>qs", [[<cmd>lua require("persistence").load()<cr>]], {})

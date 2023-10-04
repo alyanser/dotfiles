@@ -1,22 +1,9 @@
 {
-	"position" : "top",
-	"height" : 49,
-	"spacing" : 0,
+	"position" : "overlay",
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
-	"modules-center" : ["wlr/workspaces"],
+	"modules-center" : ["hyprland/workspaces"],
 	"modules-right" : ["tray", "mpd", "network", "temperature", "battery", "clock"],
-
-	"wlr/workspaces" :  {
-		"on-click" : "activate",
-		"format" : "{icon}",
-		"sory-by-number" : true,
-		"format-icons" : {
-			"urgent": "",
-			"active": "",
-			"default": ""
-		}
-	},
 
 	"cpu" : {
 		"interval" : 2,
@@ -34,7 +21,7 @@
 	},
 
 	"memory" : {
-		"interval" : 2,
+		"interval" : 3,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]

@@ -1,8 +1,4 @@
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set formatoptions-=cro",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
 	command = "set noexpandtab",
 })
 
@@ -24,6 +20,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
 	command = "set nofixendofline",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set formatoptions-=cro",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -49,4 +49,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
 	command = "checktime"
 })
-

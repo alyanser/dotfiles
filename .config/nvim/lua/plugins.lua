@@ -19,7 +19,7 @@ require("lazy").setup({
 		'RRethy/vim-illuminate',
 		config = function()
 			require('illuminate').configure{
-				delay = 300
+				delay = 250
 			}
 		end
 	},
@@ -28,27 +28,6 @@ require("lazy").setup({
 		"nvim-pack/nvim-spectre",
 		lazy = true,
 		cmd = 'Spectre',
-	},
-
-	{
-		'dgagn/diagflow.nvim',
-		config = function()
-			local colors = require("tokyonight.colors").setup()
-			require("diagflow").setup{
-				scope = "cursor",
-				severity_colors = {
-					error = "DiagnosticFloatingError",
-					warning = "DiagnosticFloatingWarning",
-					info = "DiagnosticFloatingInfo",
-					hint = "DiagnosticFloatingHint",
-				},
-			}
-		end
-	},
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = true,
 	},
 
 	{
@@ -61,15 +40,6 @@ require("lazy").setup({
 		},
 		config = function()
 			require("neo-tree-conf")
-		end
-	},
-
-	{
-		'filipdutescu/renamer.nvim',
-		branch = 'master',
-		dependencies = 'nvim-lua/plenary.nvim',
-		config = function()
-			require("renamer-conf")
 		end
 	},
 
@@ -202,7 +172,7 @@ require("lazy").setup({
 		config = function()
 			require('Comment').setup({
 				padding = true,
-				sticky = true,
+				sticky = false,
 				ignore = nil,
 				toggler = {
 					line = 'go',
@@ -230,28 +200,34 @@ require("lazy").setup({
 	{
 		'HiPhish/rainbow-delimiters.nvim',
 		config = function()
-			-- This module contains a number of default definitions
-local rainbow_delimiters = require 'rainbow-delimiters'
+			local rainbow_delimiters = require 'rainbow-delimiters'
 
-vim.g.rainbow_delimiters = {
-    strategy = {
-        [''] = rainbow_delimiters.strategy['global'],
-        vim = rainbow_delimiters.strategy['local'],
-    },
-    query = {
-        [''] = 'rainbow-delimiters',
-        lua = 'rainbow-blocks',
-    },
-    highlight = {
-        'RainbowDelimiterRed',
-        'RainbowDelimiterYellow',
-        'RainbowDelimiterBlue',
-        'RainbowDelimiterOrange',
-        'RainbowDelimiterGreen',
-        'RainbowDelimiterViolet',
-        'RainbowDelimiterCyan',
-    },
-}
+			vim.g.rainbow_delimiters = {
+				strategy = {
+					[''] = rainbow_delimiters.strategy['global'],
+					vim = rainbow_delimiters.strategy['local'],
+				},
+				query = {
+					[''] = 'rainbow-delimiters',
+					lua = 'rainbow-blocks',
+				},
+				highlight = {
+					'RainbowDelimiterRed',
+					'RainbowDelimiterYellow',
+					'RainbowDelimiterBlue',
+					'RainbowDelimiterOrange',
+					'RainbowDelimiterGreen',
+					'RainbowDelimiterViolet',
+					'RainbowDelimiterCyan',
+				},
+			}
 		end
+	},
+
+	{
+		'nvimdev/lspsaga.nvim',
+		config = function()
+			require('lspsaga').setup()
+		end,
 	},
 })
