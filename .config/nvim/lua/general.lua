@@ -25,16 +25,16 @@ vim.g.markdown_recommended_style = 0
 
 g.mapleader = ' '
 g.nofixedenofline = true
-opt.list = true
 
-opt.listchars = {
-	tab = '❘-',
-	trail = '·',
-	lead = '-',
-	extends = '»',
-	precedes = '«',
-	nbsp = '×',
-}
+-- opt.list = true
+-- opt.listchars = {
+-- 	tab = '❘-',
+-- 	trail = '·',
+-- 	lead = '-',
+-- 	extends = '»',
+-- 	precedes = '«',
+-- 	nbsp = '×',
+-- }
 
 g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1

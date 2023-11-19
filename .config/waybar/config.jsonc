@@ -1,9 +1,10 @@
 {
 	"position" : "overlay",
+	"height" : 52,
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["tray", "mpd", "network", "temperature", "battery", "clock"],
+	"modules-right" : ["custom/spotify", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"interval" : 2,
@@ -14,7 +15,7 @@
 
 	"temperature" : {
 		"interval" : 60,
-		"critical-threshold": 90,
+		"critical-threshold": 95,
 		"format-critical" : "<span font='19' color='#ff757f' rise='-4000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {temperatureC}°C",
 		"format-icons" : ["󱤋"]
@@ -26,17 +27,13 @@
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
 	},
-	
-	"mpd" : {
-		"format" : "{stateIcon}",
-		"format-disconnected" : "MPD",
-		"state-icons" : {
-			"paused" : "",
-			"playing" : ""
-		},
-		"on-click": "mpc toggle",
-		"on-click-right": "mpc next",
-		"on-click-middle": "mpc prev"
+
+	"custom/spotify" : {
+		"format" : "<span font='19' rise='-4000'>{icon}</span>",
+		"format-icons" : [" "],
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next",
+		"on-click-middle": "playerctl prev"
 	},
 
 
@@ -56,17 +53,18 @@
 
 	"pulseaudio" : {
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {volume}",
-		"format-muted" : "<span font='19' rise='-4000'>󰓄</span> nos",
+		"format-muted" : "<span font='19' rise='-4000'>󰟎</span>",
 		"format-icons" : {
-			"headphone" : "󰓃",
+			"headphone" : "",
 			"default": ["", ""]
 		},
 		"on-click": "pulsemixer --toggle-mute",
+		"on-click-right": "pulsemixer --change-volume +5",
 		"scroll-step" : 5
 	},
 
 	"network" : {
-		"interface": "wlo1",
+		"interface": "wlp3s0",
 		"format": "{ifname}",
 		"max-length": 50,
 		"format" : "<span font='19' rise='-4000'>{icon}</span>",
@@ -81,8 +79,4 @@
 		"on-scroll-down": "brightnessctl -q set 50-",
 		"on-scroll-up": "brightnessctl -q set +50"
 	},
-
-	"tray" : {
-		"icon-size": 20
-	}
 }

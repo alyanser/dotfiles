@@ -1,0 +1,80 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[[colors.indexed_colors]]
+color = "0xff966c"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xc53b53"
+index = 17
+
+[colors.bright]
+black = "0x444a73"
+blue = "0x82aaff"
+cyan = "0x86e1fc"
+green = "0xc3e88d"
+magenta = "0xc099ff"
+red = "0xff757f"
+white = "0xc8d3f5"
+yellow = "0xffc777"
+
+[colors.normal]
+black = "0x1b1d2b"
+blue = "0x82aaff"
+cyan = "0x86e1fc"
+green = "0xc3e88d"
+magenta = "0xc099ff"
+red = "0xff757f"
+white = "0x828bb8"
+yellow = "0xffc777"
+
+[colors.primary]
+background = "0x222436"
+foreground = "0xc8d3f5"
+
+[font]
+size = 10
+
+[font.bold]
+family = "caskaydiacove nerd font"
+style = "regular"
+
+[font.italic]
+family = "caskaydiacove nerd font"
+style = "regular"
+
+[font.normal]
+family = "caskaydiacove nerd font"
+style = "regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "X"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "toggleViMode"
+key = "J"
+mods = "Control"
+
+[window]
+dynamic_padding = false
+
+[window.padding]
+x = 13
+y = 10

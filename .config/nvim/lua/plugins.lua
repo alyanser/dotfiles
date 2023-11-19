@@ -225,6 +225,17 @@ require("lazy").setup({
 	},
 
 	{
+		'lukas-reineke/indent-blankline.nvim',
+		main = "ibl",
+		opts = {},
+		config = function()
+			require("ibl").setup {
+				scope = {enabled = false},
+			}
+		end,
+	},
+
+	{
 		'nvimdev/lspsaga.nvim',
 		config = function()
 			require('lspsaga').setup()

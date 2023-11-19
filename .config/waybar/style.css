@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.5);
+    background: rgba(22, 24, 36, 0.7);
 }
 
 #workspaces {
@@ -97,6 +97,7 @@ window#waybar {
     min-width: 70px;
 }
 
+#custom-spotify,
 #network {
     color: #4affa5;
     background: transparent;
