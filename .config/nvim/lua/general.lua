@@ -5,7 +5,7 @@ opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
 opt.relativenumber = true
-opt.guicursor = nil
+opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
 opt.scrolloff = 2
@@ -25,16 +25,6 @@ vim.g.markdown_recommended_style = 0
 
 g.mapleader = ' '
 g.nofixedenofline = true
-
--- opt.list = true
--- opt.listchars = {
--- 	tab = '❘-',
--- 	trail = '·',
--- 	lead = '-',
--- 	extends = '»',
--- 	precedes = '«',
--- 	nbsp = '×',
--- }
 
 g.loaded_netrwPlugin = 1
 g.loaded_netrwSettings = 1

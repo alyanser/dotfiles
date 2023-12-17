@@ -7,6 +7,7 @@
 	"modules-right" : ["custom/spotify", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
+		"tooltip" : false,
 		"interval" : 2,
 		"states" : { "warning": 95 },
 		"format": "<span font='19' rise='-4000'>󰻠</span> {icon0} {icon1} {icon2} {icon3}",
@@ -14,6 +15,7 @@
 	},
 
 	"temperature" : {
+		"tooltip" : false,
 		"interval" : 60,
 		"critical-threshold": 95,
 		"format-critical" : "<span font='19' color='#ff757f' rise='-4000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
@@ -22,6 +24,7 @@
 	},
 
 	"memory" : {
+		"tooltip" : false,
 		"interval" : 3,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
@@ -29,6 +32,7 @@
 	},
 
 	"custom/spotify" : {
+		"tooltip" : false,
 		"format" : "<span font='19' rise='-4000'>{icon}</span>",
 		"format-icons" : [" "],
 		"on-click": "playerctl play-pause",
@@ -38,6 +42,8 @@
 
 
 	"battery" : {
+		"tooltip" : false,
+		"interval": 1,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -47,11 +53,13 @@
 	},
 
 	"clock" : {
+		"tooltip" : false,
 		"interval" : 60,
 		"format" : "<span font='19' rise='-4000'>󰥔</span> {:%I:%M}"
 	},
 
 	"pulseaudio" : {
+		"tooltip" : false,
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {volume}",
 		"format-muted" : "<span font='19' rise='-4000'>󰟎</span>",
 		"format-icons" : {
@@ -64,7 +72,8 @@
 	},
 
 	"network" : {
-		"interface": "wlp3s0",
+		"tooltip" : false,
+		"interface": "wlo1",
 		"format": "{ifname}",
 		"max-length": 50,
 		"format" : "<span font='19' rise='-4000'>{icon}</span>",
@@ -73,6 +82,7 @@
 	},
 
 	"backlight": {
+		"tooltip" : false,
 		"device": "intel_backlight",
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {percent}",
 		"format-icons": ["󰳲", "󰳲"],
