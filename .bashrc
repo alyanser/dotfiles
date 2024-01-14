@@ -26,6 +26,7 @@ alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias ninja="ninja -j12"
+alias firefox="firefox-nightly"
 
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
@@ -66,6 +67,7 @@ HISTSIZE=
 export PATH=$PATH:~/.local/bin:.
 export EDITOR="nvim"
 export VISUAL="nvim"
+unset GDK_BACKEND
 
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;31m'

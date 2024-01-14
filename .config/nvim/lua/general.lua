@@ -20,6 +20,7 @@ opt.compatible = false
 
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"
+opt.clipboard = "unnamedplus"
 
 vim.g.markdown_recommended_style = 0
 
