@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.7);
+    background: rgba(22, 24, 36, 0.8);
 }
 
 #workspaces {
@@ -23,16 +23,14 @@ window#waybar {
     border-radius: 16px;
     color: #737aa2;
     background-color: #737aa2;
-    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
     color: #bb9af7;
     background-color: #bb9af7;
     border-radius: 16px;
-    min-width: 35px;
-    background-size: 400% 400%;
-    transition: all 0.3s ease-in-out;
+    /* min-width: 35px; */
+    /* background-size: 400% 400%; */
 }
 
 #workspaces button:hover {
@@ -87,7 +85,7 @@ window#waybar {
     min-width: 130px;
 }
 
-#pulseaudio {
+#pulseaudio{
     color: #9d7cd8;
     min-width: 70px;
 }
