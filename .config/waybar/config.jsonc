@@ -8,7 +8,7 @@
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 2,
+		"interval" : 3,
 		"states" : { "warning": 95 },
 		"format": "<span font='19' rise='-4000'>󰻠</span> {icon0} {icon1} {icon2} {icon3}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -25,7 +25,7 @@
 
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 2,
+		"interval" : 3,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span> {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -51,16 +51,6 @@
 		"format-icons" : ["󰗱"]
 	},
 
-	"wireplumber" : {
-		"tooltip" : false,
-		"scroll-step": 5,
-		"on-click": "pw-volume mute toggle",
-		"format" : "<span font='19' rise='-4000'>{icon}</span> {volume}",
-		"format-muted" : "<span font='19' rise='-4000'></span>",
-		"format-icons": ["", "", ""],
-		"max-volume": 105,
-	},
-
 	"pulseaudio" : {
 		"tooltip" : false,
 		"scroll-step": 5,
@@ -75,7 +65,7 @@
 			"headphone": "",
 		},
 
-		"max-volume": 105,
+		"max-volume": 150,
 	},
 
 	"clock" : {

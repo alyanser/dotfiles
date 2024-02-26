@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.8);
+    background: rgba(22, 24, 36, 0.7);
 }
 
 #workspaces {
@@ -23,14 +23,17 @@ window#waybar {
     border-radius: 16px;
     color: #737aa2;
     background-color: #737aa2;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
     color: #bb9af7;
     background-color: #bb9af7;
     border-radius: 16px;
-    /* min-width: 35px; */
-    /* background-size: 400% 400%; */
+    background-size: 400% 400%;
+    min-width: 35px;
+    animation: expand 2s;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -52,6 +55,7 @@ window#waybar {
 #temperature,
 #taskbar,
 #cava,
+#pulseaudio-slider,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
     padding: 1px 12px;
