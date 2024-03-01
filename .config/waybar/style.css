@@ -1,6 +1,7 @@
 * {
-    font-family: caskaydiacove nerd font, material design icons;
+    font-family: caskaydiacove nerd font;
     font-size: 15px;
+    font-weight: bold;
 }
 
 window#waybar {
@@ -116,11 +117,6 @@ window#waybar {
 #temperature.warning,
 #memory.warning {
     color: #ff757f;
-}
-
-#mpd {
-    color: #a6e3a1;
-    background: transparent;
 }
 
 #temperature {
