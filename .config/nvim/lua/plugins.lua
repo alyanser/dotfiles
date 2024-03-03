@@ -173,7 +173,7 @@ require("lazy").setup({
 			require('Comment').setup({
 				padding = true,
 				sticky = false,
-				ignore = nil,
+				ignore = '^$',
 				toggler = {
 					line = 'go',
 					block = 'ggo',

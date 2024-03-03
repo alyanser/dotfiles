@@ -10,7 +10,7 @@ lsp["clangd"].setup{
 	signature_help = true,
 }
 
-local servers = {"bashls", "pylsp"}
+local servers = {"bashls"}
 
 require('lspconfig').intelephense.setup{
     on_attach = function(client, bufnr)

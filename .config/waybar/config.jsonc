@@ -4,11 +4,11 @@
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["network", "temperature", "battery", "clock"],
+	"modules-right" : ["custom/spotify", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 2,
+		"interval" : 3,
 		"states" : { "warning": 95 },
 		"format": "<span font='19' rise='-4000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -23,12 +23,24 @@
 		"format-icons" : ["󱤋"]
 	},
 
+	"hyprland/workspaces" :  {
+	},
+
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 2,
+		"interval" : 3,
 		"states" : { "warning": 98 },
 		"format" : "<span font='19' rise='-4000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
+	},
+
+	"custom/spotify" : {
+		"tooltip" : false,
+		"format" : "<span font='19' rise='-4000'>{icon}</span>",
+		"format-icons" : [" "],
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next",
+		"on-click-middle": "playerctl prev"
 	},
 
 	"battery" : {
@@ -46,7 +58,7 @@
 		"tooltip" : false,
 		"scroll-step": 5,
 
-		"on-click": "pw-volume mute toggle",
+		"on-click": "pulsemixer --toggle-mute",
 
 		"format" : "<span font='19' rise='-4000'>{icon}</span>  {volume}",
 		"format-muted" : "<span font='19' rise='-4000'></span>",
