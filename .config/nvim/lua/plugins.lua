@@ -16,15 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 	{
-		'RRethy/vim-illuminate',
-		config = function()
-			require('illuminate').configure{
-				delay = 250
-			}
-		end
-	},
-
-	{
 		"nvim-pack/nvim-spectre",
 		lazy = true,
 		cmd = 'Spectre',
@@ -50,12 +41,6 @@ require("lazy").setup({
 		end
 	},
 
-	{
-		'lewis6991/gitsigns.nvim',
-		config = function()
-			require("gitsigns-conf")
-		end
-	},
 
 	{
 		'ojroques/nvim-bufdel',
@@ -143,27 +128,6 @@ require("lazy").setup({
 		end
 	},
 
-	{
-		'neovim/nvim-lspconfig',
-		config = function()
-			require("lsp-conf")
-		end,
-	},
-
-	{
-		'hrsh7th/nvim-cmp',
-		event = "InsertEnter",
-		dependencies = {
-			'neovim/nvim-lspconfig',
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-cmdline',
-			'L3MON4D3/LuaSnip',
-		},
-		config = function()
-			require("cmp-conf")
-		end
-	},
 
 	{
 		'numToStr/Comment.nvim',
@@ -198,33 +162,6 @@ require("lazy").setup({
 	},
 
 	{
-		'HiPhish/rainbow-delimiters.nvim',
-		config = function()
-			local rainbow_delimiters = require 'rainbow-delimiters'
-
-			vim.g.rainbow_delimiters = {
-				strategy = {
-					[''] = rainbow_delimiters.strategy['global'],
-					vim = rainbow_delimiters.strategy['local'],
-				},
-				query = {
-					[''] = 'rainbow-delimiters',
-					lua = 'rainbow-blocks',
-				},
-				highlight = {
-					'RainbowDelimiterRed',
-					'RainbowDelimiterYellow',
-					'RainbowDelimiterBlue',
-					'RainbowDelimiterOrange',
-					'RainbowDelimiterGreen',
-					'RainbowDelimiterViolet',
-					'RainbowDelimiterCyan',
-				},
-			}
-		end
-	},
-
-	{
 		'lukas-reineke/indent-blankline.nvim',
 		main = "ibl",
 		opts = {},
@@ -236,9 +173,42 @@ require("lazy").setup({
 	},
 
 	{
-		'nvimdev/lspsaga.nvim',
+		'lewis6991/gitsigns.nvim',
 		config = function()
-			require('lspsaga').setup()
+			require("gitsigns-conf")
+		end
+	},
+
+	{
+		'neovim/nvim-lspconfig',
+		config = function()
+			require("lsp-conf")
 		end,
 	},
+
+	{
+		'hrsh7th/nvim-cmp',
+		event = "InsertEnter",
+		dependencies = {
+			'neovim/nvim-lspconfig',
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-cmdline',
+			'L3MON4D3/LuaSnip',
+		},
+		config = function()
+			require("cmp-conf")
+		end
+	},
+
+	{
+		'HiPhish/rainbow-delimiters.nvim',
+	}
+
+	-- {
+	-- 	'nvimdev/lspsaga.nvim',
+	-- 	config = function()
+	-- 		require('lspsaga').setup()
+	-- 	end,
+	-- },
 })

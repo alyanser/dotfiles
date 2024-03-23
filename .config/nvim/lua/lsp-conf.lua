@@ -2,7 +2,7 @@ local lsp = require("lspconfig")
 
 lsp["clangd"].setup{
 	single_file_support = true,
-	cmd = {'clangd', '--log=error', '--header-insertion=never', '--clang-tidy=true', '--completion-style=detailed', '--background-index=false', '-j=6'},
+	cmd = {'clangd', '--log=error', '--header-insertion=never', '--clang-tidy=false', '--completion-style=detailed', '--background-index=false', '-j=1'},
 	completion = {
 		workspaceWord = false,
 		showWord = "Disable"
@@ -10,7 +10,7 @@ lsp["clangd"].setup{
 	signature_help = true,
 }
 
-local servers = {"bashls"}
+local servers = {"bashls", "pylsp"}
 
 require('lspconfig').intelephense.setup{
     on_attach = function(client, bufnr)
