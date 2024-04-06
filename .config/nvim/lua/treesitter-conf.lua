@@ -5,17 +5,17 @@ require'nvim-treesitter.configs'.setup {
 
   highlight = {
     enable = true,
-    disable = {},
   },
 
-  indent = { enable = true },
+  indent = { 
+    enable = false
+  },
 
   autopairs = {
-    enable = true,
+    enable = false,
   },
 
   context_commentstring = {
-    enable = true,
-    enable_autocmd = false
+    enable = false,
   },
 }
