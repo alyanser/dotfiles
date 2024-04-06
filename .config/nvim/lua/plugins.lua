@@ -23,14 +23,23 @@ require("lazy").setup({
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v2.x",
+		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"kyazdani42/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
 			require("neo-tree-conf")
+		end
+	},
+
+	{
+		"kyazdani42/nvim-web-devicons",
+		config = function()
+			require("nvim-web-devicons").setup{
+				default = true,
+				strict = true,
+			}
 		end
 	},
 
@@ -40,7 +49,6 @@ require("lazy").setup({
 			require('nvim-lastplace-conf')
 		end
 	},
-
 
 	{
 		'ojroques/nvim-bufdel',
@@ -92,7 +100,6 @@ require("lazy").setup({
 
 	{
 		'akinsho/bufferline.nvim',
-		dependencies = 'kyazdani42/nvim-web-devicons',
 		config = function()
 			require("bufferline-conf")
 		end,
@@ -112,7 +119,6 @@ require("lazy").setup({
 	{
 		'nvim-lualine/lualine.nvim',
 		dependencies = {
-			'kyazdani42/nvim-web-devicons',
 		},
 		config = function()
 			require("lualine-conf")
@@ -162,17 +168,6 @@ require("lazy").setup({
 	},
 
 	{
-		'lukas-reineke/indent-blankline.nvim',
-		main = "ibl",
-		opts = {},
-		config = function()
-			require("ibl").setup {
-				scope = {enabled = false},
-			}
-		end,
-	},
-
-	{
 		'lewis6991/gitsigns.nvim',
 		config = function()
 			require("gitsigns-conf")
@@ -200,15 +195,4 @@ require("lazy").setup({
 			require("cmp-conf")
 		end
 	},
-
-	{
-		'HiPhish/rainbow-delimiters.nvim',
-	}
-
-	-- {
-	-- 	'nvimdev/lspsaga.nvim',
-	-- 	config = function()
-	-- 		require('lspsaga').setup()
-	-- 	end,
-	-- },
 })

@@ -4,7 +4,7 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
@@ -21,7 +21,7 @@ opt.compatible = false
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"
 
-vim.g.markdown_recommended_style = 0
+g.markdown_recommended_style = 0
 
 g.mapleader = ' '
 g.nofixedenofline = true
@@ -32,3 +32,16 @@ g.loaded_netrwFileHandlers = 1
 g.loaded_netrw_gitignore = 1
 
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
+
+vim.fn.sign_define("DiagnosticSignError",
+	{text = " ", texthl = "DiagnosticSignError"})
+
+vim.fn.sign_define("DiagnosticSignWarn",
+	{text = " ", texthl = "DiagnosticSignWarn"})
+
+vim.fn.sign_define("DiagnosticSignInfo",
+	{text = " ", texthl = "DiagnosticSignInfo"})
+
+vim.fn.sign_define("DiagnosticSignHint",
+	{text = "󰌵", texthl = "DiagnosticSignHint"})
+
