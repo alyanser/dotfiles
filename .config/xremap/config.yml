@@ -4,11 +4,14 @@ modmap:
       CapsLock:
         held: Ctrl_L
         alone: Esc
-        alone_timeout_millis: 1000
+        alone_timeout_millis: 200
+
+  - name: swap shift_r with backspace
+    remap:
+      SHIFT_R: backspace
 
 keymap:
   - name: swap asciitilde with grave
     remap:
       Shift-grave: grave
       grave: shift-grave
-
