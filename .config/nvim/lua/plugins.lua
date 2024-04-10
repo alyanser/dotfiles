@@ -100,6 +100,7 @@ require("lazy").setup({
 
 	{
 		'akinsho/bufferline.nvim',
+		version = "*",
 		config = function()
 			require("bufferline-conf")
 		end,
@@ -107,7 +108,6 @@ require("lazy").setup({
 
 	{
 		'windwp/nvim-autopairs',
-		event = 'InsertEnter',
 		config = function()
 			require("nvim-autopairs").setup{
 				map_c_h = true,
@@ -183,7 +183,6 @@ require("lazy").setup({
 
 	{
 		'hrsh7th/nvim-cmp',
-		event = "InsertEnter",
 		dependencies = {
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',

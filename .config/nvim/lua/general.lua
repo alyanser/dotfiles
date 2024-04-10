@@ -4,7 +4,7 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
@@ -45,3 +45,6 @@ vim.fn.sign_define("DiagnosticSignInfo",
 vim.fn.sign_define("DiagnosticSignHint",
 	{text = "󰌵", texthl = "DiagnosticSignHint"})
 
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
