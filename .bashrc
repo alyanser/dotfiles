@@ -13,21 +13,20 @@ bind '\C-w:unix-filename-rubout'
 
 alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
-alias redshift="redshift -P -O"
 alias py="python -q"
 alias gdb="gdb -q"
-alias tree="tree -C"
 alias ncm="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
 alias ls="exa --color=always --icons=always"
 alias ll="ls -al"
+alias tree="ls -T"
 alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias yay="yay --noconfirm"
 alias cat='bat --theme ansi --paging=never'
-
+alias df="df -h"
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
 

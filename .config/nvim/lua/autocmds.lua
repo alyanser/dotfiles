@@ -3,15 +3,15 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set tabstop=8",
+	command = "set tabstop=7",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set shiftwidth=8",
+	command = "set shiftwidth=7",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	command = "set softtabstop=8",
+	command = "set softtabstop=7",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -20,6 +20,10 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
 	command = "set nofixendofline",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	command = "set commentstring=#%s",
 })
 
 vim.api.nvim_create_autocmd("FileType", {

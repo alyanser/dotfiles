@@ -4,11 +4,11 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
-opt.scrolloff = 5
+opt.scrolloff = 8
 opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true
@@ -31,20 +31,10 @@ g.loaded_netrwSettings = 1
 g.loaded_netrwFileHandlers = 1
 g.loaded_netrw_gitignore = 1
 
+vim.loader.enable()
+
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
 
-vim.fn.sign_define("DiagnosticSignError",
-	{text = " ", texthl = "DiagnosticSignError"})
-
-vim.fn.sign_define("DiagnosticSignWarn",
-	{text = " ", texthl = "DiagnosticSignWarn"})
-
-vim.fn.sign_define("DiagnosticSignInfo",
-	{text = " ", texthl = "DiagnosticSignInfo"})
-
-vim.fn.sign_define("DiagnosticSignHint",
-	{text = "󰌵", texthl = "DiagnosticSignHint"})
-
 vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+	pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
