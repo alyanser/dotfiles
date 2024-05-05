@@ -2,6 +2,7 @@
     font-family: caskaydiacove nerd font;
     font-size: 15px;
     font-weight: Bold;
+    border: none;
 }
 
 window#waybar {
@@ -24,7 +25,7 @@ window#waybar {
     border-radius: 16px;
     color: #737aa2;
     background-color: #737aa2;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 #workspaces button.active {
@@ -33,8 +34,7 @@ window#waybar {
     border-radius: 16px;
     background-size: 400% 400%;
     min-width: 35px;
-    animation: expand 2s;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -59,7 +59,7 @@ window#waybar {
 #pulseaudio-slider,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
-    padding: 1px 12px;
+    padding: 1px 10px;
     margin: 10px 10px;
     border-radius: 20px;
 }

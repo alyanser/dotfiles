@@ -1,5 +1,5 @@
 {
-	"position" : "overlay",
+	"position" : "dock",
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
@@ -15,20 +15,17 @@
 
 	"temperature" : {
 		"tooltip" : false,
-		"interval" : 60,
+		"interval" : 30,
 		"critical-threshold": 95,
 		"format-critical" : "<span font='17' color='#ff757f' rise='-4000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
 		"format" : "<span font='17' rise='-4000'>{icon}</span>  {temperatureC}°C",
 		"format-icons" : ["󱤋"]
 	},
 
-	"hyprland/workspaces": {
-	},
-
 	"memory" : {
 		"tooltip" : false,
 		"interval" : 3,
-		"states" : { "warning": 90 },
+		"states" : { "warning": 95 },
 		"format" : "<span font='17' rise='-4000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
 	},
@@ -44,7 +41,7 @@
 
 	"battery" : {
 		"tooltip" : false,
-		"interval": 60,
+		"interval": 3000,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -94,4 +91,5 @@
 		"on-scroll-down": "brightnessctl -q set 50-",
 		"on-scroll-up": "brightnessctl -q set +50"
 	},
+
 }
