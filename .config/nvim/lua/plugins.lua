@@ -196,9 +196,6 @@ require("lazy").setup({
 	},
 
 	{
-		'goolord/alpha-nvim',
-		config = function()
-			require'alpha'.setup(require'alpha.themes.startify'.config)
-		end
+		'RRethy/vim-illuminate',
 	}
 })

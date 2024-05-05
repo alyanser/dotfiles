@@ -10,7 +10,7 @@ lsp["clangd"].setup{
 	signature_help = true,
 }
 
-local servers = {"bashls", "pylsp"}
+local servers = {"bashls", "pylsp", "cmake", "typst_lsp"}
 
 for _, server in ipairs(servers) do
 	lsp[server].setup{}
