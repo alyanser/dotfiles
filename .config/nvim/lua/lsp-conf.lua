@@ -10,15 +10,25 @@ lsp["clangd"].setup{
 	signature_help = true,
 }
 
-local servers = {"bashls", "pylsp", "cmake", "typst_lsp"}
+local servers = {"bashls", "pylsp", "typst_lsp"}
 
 for _, server in ipairs(servers) do
 	lsp[server].setup{}
 end
 
-local signs = { Error = "", Warn = "", Hint = "󰌵", Info = "" }
+local  signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
-for type, icon in pairs(signs) do
-	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = '',
+            [vim.diagnostic.severity.WARN] = '',
+            [vim.diagnostic.severity.HINT] = '󰌵',
+            [vim.diagnostic.severity.INFO] = '',
+        },
+        numhl = {
+            [vim.diagnostic.severity.WARN] = 'WarningMsg',
+            [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+        },
+    },
+})
