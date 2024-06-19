@@ -15,20 +15,24 @@ alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
 alias py="python -q"
 alias gdb="gdb -q"
-alias ncm="ncmpcpp -q"
 alias objdump="objdump --visualize-jumps -M intel -zwd"
 alias vi="nvim"
-alias ls="exa --color=always --icons=always"
+alias ls="eza --color=always --icons=always"
 alias ll="ls -al"
 alias tree="ls -T"
 alias make='make -j$(nproc)'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias yay="yay --noconfirm"
-alias cat='bat --theme ansi --paging=never'
 alias df="df -h"
+alias blue="blueman-manager"
+
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
+
+function rist() {
+	ristretto $1 &> /dev/null &
+}
 
 function __prompt_command__(){
 	local status="$?"
@@ -61,6 +65,7 @@ function __prompt_command__(){
 
 PROMPT_COMMAND=__prompt_command__
 HISTFILESIZE=
+HISTCONTROL=ignorespace
 HISTSIZE=
 
 export PATH=$PATH:~/.local/bin:.

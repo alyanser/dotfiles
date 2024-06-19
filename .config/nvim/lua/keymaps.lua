@@ -1,8 +1,9 @@
 local nvim_set_keymap = vim.api.nvim_set_keymap
 local opts = { noremap=true, silent=true }
 
-nvim_set_keymap("n", "<C-t>", "<cmd> Neotree reveal toggle <Return>", opts)
-nvim_set_keymap("v", "<C-t>", "<cmd> Neotree reveal toggle <Return>", opts)
+nvim_set_keymap("n", "<C-t>", "<cmd> Neotree show toggle <Return>", opts)
+nvim_set_keymap("n", "<C-y>", "<cmd> Neotree reveal toggle <Return>", opts)
+nvim_set_keymap("v", "<C-t>", "<cmd> Neotree show toggle <Return>", opts)
 nvim_set_keymap("v", "<C-t>", "<cmd> Neotree git_status <Return>", opts)
 nvim_set_keymap("n", "G", "Gzz", opts)
 
@@ -16,7 +17,11 @@ nvim_set_keymap("n", "<leader>t", "<cmd> ClangdSwitchSourceHeader <Return>", opt
 nvim_set_keymap("n", "gw", "<cmd> HopWord <Return>", opts)
 nvim_set_keymap("n", "gn", "<cmd> HopChar1 <Return>", opts)
 nvim_set_keymap("n", "g/", "<cmd> HopPattern <Return>", opts)
+
 nvim_set_keymap('n', '<M-q>', '<cmd> BufDel <cr>', opts)
+
+nvim_set_keymap('n', 'c', '"_c', opts)
+nvim_set_keymap('n', 'C', '"_C', opts)
 
 nvim_set_keymap("n", "gt", "<cmd> BufferLinePick <return>", opts)
 nvim_set_keymap("n", "<M-1>", "<cmd> BufferLineGoToBuffer 1 <return>", opts)

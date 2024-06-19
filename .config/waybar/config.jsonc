@@ -7,7 +7,7 @@
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 1,
 		"states" : { "warning": 95 },
 		"format": "<span font='16' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -15,7 +15,7 @@
 
 	"temperature" : {
 		"tooltip" : false,
-		"interval" : 10,
+		"interval" : 3,
 		"critical-threshold": 95,
 		"format-critical" : "<span font='16' color='#ff757f' rise='-3000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
 		"format" : "<span font='16' rise='-3000'>{icon}</span>  {temperatureC}°C",
@@ -24,7 +24,7 @@
 
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 1,
 		"states" : { "warning": 95 },
 		"format" : "<span font='16' rise='-3000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -62,6 +62,7 @@
 		"format-icons": {
 			"default": ["", "", ""],
 			"headphone": "",
+			"headset": "",
 		},
 
 		"max-volume": 150,
