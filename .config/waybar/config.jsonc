@@ -1,13 +1,15 @@
 {
-	"position" : "overlay",
+	"mode" : "dock",
+	"position" : "top",
+	"layer" : "bottom",
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["custom/spotify", "network", "temperature", "battery", "clock"],
+	"modules-right" : ["bluetooth", "custom/spotify", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 1,
+		"interval" : 5,
 		"states" : { "warning": 95 },
 		"format": "<span font='16' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -15,7 +17,7 @@
 
 	"temperature" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 10,
 		"critical-threshold": 95,
 		"format-critical" : "<span font='16' color='#ff757f' rise='-3000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
 		"format" : "<span font='16' rise='-3000'>{icon}</span>  {temperatureC}°C",
@@ -24,7 +26,7 @@
 
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 1,
+		"interval" : 5,
 		"states" : { "warning": 95 },
 		"format" : "<span font='16' rise='-3000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -41,7 +43,7 @@
 
 	"battery" : {
 		"tooltip" : false,
-		"interval": 3000,
+		"nterval": 3000,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -93,4 +95,9 @@
 		"on-scroll-up": "brightnessctl -q set +50"
 	},
 
+	"bluetooth": {
+		"format" : "<span font='16' rise='-3000'>󰂲</span> ",
+		"format-connected" : "<span font='16' rise='-3000'></span> ",
+		"on-click": "blueman-manager"
+	}
 }

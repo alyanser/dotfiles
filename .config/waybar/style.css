@@ -55,7 +55,7 @@ window#waybar {
 #mpd,
 #temperature,
 #taskbar,
-#cava,
+#bluetooth,
 #pulseaudio-slider,
 #backlight {
     background: rgba(26, 27, 26, 0.4);
@@ -72,8 +72,8 @@ window#waybar {
     color: #fab387;
 }
 
-#cava {
-    color: #ffc777;
+#bluetooth {
+    color: #89CFF0;
 }
 
 #network {
@@ -101,6 +101,7 @@ window#waybar {
 }
 
 #custom-spotify,
+#bluetooth,
 #network {
     color: #4affa5;
     background: transparent;
