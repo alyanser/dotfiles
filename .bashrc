@@ -25,13 +25,32 @@ alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias yay="yay --noconfirm"
 alias df="df -h"
-alias blue="blueman-manager"
-
+alias firefox="firefox-nightly"
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
 
 function rist() {
 	ristretto $1 &> /dev/null &
+}
+
+function mvv() {
+	local src="$1"
+	local dst="$2"
+	local ext="${src##*.}"
+
+	if [[ "$src" == *"."* ]]; then
+		mv "$src" "${dst}.${ext}"
+	else
+		mv "$src" "$dst"
+	fi
+}
+
+function copy() {
+	cat $1 | wl-copy
+}
+
+function rid() {
+	kill -9 $(pgrep $1)
 }
 
 function __prompt_command__(){
@@ -73,6 +92,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export CC=clang
 export CXX=clang++
+export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
 unset GDK_BACKEND
 
 export LESS_TERMCAP_mb=$'\e[1;31m'
@@ -82,3 +102,4 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
+
