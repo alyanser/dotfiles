@@ -9,7 +9,7 @@
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 5,
+		"interval" : 3,
 		"states" : { "warning": 95 },
 		"format": "<span font='16' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -26,7 +26,7 @@
 
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 5,
+		"interval" : 3,
 		"states" : { "warning": 95 },
 		"format" : "<span font='16' rise='-3000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -73,7 +73,7 @@
 	"clock" : {
 		"tooltip" : false,
 		"interval" : 60,
-		"format" : "<span font='16' rise='-3000'>󰥔</span>  {:%I:%M}"
+		"format" : "<span font='16' rise='-3000'>󰥔</span>  {:%H:%M}"
 	},
 
 	"network" : {
