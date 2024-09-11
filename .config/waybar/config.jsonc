@@ -9,7 +9,7 @@
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 2,
 		"states" : { "warning": 95 },
 		"format": "<span font='16' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
@@ -36,7 +36,7 @@
 		"tooltip" : false,
 		"format" : "<span font='16' rise='-3000'>{icon}</span>",
 		"format-icons" : [" "],
-		"on-click": "spotify-waybar.sh",
+		"on-click": "~/.local/bin/spotify-waybar.sh",
 		"on-click-right": "playerctl next",
 		"on-click-middle": "playerctl prev"
 	},
