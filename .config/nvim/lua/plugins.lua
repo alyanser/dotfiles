@@ -66,12 +66,12 @@ require("lazy").setup({
 		end,
 	},
 
-	-- {
-	-- 	'NMAC427/guess-indent.nvim',
-	-- 	config = function()
-	-- 		require("guess-indent-conf")
-	-- 	end
-	-- },
+	{
+		'NMAC427/guess-indent.nvim',
+		config = function()
+			require("guess-indent-conf")
+		end
+	},
 
 	{
 		'phaazon/hop.nvim',

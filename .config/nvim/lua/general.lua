@@ -41,3 +41,4 @@ g.loaded_netrw_gitignore = 1
 vim.loader.enable()
 
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
+

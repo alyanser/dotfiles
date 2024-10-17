@@ -1,18 +1,18 @@
-vim.api.nvim_create_autocmd("FileType", {
-	command = "set noexpandtab",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	command = "set noexpandtab",
+-- })
 
-vim.api.nvim_create_autocmd("FileType", {
-	command = "set tabstop=7",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	command = "set tabstop=7",
+-- })
 
-vim.api.nvim_create_autocmd("FileType", {
-	command = "set shiftwidth=7",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	command = "set shiftwidth=7",
+-- })
 
-vim.api.nvim_create_autocmd("FileType", {
-	command = "set softtabstop=7",
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	command = "set softtabstop=7",
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
 	command = "set nohlsearch",
@@ -54,3 +54,7 @@ vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
 	command = "checktime"
 })
 
+-- workaroud till auto_cmd is fixed
+vim.api.nvim_create_autocmd("BufReadPost", {
+	command = "silent GuessIndent",
+})
