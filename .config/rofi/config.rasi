@@ -6,11 +6,11 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
+    display-drun: " ";
+
     // display-drun: "   Apps ";
-    display-drun: "    Run:";
     // display-window: "   window";
     // sidebar-mode: true;
 }
 
 @theme "/home/staz/.config/rofi/themes/rounded-nord-dark.rasi"
-// @theme "/home/staz/.config/rofi/themes/spotlight-dark.rasi"

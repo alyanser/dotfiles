@@ -1,10 +1,16 @@
 local g = vim.g
 local opt = vim.opt
+local o = vim.o
+
+o.expandtab = false 
+o.tabstop = 7
+o.shiftwidth = 7
+o.softtabstop = 7
 
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = false
+opt.relativenumber = true
 opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
@@ -17,6 +23,7 @@ opt.undolevels = 50000
 opt.undofile = true
 opt.swapfile = false
 opt.compatible = false
+opt.cursorline = true
 
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"

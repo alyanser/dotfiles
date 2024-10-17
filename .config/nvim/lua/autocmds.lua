@@ -53,3 +53,4 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
 	command = "checktime"
 })
+

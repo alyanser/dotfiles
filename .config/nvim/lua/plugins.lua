@@ -66,12 +66,12 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		'NMAC427/guess-indent.nvim',
-		config = function()
-			require("guess-indent-conf")
-		end
-	},
+	-- {
+	-- 	'NMAC427/guess-indent.nvim',
+	-- 	config = function()
+	-- 		require("guess-indent-conf")
+	-- 	end
+	-- },
 
 	{
 		'phaazon/hop.nvim',
@@ -133,37 +133,37 @@ require("lazy").setup({
 	},
 
 
-	{
-		'numToStr/Comment.nvim',
-		lazy = true,
-		keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
-		config = function()
-			require('Comment').setup({
-				padding = true,
-				sticky = false,
-				ignore = '^$',
-				toggler = {
-					line = 'go',
-					block = 'ggo',
-				},
-				opleader = {
-					line = 'go',
-					block = 'ggo',
-				},
-				extra = {
-					above = 'guo',
-					below = 'gbo',
-					eol = 'gao',
-				},
-				mappings = {
-					basic = true,
-					extra = true,
-				},
-				pre_hook = nil,
-				post_hook = nil,
-			})
-		end
-	},
+    {
+	 	'numToStr/Comment.nvim',
+	 	lazy = true,
+	 	keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
+	 	config = function()
+	 		require('Comment').setup({
+	 			padding = true,
+	 			sticky = false,
+	 			ignore = '^$',
+	 			toggler = {
+	 				line = 'go',
+	 				block = 'ggo',
+	 			},
+	 			opleader = {
+	 				line = 'go',
+	 				block = 'ggo',
+	 			},
+	 			extra = {
+	 				above = 'guo',
+	 				below = 'gbo',
+	 				eol = 'gao',
+	 			},
+	 			mappings = {
+	 				basic = true,
+	 				extra = true,
+	 			},
+	 			pre_hook = nil,
+	 			post_hook = nil,
+	 		})
+	 	end
+	 },
 
 	{
 		'lewis6991/gitsigns.nvim',
@@ -199,6 +199,6 @@ require("lazy").setup({
 
 	{
 		'tpope/vim-surround'
+	},
 
-	}
 })
