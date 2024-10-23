@@ -34,11 +34,15 @@ alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
 
 function rist() {
-  ristretto "$1"&> /dev/null &
+	ristretto "$1" &> /dev/null &
 }
 
 function cpwd() {
-  pwd | wl-copy
+	pwd | wl-copy
+}
+
+function psa() {
+	ps aux | grep "$1"
 }
 
 function mvv() {
@@ -82,11 +86,11 @@ function __prompt_command__(){
 	PS1+=" ${blue}\w${purple})"
 
 	if [[ $status != 0 && $status != 130 ]]; then
-		# PS1+=" ${red}>${orange}>${red}>"
-		PS1+=" ${red}$"
+		PS1+=" ${red}>${red}>"
+		# PS1+=" ${red}$"
 	else
-		# PS1+=" ${purple}>${orange}>${purple}>"
-		PS1+=" ${purple}$"
+		PS1+=" ${purple}>${purple}>"
+		# PS1+=" ${purple}$"
 	fi
 
 	PS1+="${reset_col} "
@@ -113,4 +117,4 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
-[[ -f .fzf-bash.sh ]] && source .fzf-bash.sh || true
+[[ -f ~/.fzf-bash.sh ]] && source ~/.fzf-bash.sh || true
