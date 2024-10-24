@@ -4,3 +4,9 @@ set colored-completion-prefix on
 set colored-stats on
 set completion-map-case on
 set page-completions on
+set match-hidden-files off
+
+set menu-complete-display-prefix on
+
+TAB: menu-complete
+"\e[Z": menu-complete-backward

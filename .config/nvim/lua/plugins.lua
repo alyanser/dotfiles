@@ -23,13 +23,33 @@ require("lazy").setup({
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		lazy = true,
+		cmd = 'Neotree',
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
 			require("neo-tree-conf")
-		end
+			vim.api.nvim_create_augroup("load_neo_tree", {})
+		end,
+
+		init = function()
+			vim.api.nvim_create_autocmd("BufEnter", {
+			group = vim.api.nvim_create_augroup("load_neo_tree", {}),
+			desc = "Loads neo-tree when openning a directory",
+			callback = function(args)
+				local stats = vim.uv.fs_stat(args.file)
+
+				if not stats or stats.type ~= "directory" then
+					return
+				end
+
+				require "neo-tree"
+				return true
+			end,
+			})
+		end,
 	},
 
 	{
@@ -106,6 +126,7 @@ require("lazy").setup({
 
 	{
 		'windwp/nvim-autopairs',
+		event = 'InsertEnter',
 		config = function()
 			require("nvim-autopairs").setup{
 				map_c_h = true,
@@ -116,8 +137,6 @@ require("lazy").setup({
 
 	{
 		'nvim-lualine/lualine.nvim',
-		dependencies = {
-		},
 		config = function()
 			require("lualine-conf")
 		end,
@@ -181,6 +200,7 @@ require("lazy").setup({
 
 	{
 		'hrsh7th/nvim-cmp',
+		event = 'InsertEnter',
 		dependencies = {
 			'neovim/nvim-lspconfig',
 			'hrsh7th/cmp-nvim-lsp',
@@ -194,11 +214,12 @@ require("lazy").setup({
 	},
 
 	{
-		'RRethy/vim-illuminate'
+		'RRethy/vim-illuminate',
 	},
 
 	{
-		'tpope/vim-surround'
+		'tpope/vim-surround',
+	 	keys = {'cs'},
 	},
 
 })
