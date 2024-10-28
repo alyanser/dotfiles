@@ -29,12 +29,16 @@ alias df="df -h"
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
 alias svi="sudoedit"
-alias ff="firefox-nightly"
+alias ff="firefox"
 alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
 
 function rist() {
 	ristretto "$1" &> /dev/null &
+}
+
+function open() {
+	xdg-open "$1" &> /dev/null &
 }
 
 function cpwd() {
