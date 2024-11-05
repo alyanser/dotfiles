@@ -1,0 +1,30 @@
+max-visible=7
+sort=-time
+output=HDMI-A-1
+layer=top
+anchor=top-center
+
+font=sf-pro-rounded 12
+
+background-color=#222436f0
+
+text-color=#d5d6d7
+width=400
+height=300
+
+margin=20
+padding=20
+
+border-size=0
+border-radius=30
+
+progress-color=over #5588AAF0
+
+icons=1
+max-icon-size=75
+icon-path=""
+markup=1
+actions=1
+default-timeout=2500
+ignore-timeout=0
+group-by=none

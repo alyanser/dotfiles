@@ -1,5 +1,5 @@
 configuration{
-    lines: 5;
+    lines: 8;
     font: "caskaydiacove nerd font";
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
