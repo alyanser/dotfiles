@@ -35,3 +35,12 @@ g.loaded_netrw_gitignore = 1
 vim.loader.enable()
 
 vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
+
+local notify = vim.notify
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings") then
+        return
+    end
+
+    notify(msg, ...)
+end

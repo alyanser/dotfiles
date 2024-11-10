@@ -6,7 +6,7 @@ anchor=top-center
 
 font=sf-pro-rounded 12
 
-background-color=#222436f0
+background-color=#222436F0
 
 text-color=#d5d6d7
 width=400
@@ -18,7 +18,7 @@ padding=20
 border-size=0
 border-radius=30
 
-progress-color=over #5588AAF0
+progress-color=over #5588AAAA
 
 icons=1
 max-icon-size=75

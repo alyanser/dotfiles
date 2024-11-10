@@ -1,12 +1,12 @@
 * {
     font-family: caskaydiacove nerd font;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: Bold;
     border: none;
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.7);
+    background: rgba(22, 24, 36, 0.8);
 }
 
 #workspaces {
