@@ -2,14 +2,14 @@ local g = vim.g
 local opt = vim.opt
 
 opt.ignorecase = true
-opt.number = true
+opt.number = false
 opt.termguicolors = true
 opt.relativenumber = false
-opt.guicursor = {}
+opt.guicursor = "n-v-c:block,i:hor30"
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
 opt.scrolloff = 8
-opt.wrap = true
+opt.wrap = false
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true
 opt.signcolumn = "yes"
@@ -17,7 +17,7 @@ opt.undolevels = 50000
 opt.undofile = true
 opt.swapfile = false
 opt.compatible = false
-opt.cursorline = true
+-- opt.cursorline = true
 
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"
@@ -34,13 +34,8 @@ g.loaded_netrw_gitignore = 1
 
 vim.loader.enable()
 
-vim.cmd [[ set undodir=~/.local/share/nvim/undodir ]]
+-- vim.diagnostic.config({
+-- 	virtual_text = false,
+-- })
 
-local notify = vim.notify
-vim.notify = function(msg, ...)
-    if msg:match("warning: multiple different client offset_encodings") then
-        return
-    end
-
-    notify(msg, ...)
-end
+-- vim.diagnostic.config({ virtual_lines = { only_current_line = true } })

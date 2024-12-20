@@ -15,11 +15,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	{
-		"nvim-pack/nvim-spectre",
-		lazy = true,
-		cmd = 'Spectre',
-	},
+	-- {
+	-- 	"nvim-pack/nvim-spectre",
+	-- 	lazy = true,
+	-- 	cmd = 'Spectre',
+	-- },
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -89,7 +89,8 @@ require("lazy").setup({
 	{
 		'NMAC427/guess-indent.nvim',
 		config = function()
-			require("guess-indent-conf")
+			-- require("guess-indent-coNf")
+			require("guess-indent").setup{}
 		end
 	},
 
@@ -113,7 +114,7 @@ require("lazy").setup({
 				end,
 			}
 
-			vim.cmd([[colorscheme tokyonight]])
+			vim.cmd([[ colorscheme tokyonight ]])
 		end,
 	},
 
@@ -151,37 +152,36 @@ require("lazy").setup({
 		end
 	},
 
-
-    {
-	 	'numToStr/Comment.nvim',
-	 	lazy = true,
-	 	keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
-	 	config = function()
-	 		require('Comment').setup({
-	 			padding = true,
-	 			sticky = false,
-	 			ignore = '^$',
-	 			toggler = {
-	 				line = 'go',
-	 				block = 'ggo',
-	 			},
-	 			opleader = {
-	 				line = 'go',
-	 				block = 'ggo',
-	 			},
-	 			extra = {
-	 				above = 'guo',
-	 				below = 'gbo',
-	 				eol = 'gao',
-	 			},
-	 			mappings = {
-	 				basic = true,
-	 				extra = true,
-	 			},
-	 			pre_hook = nil,
-	 			post_hook = nil,
-	 		})
-	 	end
+	{
+		'numToStr/Comment.nvim',
+	  	lazy = true,
+	  	keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
+	  	config = function()
+	  		require('Comment').setup({
+	  			padding = true,
+	  			sticky = false,
+				ignore = '^$',
+	  			toggler = {
+	  				line = 'go',
+	  				block = 'ggo',
+	  			},
+	  			opleader = {
+	  				line = 'go',
+	  				block = 'ggo',
+	  			},
+	  			extra = {
+	  				above = 'guo',
+	  				below = 'gbo',
+	  				eol = 'gao',
+				},
+	  			mappings = {
+	  				basic = true,
+	  				extra = true,
+	  			},
+	  			pre_hook = nil,
+	  			post_hook = nil,
+	  		})
+	  	end
 	 },
 
 	{
@@ -213,14 +213,9 @@ require("lazy").setup({
 		end
 	},
 
-	{
-		'RRethy/vim-illuminate',
-	},
-
-	{
-		'tpope/vim-surround',
-	 	keys = {'cs'},
-	},
+	-- {
+	-- 	'RRethy/vim-illuminate',
+	-- },
 
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -233,14 +228,10 @@ require("lazy").setup({
 		"github/copilot.vim",
 	},
 
-	{
-		"goolord/alpha-nvim",
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
-
-		config = function()
-			local startify = require("alpha.themes.startify")
-			startify.file_icons.provider = "devicons"
-			require("alpha").setup(startify.config)
-		end,
-	}
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function() 
+	-- 		require("lsp_lines").setup()
+	-- 	end
+	-- }
 })

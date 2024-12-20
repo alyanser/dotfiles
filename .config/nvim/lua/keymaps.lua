@@ -10,6 +10,14 @@ nvim_set_keymap("n", "G", "Gzz", opts)
 nvim_set_keymap("n", "j", "gj", opts)
 nvim_set_keymap("n", "k", "gk", opts)
 
+nvim_set_keymap("n", "[[", "[{", opts)
+nvim_set_keymap("n", "]]", "]}", opts)
+
+nvim_set_keymap("n", "yl", "^yg_", opts)
+
+nvim_set_keymap("n", "j", "gj", opts)
+nvim_set_keymap("n", "k", "gk", opts)
+
 nvim_set_keymap("n", "+y", "<cmd> call system(\"wl-copy\", @) <Return>", opts)
 
 nvim_set_keymap("n", "<leader>t", "<cmd> ClangdSwitchSourceHeader <Return>", opts)
@@ -79,7 +87,14 @@ vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, opts)
 vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
 vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+vim.keymap.set('n', '<space>a', vim.lsp.buf.code_action, bufopts)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
 
 nvim_set_keymap('n', '<leader>rn', '<cmd> lua vim.lsp.buf.rename() <cr>', opts)
+
+vim.keymap.set('i', '<C-Return>', 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false
+})
+
+vim.g.copilot_no_tab_map = true

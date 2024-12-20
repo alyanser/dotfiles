@@ -1,6 +1,7 @@
 require('guess-indent').setup {
-	auto_cmd = true,
+	auto_cmd = false,
 	override_editorconfig = true,
+
 	filetype_exclude = {
 		"netrw",
 		"tutor",

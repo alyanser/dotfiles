@@ -1,6 +1,6 @@
 require('gitsigns').setup {
 	numhl = true,
-	linehl = true,
+	linehl = false,
 
     on_attach = function(bufnr)
         local gitsigns = require('gitsigns')

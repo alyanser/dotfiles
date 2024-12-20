@@ -1,13 +1,12 @@
 #!/bin/bash
 
-[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
-
 shopt -s autocd
 shopt -s histappend
 shopt -s checkjobs
 shopt -s histreedit
 shopt -s nocaseglob
 set match-hidden-files off
+# shopt -s nocasematch
 
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -16,9 +15,9 @@ alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
 alias py="python -q"
 alias gdb="gdb -q"
-alias objdump="objdump --visualize-jumps -M intel -zwd"
+alias objdump="objdump --demangle --visualize-jumps -M intel -zwd"
 alias vi="nvim"
-alias ls="eza --color=always --icons=always"
+alias ls="eza --color=always --icons=always --sort=ext"
 alias ll="ls -al"
 alias tree="ls -T"
 alias make='make -j$(nproc)'
@@ -32,9 +31,23 @@ alias svi="sudoedit"
 alias ff="firefox"
 alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
+alias clang++="clang++ -fcolor-diagnostics -std=c++20"
+alias clang="clang -fcolor-diagnostics"
+alias prep="cmaker -B build --fresh"
+alias dprep="cmaked -B debug-build --fresh"
+alias go="cmake --build build"
+alias dgo="cmake --build debug-build"
 
 function rist() {
 	ristretto "$1" &> /dev/null &
+}
+
+function oku() {
+	okular "$1" &> /dev/null &
+}
+
+function bg() {
+	"$@" > /dev/null 2>&1 &
 }
 
 function open() {
@@ -84,26 +97,26 @@ function __prompt_command__(){
 	if [[ $status != 0 && $status != 130 ]]; then
 		PS1+="${red}@"
 	else
+
 		PS1+="${green}@"
 	fi
 
 	PS1+=" ${blue}\w${purple})"
 
 	if [[ $status != 0 && $status != 130 ]]; then
-		PS1+=" ${red}>${red}>"
+		PS1+=" ${red}"
 		# PS1+=" ${red}$"
 	else
-		PS1+=" ${purple}>${purple}>"
-		# PS1+=" ${purple}$"
+		PS1+=" ${green}"
 	fi
 
 	PS1+="${reset_col} "
 }
 
 PROMPT_COMMAND=__prompt_command__
-HISTFILESIZE=
+export HISTFILESIZE=-1
+export HISTSIZE=-1
 HISTCONTROL=ignorespace
-HISTSIZE=
 
 export PATH=$PATH:~/.local/bin:.
 export EDITOR="nvim"
@@ -111,6 +124,9 @@ export VISUAL="nvim"
 export CC=clang
 export CXX=clang++
 export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
+# export CMAKE_TOOLCHAIN_FILE=~/.debug-toolchain.cmake
+export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
+
 unset GDK_BACKEND
 
 export LESS_TERMCAP_mb=$'\e[1;31m'
@@ -121,4 +137,7 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
+[[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
 [[ -f ~/.fzf-bash.sh ]] && source ~/.fzf-bash.sh || true
+
+eval "$(zoxide init --cmd cd bash)"

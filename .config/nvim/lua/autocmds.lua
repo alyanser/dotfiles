@@ -54,7 +54,7 @@ vim.api.nvim_create_autocmd({"FocusGained", "TermClose", "TermLeave" },{
 	command = "checktime"
 })
 
--- workaroud till auto_cmd is fixed
+-- -- workaroud till auto_cmd is fixed
 vim.api.nvim_create_autocmd("BufReadPost", {
 	command = "silent GuessIndent",
 })

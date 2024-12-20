@@ -50,7 +50,7 @@ style = "bold"
 
 [font.offset]
 x = 0
-y = 0
+y = 1
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -76,5 +76,6 @@ mods = "Control"
 dynamic_padding = false
 
 [window.padding]
-x = 13
-y = 8
+x = 14
+y = 7
+
