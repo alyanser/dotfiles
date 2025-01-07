@@ -89,8 +89,16 @@ require("lazy").setup({
 	{
 		'NMAC427/guess-indent.nvim',
 		config = function()
-			-- require("guess-indent-coNf")
 			require("guess-indent").setup{}
+		end
+	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("ibl").setup {
+				scope = { enabled = false },
+			}
 		end
 	},
 
@@ -154,11 +162,11 @@ require("lazy").setup({
 
 	{
 		'numToStr/Comment.nvim',
-	  	lazy = true,
-	  	keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
-	  	config = function()
-	  		require('Comment').setup({
-	  			padding = true,
+		lazy = true,
+		keys = {'go', 'gcc', {'go', mode = 'v'}, {'ggo', mode = 'v'}},
+		config = function()
+		require('Comment').setup({
+				padding = true,
 	  			sticky = false,
 				ignore = '^$',
 	  			toggler = {
@@ -182,7 +190,7 @@ require("lazy").setup({
 	  			post_hook = nil,
 	  		})
 	  	end
-	 },
+	},
 
 	{
 		'lewis6991/gitsigns.nvim',
@@ -218,20 +226,14 @@ require("lazy").setup({
 	-- },
 
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			require("indent-blankline")
-		end,
-	},
-
-	{
 		"github/copilot.vim",
 	},
 
-	-- {
-	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-	-- 	config = function() 
-	-- 		require("lsp_lines").setup()
-	-- 	end
-	-- }
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function() 
+			require("lsp_lines").setup()
+			require("lsp_lines").toggle() -- start disabled, enable when needed
+		end
+	},
 })

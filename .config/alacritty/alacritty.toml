@@ -36,15 +36,15 @@ foreground = "0xc8d3f5"
 [font]
 size = 10
 
-[font.bold]
+[font.normal]
 family = "caskaydiacove nerd font"
 style = "bold"
 
 [font.italic]
 family = "caskaydiacove nerd font"
-style = "bold"
+style = "bold italic"
 
-[font.normal]
+[font.bold]
 family = "caskaydiacove nerd font"
 style = "bold"
 
@@ -78,4 +78,3 @@ dynamic_padding = false
 [window.padding]
 x = 14
 y = 7
-

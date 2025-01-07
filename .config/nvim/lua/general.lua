@@ -6,10 +6,11 @@ opt.number = false
 opt.termguicolors = true
 opt.relativenumber = false
 opt.guicursor = "n-v-c:block,i:hor30"
+-- opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
 opt.scrolloff = 8
-opt.wrap = false
+opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true
 opt.signcolumn = "yes"
@@ -17,7 +18,8 @@ opt.undolevels = 50000
 opt.undofile = true
 opt.swapfile = false
 opt.compatible = false
--- opt.cursorline = true
+opt.cursorline = false
+
 
 opt.splitkeep = "screen"
 opt.shortmess = "filnxtToOFWIcC"

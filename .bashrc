@@ -31,12 +31,11 @@ alias svi="sudoedit"
 alias ff="firefox"
 alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
-alias clang++="clang++ -fcolor-diagnostics -std=c++20"
+alias clang++="clang++ -fcolor-diagnostics -std=c++23"
 alias clang="clang -fcolor-diagnostics"
-alias prep="cmaker -B build --fresh"
-alias dprep="cmaked -B debug-build --fresh"
 alias go="cmake --build build"
-alias dgo="cmake --build debug-build"
+alias df="duf"
+alias pgrep="pgrep -i"
 
 function rist() {
 	ristretto "$1" &> /dev/null &
@@ -123,8 +122,8 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export CC=clang
 export CXX=clang++
-export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
 # export CMAKE_TOOLCHAIN_FILE=~/.debug-toolchain.cmake
+export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
 unset GDK_BACKEND
