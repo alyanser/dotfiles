@@ -2,7 +2,7 @@ local g = vim.g
 local opt = vim.opt
 
 opt.ignorecase = true
-opt.number = false
+opt.number = true
 opt.termguicolors = true
 opt.relativenumber = false
 opt.guicursor = "n-v-c:block,i:hor30"

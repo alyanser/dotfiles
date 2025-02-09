@@ -16,9 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 
 	-- {
-	-- 	"nvim-pack/nvim-spectre",
-	-- 	lazy = true,
-	-- 	cmd = 'Spectre',
+	--	"nvim-pack/nvim-spectre",
+	--	lazy = true,
+	--	cmd = 'Spectre',
 	-- },
 
 	{
@@ -128,6 +128,8 @@ require("lazy").setup({
 
 	{
 		'akinsho/bufferline.nvim',
+		requires = 'nvim-tree/nvim-web-devicons',
+
 		config = function()
 			require("bufferline-conf")
 		end,
@@ -167,29 +169,29 @@ require("lazy").setup({
 		config = function()
 		require('Comment').setup({
 				padding = true,
-	  			sticky = false,
+				sticky = false,
 				ignore = '^$',
-	  			toggler = {
-	  				line = 'go',
-	  				block = 'ggo',
-	  			},
-	  			opleader = {
-	  				line = 'go',
-	  				block = 'ggo',
-	  			},
-	  			extra = {
-	  				above = 'guo',
-	  				below = 'gbo',
-	  				eol = 'gao',
+				toggler = {
+					line = 'go',
+					block = 'ggo',
 				},
-	  			mappings = {
-	  				basic = true,
-	  				extra = true,
-	  			},
-	  			pre_hook = nil,
-	  			post_hook = nil,
-	  		})
-	  	end
+				opleader = {
+					line = 'go',
+					block = 'ggo',
+				},
+				extra = {
+					above = 'guo',
+					below = 'gbo',
+					eol = 'gao',
+				},
+				mappings = {
+					basic = true,
+					extra = true,
+				},
+				pre_hook = nil,
+				post_hook = nil,
+			})
+		end
 	},
 
 	{
@@ -222,7 +224,7 @@ require("lazy").setup({
 	},
 
 	-- {
-	-- 	'RRethy/vim-illuminate',
+	--	'RRethy/vim-illuminate',
 	-- },
 
 	{
@@ -233,7 +235,6 @@ require("lazy").setup({
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function() 
 			require("lsp_lines").setup()
-			require("lsp_lines").toggle() -- start disabled, enable when needed
 		end
 	},
 })

@@ -6,29 +6,28 @@ require('gitsigns').setup {
                 local gitsigns = require('gitsigns')
 
                 local function map(mode, l, r, opts)
-                opts = opts or {}
-                opts.buffer = bufnr
-                vim.keymap.set(mode, l, r, opts)
+                        opts = opts or {}
+                        opts.buffer = bufnr
+                        vim.keymap.set(mode, l, r, opts)
                 end
 
                 -- Navigation
                 map('n', ']c', function()
-                if vim.wo.diff then
-                vim.cmd.normal({']c', bang = true})
-                else
-                gitsigns.nav_hunk('next')
-                end
+                        if vim.wo.diff then
+                                vim.cmd.normal({']c', bang = true})
+                        else
+                                gitsigns.nav_hunk('next')
+                        end
                 end)
 
                 map('n', '[c', function()
-                if vim.wo.diff then
-                vim.cmd.normal({'[c', bang = true})
-                else
-                gitsigns.nav_hunk('prev')
-                end
+                        if vim.wo.diff then
+                                vim.cmd.normal({'[c', bang = true})
+                        else
+                                gitsigns.nav_hunk('prev')
+                        end
                 end)
 
-                -- Actions
                 map('n', '<leader>hs', gitsigns.stage_hunk)
                 map('n', '<leader>hr', gitsigns.reset_hunk)
                 map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
@@ -42,7 +41,6 @@ require('gitsigns').setup {
                 map('n', '<leader>hd', gitsigns.diffthis)
                 map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
                 map('n', '<leader>td', gitsigns.toggle_deleted)
-
                 map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
         end
 }
