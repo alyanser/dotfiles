@@ -55,7 +55,9 @@
 	"pulseaudio" : {
 		"tooltip" : false,
 
-		"on-click": "pulsemixer --toggle-mute",
+		"on-click": "pulsemixer --change-volume +5",
+		"on-click-right": "pulsemixer --change-volume -5",
+		"on-click-middle": "pulsemixer --toggle-mute",
 		"scroll-step": 5,
 
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {volume}",
@@ -92,7 +94,9 @@
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {percent}",
 		"format-icons": ["󰳲", "󰳲"],
 		"on-scroll-down": "brightnessctl -q set 50-",
-		"on-scroll-up": "brightnessctl -q set +50"
+		"on-scroll-up": "brightnessctl -q set +50",
+		"on-click": "brightnessctl -q set +50",
+		"on-click-right": "brightnessctl -q set 50-",
 	},
 
 	"bluetooth": {

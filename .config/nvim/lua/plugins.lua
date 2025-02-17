@@ -117,7 +117,7 @@ require("lazy").setup({
 				style = "moon",
 				on_colors = function(colors)
 					colors.hint = colors.purple
-					colors.warning = colors.orange
+					colors.warning = colors.blue
 					colors.error = colors.red
 				end,
 			}
@@ -223,9 +223,9 @@ require("lazy").setup({
 		end
 	},
 
-	-- {
-	--	'RRethy/vim-illuminate',
-	-- },
+	{
+	'RRethy/vim-illuminate',
+	},
 
 	{
 		"github/copilot.vim",

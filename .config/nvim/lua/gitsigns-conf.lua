@@ -12,7 +12,7 @@ require('gitsigns').setup {
                 end
 
                 -- Navigation
-                map('n', ']c', function()
+                map('n', '[c', function()
                         if vim.wo.diff then
                                 vim.cmd.normal({']c', bang = true})
                         else
@@ -20,7 +20,7 @@ require('gitsigns').setup {
                         end
                 end)
 
-                map('n', '[c', function()
+                map('n', ']c', function()
                         if vim.wo.diff then
                                 vim.cmd.normal({'[c', bang = true})
                         else
