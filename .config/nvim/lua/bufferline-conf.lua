@@ -6,7 +6,7 @@ require('bufferline').setup {
 		color_icons = true,
 		show_close_icon = true,
 		always_show_bufferline = true,
-		separator_style = "slope",
+		-- separator_style = "slope",
 		max_name_length = 20,
 		max_prefix_length = 13,
 		tab_size = 25,

@@ -19,7 +19,7 @@
 		"tooltip" : false,
 		"interval" : 10,
 		"critical-threshold": 95,
-		"format-critical" : "<span font='15' color='#ff757f' rise='-3000'>{icon}</span> <span color='#ff757f'>{temperatureC}°C</span>",
+		"format-critical" : "<span font='15' color='#ff757f' rise='-3000'>{icon}</span><span color='#ff757f'>  {temperatureC}°C</span>",
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {temperatureC}°C",
 		"format-icons" : ["󱤋"]
 	},

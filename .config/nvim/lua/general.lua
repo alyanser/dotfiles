@@ -6,7 +6,7 @@ opt.number = true
 opt.termguicolors = true
 opt.relativenumber = false
 opt.guicursor = "n-v-c:block,i:hor30"
--- opt.guicursor = {}
+opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3
 opt.scrolloff = 8
@@ -35,9 +35,3 @@ g.loaded_netrwFileHandlers = 1
 g.loaded_netrw_gitignore = 1
 
 vim.loader.enable()
-
--- vim.diagnostic.config({
--- 	virtual_text = false,
--- })
-
--- vim.diagnostic.config({ virtual_lines = { only_current_line = true } })

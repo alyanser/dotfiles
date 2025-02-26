@@ -223,9 +223,9 @@ require("lazy").setup({
 		end
 	},
 
-	{
-	'RRethy/vim-illuminate',
-	},
+	-- {
+	-- 	'RRethy/vim-illuminate',
+	-- },
 
 	{
 		"github/copilot.vim",
