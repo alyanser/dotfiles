@@ -36,6 +36,7 @@ alias clang="clang -fcolor-diagnostics"
 alias go="cmake --build build"
 alias df="duf"
 alias pgrep="pgrep -i"
+alias nc="ncat"
 
 function rist() {
 	ristretto "$1" &> /dev/null &
