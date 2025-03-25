@@ -5,8 +5,8 @@ shopt -s histappend
 shopt -s checkjobs
 shopt -s histreedit
 shopt -s nocaseglob
+
 set match-hidden-files off
-# shopt -s nocasematch
 
 stty werase undef
 bind '\C-w:unix-filename-rubout'
@@ -37,9 +37,14 @@ alias go="cmake --build build"
 alias df="duf"
 alias pgrep="pgrep -i"
 alias nc="ncat"
+alias g="git"
 
 function rist() {
 	ristretto "$1" &> /dev/null &
+}
+
+function vlc() {
+	/bin/vlc "$1" &> /dev/null &
 }
 
 function oku() {
@@ -59,7 +64,7 @@ function cpwd() {
 }
 
 function psa() {
-	ps aux | grep "$1"
+	ps aux | grep -i "$1"
 }
 
 function mvv() {
@@ -123,8 +128,8 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export CC=clang
 export CXX=clang++
-# export CMAKE_TOOLCHAIN_FILE=~/.debug-toolchain.cmake
 export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
+export CMAKE_GENERATOR="ninja"
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
 unset GDK_BACKEND
@@ -138,6 +143,6 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;32m'
 
 [[ -f /usr/share/bash-completion/bash_completion ]] && . /usr/share/bash-completion/bash_completion
-[[ -f ~/.fzf-bash.sh ]] && source ~/.fzf-bash.sh || true
+[[ -f ~/.fzf-bash.sh ]] && source ~/.fzf-bash.sh
 
 eval "$(zoxide init --cmd cd bash)"
