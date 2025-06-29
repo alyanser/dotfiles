@@ -2,10 +2,10 @@ local g = vim.g
 local opt = vim.opt
 
 opt.ignorecase = true
-opt.number = false
+opt.number = true
 opt.termguicolors = true
 opt.relativenumber = false
--- opt.guicursor = "n-v-c:block,i:hor30"
+opt.guicursor = "n-v-c:block,i:hor30"
 -- opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.laststatus = 3

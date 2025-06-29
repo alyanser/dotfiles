@@ -27,14 +27,13 @@ alias yay="yay --noconfirm"
 alias df="df -h"
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
-alias svi="sudoedit"
 alias ff="firefox"
+alias svi="sudoedit"
 alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
-alias clang++="clang++ -fcolor-diagnostics -std=c++23"
+alias clang++="clang++ -fcolor-diagnostics -std=c++26"
 alias clang="clang -fcolor-diagnostics"
 alias go="cmake --build build"
-alias df="duf"
 alias pgrep="pgrep -i"
 alias nc="ncat"
 alias g="git"
@@ -109,10 +108,9 @@ function __prompt_command__(){
 	PS1+=" ${blue}\w${purple})"
 
 	if [[ $status != 0 && $status != 130 ]]; then
-		PS1+=" ${red}"
-		# PS1+=" ${red}$"
+		PS1+=" ${red}$"
 	else
-		PS1+=" ${green}"
+		PS1+=" ${green}$"
 	fi
 
 	PS1+="${reset_col} "
@@ -129,7 +127,7 @@ export VISUAL="nvim"
 export CC=clang
 export CXX=clang++
 export CMAKE_TOOLCHAIN_FILE=~/.release-toolchain.cmake
-export CMAKE_GENERATOR="ninja"
+export CMAKE_GENERATOR="Ninja"
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 
 unset GDK_BACKEND
