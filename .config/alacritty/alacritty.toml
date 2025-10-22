@@ -1,6 +1,10 @@
 [colors]
 draw_bold_text_with_bright_colors = true
 
+[colors.cursor]
+cursor = '#FFA500' # This sets the color of the cursor itself
+text = '#FFA500' # This sets the color of the text *underneath* the cursor
+
 [[colors.indexed_colors]]
 color = "0xff966c"
 index = 16
@@ -72,9 +76,23 @@ action = "toggleViMode"
 key = "J"
 mods = "Control"
 
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "None"
+
+[[keyboard.bindings]]
+key = "Equals"
+mods = "Control"
+action = "None"
+
 [window]
 dynamic_padding = false
 
 [window.padding]
 x = 14
 y = 7
+
+# [cursor]
+# style = { shape = "Beam", blinking = "Never" }
+# thickness = 0.1

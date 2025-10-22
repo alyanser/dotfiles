@@ -5,14 +5,14 @@
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["bluetooth", "custom/spotify", "network", "temperature", "battery", "clock"],
+	"modules-right" : ["bluetooth", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 5,
 		"states" : { "warning": 95 },
 		"format": "<span font='15' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
-		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
 	},
 
 	"temperature" : {
@@ -26,7 +26,7 @@
 
 	"memory" : {
 		"tooltip" : false,
-		"interval" : 3,
+		"interval" : 5,
 		"states" : { "warning": 95 },
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {used} GiB",
 		"format-icons" : ["󰵮"]
@@ -58,6 +58,7 @@
 		"on-click": "pulsemixer --change-volume +5",
 		"on-click-right": "pulsemixer --change-volume -5",
 		"on-click-middle": "pulsemixer --toggle-mute",
+
 		"scroll-step": 5,
 
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {volume}",
@@ -66,10 +67,10 @@
 		"format-icons": {
 			"default": ["", "", ""],
 			"headphone": "",
-			"headset": "",
+			"headset": ""
 		},
 
-		"max-volume": 150,
+		"max-volume": 150
 	},
 
 	"clock" : {
@@ -81,7 +82,6 @@
 	"network" : {
 		"tooltip" : false,
 		"interface": "wlo1",
-		"format": "{ifname}",
 		"max-length": 50,
 		"format" : "<span font='15' rise='-3000'>{icon}</span>",
 		"format-disconnected": "<span font='15' rise='-3000'>󰤩</span>",
@@ -91,17 +91,17 @@
 	"backlight": {
 		"tooltip" : false,
 		"device": "intel_backlight",
+		"on-click": "brightnessctl set +5%",
+		"on-click-right": "brightnessctl set 5%-",
+		"interval": 5,
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {percent}",
 		"format-icons": ["󰳲", "󰳲"],
-		"on-scroll-down": "brightnessctl -q set 50-",
-		"on-scroll-up": "brightnessctl -q set +50",
-		"on-click": "brightnessctl -q set +50",
-		"on-click-right": "brightnessctl -q set 50-",
+		"scroll-step": 5
 	},
 
 	"bluetooth": {
 		"format" : "<span font='15' rise='-3000'>󰂲</span> ",
 		"format-connected" : "<span font='15' rise='-3000'></span> ",
-		"on-click": "blueman-manager"
+		"on-click": "bash ~/.local/bin/toggle-bluetooth.sh"
 	}
 }

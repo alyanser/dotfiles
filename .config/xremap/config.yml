@@ -8,10 +8,25 @@ modmap:
 
   - name: swap shift_r with backspace
     remap:
-      SHIFT_R: backspace
+      Shift_R: Backspace
+
+  - name: block_doubleclick
+    remap:
+      BTN_LEFT:
+        debounce:
+          delay_ms: 800
 
 keymap:
   - name: swap asciitilde with grave
+    device:
     remap:
       Shift-grave: grave
-      grave: shift-grave
+      grave: Shift-grave
+
+  - name: henkan mode to right
+    remap:
+      Henkan: Right
+
+  - name: control-h as backspace
+    remap:
+      Ctrl_L-h: Backspace

@@ -7,7 +7,7 @@
 
 window#waybar {
     background: rgba(22, 24, 36, 0.6);
-}k
+}
 
 #workspaces {
     background: #1f2335;
@@ -20,21 +20,20 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0px 7px;
-    margin: 0px 7px;
+    padding: 0px 12px;
+    margin: 0px 6px;
     border-radius: 16px;
     color: #737aa2;
     background-color: #737aa2;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    min-width: 25px;
 }
 
 #workspaces button.active {
     color: #bb9af7;
     background-color: #bb9af7;
-    border-radius: 16px;
     background-size: 400% 400%;
-    min-width: 35px;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -73,11 +72,17 @@ window#waybar {
 }
 
 #bluetooth {
-    color: #89CFF0;
+    color: #a6e3a1;
+    background: transparent;
 }
 
 #network {
-    color: #f9e2af;
+    color: #33ff6b;
+}
+
+#bluetooth {
+    padding: 0px 0px;
+    margin: 0px 0px;
 }
 
 #cpu {
@@ -101,7 +106,6 @@ window#waybar {
 }
 
 #custom-spotify,
-#bluetooth,
 #network {
     color: #4affa5;
     background: transparent;
@@ -118,6 +122,10 @@ window#waybar {
 #temperature.warning,
 #memory.warning {
     color: #ff757f;
+}
+
+#bluetooth.connected {
+    color: #33ff6b;
 }
 
 #temperature {
