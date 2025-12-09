@@ -54,7 +54,7 @@ style = "bold"
 
 [font.offset]
 x = 0
-y = 1
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -90,8 +90,8 @@ action = "None"
 dynamic_padding = false
 
 [window.padding]
-x = 14
-y = 7
+x = 18
+y = 11
 
 # [cursor]
 # style = { shape = "Beam", blinking = "Never" }

@@ -1,7 +1,7 @@
 {
 	"mode" : "dock",
 	"position" : "top",
-	"layer" : "bottom",
+	"layer" : "top",
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
@@ -28,7 +28,7 @@
 		"tooltip" : false,
 		"interval" : 5,
 		"states" : { "warning": 95 },
-		"format" : "<span font='15' rise='-3000'>{icon}</span>  {used} GiB",
+		"format" : "<span font='15' rise='-3000'>{icon}</span>  {used:0.1f} / {total:0.1f} GiB",
 		"format-icons" : ["󰵮"]
 	},
 

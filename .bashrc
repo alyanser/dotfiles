@@ -16,24 +16,25 @@ alias vi="nvim"
 alias ls="eza --color=always --icons=always --sort=ext -x"
 alias ll="ls -al"
 alias tree="ls -T"
-alias make='make -j$(nproc)'
+alias make='make -j5'
 alias diff="diff --color=always"
 alias mixer="pulsemixer"
 alias yay="yay --noconfirm"
-alias df="df -h"
 alias cmaker="cmake -GNinja -DCMAKE_BUILD_TYPE=Release --toolchain ~/.release-toolchain.cmake"
 alias cmaked="cmake -GNinja -DCMAKE_BUILD_TYPE=Debug --toolchain ~/.debug-toolchain.cmake"
 alias ff="firefox"
 alias svi="sudoedit"
-alias sunset="hyprsunset -t 2000 &"
 alias du="du -h"
 alias pgrep="pgrep -i"
 alias nc="ncat"
 alias qml="qml6"
 alias ftp="lftp"
 alias rg="rg -i"
-# alias clang++="clang++ -fcolor-diagnostics -std=c++26"
-# alias clang="clang -fcolor-diagnostics"
+alias fd="fd --hidden"
+alias vibrance="hyprshade on vibrance"
+alias night="hyprshade on night"
+alias cdf='cd "$(dirname "$_")"'
+alias df='duf'
 
 function rist() {
 	(ristretto "$1" &> /dev/null &)
@@ -44,7 +45,12 @@ function copy() {
 }
 
 function path() {
-	realpath "$1" | tr -d '\n' | wl-copy
+
+	if [[ "$1" ]]; then
+		realpath "$1" | tr -d '\n' | wl-copy
+	else
+		pwd | tr -d '\n' | wl-copy
+	fi
 }
 
 function oku() {
@@ -124,7 +130,6 @@ export LESS_TERMCAP_us=$'\e[1;4;32m'
 [[ -f ~/.fzf-bash.sh ]] && source ~/.fzf-bash.sh
 
 eval "$(zoxide init --cmd cd bash)"
-export WINEPREFIX=~/.wine-gta
 
-
-alias conf='vi ~/.config/nvim/lua/'
+alias work="cd ~/pro/project-monky"
+alias ubuntu="sudo systemd-nspawn -q -D /var/lib/machines/ubuntu   --bind=/etc/resolv.conf:/etc/resolv.conf --bind=/home/staz:/host"
