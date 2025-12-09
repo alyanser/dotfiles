@@ -9,10 +9,13 @@ export QT_QPA_PLATFORM="wayland;xcb"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME=qt5ct
 export _JAVA_AWT_WM_NONEREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 export CLUTTER_BACKEND="wayland"
+
 export GDK_BACKEND="wayland"
 
 export PATH=$PATH:~/.local/bin
+export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/local/lib
 export GRIM_DEFAULT_DIR=~/pics
 
-exec Hyprland > /dev/null
+exec start-hyprland > /dev/null
