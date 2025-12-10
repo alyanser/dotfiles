@@ -5,7 +5,7 @@
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["bluetooth", "network", "temperature", "battery", "clock"],
+	"modules-right" : ["network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"tooltip" : false,
@@ -17,7 +17,7 @@
 
 	"temperature" : {
 		"tooltip" : false,
-		"interval" : 10,
+		"interval" : 20,
 		"critical-threshold": 95,
 		"format-critical" : "<span font='15' color='#ff757f' rise='-3000'>{icon}</span><span color='#ff757f'>  {temperatureC}°C</span>",
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {temperatureC}°C",
@@ -32,18 +32,9 @@
 		"format-icons" : ["󰵮"]
 	},
 
-	"custom/spotify" : {
-		"tooltip" : false,
-		"format" : "<span font='15' rise='-3000'>{icon}</span>",
-		"format-icons" : [" "],
-		"on-click": "~/.local/bin/spotify-exec-or-play.sh",
-		"on-click-right": "playerctl next",
-		"on-click-middle": "playerctl prev"
-	},
-
 	"battery" : {
 		"tooltip" : false,
-		"nterval": 3000,
+		"interval": 30000,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -62,12 +53,13 @@
 		"scroll-step": 5,
 
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {volume}",
-		"format-muted" : "<span font='15' rise='-3000'></span>",
+		// "format-muted" : "<span font='15' rise='-3000'></span>",
 
 		"format-icons": {
 			"default": ["", "", ""],
-			"headphone": "",
-			"headset": ""
+			"default-muted": "",
+			"headset": "",
+			"headset-muted": "󰟎"
 		},
 
 		"max-volume": 150
@@ -99,9 +91,4 @@
 		"scroll-step": 5
 	},
 
-	"bluetooth": {
-		"format" : "<span font='15' rise='-3000'>󰂲</span> ",
-		"format-connected" : "<span font='15' rise='-3000'></span> ",
-		"on-click": "bash ~/.local/bin/toggle-bluetooth.sh"
-	}
 }
