@@ -15,11 +15,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	-- {
-	--	"nvim-pack/nvim-spectre",
-	--	lazy = true,
-	--	cmd = 'Spectre',
-	-- },
+	{
+		"nvim-pack/nvim-spectre",
+		lazy = true,
+		cmd = 'Spectre',
+	},
 
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -81,6 +81,9 @@ require("lazy").setup({
 
 	{
 		'nvim-treesitter/nvim-treesitter',
+		lazy = false,
+		branch = "master",
+		build = ":TSUpdate",
 		config = function()
 			require("treesitter-conf")
 		end,
@@ -223,9 +226,9 @@ require("lazy").setup({
 		end
 	},
 
-	-- {
-	-- 	'RRethy/vim-illuminate',
-	-- },
+	{
+		'RRethy/vim-illuminate',
+	},
 
 	{
 		"github/copilot.vim",
@@ -237,22 +240,4 @@ require("lazy").setup({
 			require("lsp_lines").setup()
 		end
 	},
-
-	{
-		"goolord/alpha-nvim",
-		-- dependencies = { 'nvim-mini/mini.icons' },
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
-
-		config = function()
-			local startify = require("alpha.themes.startify")
-			-- available: devicons, mini, default is mini
-			-- if provider not loaded and enabled is true, it will try to use another provider
-			startify.file_icons.provider = "devicons"
-
-			require("alpha").setup(
-				startify.config
-			)
-		end,
-	},
-
 })

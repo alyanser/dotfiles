@@ -8,33 +8,32 @@
 	"modules-right" : ["network", "temperature", "battery", "clock"],
 
 	"cpu" : {
+		"interval": 1,
 		"tooltip" : false,
-		"interval" : 5,
-		"states" : { "warning": 95 },
-		"format": "<span font='15' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} ",
+		"states" : { "warning": 90 },
+		"format": "<span font='15' rise='-3000'>󰻠</span>  {icon0} {icon1} {icon2} {icon3} {icon4} {icon5}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
 	},
 
 	"temperature" : {
+		"interval": 1,
 		"tooltip" : false,
-		"interval" : 20,
-		"critical-threshold": 95,
+		"critical-threshold": 85,
 		"format-critical" : "<span font='15' color='#ff757f' rise='-3000'>{icon}</span><span color='#ff757f'>  {temperatureC}°C</span>",
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {temperatureC}°C",
 		"format-icons" : ["󱤋"]
 	},
 
 	"memory" : {
+		"interval": 1,
 		"tooltip" : false,
-		"interval" : 5,
-		"states" : { "warning": 95 },
+		"states" : { "warning": 85 },
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {used:0.1f} / {total:0.1f} GiB",
 		"format-icons" : ["󰵮"]
 	},
 
 	"battery" : {
 		"tooltip" : false,
-		"interval": 30000,
 		"states" : {
 			"warning" : 30,
 			"critical" : 15
@@ -82,13 +81,10 @@
 
 	"backlight": {
 		"tooltip" : false,
-		"device": "intel_backlight",
 		"on-click": "brightnessctl set +5%",
 		"on-click-right": "brightnessctl set 5%-",
-		"interval": 5,
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {percent}",
 		"format-icons": ["󰳲", "󰳲"],
 		"scroll-step": 5
-	},
-
+	}
 }

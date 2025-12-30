@@ -1,6 +1,6 @@
 * {
     font-family: caskaydiacove nerd font;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: Bold;
     border: none;
 }
@@ -11,7 +11,7 @@ window#waybar {
 
 #workspaces {
     background: #1f2335;
-    margin: 5px 5px;
+    margin: 1px 1px;
     padding: 8px 5px;
     border-radius: 20px;
     border: solid 0px #1f2335;
@@ -59,7 +59,7 @@ window#waybar {
 #backlight {
     background: rgba(26, 27, 26, 0.4);
     padding: 1px 10px;
-    margin: 10px 10px;
+    margin: 8px 8px;
     border-radius: 20px;
 }
 
@@ -117,11 +117,15 @@ window#waybar {
 }
 
 #network.disconnected,
-#battery.discharging,
+#battery.discharging.warning,
 #cpu.warning,
 #temperature.warning,
 #memory.warning {
     color: #ff757f;
+}
+
+#battery.discharging {
+    color: #ff966c;
 }
 
 #bluetooth.connected {

@@ -1,12 +1,12 @@
 -- Define clangd config
 vim.lsp.config['clangd'] = {
     single_file_support = true,
-    cmd = {'clangd', '--log=error', '--header-insertion=never', '--clang-tidy=true', '--completion-style=detailed', '--background-index=true', '-j=2'},
+    cmd = {'clangd', '--log=error', '--clang-tidy=true', '--completion-style=detailed', '--background-index=true', '-j=12'},
     completion = {
         workspaceWord = false,
         showWord = "Disable"
     },
-    signature_help = true,
+    capabilities = vim.lsp.protocol.make_client_capabilities()
 }
 
 -- Enable clangd

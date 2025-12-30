@@ -4,7 +4,7 @@ output=HDMI-A-1
 layer=top
 anchor=top-center
 
-font=sf-pro-rounded 12
+font=sf-pro-rounded 14
 
 background-color=#222436F0
 
