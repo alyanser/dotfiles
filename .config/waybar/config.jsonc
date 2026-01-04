@@ -27,19 +27,20 @@
 	"memory" : {
 		"interval": 1,
 		"tooltip" : false,
-		"states" : { "warning": 85 },
+		"states" : { "warning": 90 },
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {used:0.1f} / {total:0.1f} GiB",
 		"format-icons" : ["󰵮"]
 	},
 
 	"battery" : {
 		"tooltip" : false,
+		"interval": 1,
 		"states" : {
-			"warning" : 30,
-			"critical" : 15
+			"warning" : 25,
 		},
-		"format" : "<span font='15' rise='-3000'>{icon}</span> {capacity}%",
-		"format-icons" : ["󰗱"]
+		"format" : "<span font='15' rise='-3000'>{icon}</span>  {capacity}% {power:.0f}W",
+		// "format-icons" : ["󰗱"]
+		"format-icons": ["", "", "", "", ""],
 	},
 
 	"pulseaudio" : {
@@ -64,12 +65,6 @@
 		"max-volume": 150
 	},
 
-	"clock" : {
-		"tooltip" : false,
-		"interval" : 60,
-		"format" : "<span font='15' rise='-3000'>󰥔</span>  {:%H:%M}"
-	},
-
 	"network" : {
 		"tooltip" : false,
 		"interface": "wlo1",
@@ -86,5 +81,30 @@
 		"format" : "<span font='15' rise='-3000'>{icon}</span>  {percent}",
 		"format-icons": ["󰳲", "󰳲"],
 		"scroll-step": 5
-	}
+	},
+
+	"clock": {
+		"format" : "<span font='15' rise='-3000'>󰥔</span>  {:%H:%M}",
+		"tooltip-format": "<tt><big>{calendar}</big></tt>",
+		"calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+			"format": {
+				"months":     "<span color='#ffead3'><b>{}</b></span>",
+				"days":       "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+				"today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		},
+		"actions": {
+			"on-click-right": "mode",
+			"on-scroll-up": "tz_up",
+			"on-scroll-down": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
 }

@@ -1,7 +1,5 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "python", "cpp", "html", "hyprlang"},
-  sync_install = true,
-  auto_install = true,
 
   highlight = {
     enable = true,
@@ -11,11 +9,15 @@ require'nvim-treesitter.configs'.setup {
     enable = false
   },
 
-  autopairs = {
-    enable = false,
+  folds = {
+    enable = false
   },
 
-  context_commentstring = {
-    enable = false,
-  },
+  -- autopairs = {
+  --   enable = false,
+  -- },
+
+  -- context_commentstring = {
+  --   enable = false,
+  -- },
 }

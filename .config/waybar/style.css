@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background: rgba(22, 24, 36, 0.9);
+    background: rgba(22, 24, 36, 0.6);
 }
 
 #workspaces {
@@ -63,12 +63,18 @@ window#waybar {
     border-radius: 20px;
 }
 
+#pulseaudio.muted {
+    /* color: #f38ba8; */
+    color: #737373;
+}
+
 #workspaces {
     background: transparent;
 }
 
 #clock {
-    color: #fab387;
+    color: #ff966c;
+    /* color: #fab387; */
 }
 
 #bluetooth {
@@ -121,7 +127,8 @@ window#waybar {
 #cpu.warning,
 #temperature.warning,
 #memory.warning {
-    color: #ff757f;
+    /* color: #737373; */
+    color: #f38ba8;
 }
 
 #battery.discharging {

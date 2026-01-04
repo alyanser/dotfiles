@@ -8,6 +8,10 @@ opt.relativenumber = true
 -- opt.guicursor = "n-v-c:block,i:hor30"
 opt.guicursor = {}
 opt.completeopt = {'menu', 'menuone', 'noselect'}
+
+opt.cinkeys:remove(":")
+opt.indentkeys:remove(":")
+
 opt.laststatus = 3
 opt.scrolloff = 5
 opt.wrap = true
