@@ -5,7 +5,7 @@
 
 	"modules-left" : ["cpu", "memory", "pulseaudio", "backlight"],
 	"modules-center" : ["hyprland/workspaces"],
-	"modules-right" : ["network", "temperature", "battery", "clock"],
+	"modules-right" : ["tray", "network", "temperature", "battery", "clock"],
 
 	"cpu" : {
 		"interval": 1,
@@ -106,5 +106,10 @@
 			"on-scroll-up": "shift_up",
 			"on-scroll-down": "shift_down"
 		}
+	},
+
+	"tray": {
+		"icon-size": 20,
+		"spacing": 10,
 	},
 }

@@ -12,8 +12,10 @@ opt.completeopt = {'menu', 'menuone', 'noselect'}
 opt.cinkeys:remove(":")
 opt.indentkeys:remove(":")
 
+vim.o.autoread = true
+
 opt.laststatus = 3
-opt.scrolloff = 5
+opt.scrolloff = 3
 opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true

@@ -232,10 +232,6 @@ require("lazy").setup({
 	},
 
 	{
-		"github/copilot.vim",
-	},
-
-	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		config = function() 
 			require("lsp_lines").setup()
@@ -272,50 +268,37 @@ require("lazy").setup({
 	},
 
 	{
-  "folke/trouble.nvim",
-  cmd = { "Trouble" },
-  opts = {
-    modes = {
-      lsp = {
-        win = { position = "right" },
-      },
-    },
+  "NickvanDyke/opencode.nvim",
+  dependencies = {
+    -- Recommended for `ask()` and `select()`.
+    -- Required for `snacks` provider.
+    ---@module 'snacks' <- Loads `snacks.nvim` types for configuration intellisense.
+    { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
   },
-  keys = {
-    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-    { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-    { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
-    { "<leader>cS", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions/... (Trouble)" },
-    { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-    { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-    {
-      "[q",
-      function()
-        if require("trouble").is_open() then
-          require("trouble").prev({ skip_groups = true, jump = true })
-        else
-          local ok, err = pcall(vim.cmd.cprev)
-          if not ok then
-            vim.notify(err, vim.log.levels.ERROR)
-          end
-        end
-      end,
-      desc = "Previous Trouble/Quickfix Item",
-    },
-    {
-      "]q",
-      function()
-        if require("trouble").is_open() then
-          require("trouble").next({ skip_groups = true, jump = true })
-        else
-          local ok, err = pcall(vim.cmd.cnext)
-          if not ok then
-            vim.notify(err, vim.log.levels.ERROR)
-          end
-        end
-      end,
-      desc = "Next Trouble/Quickfix Item",
-    },
-  },
+  config = function()
+    ---@type opencode.Opts
+    vim.g.opencode_opts = {
+      -- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
+    }
+
+    -- Required for `opts.events.reload`.
+    vim.o.autoread = true
+
+    -- Recommended/example keymaps.
+    vim.keymap.set({ "n", "x" }, "<C-a>", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode" })
+    vim.keymap.set({ "n", "x" }, "<C-x>", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
+    vim.keymap.set({ "n", "t" }, "<C-.>", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
+
+    --vim.keymap.set({ "n", "x" }, "go",  function() return require("opencode").operator("@this ") end,        { expr = true, desc = "Add range to opencode" })
+    --vim.keymap.set("n",          "goo", function() return require("opencode").operator("@this ") .. "_" end, { expr = true, desc = "Add line to opencode" })
+
+    vim.keymap.set("n", "<S-C-u>", function() require("opencode").command("session.half.page.up") end,   { desc = "opencode half page up" })
+    vim.keymap.set("n", "<S-C-d>", function() require("opencode").command("session.half.page.down") end, { desc = "opencode half page down" })
+
+    -- You may want these if you stick with the opinionated "<C-a>" and "<C-x>" above — otherwise consider "<leader>o".
+    vim.keymap.set("n", "+", "<C-a>", { desc = "Increment", noremap = true })
+    vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement", noremap = true })
+  end,
 },
 })
+
