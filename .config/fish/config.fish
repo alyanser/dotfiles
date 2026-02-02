@@ -60,4 +60,6 @@ function copy
 	cat "$argv" | wl-copy
 end
 
-complete -c paru -w pacman
+function fish_prompt_redraw --on-event fish_prompt
+    commandline -f repaint
+end

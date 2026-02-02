@@ -5,14 +5,12 @@ opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
 opt.relativenumber = true
--- opt.guicursor = "n-v-c:block,i:hor30"
 opt.guicursor = {}
+-- opt.guicursor = "n-v-c:block,i:hor30"
 opt.completeopt = {'menu', 'menuone', 'noselect'}
 
 opt.cinkeys:remove(":")
 opt.indentkeys:remove(":")
-
-vim.o.autoread = true
 
 opt.laststatus = 3
 opt.scrolloff = 3

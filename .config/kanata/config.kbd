@@ -1,0 +1,21 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defoverrides
+  (grv) (lsft grv)      ;; ` outputs ~
+  (lsft grv) (grv)      ;; Shift+` outputs `
+  (rsft grv) (grv)      ;; Right shift too
+)
+
+(defsrc
+  caps grv
+)
+
+(deflayer default
+  @cap _
+)
+
+(defalias
+  cap (tap-hold-press 200 200 esc lctl)
+)

@@ -51,7 +51,7 @@ fish_color_search_match --background=33467c
 fish_color_selection --background=33467c
 fish_color_status f7768e
 fish_color_user brgreen
-fish_color_valid_path --underline
+fish_color_valid_path normal
 fish_pager_color_background
 fish_pager_color_completion c0caf5
 fish_pager_color_description 565f89
