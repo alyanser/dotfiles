@@ -38,3 +38,4 @@ g.loaded_netrwFileHandlers = 1
 g.loaded_netrw_gitignore = 1
 
 vim.loader.enable()
+vim.o.autoread = true

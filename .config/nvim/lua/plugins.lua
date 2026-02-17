@@ -255,6 +255,13 @@ require("lazy").setup({
 	},
 
 	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+		end
+	},
+
+	{
 		"NickvanDyke/opencode.nvim",
 		dependencies = {
 			-- Recommended for `ask()` and `select()`.

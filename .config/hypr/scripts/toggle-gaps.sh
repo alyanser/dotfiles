@@ -4,8 +4,8 @@ id=$(hyprctl -j activeworkspace | jq ".id")
 
 rid="r[$id-$id]"
 
-DEFAULT_GAPS_IN=6
-DEFAULT_GAPS_OUT=13
+DEFAULT_GAPS_IN=7
+DEFAULT_GAPS_OUT=15
 
 gaps_in_current=$(hyprctl workspacerules -j | jq --arg rid "$rid" '[.[] | select(.workspaceString | startswith($rid)) | .gapsIn[0]] | .[0]')
 gaps_out_current=$(hyprctl workspacerules -j | jq --arg rid "$rid" '[.[] | select(.workspaceString | startswith($rid)) | .gapsOut[0]] | .[0]')

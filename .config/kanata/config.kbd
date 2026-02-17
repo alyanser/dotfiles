@@ -17,5 +17,5 @@
 )
 
 (defalias
-  cap (tap-hold-press 200 200 esc lctl)
+  cap (tap-hold-press 130 130 esc lctl)
 )

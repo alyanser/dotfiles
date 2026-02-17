@@ -99,3 +99,10 @@ vim.keymap.set('i', '<C-Return>', 'copilot#Accept("\\<CR>")', {
 })
 
 vim.g.copilot_no_tab_map = true
+
+vim.keymap.set(
+  "",
+  "<Leader>l",
+  require("lsp_lines").toggle,
+  { desc = "Toggle lsp_lines" }
+)

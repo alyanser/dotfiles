@@ -48,7 +48,7 @@ cmp.setup({
   end,
 
   completion = {
-    autocomplete = false, -- Disable automatic triggering
+    autocomplete = false,
   },
 
   preselect = cmp.PreselectMode.None,
@@ -128,19 +128,9 @@ cmp.setup({
     { name = "path" },
   }),
 
-  experimental = {
-    ghost_text = {
-      hl_group = "LspCodeLens",
-    },
-  },
+  -- experimental = {
+  --   ghost_text = {
+  --     hl_group = "LspCodeLens",
+  --   },
+  -- },
 })
-
--- Optional: Set up custom border colors if desired
--- vim.api.nvim_set_hl(0, "FloatBorder", {
---   fg = "#8aadf4",
---   bg = "#1e2030",
--- })
--- 
--- vim.api.nvim_set_hl(0, "NormalFloat", {
---   bg = "#1e2030",
--- })

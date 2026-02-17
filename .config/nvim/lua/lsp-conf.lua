@@ -1,7 +1,7 @@
 -- Define clangd config
 vim.lsp.config['clangd'] = {
     single_file_support = true,
-    cmd = {'clangd', '--log=error', '--clang-tidy=true', '--completion-style=detailed', '--background-index=true', '-j=12'},
+    cmd = {'clangd', '--log=error', '--clang-tidy=false', '--completion-style=detailed', '--background-index=true', '-j=8'},
     completion = {
         workspaceWord = false,
         showWord = "Disable"
@@ -37,6 +37,7 @@ end
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 vim.diagnostic.config({
+    update_in_insert = true,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '',

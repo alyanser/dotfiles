@@ -1,10 +1,6 @@
 [colors]
 draw_bold_text_with_bright_colors = true
 
-# [colors.cursor]
-# cursor = '#FFA500'
-# text = '#FFA500'
-
 [[colors.indexed_colors]]
 color = "0xff966c"
 index = 16
@@ -54,7 +50,7 @@ style = "bold"
 
 [font.offset]
 x = 0
-y = 1
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
