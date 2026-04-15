@@ -34,7 +34,7 @@ background = "0x222436"
 foreground = "0xc8d3f5"
 
 [font]
-size = 10
+size = 9
 
 [font.normal]
 family = "caskaydiacove nerd font"
@@ -86,5 +86,5 @@ mods = "Control"
 dynamic_padding = false
 
 [window.padding]
-x = 15
+x = 18
 y = 10

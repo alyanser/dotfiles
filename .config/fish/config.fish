@@ -12,7 +12,6 @@ set -g fish_greeting ""
 set -x EDITOR nvim
 set -x VISUAL nvim
 set -x CMAKE_GENERATOR "Ninja"
-set -x CMAKE_TOOLCHAIN_FILE "~/.release-toolchain.cmake"
 
 alias ola="ollama"
 alias ls="eza --color=always --icons=always --sort=ext -x"
@@ -72,8 +71,3 @@ function __disown_all --on-event fish_exit
 end
 
 zoxide init fish | source
-
-set -x GOOGLE_GENERATIVE_AI_API_KEY "AIzaSyBRiR-L_1_swVLG5-2ydnMAm6UOnvqyTtU"
-set -x OPENAI_BASE_URL "http://localhost:11434/v1"
-set -x OPENAI_API_KEY "ollama"
-set -x OPENAI_MODEL "qwen-opt:latest"

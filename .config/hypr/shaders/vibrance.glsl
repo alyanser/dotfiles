@@ -6,7 +6,8 @@ out vec4 FragColor;
 uniform sampler2D tex;
 
 const vec3 VIB_RGB_BALANCE = vec3(1.0, 1.0, 1.0);
-const float VIB_VIBRANCE = 0.40;
+const float VIB_VIBRANCE = 0.3;
+//const float VIB_VIBRANCE = 0.30;
 const vec3 VIB_coeffVibrance = VIB_RGB_BALANCE * -VIB_VIBRANCE;
 
 void main() {
