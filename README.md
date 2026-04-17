@@ -1,3 +1,3 @@
-![alt text](https://raw.githubusercontent.com/alyanser/dotfiles/master/screenshots/shot-2.png)
-![alt text](https://raw.githubusercontent.com/alyanser/dotfiles/master/screenshots/shot-1.png)
-![alt text](https://raw.githubusercontent.com/alyanser/dotfiles/master/screenshots/shot-3.png)
+![alt text](https://github.com/alyanser/dotfiles/blob/master/screenshots/shot-2.png?raw=true)
+![alt text](https://github.com/alyanser/dotfiles/blob/master/screenshots/shot-1.png?raw=true)
+![alt text](https://github.com/alyanser/dotfiles/blob/master/screenshots/shot-3.png?raw=true)
