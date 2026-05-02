@@ -34,7 +34,7 @@ background = "0x222436"
 foreground = "0xc8d3f5"
 
 [font]
-size = 9
+size = 9.5
 
 [font.normal]
 family = "caskaydiacove nerd font"
@@ -49,8 +49,8 @@ family = "caskaydiacove nerd font"
 style = "bold"
 
 [font.offset]
-x = 0
-y = 0
+x = -1
+y = 1
 
 [[keyboard.bindings]]
 action = "Paste"

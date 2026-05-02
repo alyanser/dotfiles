@@ -37,7 +37,7 @@ end
 local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 
 vim.diagnostic.config({
-    update_in_insert = true,
+    update_in_insert = false,
     signs = {
         text = {
             [vim.diagnostic.severity.ERROR] = '',

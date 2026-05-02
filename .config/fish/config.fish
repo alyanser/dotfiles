@@ -13,6 +13,7 @@ set -x EDITOR nvim
 set -x VISUAL nvim
 set -x CMAKE_GENERATOR "Ninja"
 
+alias config="nvim ~/.config/hypr/hyprland.conf"
 alias ola="ollama"
 alias ls="eza --color=always --icons=always --sort=ext -x"
 alias grep="grep --color=always -i"
@@ -44,7 +45,7 @@ alias night="hyprshade on night"
 alias cdf='cd "$(dirname "$_")"'
 alias df='duf'
 alias kall="killall"
-alias bat ="bat --theme=Catppuccin\ Frappe"
+alias bat="bat --theme=Catppuccin\ Frappe"
 alias rist="ristretto"
 
 function psa

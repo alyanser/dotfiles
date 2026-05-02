@@ -26,5 +26,5 @@ function fish_prompt --description 'Write out the prompt'
 
         end
 
-        echo -n -s (set_color purple) '(' (prompt_hostname) ' ' $cwd_color (prompt_pwd) '' $prompt_status (set_color purple) ') ' $status_color $suffix ' ' $normal
+        echo -n -s (set_color purple) (prompt_hostname) ' ' $cwd_color (prompt_pwd) '' $prompt_status (set_color purple) ' ' $status_color $suffix ' ' $normal
 end

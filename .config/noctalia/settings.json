@@ -96,7 +96,7 @@
                     "id": "Workspace",
                     "labelMode": "none",
                     "occupiedColor": "primary",
-                    "pillSize": 0.6000000000000001,
+                    "pillSize": 0.5,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": false,
@@ -121,7 +121,7 @@
                     "iconColor": "primary",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
-                    "showCpuFreq": false,
+                    "showCpuFreq": true,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
                     "showDiskAvailable": false,
@@ -131,20 +131,20 @@
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
-                    "showNetworkStats": true,
-                    "showSwapUsage": false,
+                    "showNetworkStats": false,
+                    "showSwapUsage": true,
                     "textColor": "none",
                     "useMonospaceFont": false,
                     "usePadding": true
                 },
                 {
                     "compactMode": false,
-                    "hideMode": "visible",
+                    "hideMode": "idle",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 250,
+                    "maxWidth": 220,
                     "panelShowAlbumArt": true,
-                    "scrollingMode": "never",
+                    "scrollingMode": "hover",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": false,
@@ -229,7 +229,7 @@
         ],
         "brightnessStep": 5,
         "enableDdcSupport": false,
-        "enforceMinimum": true
+        "enforceMinimum": false
     },
     "calendar": {
         "cards": [
@@ -286,7 +286,7 @@
             }
         ],
         "diskPath": "/",
-        "position": "top_center",
+        "position": "center",
         "shortcuts": {
             "left": [
                 {

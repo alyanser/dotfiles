@@ -221,9 +221,9 @@ require("lazy").setup({
 		end
 	},
 
-	{
-		'RRethy/vim-illuminate',
-	},
+	-- {
+		-- 'RRethy/vim-illuminate',
+	-- },
 
 	{
 		"folke/ts-comments.nvim",
