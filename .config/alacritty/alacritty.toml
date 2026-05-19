@@ -49,8 +49,8 @@ family = "caskaydiacove nerd font"
 style = "bold"
 
 [font.offset]
-x = -1
-y = 1
+x = 0
+y = 0
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -72,19 +72,9 @@ action = "toggleViMode"
 key = "J"
 mods = "Control"
 
-# [[keyboard.bindings]]
-# key = "Minus"
-# mods = "Control"
-# action = "None"
-
-# [[keyboard.bindings]]
-# key = "Equals"
-# mods = "Control"
-# action = "None"
-
 [window]
 dynamic_padding = false
 
 [window.padding]
-x = 18
-y = 10
+x = 21
+y = 11

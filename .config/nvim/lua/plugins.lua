@@ -100,7 +100,7 @@ require("lazy").setup({
 	},
 
 	{
-		'phaazon/hop.nvim',
+		'smoka7/hop.nvim',
 		cmd = {'HopWord', 'HopPattern'},
 		config = function()
 			require("hop-conf")

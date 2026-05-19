@@ -4,7 +4,7 @@ local opt = vim.opt
 opt.ignorecase = true
 opt.number = true
 opt.termguicolors = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.guicursor = {}
 -- opt.guicursor = "n-v-c:block,i:hor30"
 opt.completeopt = {'menu', 'menuone', 'noselect'}
@@ -13,7 +13,7 @@ opt.cinkeys:remove(":")
 opt.indentkeys:remove(":")
 
 opt.laststatus = 3
-opt.scrolloff = 3
+opt.scrolloff = 5
 opt.wrap = true
 opt.formatoptions = "jcroqlnt"
 opt.shiftround = true

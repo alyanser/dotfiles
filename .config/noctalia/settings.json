@@ -47,7 +47,7 @@
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
-        "density": "mini",
+        "density": "compact",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
         "fontScale": 1,
@@ -131,7 +131,7 @@
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
-                    "showNetworkStats": false,
+                    "showNetworkStats": true,
                     "showSwapUsage": true,
                     "textColor": "none",
                     "useMonospaceFont": false,
@@ -139,7 +139,7 @@
                 },
                 {
                     "compactMode": false,
-                    "hideMode": "idle",
+                    "hideMode": "visible",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
                     "maxWidth": 220,
@@ -147,7 +147,7 @@
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
-                    "showProgressRing": false,
+                    "showProgressRing": true,
                     "showVisualizer": true,
                     "textColor": "none",
                     "useFixedWidth": false,
@@ -160,7 +160,7 @@
                     ],
                     "chevronColor": "none",
                     "colorizeIcons": false,
-                    "drawerEnabled": true,
+                    "drawerEnabled": false,
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
@@ -173,7 +173,7 @@
                     "displayMode": "alwaysHide",
                     "iconColor": "primary",
                     "id": "Network",
-                    "textColor": "none"
+                    "textColor": "primary"
                 },
                 {
                     "displayMode": "alwaysHide",
@@ -189,6 +189,41 @@
                     "textColor": "none"
                 },
                 {
+                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
+                    "generalTooltipText": "",
+                    "hideMode": "alwaysExpanded",
+                    "icon": "mist",
+                    "iconPosition": "left",
+                    "id": "CustomButton",
+                    "ipcIdentifier": "",
+                    "leftClickExec": "easyeffects",
+                    "leftClickUpdateText": false,
+                    "maxTextLength": {
+                        "horizontal": 10,
+                        "vertical": 10
+                    },
+                    "middleClickExec": "",
+                    "middleClickUpdateText": false,
+                    "parseJson": false,
+                    "rightClickExec": "easyeffects --bypass-toggle",
+                    "rightClickUpdateText": false,
+                    "showExecTooltip": false,
+                    "showIcon": true,
+                    "showTextTooltip": false,
+                    "textCollapse": "",
+                    "textCommand": "",
+                    "textIntervalMs": 3000,
+                    "textStream": false,
+                    "wheelDownExec": "",
+                    "wheelDownUpdateText": false,
+                    "wheelExec": "",
+                    "wheelMode": "unified",
+                    "wheelUpExec": "",
+                    "wheelUpUpdateText": false,
+                    "wheelUpdateText": false
+                },
+                {
                     "applyToAllMonitors": false,
                     "displayMode": "alwaysHide",
                     "iconColor": "primary",
@@ -198,7 +233,7 @@
                 {
                     "deviceNativePath": "__default__",
                     "displayMode": "graphic-clean",
-                    "hideIfIdle": false,
+                    "hideIfIdle": true,
                     "hideIfNotDetected": false,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
@@ -286,7 +321,7 @@
             }
         ],
         "diskPath": "/",
-        "position": "center",
+        "position": "top_center",
         "shortcuts": {
             "left": [
                 {
@@ -517,11 +552,11 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": false,
+        "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
-        "bluetoothRssiPollingEnabled": false,
+        "bluetoothRssiPollingEnabled": true,
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid"
@@ -562,13 +597,13 @@
             "normal": true
         },
         "sounds": {
-            "criticalSoundFile": "",
-            "enabled": false,
+            "criticalSoundFile": "/etc/xdg/quickshell/noctalia-shell/Assets/Sounds/notification-generic.wav",
+            "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
-            "lowSoundFile": "",
-            "normalSoundFile": "",
+            "lowSoundFile": "/etc/xdg/quickshell/noctalia-shell/Assets/Sounds/notification-generic.wav",
+            "normalSoundFile": "/etc/xdg/quickshell/noctalia-shell/Assets/Sounds/notification-generic.wav",
             "separateSounds": false,
-            "volume": 0.5
+            "volume": 0.56
         }
     },
     "osd": {
@@ -705,6 +740,20 @@
         "enableMultiMonitorDirectories": false,
         "enabled": true,
         "favorites": [
+            {
+                "appearance": "dark",
+                "colorScheme": "Tokyo Night",
+                "darkMode": true,
+                "generationMethod": "muted",
+                "paletteColors": [
+                    "#7aa2f7",
+                    "#bb9af7",
+                    "#9ece6a",
+                    "#f7768e"
+                ],
+                "path": "/home/staz/.local/share/backgrounds/1394830.png",
+                "useWallpaperColors": false
+            }
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
@@ -744,8 +793,8 @@
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
-        "wallhavenPurity": "100",
-        "wallhavenQuery": "galaxy",
+        "wallhavenPurity": "000",
+        "wallhavenQuery": "f90",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
