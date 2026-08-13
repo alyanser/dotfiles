@@ -33,7 +33,7 @@
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
         "spectrumMirrored": true,
-        "visualizerType": "linear",
+        "visualizerType": "mirrored",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
@@ -42,7 +42,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.9500000000000001,
+        "backgroundOpacity": 0.8,
         "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
@@ -96,7 +96,7 @@
                     "id": "Workspace",
                     "labelMode": "none",
                     "occupiedColor": "primary",
-                    "pillSize": 0.5,
+                    "pillSize": 0.4,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": false,
@@ -106,16 +106,6 @@
             ],
             "left": [
                 {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "primary",
-                    "colorizeSystemText": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "car-4wd-filled",
-                    "id": "ControlCenter",
-                    "useDistroLogo": true
-                },
-                {
                     "compactMode": false,
                     "diskPath": "/",
                     "iconColor": "primary",
@@ -124,25 +114,62 @@
                     "showCpuFreq": true,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
-                    "showDiskAvailable": false,
-                    "showDiskUsage": false,
+                    "showDiskAvailable": true,
+                    "showDiskUsage": true,
                     "showDiskUsageAsPercent": false,
                     "showGpuTemp": false,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
                     "showNetworkStats": true,
-                    "showSwapUsage": true,
+                    "showSwapUsage": false,
                     "textColor": "none",
                     "useMonospaceFont": false,
                     "usePadding": true
                 },
                 {
+                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
+                    "generalTooltipText": "",
+                    "hideMode": "alwaysExpanded",
+                    "icon": "device-floppy",
+                    "iconPosition": "left",
+                    "id": "CustomButton",
+                    "ipcIdentifier": "",
+                    "leftClickExec": "",
+                    "leftClickUpdateText": false,
+                    "maxTextLength": {
+                        "horizontal": 18,
+                        "vertical": 10
+                    },
+                    "middleClickExec": "",
+                    "middleClickUpdateText": false,
+                    "parseJson": false,
+                    "rightClickExec": "",
+                    "rightClickUpdateText": false,
+                    "showExecTooltip": false,
+                    "showIcon": true,
+                    "showTextTooltip": false,
+                    "textCollapse": "",
+                    "textCommand": "zramctl | awk 'NR==2 {print $6}'",
+                    "textIntervalMs": 2000,
+                    "textStream": false,
+                    "wheelDownExec": "",
+                    "wheelDownUpdateText": false,
+                    "wheelExec": "",
+                    "wheelMode": "unified",
+                    "wheelUpExec": "",
+                    "wheelUpUpdateText": false,
+                    "wheelUpdateText": false
+                }
+            ],
+            "right": [
+                {
                     "compactMode": false,
-                    "hideMode": "visible",
+                    "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 220,
+                    "maxWidth": 200,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "hover",
                     "showAlbumArt": true,
@@ -152,9 +179,7 @@
                     "textColor": "none",
                     "useFixedWidth": false,
                     "visualizerType": "linear"
-                }
-            ],
-            "right": [
+                },
                 {
                     "blacklist": [
                     ],
@@ -179,13 +204,6 @@
                     "displayMode": "alwaysHide",
                     "iconColor": "primary",
                     "id": "Bluetooth",
-                    "textColor": "none"
-                },
-                {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "primary",
-                    "id": "Volume",
-                    "middleClickCommand": "pavucontrol",
                     "textColor": "none"
                 },
                 {
@@ -224,20 +242,20 @@
                     "wheelUpdateText": false
                 },
                 {
-                    "applyToAllMonitors": false,
                     "displayMode": "alwaysHide",
                     "iconColor": "primary",
-                    "id": "Brightness",
+                    "id": "Volume",
+                    "middleClickCommand": "pavucontrol",
                     "textColor": "none"
                 },
                 {
                     "deviceNativePath": "__default__",
-                    "displayMode": "graphic-clean",
-                    "hideIfIdle": true,
+                    "displayMode": "graphic",
+                    "hideIfIdle": false,
                     "hideIfNotDetected": false,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
-                    "showPowerProfiles": true
+                    "showPowerProfiles": false
                 },
                 {
                     "hideWhenZero": false,
@@ -556,7 +574,7 @@
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
-        "bluetoothRssiPollingEnabled": true,
+        "bluetoothRssiPollingEnabled": false,
         "disableDiscoverability": false,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid"
@@ -753,6 +771,20 @@
                 ],
                 "path": "/home/staz/.local/share/backgrounds/1394830.png",
                 "useWallpaperColors": false
+            },
+            {
+                "appearance": "dark",
+                "colorScheme": "Tokyo Night",
+                "darkMode": true,
+                "generationMethod": "muted",
+                "paletteColors": [
+                    "#7aa2f7",
+                    "#bb9af7",
+                    "#9ece6a",
+                    "#f7768e"
+                ],
+                "path": "/home/staz/.local/share/backgrounds/cream.png",
+                "useWallpaperColors": false
             }
         ],
         "fillColor": "#000000",
@@ -794,7 +826,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "000",
-        "wallhavenQuery": "f90",
+        "wallhavenQuery": "italy ",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",

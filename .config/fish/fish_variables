@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR __fish_initialized:4300
+SETUVAR __fish_webconfig_theme_notification:set\x2dtheme\x2dv1\x2d\x2335
 SETUVAR fish_color_valid_path:normal
-SETUVAR fish_user_paths:/home/staz/\x2elocal/bin\x1e/home/staz
+SETUVAR fish_user_paths:/home/staz/pro/cs1\x2dui/build\x1e/home/staz/\x2elocal/bin\x1e/home/staz

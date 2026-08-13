@@ -11,10 +11,12 @@ end
 set -g fish_greeting ""
 set -x EDITOR nvim
 set -x VISUAL nvim
-set -x CMAKE_GENERATOR "Ninja"
+set -x CC clang
+set -x CXX clang++
+set -x CMAKE_TOOLCHAIN /home/staz/.release-toolchain.cmake
 
-alias config="nvim ~/.config/hypr/hyprland.conf"
-alias ola="ollama"
+alias config="nvim ~/.config/hypr/hyprland.lua"
+alias fconfig="nvim ~/.config/fish/config.fish"
 alias ls="eza --color=always --icons=always --sort=ext -x"
 alias grep="grep --color=always -i"
 alias hd="hexdump --canonical"
@@ -39,7 +41,7 @@ alias nc="ncat"
 alias qml="qml6"
 alias ftp="lftp"
 alias rg="rg -i"
-alias fd="fd --hidden"
+alias fd="fd --hidden -I"
 alias vibrance="hyprshade on vibrance"
 alias night="hyprshade on night"
 alias cdf='cd "$(dirname "$_")"'
@@ -47,6 +49,9 @@ alias df='duf'
 alias kall="killall"
 alias bat="bat --theme=Catppuccin\ Frappe"
 alias rist="ristretto"
+alias rmnt="rclone mount gdrive: ~/gdrive --vfs-cache-mode writes --rc --daemon"
+alias rumnt="fusermount -u ~/gdrive"
+alias gdu="gdu -c"
 
 function psa
 	ps aux | grep $argv | grep -v grep
@@ -72,3 +77,7 @@ function __disown_all --on-event fish_exit
 end
 
 zoxide init fish | source
+
+set -gx PATH "/home/staz/.local/bin" $PATH
+
+set --global fish_color_valid_path green  # overrides to blue when it IS a valid path
