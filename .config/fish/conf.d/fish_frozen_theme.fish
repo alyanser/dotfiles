@@ -25,8 +25,8 @@ set --global fish_color_option
 set --global fish_color_param 87d7d7
 set --global fish_color_quote BAE67E
 set --global fish_color_redirection D4BFFF
-set --global fish_color_search_match --bold --background=FFCC66
-set --global fish_color_selection --bold --background=FFCC66
+set --global fish_color_search_match --bold --background=33467c
+set --global fish_color_selection --bold --background=33467c
 set --global fish_color_status red
 set --global fish_color_user brgreen
 set --global fish_color_valid_path --underline=single
@@ -34,12 +34,12 @@ set --global fish_pager_color_background
 set --global fish_pager_color_completion --reset
 set --global fish_pager_color_description B3A06D
 set --global fish_pager_color_prefix --bold --underline=single
-set --global fish_pager_color_progress brwhite --bold --background=cyan
+set --global fish_pager_color_progress brwhite --bold --background=33467c
 set --global fish_pager_color_secondary_background 
 set --global fish_pager_color_secondary_completion 
 set --global fish_pager_color_secondary_description 
 set --global fish_pager_color_secondary_prefix 
-set --global fish_pager_color_selected_background --background=FFCC66
+set --global fish_pager_color_selected_background --background=33467c
 set --global fish_pager_color_selected_completion 
 set --global fish_pager_color_selected_description 
 set --global fish_pager_color_selected_prefix 
