@@ -32,7 +32,7 @@ hl.config({
 	},
 
 	decoration = {
-		screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
+		-- screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
 		dim_special = 0.7,
 		rounding = 12,
 
@@ -58,10 +58,6 @@ hl.config({
 	debug = {
 		disable_logs = true,
 		disable_time = true,
-	},
-
-	render = {
-		direct_scanout = 1
 	},
 
 	misc = {
@@ -150,31 +146,21 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "Alacritty" },
-	opacity = 0.95
+	opacity = 0.90
 })
 
 hl.window_rule({
 	match = { class = "scratch_1" },
-	opacity = 0.95
+	opacity = 0.90
 })
 
 hl.window_rule({
 	match = { class = "scratch_2" },
-	opacity = 0.95
+	opacity = 0.90
 })
 
 hl.window_rule({
-	match = { class = "^(steam)$" },
-	opacity = 0.95
-})
-
-hl.window_rule({
-	match = { class = "^(org.mozilla.Thunderbird)$" },
-	opacity = 0.95
-})
-
-hl.window_rule({
-	match = { class = "^(nvidia-settings)$" },
+	match = { class = "nvidia-settings" },
 	float = true
 })
 
@@ -184,8 +170,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "^(xdg-desktop-portal-gtk)$" },
-	opacity = 0.90,
+	match = { class = "xdg-desktop-portal-gtk" },
+	opacity = 0.9,
 	size = "(monitor_w*0.70) (monitor_w*0.4)",
 	move = "(monitor_w*0.15) (monitor_h*0.15)"
 })
@@ -203,7 +189,7 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "Spotify" },
+	match = { class = "spotify" },
 	opacity = 0.92,
 	workspace = 20
 })
@@ -279,12 +265,12 @@ hl.bind("SUPER + space",
 	hl.dsp.exec_cmd("alacritty", { workspace = 2 })
 )
 
-hl.bind("mouse:276",
-	function()
-		local is_invisible = hl.get_config("cursor.invisible")
-		hl.config({ cursor = { invisible = not is_invisible } })
-	end
-)
+-- hl.bind("mouse:276",
+-- 	function()
+-- 		local is_invisible = hl.get_config("cursor.invisible")
+-- 		hl.config({ cursor = { invisible = not is_invisible } })
+-- 	end
+-- )
 
 hl.bind("SUPER + n",
 	hl.dsp.focus({ workspace = 16 })
@@ -413,77 +399,21 @@ hl.bind("SUPER + j",
 	hl.dsp.focus({ direction = "down" })
 )
 
-hl.bind("SUPER + 1",
-	hl.dsp.focus({ workspace = 1 })
-)
+function set_workspace_num_binds()
+	for i = 0, 9 do
+		local ws = (i == 0) and 10 or i
 
-hl.bind("SUPER + 2",
-	hl.dsp.focus({ workspace = 2 })
-)
+		hl.bind("SUPER + " .. i,
+			hl.dsp.focus({ workspace = ws })
+		)
 
-hl.bind("SUPER + 3",
-	hl.dsp.focus({ workspace = 3 })
-)
+		hl.bind("SUPER + SHIFT + " .. i,
+			hl.dsp.window.move({ workspace = ws })
+		)
+	end
+end
 
-hl.bind("SUPER + 4",
-	hl.dsp.focus({ workspace = 4 })
-)
-
-hl.bind("SUPER + 5",
-	hl.dsp.focus({ workspace = 5 })
-)
-
-hl.bind("SUPER + 6",
-	hl.dsp.focus({ workspace = 6 })
-)
-
-hl.bind("SUPER + 7",
-	hl.dsp.focus({ workspace = 7 })
-)
-
-hl.bind("SUPER + 8",
-	hl.dsp.focus({ workspace = 8 })
-)
-
-hl.bind("SUPER + 9",
-	hl.dsp.focus({ workspace = 9 })
-)
-
-hl.bind("SUPER + 0",
-	hl.dsp.focus({ workspace = 10 })
-)
-
-hl.bind("SUPER + SHIFT + 1",
-	hl.dsp.window.move({ workspace = 1 })
-)
-
-hl.bind("SUPER + SHIFT + 2",
-	hl.dsp.window.move({ workspace = 2 })
-)
-
-hl.bind("SUPER + SHIFT + 3",
-	hl.dsp.window.move({ workspace = 3 })
-)
-
-hl.bind("SUPER + SHIFT + 4",
-	hl.dsp.window.move({ workspace = 4 })
-)
-
-hl.bind("SUPER + SHIFT + 5",
-	hl.dsp.window.move({ workspace = 5 })
-)
-
-hl.bind("SUPER + SHIFT + 6",
-	hl.dsp.window.move({ workspace = 6 })
-)
-
-hl.bind("SUPER + SHIFT + 7",
-	hl.dsp.window.move({ workspace = 7 })
-)
-
-hl.bind("SUPER + SHIFT + 9",
-	hl.dsp.window.move({ workspace = 9 })
-)
+set_workspace_num_binds()
 
 hl.bind("SUPER + TAB",
 	hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-gaps.sh")
