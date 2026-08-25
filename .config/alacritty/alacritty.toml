@@ -50,7 +50,7 @@ style = "bold"
 
 [font.offset]
 x = 0
-y = 0
+y = 2
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -76,8 +76,8 @@ mods = "Control"
 dynamic_padding = false
 
 [window.padding]
-x = 23
-y = 12
+x = 21
+y = 10
 
 [[keyboard.bindings]]
 key = "Return"

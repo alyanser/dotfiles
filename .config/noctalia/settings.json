@@ -45,8 +45,8 @@
         "backgroundOpacity": 0.8,
         "barType": "simple",
         "capsuleColorKey": "none",
-        "capsuleOpacity": 1,
-        "contentPadding": 2,
+        "capsuleOpacity": 0.8,
+        "contentPadding": 5,
         "density": "compact",
         "displayMode": "always_visible",
         "enableExclusionZoneInset": true,
@@ -96,7 +96,7 @@
                     "id": "Workspace",
                     "labelMode": "none",
                     "occupiedColor": "primary",
-                    "pillSize": 0.4,
+                    "pillSize": 0.45,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": false,
@@ -111,75 +111,24 @@
                     "iconColor": "primary",
                     "id": "SystemMonitor",
                     "showCpuCores": false,
-                    "showCpuFreq": true,
+                    "showCpuFreq": false,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
-                    "showDiskAvailable": true,
-                    "showDiskUsage": true,
+                    "showDiskAvailable": false,
+                    "showDiskUsage": false,
                     "showDiskUsageAsPercent": false,
                     "showGpuTemp": false,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
                     "showMemoryUsage": true,
-                    "showNetworkStats": true,
+                    "showNetworkStats": false,
                     "showSwapUsage": false,
                     "textColor": "none",
                     "useMonospaceFont": false,
                     "usePadding": true
-                },
-                {
-                    "colorizeSystemIcon": "primary",
-                    "colorizeSystemText": "none",
-                    "generalTooltipText": "",
-                    "hideMode": "alwaysExpanded",
-                    "icon": "device-floppy",
-                    "iconPosition": "left",
-                    "id": "CustomButton",
-                    "ipcIdentifier": "",
-                    "leftClickExec": "",
-                    "leftClickUpdateText": false,
-                    "maxTextLength": {
-                        "horizontal": 18,
-                        "vertical": 10
-                    },
-                    "middleClickExec": "",
-                    "middleClickUpdateText": false,
-                    "parseJson": false,
-                    "rightClickExec": "",
-                    "rightClickUpdateText": false,
-                    "showExecTooltip": false,
-                    "showIcon": true,
-                    "showTextTooltip": false,
-                    "textCollapse": "",
-                    "textCommand": "zramctl | awk 'NR==2 {print $6}'",
-                    "textIntervalMs": 2000,
-                    "textStream": false,
-                    "wheelDownExec": "",
-                    "wheelDownUpdateText": false,
-                    "wheelExec": "",
-                    "wheelMode": "unified",
-                    "wheelUpExec": "",
-                    "wheelUpUpdateText": false,
-                    "wheelUpdateText": false
                 }
             ],
             "right": [
-                {
-                    "compactMode": false,
-                    "hideMode": "hidden",
-                    "hideWhenIdle": false,
-                    "id": "MediaMini",
-                    "maxWidth": 200,
-                    "panelShowAlbumArt": true,
-                    "scrollingMode": "hover",
-                    "showAlbumArt": true,
-                    "showArtistFirst": true,
-                    "showProgressRing": true,
-                    "showVisualizer": true,
-                    "textColor": "none",
-                    "useFixedWidth": false,
-                    "visualizerType": "linear"
-                },
                 {
                     "blacklist": [
                     ],
@@ -195,80 +144,9 @@
                     ]
                 },
                 {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "primary",
-                    "id": "Network",
-                    "textColor": "primary"
-                },
-                {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "primary",
-                    "id": "Bluetooth",
-                    "textColor": "none"
-                },
-                {
-                    "colorizeSystemIcon": "primary",
-                    "colorizeSystemText": "none",
-                    "generalTooltipText": "",
-                    "hideMode": "alwaysExpanded",
-                    "icon": "mist",
-                    "iconPosition": "left",
-                    "id": "CustomButton",
-                    "ipcIdentifier": "",
-                    "leftClickExec": "easyeffects",
-                    "leftClickUpdateText": false,
-                    "maxTextLength": {
-                        "horizontal": 10,
-                        "vertical": 10
-                    },
-                    "middleClickExec": "",
-                    "middleClickUpdateText": false,
-                    "parseJson": false,
-                    "rightClickExec": "easyeffects --bypass-toggle",
-                    "rightClickUpdateText": false,
-                    "showExecTooltip": false,
-                    "showIcon": true,
-                    "showTextTooltip": false,
-                    "textCollapse": "",
-                    "textCommand": "",
-                    "textIntervalMs": 3000,
-                    "textStream": false,
-                    "wheelDownExec": "",
-                    "wheelDownUpdateText": false,
-                    "wheelExec": "",
-                    "wheelMode": "unified",
-                    "wheelUpExec": "",
-                    "wheelUpUpdateText": false,
-                    "wheelUpdateText": false
-                },
-                {
-                    "displayMode": "alwaysHide",
-                    "iconColor": "primary",
-                    "id": "Volume",
-                    "middleClickCommand": "pavucontrol",
-                    "textColor": "none"
-                },
-                {
-                    "deviceNativePath": "__default__",
-                    "displayMode": "graphic",
-                    "hideIfIdle": false,
-                    "hideIfNotDetected": false,
-                    "id": "Battery",
-                    "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false
-                },
-                {
-                    "hideWhenZero": false,
-                    "hideWhenZeroUnread": false,
-                    "iconColor": "primary",
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true,
-                    "unreadBadgeColor": "primary"
-                },
-                {
                     "clockColor": "primary",
                     "customFont": "",
-                    "formatHorizontal": "HH:mm ddd, MMM dd",
+                    "formatHorizontal": "HH:mm",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
@@ -427,7 +305,7 @@
                 ]
             }
         ],
-        "overviewEnabled": true
+        "overviewEnabled": false
     },
     "dock": {
         "animationSpeed": 1,
@@ -570,7 +448,7 @@
         "weatherTaliaMascotAlways": false
     },
     "network": {
-        "bluetoothAutoConnect": true,
+        "bluetoothAutoConnect": false,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
@@ -789,7 +667,7 @@
         ],
         "fillColor": "#000000",
         "fillMode": "crop",
-        "hideWallpaperFilenames": false,
+        "hideWallpaperFilenames": true,
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
             {
@@ -804,10 +682,10 @@
         "panelPosition": "follow_bar",
         "randomIntervalSec": 300,
         "setWallpaperOnAllMonitors": true,
-        "showHiddenFiles": false,
+        "showHiddenFiles": true,
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
-        "sortOrder": "name",
+        "sortOrder": "date_asc",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": [
@@ -826,7 +704,7 @@
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "000",
-        "wallhavenQuery": "italy ",
+        "wallhavenQuery": "macos",
         "wallhavenRatios": "",
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",

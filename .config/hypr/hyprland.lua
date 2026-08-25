@@ -6,8 +6,8 @@ hl.monitor({
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("hyprsunset -t 7500 --gamma_max 150 --gamma 125")
-	hl.exec_cmd("qs -c noctalia-shell")
-	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Classic 13")
+	hl.exec_cmd("noctalia")
+	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 15")
 	hl.exec_cmd("clipse -listen")
 	hl.exec_cmd("easyeffects -w")
 	hl.exec_cmd("xremap ~/.config/xremap/xremap.conf")
@@ -32,12 +32,12 @@ hl.config({
 	},
 
 	decoration = {
-		-- screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
+		screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
 		dim_special = 0.7,
 		rounding = 12,
 
 		shadow = {
-			range = 12
+			range = 15
 		},
 
 		blur = {
@@ -45,7 +45,7 @@ hl.config({
 			xray = 1,
 			ignore_opacity = true,
 			size = 6,
-			passes = 3
+			passes = 2
 		}
 	},
 
@@ -64,7 +64,13 @@ hl.config({
 		disable_hyprland_logo = 1,
 		disable_splash_rendering = 1,
 		initial_workspace_tracking = 0,
-		vrr = 1
+		vrr = 2
+	},
+
+	render = {
+		direct_scanout = 1,
+		-- non_shader_cm_interop = 0,
+		-- non_shader_cm = 0
 	},
 
 	xwayland = {
@@ -139,6 +145,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	match = { class = "dev.noctalia.Noctalia" },
+	float = 1
+})
+
+hl.window_rule({
 	match = { class = "gamescope" },
 	fullscreen = 1,
 	workspace = 11,
@@ -146,17 +157,17 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "Alacritty" },
-	opacity = 0.90
+	opacity = 0.95
 })
 
 hl.window_rule({
 	match = { class = "scratch_1" },
-	opacity = 0.90
+	opacity = 0.95
 })
 
 hl.window_rule({
 	match = { class = "scratch_2" },
-	opacity = 0.90
+	opacity = 0.95
 })
 
 hl.window_rule({
@@ -178,13 +189,13 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "discord" },
-	opacity = 0.9,
+	opacity = 0.95,
 	workspace = 17
 })
 
 hl.window_rule({
 	match = { class = "^md.obsidian.Obsidian" },
-	opacity = 0.90,
+	opacity = 0.95,
 	workspace = 19
 })
 
@@ -254,23 +265,24 @@ hl.layer_rule({
 	xray = true
 })
 
-hl.layer_rule({
-	match = { namespace = "noctalia-bar-content-eDP-1" },
-	blur = 1
-})
-
 -- BINDS
 
 hl.bind("SUPER + space",
-	hl.dsp.exec_cmd("alacritty", { workspace = 2 })
+	hl.dsp.exec_cmd("prime-run alacritty", { workspace = 2 })
 )
 
--- hl.bind("mouse:276",
--- 	function()
--- 		local is_invisible = hl.get_config("cursor.invisible")
--- 		hl.config({ cursor = { invisible = not is_invisible } })
--- 	end
--- )
+hl.bind("mouse:276",
+	function()
+		local is_invisible = hl.get_config("cursor.invisible")
+		hl.config({ cursor = { invisible = not is_invisible } })
+
+		hl.device({
+			name = "yjx-chip-usb-mouse-mouse",
+			sensitivity = is_invisible and 0 or -0.2,
+			accel_profile = "flat"
+		})
+	end
+)
 
 hl.bind("SUPER + n",
 	hl.dsp.focus({ workspace = 16 })
@@ -530,14 +542,14 @@ hl.workspace_rule({
 	workspace = "special:primary",
 	gaps_out = 195,
 	gaps_in = 6,
-	on_created_empty = "alacritty --class scratch_1"
+	on_created_empty = "prime-run alacritty --class scratch_1"
 })
 
 hl.workspace_rule({
 	workspace = "special:bg",
 	gaps_out = 195,
 	gaps_in = 6,
-	on_created_empty = "alacritty --class scratch_2"
+	on_created_empty = "prime-run alacritty --class scratch_2"
 })
 
 hl.workspace_rule({
@@ -646,7 +658,7 @@ hl.workspace_rule({
 
 hl.workspace_rule({
 	workspace = 2,
-	on_created_empty = "alacritty"
+	on_created_empty = "prime-run alacritty"
 })
 
 hl.workspace_rule({
@@ -671,5 +683,5 @@ hl.workspace_rule({
 
 hl.workspace_rule({
 	workspace = 20,
-	on_created_empty = "LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --enable-features=UseOzonePlatform --ozone-platform=wayland"
+	on_created_empty = "spotify-launcher"
 })
