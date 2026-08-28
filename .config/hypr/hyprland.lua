@@ -32,12 +32,12 @@ hl.config({
 	},
 
 	decoration = {
-		screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
-		dim_special = 0.7,
+		-- screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
+		dim_special = 0.5,
 		rounding = 12,
 
 		shadow = {
-			range = 15
+			range = 18
 		},
 
 		blur = {
@@ -45,7 +45,7 @@ hl.config({
 			xray = 1,
 			ignore_opacity = true,
 			size = 6,
-			passes = 2
+			passes = 3
 		}
 	},
 
@@ -64,7 +64,7 @@ hl.config({
 		disable_hyprland_logo = 1,
 		disable_splash_rendering = 1,
 		initial_workspace_tracking = 0,
-		vrr = 2
+		vrr = 0
 	},
 
 	render = {
@@ -104,7 +104,7 @@ hl.env("WLR_DRM_NO_ATOMIC", "1")
 
 hl.curve("realsmooth", {
 	type = "bezier",
-	points = { {0.28, 0.29}, {0.69, 1.08} }
+	points = { {0.28, 0.29}, {0.69, 1.00} }
 })
 
 hl.animation({
@@ -133,7 +133,7 @@ hl.animation({
 
 hl.device({
 	name = "yjx-chip-usb-mouse-mouse",
-	accel_profile = "flat"
+	accel_profile = "flat",
 })
 
 -- WINDOW RULES
@@ -150,24 +150,18 @@ hl.window_rule({
 })
 
 hl.window_rule({
-	match = { class = "gamescope" },
-	fullscreen = 1,
-	workspace = 11,
-})
-
-hl.window_rule({
 	match = { class = "Alacritty" },
-	opacity = 0.95
+	opacity = 0.93
 })
 
 hl.window_rule({
 	match = { class = "scratch_1" },
-	opacity = 0.95
+	opacity = 0.93
 })
 
 hl.window_rule({
 	match = { class = "scratch_2" },
-	opacity = 0.95
+	opacity = 0.93
 })
 
 hl.window_rule({
@@ -268,7 +262,7 @@ hl.layer_rule({
 -- BINDS
 
 hl.bind("SUPER + space",
-	hl.dsp.exec_cmd("prime-run alacritty", { workspace = 2 })
+	hl.dsp.exec_cmd("alacritty", { workspace = 2 })
 )
 
 hl.bind("mouse:276",
@@ -278,8 +272,6 @@ hl.bind("mouse:276",
 
 		hl.device({
 			name = "yjx-chip-usb-mouse-mouse",
-			sensitivity = is_invisible and 0 or -0.2,
-			accel_profile = "flat"
 		})
 	end
 )
@@ -540,125 +532,42 @@ hl.bind("SUPER + mouse:272",
 
 hl.workspace_rule({
 	workspace = "special:primary",
-	gaps_out = 195,
+	gaps_out = 200,
 	gaps_in = 6,
-	on_created_empty = "prime-run alacritty --class scratch_1"
+	on_created_empty = "alacritty --class scratch_1"
 })
 
 hl.workspace_rule({
 	workspace = "special:bg",
-	gaps_out = 195,
+	gaps_out = 200,
 	gaps_in = 6,
-	on_created_empty = "prime-run alacritty --class scratch_2"
+	on_created_empty = "alacritty --class scratch_2"
 })
 
 hl.workspace_rule({
 	workspace = "special:raw",
-	gaps_out = 190,
+	gaps_out = 200,
 	gaps_in = 6
 })
 
-hl.workspace_rule({
-	workspace = 1,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
+function unset_decor_workspaces(workspaces)
+	for _, ws in ipairs(workspaces) do
+		hl.workspace_rule({
+			workspace = ws,
+			gaps_out = 0,
+			gaps_in = 0,
+			no_shadow = true,
+			decorate = false,
+			no_rounding = true
+		})
+	end
+end
 
-hl.workspace_rule({
-	workspace = 4,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 5,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 17,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 18,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 19,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 20,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 11,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 20,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-hl.workspace_rule({
-	workspace = 10,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
-
-hl.workspace_rule({
-	workspace = 12,
-	gaps_out = 0,
-	gaps_in = 0,
-	no_shadow = true,
-	decorate = false,
-	no_rounding = true
-})
+unset_decor_workspaces({1, 3, 11})
 
 hl.workspace_rule({
 	workspace = 2,
-	on_created_empty = "prime-run alacritty"
+	on_created_empty = "alacritty"
 })
 
 hl.workspace_rule({
