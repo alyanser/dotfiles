@@ -1,3 +1,4 @@
 function fish_user_key_bindings
-    bind \cz fish_clipboard_copy
+    bind \cy fish_clipboard_copy
+    bind \cz undo
 end

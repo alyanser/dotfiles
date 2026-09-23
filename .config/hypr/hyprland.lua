@@ -5,8 +5,8 @@ hl.monitor({
 })
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprsunset -t 7500 --gamma_max 150 --gamma 125")
-	hl.exec_cmd("noctalia")
+	hl.exec_cmd("hyprsunset -t 7000 --gamma_max 150 --gamma 130")
+	hl.exec_cmd("qs -c noctalia-shell")
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 15")
 	hl.exec_cmd("clipse -listen")
 	hl.exec_cmd("easyeffects -w")
@@ -15,8 +15,8 @@ end)
 
 hl.config({
 	general = {
-		gaps_in = 6,
-		gaps_out = 13,
+		gaps_in = 5,
+		gaps_out = 15,
 		layout = "dwindle",
 		border_size = 0,
 	},
@@ -37,15 +37,15 @@ hl.config({
 		rounding = 12,
 
 		shadow = {
-			range = 18
+			range = 12
 		},
 
 		blur = {
 			enabled = 1,
 			xray = 1,
 			ignore_opacity = true,
-			size = 6,
-			passes = 3
+			size = 5,
+			passes = 2
 		}
 	},
 
@@ -57,20 +57,20 @@ hl.config({
 
 	debug = {
 		disable_logs = true,
-		disable_time = true,
+		disable_time = true
 	},
 
 	misc = {
 		disable_hyprland_logo = 1,
 		disable_splash_rendering = 1,
 		initial_workspace_tracking = 0,
-		vrr = 0
+		vrr = 1
 	},
 
 	render = {
-		direct_scanout = 1,
-		-- non_shader_cm_interop = 0,
-		-- non_shader_cm = 0
+		-- direct_scanout = 0,
+		non_shader_cm_interop = 2,
+		non_shader_cm = 1
 	},
 
 	xwayland = {
@@ -80,7 +80,7 @@ hl.config({
 	input = {
 		kb_layout = "us",
 		follow_mouse = 0,
-		scroll_factor = 0.4,
+		scroll_factor = 0.45,
 		scroll_method = "2fg",
 		numlock_by_default = true,
 
@@ -93,12 +93,14 @@ hl.config({
 })
 
 -- ENVS
+
 hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1.20")
 hl.env("QT_QPA_PLATFORM", "wayland")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.env("_JAVA_AWT_WM_NONEREPARENTING", "1")
 hl.env("_JAVA_OPTIONS", "'-Dawt.useSystemAAFontSettings=on'")
-hl.env("WLR_DRM_NO_ATOMIC", "1")
+hl.env("AQ_FORCE_LINEAR_BLIT", "0")
+hl.env("AQ_MGPU_NO_EXPLICIT", "1")
 
 -- ANIMATIONS
 
@@ -134,6 +136,7 @@ hl.animation({
 hl.device({
 	name = "yjx-chip-usb-mouse-mouse",
 	accel_profile = "flat",
+	sensitivity = 0
 })
 
 -- WINDOW RULES
@@ -141,32 +144,47 @@ hl.device({
 hl.window_rule({
 	match = { class = "BeamNG.drive" },
 	fullscreen = 1,
-	workspace = 11
+	workspace = 11,
+	content = "game"
+})
+
+hl.window_rule({
+	match = { class = "brave-browser" },
+	pin = 1,
+	-- no_xdg_drags = true
 })
 
 hl.window_rule({
 	match = { class = "dev.noctalia.Noctalia" },
-	float = 1
+	float = true
+})
+
+hl.window_rule({
+	match = { class = "org.pulseaudio.pavucontrol" },
+	float = true,
+	dim_around = 1,
+	size = { 1100, 600 }
 })
 
 hl.window_rule({
 	match = { class = "Alacritty" },
-	opacity = 0.93
+	opacity = 0.95
 })
 
 hl.window_rule({
 	match = { class = "scratch_1" },
-	opacity = 0.93
+	opacity = 0.95
 })
 
 hl.window_rule({
 	match = { class = "scratch_2" },
-	opacity = 0.93
+	opacity = 0.95
 })
 
 hl.window_rule({
 	match = { class = "nvidia-settings" },
-	float = true
+	float = true,
+	size = { 1100, 600 }
 })
 
 hl.window_rule({
@@ -195,63 +213,67 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "spotify" },
-	opacity = 0.92,
+	opacity = 0.93,
 	workspace = 20
 })
 
 hl.window_rule({
 	match = { class = "com.github.wwmm.easyeffects" },
-	float = true
+	float = true,
+	dim_around = true,
+	size = { 1300, 700 }
+})
+
+hl.window_rule({
+	match = { class = "io.github.ilya_zlobintsev.LACT" },
+	float = true,
+	dim_around = true,
+	size = { 1300, 700 }
 })
 
 hl.window_rule({
 	match = { initial_title = "clipboard" },
 	float = true,
-	size = "(monitor_w*0.5) (monitor_w*0.4)",
-	move = "(monitor_w*0.25) (monitor_h*0.15)",
 	stay_focused = true,
 	dim_around = true
 })
 
 hl.window_rule({
-	match = { initial_title = "^(Library)$" },
+	match = { initial_title = "Library" },
 	float = true,
-	size = "(monitor_w*0.5) (monitor_w*0.4)",
-	move = "(monitor_w*0.25) (monitor_h*0.15)"
+	center = true,
+	size = { 1100, 600 }
+
 })
 
 hl.window_rule({
-	match = { class = "^(blueman-manager)$" },
+	match = { class = "org.xfce.ristretto" },
 	float = true,
-	size = "(monitor_w*0.5) (monitor_w*0.4)",
-	move = "(monitor_w*0.25) (monitor_h*0.15)",
+	dim_around = true,
+	size = { 1100, 600 }
+})
+
+hl.window_rule({
+	match = { class = "clipboard" },
 	dim_around = true
 })
 
 hl.window_rule({
-	match = { class = "^(ristretto)$" },
+	match = { class = "nemo" },
 	float = true,
-	size = "(monitor_w*0.5) (monitor_w*0.4)",
-	move = "(monitor_w*0.25) (monitor_h*0.15)",
-	dim_around = true
-})
-
-hl.window_rule({
-	match = { class = "^(clipboard)$" },
-	dim_around = true
-})
-
-hl.window_rule({
-	match = { class = "^(nemo)$" },
-	float = true,
-	size = "(monitor_w*0.5) (monitor_w*0.4)",
-	move = "(monitor_w*0.25) (monitor_h*0.15)",
 	stay_focused = true,
 	decorate = false,
-	dim_around = true
+	dim_around = true,
+	size = { 1300, 700 }
+
 })
 
 -- LAYERS
+
+hl.layer_rule({
+	match = { namespace = "noctalia-bar-content-eDP-1" },
+	blur = 1
+})
 
 hl.layer_rule({
 	match = { namespace = "rofi" },
@@ -267,11 +289,16 @@ hl.bind("SUPER + space",
 
 hl.bind("mouse:276",
 	function()
+		local win = hl.get_active_window()
+
 		local is_invisible = hl.get_config("cursor.invisible")
+
 		hl.config({ cursor = { invisible = not is_invisible } })
 
 		hl.device({
 			name = "yjx-chip-usb-mouse-mouse",
+			accel_profile = "flat",
+			sensitivity = is_invisible and 0 or -0.45
 		})
 	end
 )
@@ -289,7 +316,7 @@ hl.bind("SUPER + b",
 )
 
 hl.bind("SUPER + r",
-	hl.dsp.exec_cmd("firefox", { workspace = 1 })
+	hl.dsp.exec_cmd("brave", { workspace = 1 })
 )
 
 hl.bind("SUPER + m",
@@ -369,12 +396,12 @@ hl.bind("SUPER + q",
 	hl.dsp.window.float({ action = "toggle" })
 )
 
-hl.bind("ALT_L + Kp_Multiply",
-	hl.dsp.exec_cmd("bash -c 'if [ $(hyprctl hyprsunset temperature) -lt 10000 ]; then hyprctl hyprsunset temperature +500; fi'")
+hl.bind("SUPER + Kp_Multiply",
+	hl.dsp.exec_cmd("hyprctl hyprsunset temperature +250")
 )
 
-hl.bind("ALT_L + Kp_Subtract",
-	hl.dsp.exec_cmd("hyprctl hyprsunset temperature -500")
+hl.bind("SUPER + Kp_Subtract",
+	hl.dsp.exec_cmd("hyprctl hyprsunset temperature -250")
 )
 
 hl.bind("SHIFT + Kp_Multiply",
@@ -491,7 +518,7 @@ hl.bind("SUPER + c",
 	hl.dsp.window.move({ workspace = "emptyn" })
 )
 
-hl.bind("ALT_L + TAB",
+hl.bind("ALT + TAB",
 	hl.dsp.focus({ workspace = "previous" })
 )
 
@@ -532,21 +559,21 @@ hl.bind("SUPER + mouse:272",
 
 hl.workspace_rule({
 	workspace = "special:primary",
-	gaps_out = 200,
+	gaps_out = 210,
 	gaps_in = 6,
 	on_created_empty = "alacritty --class scratch_1"
 })
 
 hl.workspace_rule({
 	workspace = "special:bg",
-	gaps_out = 200,
+	gaps_out = 210,
 	gaps_in = 6,
 	on_created_empty = "alacritty --class scratch_2"
 })
 
 hl.workspace_rule({
 	workspace = "special:raw",
-	gaps_out = 200,
+	gaps_out = 210,
 	gaps_in = 6
 })
 
@@ -563,7 +590,7 @@ function unset_decor_workspaces(workspaces)
 	end
 end
 
-unset_decor_workspaces({1, 3, 11})
+unset_decor_workspaces({1, 11})
 
 hl.workspace_rule({
 	workspace = 2,

@@ -11,6 +11,7 @@ function fish_prompt --description 'Write out the prompt'
         or set -lx fish_prompt_pwd_dir_length 0
     
         # Color the prompt differently when we're root
+        # set -l suffix '❯❯❯'
         set -l suffix '❯❯'
 
         if functions -q fish_is_root_user; and fish_is_root_user

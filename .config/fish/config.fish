@@ -14,8 +14,10 @@ set -x VISUAL nvim
 set -x CC clang
 set -x CXX clang++
 set -x CMAKE_TOOLCHAIN /home/staz/.release-toolchain.cmake
+set -x __GL_SHADER_DISK_CACHE_SIZE 12000000000
 
 alias config="nvim ~/.config/hypr/hyprland.lua"
+alias copy="wl-copy"
 alias fconfig="nvim ~/.config/fish/config.fish"
 alias ls="eza --color=always --icons=always --sort=ext -x"
 alias grep="grep --color=always -i"
@@ -62,10 +64,6 @@ function pushit
 	git add .
 	git commit -m "non cred update"
 	git push
-end
-
-function copy
-	cat "$argv" | wl-copy
 end
 
 function fish_prompt_redraw --on-event fish_prompt
