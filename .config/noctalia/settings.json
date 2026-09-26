@@ -42,7 +42,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.85,
+        "backgroundOpacity": 0.9,
         "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 0,
@@ -96,7 +96,7 @@
                     "id": "Workspace",
                     "labelMode": "none",
                     "occupiedColor": "primary",
-                    "pillSize": 0.49000000000000005,
+                    "pillSize": 0.5,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": false,
@@ -137,7 +137,7 @@
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "",
-                    "leftClickUpdateText": false,
+                    "leftClickUpdateText": true,
                     "maxTextLength": {
                         "horizontal": 10,
                         "vertical": 10
@@ -172,7 +172,7 @@
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "",
-                    "leftClickUpdateText": false,
+                    "leftClickUpdateText": true,
                     "maxTextLength": {
                         "horizontal": 10,
                         "vertical": 10
@@ -207,7 +207,7 @@
                     "id": "CustomButton",
                     "ipcIdentifier": "",
                     "leftClickExec": "",
-                    "leftClickUpdateText": false,
+                    "leftClickUpdateText": true,
                     "maxTextLength": {
                         "horizontal": 10,
                         "vertical": 10
@@ -239,7 +239,7 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 20,
+                    "maxWidth": 150,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "never",
                     "showAlbumArt": true,
@@ -247,7 +247,7 @@
                     "showProgressRing": false,
                     "showVisualizer": true,
                     "textColor": "none",
-                    "useFixedWidth": true,
+                    "useFixedWidth": false,
                     "visualizerType": "linear"
                 },
                 {
@@ -337,7 +337,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "muted",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",

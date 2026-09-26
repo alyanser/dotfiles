@@ -5,7 +5,7 @@ hl.monitor({
 })
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprsunset -t 7000 --gamma_max 150 --gamma 130")
+	hl.exec_cmd("hyprsunset -t 6750 --gamma_max 150 --gamma 125")
 	hl.exec_cmd("qs -c noctalia-shell")
 	hl.exec_cmd("hyprctl setcursor Bibata-Modern-Ice 15")
 	hl.exec_cmd("clipse -listen")
@@ -32,7 +32,6 @@ hl.config({
 	},
 
 	decoration = {
-		-- screen_shader = "~/.config/hypr/shaders/vibrance.glsl",
 		dim_special = 0.5,
 		rounding = 12,
 
@@ -45,7 +44,7 @@ hl.config({
 			xray = 1,
 			ignore_opacity = true,
 			size = 5,
-			passes = 2
+			passes = 3
 		}
 	},
 
@@ -69,8 +68,8 @@ hl.config({
 
 	render = {
 		-- direct_scanout = 0,
-		non_shader_cm_interop = 2,
-		non_shader_cm = 1
+		-- non_shader_cm_interop = 2,
+		-- non_shader_cm = 1
 	},
 
 	xwayland = {
@@ -79,8 +78,8 @@ hl.config({
 
 	input = {
 		kb_layout = "us",
-		follow_mouse = 0,
-		scroll_factor = 0.45,
+		follow_mouse = 1,
+		scroll_factor = 0.5,
 		scroll_method = "2fg",
 		numlock_by_default = true,
 
@@ -142,6 +141,14 @@ hl.device({
 -- WINDOW RULES
 
 hl.window_rule({
+	match = { class = "cs2" },
+	fullscreen = 1,
+	workspace = 12,
+	immediate = 1,
+	content = "game"
+})
+
+hl.window_rule({
 	match = { class = "BeamNG.drive" },
 	fullscreen = 1,
 	workspace = 11,
@@ -150,7 +157,6 @@ hl.window_rule({
 
 hl.window_rule({
 	match = { class = "brave-browser" },
-	pin = 1,
 	-- no_xdg_drags = true
 })
 
